@@ -1,0 +1,26 @@
+#------------------------------------------------------------------------------
+# File: Makefile
+# Author: Programación II-Unizar
+# Date: febrero 2021
+# Coms: Ejemplo de Makefile para la práctica 3 de Programación II
+#------------------------------------------------------------------------------
+#---------------------------------------------------------
+# Definición de macros
+CC = g++
+CPPFLAGS = -I. -std=c++11 #opciones de compilación
+LDFLAGS = #opciones de linkado
+RM = rm -f #comando para borrar ficheros
+all: mainLab
+#-----------------------------------------------------------
+# Compilacion
+mainLab.o: mainLab.cpp
+${CC} -c mainLab.cpp ${CPPFLAGS}
+#linkado
+mainLab: mainLab.o laberinto.o
+${CC} mainLab.o laberinto.o -o mainLab ${LDFLAGS}
+laberinto.o: laberinto.cpp laberinto.hpp
+${CC} -c laberinto.cpp ${CPPFLAGS}
+#-----------------------------------------------------------
+# LIMPIEZA de todo lo generado. Ojo: se borrarán sin preguntar
+clean:
+${RM} mainLab.o mainLab

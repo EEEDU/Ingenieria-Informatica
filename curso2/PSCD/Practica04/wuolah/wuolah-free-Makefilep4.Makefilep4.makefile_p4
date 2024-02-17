@@ -1,0 +1,39 @@
+#*****************************************************************
+# File:   Makefile_p4
+# Author: PSCD-Unizar
+# Date:   noviembre 2022
+# Coms:   Ejecutar "make -f Makefile_p4" para compilar
+#         Ejecutar "make -f Makefile_p4 clean" para limpiar (borrar lo que genere)
+#*****************************************************************
+
+#---------------------------------------------------------
+# macros
+RM = /bin/rm -f  # para limpiar
+CC = g++         # compilador
+#---------------------------------------------------------
+#---------------------------------------------------------
+# opciones compilación y enlazado ("linkado")
+CPPFLAGS = -I. -I${SEM_LIB} -O2 -std=c++11 -fmax-errors=1 # opciones compilación
+LDFLAGS  = -pthread  # opciones de "linkado"
+#---------------------------------------------------------
+# vars
+EJEC = practica_4
+
+all: ${EJEC}
+#---------------------------------------------------------
+# "linkar"
+${EJEC}: ${EJEC}.o ControlParejas.o
+	${CC} ${EJEC}.o ControlParejas.o -o ${EJEC} ${CPPFLAGS} ${LDFLAGS}
+
+#---------------------------------------------------------
+# compilar
+${EJEC}.o: ${EJEC}.cpp
+	${CC} -c ${EJEC}.cpp -o ${EJEC}.o ${CPPFLAGS}
+
+ControlParejas.o: ControlParejas.cpp ControlParejas.hpp
+	${CC} -c ControlParejas.cpp -o ControlParejas.o ${CPPFLAGS}
+
+#---------------------------------------------------------
+# Cuidado con lo que se pone aquí, que se borra sin preguntar
+clean:
+	$(RM) ${EJEC}.o ${EJEC} ControlParejas.o

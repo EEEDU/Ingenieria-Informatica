@@ -1,0 +1,49 @@
+#*****************************************************************
+# File:   Makefile_p4
+# Author: PSCD-Unizar
+# Date:   noviembre 2023
+# Coms:   Ejecutar "make -f Makefile_p4" para compilar
+#         Ejecutar "make -f Makefile_p4 clean" para limpiar (borrar lo que genere)
+#*****************************************************************
+
+#---------------------------------------------------------
+# macros
+RM = /bin/rm -f  # para limpiar
+CC = g++         # compilador
+#---------------------------------------------------------
+DIR_LIBS=./librerias
+SEM_LIB=${DIR_LIBS}/Semaphore_V4
+SEMAPHORE=${SEM_LIB}/Semaphore_V4
+BUFF_LIB=${DIR_LIBS}/MultiBuffer
+BUFF=${BUFF_LIB}/MultiBuffer
+#---------------------------------------------------------
+# opciones compilación y enlazado ("linkado")
+CPPFLAGS = -g -I. -I${SEM_LIB} -I${BUFF_LIB} -O2 -std=c++11 -fmax-errors=1 # opciones compilación
+LDFLAGS  = -pthread  # opciones de "linkado"
+#---------------------------------------------------------
+# vars
+EJEC = practica_4
+MONITORBUFFER = ControlBuffer
+MONITORMATRIZ = ControlMatriz
+
+all: ${EJEC}
+#---------------------------------------------------------
+# "linkar"
+${EJEC}: ${EJEC}.o ${MONITORBUFFER}.o ${MONITORMATRIZ}.o
+	${CC} ${EJEC}.o ${MONITORBUFFER}.o ${MONITORMATRIZ}.o -o ${EJEC} ${CPPFLAGS} ${LDFLAGS}
+
+#---------------------------------------------------------
+# compilar
+${EJEC}.o: ${EJEC}.cpp
+	${CC} -c ${EJEC}.cpp -o ${EJEC}.o ${CPPFLAGS}
+
+${MONITORBUFFER}.o: ${MONITORBUFFER}.cpp ${MONITORBUFFER}.hpp
+	${CC} -c ${MONITORBUFFER}.cpp -o ${MONITORBUFFER}.o ${CPPFLAGS}
+
+${MONITORMATRIZ}.o: ${MONITORMATRIZ}.cpp ${MONITORMATRIZ}.hpp
+	${CC} -c ${MONITORMATRIZ}.cpp -o ${MONITORMATRIZ}.o ${CPPFLAGS}
+
+#---------------------------------------------------------
+# Cuidado con lo que se pone aquí, que se borra sin preguntar
+clean:
+	$(RM) ${EJEC}.o ${EJEC} ${MONITORBUFFER}.o ${MONITORMATRIZ}.o

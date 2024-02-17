@@ -1,0 +1,8 @@
+{
+    "files.associations": {
+        "chrono": "cpp",
+        "ctime": "cpp",
+        "list": "cpp",
+        "condition_variable": "cpp"
+    }
+}

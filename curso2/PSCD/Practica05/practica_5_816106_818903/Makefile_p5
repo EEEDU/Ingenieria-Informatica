@@ -1,0 +1,86 @@
+#*****************************************************************
+# File:   Makefile_p5
+# Author: Eduardo Guerrero (nip:816106) && Ismael Martinez (nip:818903)
+# Date:   noviembre 2023
+# Coms:   Ejemplo de Makefile para la práctica 5 de PSCD
+#         "make -f Makefile_p5" construye todos los ejecutables
+#         "make -f Makefile_p5 Cliente" construye "Cliente"
+#         !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+#         Es necesario descomentar la línea 28 para poder compilar en hendrix
+#         !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+#*****************************************************************
+
+CC=g++
+#----------------------------------------------------------------------------
+DIR_LIBS=./librerias
+BUFF_LIB=${DIR_LIBS}/MultiBuffer
+BUFF=${BUFF_LIB}/MultiBuffer
+SOCKET_DIR=Socket
+SOCKET=${SOCKET_DIR}/Socket
+
+#----------------------------------------------------------------------------
+CLIENT_CONTROL=practica_5_CONTROLLER
+SERVER_TASK=practica_5_TASK_SERVER
+SERVER_MAT=practica_5_MATRIX_SERVER
+MONITORBUFFER=ControlBuffer
+MONITORMATRIZ=ControlMatriz
+
+CPPFLAGS=-I. -I${SOCKET_DIR} -I${BUFF_LIB} -std=c++11 -lsockets # Flags compilacion
+LDFLAGS=-pthread # Flags linkado threads
+
+all: ${CLIENT_CONTROL} ${SERVER_TASK} ${SERVER_MAT}
+#----------------------------------------------------------------------------
+#Para gestionar opciones de compilación según la máquina: hendrix tiene sus manías
+#Descomentar la siguiente línea para compilar en hendrix
+# SOCKETSFLAGS=-lsocket -lnsl
+#-----------------------------------------------------------
+# CLIENTE CONTROLADOR
+# Compilacion
+${CLIENT_CONTROL}.o: ${CLIENT_CONTROL}.cpp
+	${CC} -c ${CPPFLAGS} ${CLIENT_CONTROL}.cpp
+
+# Linkado
+${CLIENT_CONTROL}: ${SOCKET}.o ${CLIENT_CONTROL}.o
+	${CC} ${LDFLAGS} ${SOCKET}.o ${CLIENT_CONTROL}.o -o ${CLIENT_CONTROL} ${SOCKETSFLAGS}
+#-----------------------------------------------------------
+# SERVIDOR TAREAS
+# Compilacion
+${SERVER_TASK}.o: ${SERVER_TASK}.cpp
+	${CC} -c ${CPPFLAGS} ${SERVER_TASK}.cpp
+
+# Linkado
+${SERVER_TASK}: ${SOCKET}.o ${SERVER_TASK}.o ${MONITORBUFFER}.o
+	${CC} ${LDFLAGS} ${SOCKET}.o ${SERVER_TASK}.o ${MONITORBUFFER}.o -o ${SERVER_TASK} ${SOCKETSFLAGS}
+#-----------------------------------------------------------
+# SERVIDOR MATRIZ
+# Compilacion
+${SERVER_MAT}.o: ${SERVER_MAT}.cpp
+	${CC} -c ${CPPFLAGS} ${SERVER_MAT}.cpp
+
+# Linkado
+${SERVER_MAT}: ${SOCKET}.o ${SERVER_MAT}.o ${MONITORMATRIZ}.o
+	${CC} ${LDFLAGS} ${SOCKET}.o ${SERVER_MAT}.o ${MONITORMATRIZ}.o -o ${SERVER_MAT} ${SOCKETSFLAGS}
+#-----------------------------------------------------------
+# SOCKETS
+# Compilacion libreria de Sockets
+${SOCKET}.o: ${SOCKET}.hpp ${SOCKET}.cpp
+	${CC} -c ${CPPFLAGS} ${SOCKET}.cpp -o ${SOCKET}.o
+#-----------------------------------------------------------
+# MONITORBUFFER
+# Compilacion libreria de Monitor Buffer
+${MONITORBUFFER}.o: ${MONITORBUFFER}.hpp ${MONITORBUFFER}.cpp
+	${CC} -c ${CPPFLAGS} ${MONITORBUFFER}.cpp -o ${MONITORBUFFER}.o
+#-----------------------------------------------------------
+# MONITORMATRIZ
+# Compilacion libreria de Monitor Matriz
+${MONITORMATRIZ}.o: ${MONITORMATRIZ}.hpp ${MONITORMATRIZ}.cpp
+	${CC} -c ${CPPFLAGS} ${MONITORMATRIZ}.cpp -o ${MONITORMATRIZ}.o
+#-----------------------------------------------------------
+# LIMPIEZA
+clean:
+	$(RM) ${SOCKET}.o
+	$(RM) ${CLIENT_CONTROL} ${CLIENT_CONTROL}.o
+	$(RM) ${SERVER_TASK} ${SERVER_TASK}.o
+	$(RM) ${SERVER_MAT} ${SERVER_MAT}.o
+	$(RM) ${MONITORBUFFER} ${MONITORBUFFER}.o
+	$(RM) ${MONITORMATRIZ} ${MONITORMATRIZ}.o

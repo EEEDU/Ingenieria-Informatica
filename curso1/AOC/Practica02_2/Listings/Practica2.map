@@ -4,7 +4,6 @@ Component: ARM Compiler 5.06 update 6 (build 750) Tool: armlink [4d35ed]
 
 Section Cross References
 
-    practica2a.o(prog) refers to practica2a.o(datos) for tabla
     practica2_1.o(prog) refers to practica2_1.o(datos) for tabla
 
 
@@ -17,13 +16,9 @@ Image Symbol Table
     Symbol Name                              Value     Ov Type        Size  Object(Section)
 
     practica2.s                              0x00000000   Number         0  practica2_1.o ABSOLUTE
-    practica2a.s                             0x00000000   Number         0  practica2a.o ABSOLUTE
-    prog                                     0x40000000   Section       40  practica2a.o(prog)
-    prog                                     0x40000028   Section      104  practica2_1.o(prog)
-    datos                                    0x40000090   Section     2048  practica2a.o(datos)
-    tabla                                    0x40000090   Data        2048  practica2a.o(datos)
-    datos                                    0x40000890   Section     2048  practica2_1.o(datos)
-    tabla                                    0x40000890   Data        2048  practica2_1.o(datos)
+    prog                                     0x40000000   Section      112  practica2_1.o(prog)
+    datos                                    0x40000070   Section     2048  practica2_1.o(datos)
+    tabla                                    0x40000070   Data        2048  practica2_1.o(datos)
 
     Global Symbols
 
@@ -37,18 +32,16 @@ Image Symbol Table
 
 Memory Map of the image
 
-  Image entry point : Not specified.
+  Image Entry point : 0x40000000
 
-  Load Region LR_IRAM1 (Base: 0x40000000, Size: 0x00001090, Max: 0x00008000, ABSOLUTE)
+  Load Region LR_IRAM1 (Base: 0x40000000, Size: 0x00000870, Max: 0x00008000, ABSOLUTE)
 
-    Execution Region ER_IRAM1 (Exec base: 0x40000000, Load base: 0x40000000, Size: 0x00001090, Max: 0xffffffff, ABSOLUTE)
+    Execution Region ER_IRAM1 (Exec base: 0x40000000, Load base: 0x40000000, Size: 0x00000870, Max: 0xffffffff, ABSOLUTE)
 
     Exec Addr    Load Addr    Size         Type   Attr      Idx    E Section Name        Object
 
-    0x40000000   0x40000000   0x00000028   Code   RO            2  * prog                practica2a.o
-    0x40000028   0x40000028   0x00000068   Code   RO            8  * prog                practica2_1.o
-    0x40000090   0x40000090   0x00000800   Data   RW            1    datos               practica2a.o
-    0x40000890   0x40000890   0x00000800   Data   RW            7    datos               practica2_1.o
+    0x40000000   0x40000000   0x00000070   Code   RO            2  * prog                practica2_1.o
+    0x40000070   0x40000070   0x00000800   Data   RW            1    datos               practica2_1.o
 
 
 ==============================================================================
@@ -58,11 +51,10 @@ Image component sizes
 
       Code (inc. data)   RO Data    RW Data    ZI Data      Debug   Object Name
 
-       104          4          0       2048          0        248   practica2_1.o
-        40          4          0       2048          0        264   practica2a.o
+       112          4          0       2048          0        308   practica2_1.o
 
     ----------------------------------------------------------------------
-       144          8          0       4096          0        512   Object Totals
+       112          4          0       2048          0        308   Object Totals
          0          0          0          0          0          0   (incl. Generated)
          0          0          0          0          0          0   (incl. Padding)
 
@@ -77,15 +69,15 @@ Image component sizes
 
       Code (inc. data)   RO Data    RW Data    ZI Data      Debug   
 
-       144          8          0       4096          0        512   Grand Totals
-       144          8          0       4096          0        512   ELF Image Totals
-       144          8          0       4096          0          0   ROM Totals
+       112          4          0       2048          0        308   Grand Totals
+       112          4          0       2048          0        308   ELF Image Totals
+       112          4          0       2048          0          0   ROM Totals
 
 ==============================================================================
 
-    Total RO  Size (Code + RO Data)                  144 (   0.14kB)
-    Total RW  Size (RW Data + ZI Data)              4096 (   4.00kB)
-    Total ROM Size (Code + RO Data + RW Data)       4240 (   4.14kB)
+    Total RO  Size (Code + RO Data)                  112 (   0.11kB)
+    Total RW  Size (RW Data + ZI Data)              2048 (   2.00kB)
+    Total ROM Size (Code + RO Data + RW Data)       2160 (   2.11kB)
 
 ==============================================================================
 

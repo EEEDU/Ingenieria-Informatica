@@ -422,11 +422,6 @@
           <GroupName>Source Group 1</GroupName>
           <Files>
             <File>
-              <FileName>practica2a.s</FileName>
-              <FileType>2</FileType>
-              <FilePath>.\practica2a.s</FilePath>
-            </File>
-            <File>
               <FileName>practica2.s</FileName>
               <FileType>2</FileType>
               <FilePath>.\practica2.s</FilePath>

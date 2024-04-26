@@ -25,18 +25,18 @@ buc		strh r1,[r0,r2]				; Mem[r0+r2]=r1 (almacena r1 en la memoria de r2+r0)
 		mov r4,#ini3				; r4 = 1024 (@inicio bloque 3)
 		mov r5,#ini4				; r5 = 1536 (@inicio bloque 4)
 
-bucmov  ldrh r6,[r0,r2]				; r6=Mem[r0+r2] (carga en r6 el bloque 1)
-		ldrh r7,[r0,r3]				; r7=Mem[r0+r3] (carga en r7 el bloque 2)
-		ldrh r8,[r0,r4]				; r8=Mem[r0+r4] (carga en r8 el bloque 3)
-		ldrh r9,[r0,r5]				; r9=Mem[r0+r5] (carga en r9 el bloque 4)
-		strh r6,[r0,r5]				; Mem[r0+r5]=r6 (carga en memoria del bloque 4 r6)
-		strh r7,[r0,r2]				; Mem[r0+r2]=r7 (carga en memoria del bloque 1 r6)
-		strh r8,[r0,r3]				; Mem[r0+r3]=r8 (carga en memoria del bloque 2 r6)
-		strh r9,[r0,r4]				; Mem[r0+r4]=r9 (carga en memoria del bloque 3 r6)
-		add r2,r2,#2				; r2=r2+2
-		add r3,r3,#2				; r3=r3+2
-		add r4,r4,#2				; r4=r4+2
-		add r5,r5,#2				; r5=r5+2
+bucmov  ldr r6,[r0,r2]				; r6=Mem[r0+r2] (carga en r6 el bloque 1)
+		ldr r7,[r0,r3]				; r7=Mem[r0+r3] (carga en r7 el bloque 2)
+		ldr r8,[r0,r4]				; r8=Mem[r0+r4] (carga en r8 el bloque 3)
+		ldr r9,[r0,r5]				; r9=Mem[r0+r5] (carga en r9 el bloque 4)
+		str r6,[r0,r5]				; Mem[r0+r5]=r6 (carga en memoria del bloque 4 r6)
+		str r7,[r0,r2]				; Mem[r0+r2]=r7 (carga en memoria del bloque 1 r6)
+		str r8,[r0,r3]				; Mem[r0+r3]=r8 (carga en memoria del bloque 2 r6)
+		str r9,[r0,r4]				; Mem[r0+r4]=r9 (carga en memoria del bloque 3 r6)
+		add r2,r2,#4				; r2=r2+2
+		add r3,r3,#4				; r3=r3+2
+		add r4,r4,#4				; r4=r4+2
+		add r5,r5,#4				; r5=r5+2
 		cmp r2,#ini2				; compara r2 con el inicio del bloque 2
 		bne bucmov					; salta a bucmov si r2<>ini2
 

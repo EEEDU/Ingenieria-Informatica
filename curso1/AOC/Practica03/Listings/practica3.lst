@@ -1,0 +1,139 @@
+
+
+
+ARM Macro Assembler    Page 1 
+
+
+    1 00000000                 AREA             datos,DATA,READWRITE 
+                                                            ; area de datos
+    2 00000000 00000003 
+                       M       EQU              3
+    3 00000000 00000004 
+                       N       EQU              4
+    4 00000000 72 66 6A 
+              6B 6F 6C 
+              61 62 63 
+              67 68 78 matriz  DCB              "rfjkolabcghx"
+    5 0000000C         
+    6 0000000C         
+    7 0000000C                 AREA             prog,CODE,READONLY 
+                                                            ; area de codigo
+    8 00000000                 ENTRY                        ; primera instrucci
+                                                            on a ejecutar
+    9 00000000         
+   10 00000000 E59F0034        LDR              r0,=matriz  ; r0=direccion comi
+                                                            enzo tabla
+   11 00000004 E3A01004        mov              r1,#N       ; r1=N
+   12 00000008 E2411001        sub              r1,r1,#1    ; r1=i=N-1
+   13 0000000C E0222002        eor              r2,r2,r2    ; r2=j=0
+   14 00000010 E3A04003        mov              r4, #M      ; r4 = M   ; r4=M
+   15 00000014 E0050491        mul              r5,r1,r4    ; r5=M*i
+   16 00000018         
+   17 00000018 E0826005 
+                       buc     add              r6,r2,r5
+   18 0000001C E2417001        sub              r7,r1,#1
+   19 00000020 E0050497        mul              r5,r7,r4
+   20 00000024 E0828005        add              r8,r2,r5
+   21 00000028         
+   22 00000028 E7D64000        ldrb             r4,[r6,r0]  ; Mem[r2+r0]= r1 (a
+                                                            lmacena r1 en la me
+                                                            moria de r2+r0)
+   23 0000002C E7D85000        ldrb             r5,[r8,r0]  ; Mem[r2+r0]= r1 (a
+                                                            lmacena r1 en la me
+                                                            moria de r2+r0)
+   24 00000030         
+   25 00000030 E2822003        add              r2,r2,#M
+   26 00000034 EAFFFFF7        b                buc
+   27 00000038         
+   28 00000038         
+   29 00000038         
+   30 00000038         
+   31 00000038 EAFFFFFE 
+                       fin     b                fin         ; fin del programa
+   32 0000003C         
+   33 0000003C                 END                          ; fin ensamblador
+              00000000 
+Command Line: --debug --xref --diag_suppress=9931 --apcs=interwork --depend=.\o
+bjects\practica3.d -o.\objects\practica3.o -IC:\Keil_v5\ARM\RV31\INC -IC:\Keil_
+v5\ARM\CMSIS\Include -IC:\Keil_v5\ARM\INC\Philips --predefine="__EVAL SETA 1" -
+-predefine="__UVISION_VERSION SETA 526" --list=.\listings\practica3.lst practic
+a3.s
+
+
+
+ARM Macro Assembler    Page 1 Alphabetic symbol ordering
+Relocatable symbols
+
+datos 00000000
+
+Symbol: datos
+   Definitions
+      At line 1 in file practica3.s
+   Uses
+      None
+Comment: datos unused
+matriz 00000000
+
+Symbol: matriz
+   Definitions
+      At line 4 in file practica3.s
+   Uses
+      At line 10 in file practica3.s
+Comment: matriz used once
+2 symbols
+
+
+
+ARM Macro Assembler    Page 1 Alphabetic symbol ordering
+Relocatable symbols
+
+buc 00000018
+
+Symbol: buc
+   Definitions
+      At line 17 in file practica3.s
+   Uses
+      At line 26 in file practica3.s
+Comment: buc used once
+fin 00000038
+
+Symbol: fin
+   Definitions
+      At line 31 in file practica3.s
+   Uses
+      At line 31 in file practica3.s
+Comment: fin used once
+prog 00000000
+
+Symbol: prog
+   Definitions
+      At line 7 in file practica3.s
+   Uses
+      None
+Comment: prog unused
+3 symbols
+
+
+
+ARM Macro Assembler    Page 1 Alphabetic symbol ordering
+Absolute symbols
+
+M 00000003
+
+Symbol: M
+   Definitions
+      At line 2 in file practica3.s
+   Uses
+      At line 14 in file practica3.s
+      At line 25 in file practica3.s
+
+N 00000004
+
+Symbol: N
+   Definitions
+      At line 3 in file practica3.s
+   Uses
+      At line 11 in file practica3.s
+Comment: N used once
+2 symbols
+341 symbols in table

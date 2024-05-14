@@ -1,0 +1,1510 @@
+
+
+
+ARM Macro Assembler    Page 1 
+
+
+    1 00000000         
+    2 00000000                 AREA             datos, DATA
+    3 00000000 FFFFF010 
+                       VICIntEnable
+                               EQU              0xFFFFF010  ; act. Irqs (solo 1
+                                                            ?s)
+    4 00000000 FFFFF014 
+                       VICIntEnClear
+                               EQU              0xFFFFF014  ; desact. IRQs (sol
+                                                            o 1?s)
+    5 00000000 FFFFF100 
+                       VICVectAddr0
+                               EQU              0xFFFFF100  ; vector interr. (V
+                                                            I)
+    6 00000000 FFFFF030 
+                       VICVectAddr
+                               EQU              0xFFFFF030  ; reg. para EOI
+    7 00000000         
+    8 00000000 E0004000 
+                       TO_IR   EQU              0xE0004000  ; reg. bajar IRQ[4]
+                                                            
+    9 00000000 E0010000 
+                       RDAT    EQU              0xE0010000  ; reg datos tec (UA
+                                                            RT1)
+   10 00000000         
+   11 00000000 E0028004 
+                       IOSET   EQU              0xE0028004  ; GPIO (activar bit
+                                                            s)
+   12 00000000 E002800C 
+                       IOCLR   EQU              0xE002800C  ; GPIO (desactivar 
+                                                            bits)
+   13 00000000         
+   14 00000000 00000000 
+                       tecl_so DCD              0           ; var para @RSI_tec
+                                                            l_SO
+   15 00000004 00000000 
+                       timer_so
+                               DCD              0           ; var para @RSI_tim
+                                                            er_SO
+   16 00000008         
+   17 00000008 40007E00 
+                       inicio_pan
+                               EQU              0x40007E00  ; inicio pantalla
+   18 00000008 00000020 
+                       tam_fila
+                               EQU              32          ; tamaño de la fil
+                                                            a de la pantalla
+   19 00000008         
+   20 00000008 0000000A 
+                       MAX_TICS
+                               EQU              10
+   21 00000008         
+   22 00000008 00000000 
+                       reloj   DCD              0           ;contador de centes
+                                                            imas de segundo 
+   23 0000000C 00000008 
+                       max     DCD              8           ;velocidad de movim
+                                                            iento (en centesima
+                                                            s s.) 
+
+
+
+ARM Macro Assembler    Page 2 
+
+
+   24 00000010 00000000 
+                       cont    DCD              0           ;instante siguiente
+                                                             movimiento 
+   25 00000014         
+   26 00000014 00000000 
+                       x1      DCD              0           ; posicion x de la 
+                                                            cabeza del jugador 
+                                                            1                  
+                                                                 ; se puede pon
+                                                            er en byte (DCB)
+   27 00000018 00000000 
+                       y1      DCD              0           ; posicion y de la 
+                                                            cabeza del jugador 
+                                                            1
+   28 0000001C 00000000 
+                       x2      DCD              0           ; posicion x de la 
+                                                            cabeza del jugador 
+                                                            2
+   29 00000020 00000000 
+                       y2      DCD              0           ; posicion y de la 
+                                                            cabeza del jugador 
+                                                            2
+   30 00000024 00      dir1x   DCB              0           ;mov. horizontal ju
+                                                            gador1 (-1 izq,0 co
+                                                            l fija,1 der) 
+   31 00000025 00      dir1y   DCB              0           ;mov. vertical juga
+                                                            dor1 (-1 arriba,0 f
+                                                            ila fija,1 abajo) 
+   32 00000026 00      dir2x   DCB              0           ;mov. horizontal ju
+                                                            gador2 (-1 izq.,0 c
+                                                            ol fija,1 der) 
+   33 00000027 00      dir2y   DCB              0           ;mov. vertical juga
+                                                            dor2 (-1 arriba,0 f
+                                                            ila fija,1 abajo) 
+   34 00000028 00      fin     DCB              0           ;indicador fin de p
+                                                            rograma (si vale 1)
+                                                             
+   35 00000029         
+   36 00000029                 AREA             codigo, CODE
+   37 00000000                 EXPORT           inicio      ;etiqueta enlace co
+                                                            n Startup.s 
+   38 00000000                 EXTERN           srand
+   39 00000000                 EXTERN           rand
+   40 00000000         
+   41 00000000         inicio
+   42 00000000         ;programar @IRQ4 -> RSI_reloj 
+   43 00000000 E59F0628        LDR              r0,=VICVectAddr0 ; r0=@VI
+   44 00000004 E59F1628        LDR              r1,=timer_so ; r1=@tecl_so
+   45 00000008 E3A02004        mov              r2,#4       ; r2=7
+   46 0000000C E7903102        ldr              r3,[r0,r2,LSL #2] ; r3=VI[7]=@R
+                                                            SI_tecl_SO
+   47 00000010 E5813000        str              r3,[r1]     ; tecl_so=@RSI_tecl
+                                                            _SO
+   48 00000014         
+   49 00000014 E59F161C        LDR              r1,=RSI_reloj ; r1=@RSI_teclado
+                                                             mia
+   50 00000018 E7801102        str              r1,[r0,r2,LSL #2] ; VI[7]=@RSI_
+                                                            teclado mia
+   51 0000001C         ;activar IRQ4
+
+
+
+ARM Macro Assembler    Page 3 
+
+
+   52 0000001C E59F0618        LDR              r0,=VICIntEnable 
+                                                            ; r0=@VicIntEnable
+   53 00000020 E3A01010        mov              r1,#0x10    ; r1=#2_10000000
+   54 00000024 E5801000        str              r1,[r0]     ; VICIntEnable[7]=1
+                                                            
+   55 00000028         
+   56 00000028         ;programar @IRQ7 -> RSI_teclado 
+   57 00000028 E59F0600        LDR              r0,=VICVectAddr0 ; r0=@VI
+   58 0000002C E59F160C        LDR              r1,=tecl_so ; r1=@tecl_so
+   59 00000030 E3A02007        mov              r2,#7       ; r2=7
+   60 00000034 E7903102        ldr              r3,[r0,r2,LSL #2] ; r3=VI[7]=@R
+                                                            SI_tecl_SO
+   61 00000038 E5813000        str              r3,[r1]     ; tecl_so=@RSI_tecl
+                                                            _SO
+   62 0000003C         
+   63 0000003C E59F1600        LDR              r1,=RSI_teclado ; r1=@RSI_tecla
+                                                            do mia
+   64 00000040 E7801102        str              r1,[r0,r2,LSL #2] ; VI[7]=@RSI_
+                                                            teclado mia
+   65 00000044         ;activar IRQ7 
+   66 00000044 E59F05F0        LDR              r0,=VICIntEnable 
+                                                            ; r0=@VicIntEnable
+   67 00000048 E3A01080        mov              r1,#2_10000000 ; r1=#2_10000000
+                                                            
+   68 0000004C E5801000        str              r1,[r0]     ; VICIntEnable[7]=1
+                                                            
+   69 00000050         
+   70 00000050         ; limpiar pantalla
+   71 00000050 E3A02000        mov              r2,#0
+   72 00000054 E3A03000        mov              r3,#0
+   73 00000058 E59F05E8 
+                       limpia  LDR              r0,=inicio_pan ; r0=@inicio_pan
+                                                            =0x40007E00
+   74 0000005C E3A01020        mov              r1,#' '     ; r1='X'
+   75 00000060 E3A06020        LDR              r6,=tam_fila ; r6=32
+   76 00000064 E0070693        mul              r7,r3,r6    ; r7=r3*r6=y*32
+   77 00000068 E0878002        add              r8,r7,r2    ; r8=r3*r6+r2=y*32+
+                                                            x  
+   78 0000006C E7C01008        strb             r1,[r0,r8]  ; inicio_pan+posici
+                                                            on='X'
+   79 00000070 E2822001        add              r2,r2,#1    ; x=x+1
+   80 00000074 E3520020        cmp              r2,#32      ; if x!=32 
+   81 00000078 1AFFFFF6        bne              limpia      ; salta a limpia
+   82 0000007C E2833001        add              r3,r3,#1    ; y=y+1
+   83 00000080 E3A02000        mov              r2,#0       ; x=0
+   84 00000084 E3530010        cmp              r3,#16      ; if x!=16
+   85 00000088 1AFFFFF2        bne              limpia      ; salta a limpia
+   86 0000008C         
+   87 0000008C         ; dibujar pantalla inicial
+   88 0000008C         
+   89 0000008C         ; poscion inicial jugador 1 random
+   90 0000008C E3A0101F        mov              r1,#31      ; valor maximo rand
+                                                            om posicion X
+   91 00000090 E52D1004        PUSH             {r1}        ; apilar valor maxi
+                                                            mo
+   92 00000094 EB000106        bl               num_random  ; llamar a num_rand
+                                                            om
+   93 00000098 E28DD004        add              sp,sp,#4    ; libera parametros
+                                                            
+
+
+
+ARM Macro Assembler    Page 4 
+
+
+   94 0000009C E49D2004        POP              {r2}        ; desapilar numero 
+                                                            random posicion X
+   95 000000A0 E3A0100F        mov              r1,#15      ; valor maximo rand
+                                                            om poscion Y
+   96 000000A4 E52D1004        PUSH             {r1}        ; apilar valor maxi
+                                                            mo
+   97 000000A8 EB000101        bl               num_random  ; llamar a num_rand
+                                                            om
+   98 000000AC E28DD004        add              sp,sp,#4    ; libera parametros
+                                                            
+   99 000000B0 E49D3004        POP              {r3}        ; desapilar numero 
+                                                            random posicionY
+  100 000000B4         
+  101 000000B4         ; dibujar jugador 1 pantalla inicial 
+  102 000000B4 E3A01058        mov              r1,#'X'     ; r1='X'
+  103 000000B8 E59F458C        ldr              r4,=x1      ; r4=@x1
+  104 000000BC E59F558C        ldr              r5,=y1      ; r5=@y1
+  105 000000C0 E59F658C        ldr              r6,=dir1x   ; r6=@dir1x
+  106 000000C4 E59F758C        ldr              r7,=dir1y   ; r7=@dir1y
+  107 000000C8 E92D00FE        PUSH             {r1-r7}     ; apilar ascii,x1,y
+                                                            1,@x1,@y1,@dir1x,@d
+                                                            ir1y
+  108 000000CC EB000106        bl               dibujar     ; llamar a dibujar
+  109 000000D0 E28DD01C        add              sp,sp,#28   ; desapilar paramet
+                                                            ros
+  110 000000D4         
+  111 000000D4         ; poscion inicial jugador 2 random
+  112 000000D4 E3A0101F        mov              r1,#31      ; valor maximo rand
+                                                            om posicion X
+  113 000000D8 E52D1004        PUSH             {r1}        ; apilar valor maxi
+                                                            mo
+  114 000000DC EB0000F4        bl               num_random  ; llamar a num_rand
+                                                            om
+  115 000000E0 E28DD004        add              sp,sp,#4    ; libera parametros
+                                                            
+  116 000000E4 E49D2004        POP              {r2}        ; desapilar numero 
+                                                            random posicion X
+  117 000000E8 E3A0100F        mov              r1,#15      ; valor maximo rand
+                                                            om poscion Y
+  118 000000EC E52D1004        PUSH             {r1}        ; apilar valor maxi
+                                                            mo
+  119 000000F0 EB0000EF        bl               num_random  ; llamar a num_rand
+                                                            om
+  120 000000F4 E28DD004        add              sp,sp,#4    ; libera parametros
+                                                            
+  121 000000F8 E49D3004        POP              {r3}        ; desapilar numero 
+                                                            random posicionY
+  122 000000FC         
+  123 000000FC         ; dibujar jugador 2 pantalla inicial 
+  124 000000FC E3A0104F        mov              r1,#'O'     ; r1='X'
+  125 00000100 E59F4554        ldr              r4,=x2      ; r4=@x2
+  126 00000104 E59F5554        ldr              r5,=y2      ; r5=@y2
+  127 00000108 E59F6554        ldr              r6,=dir2x   ; r6=@dir1x
+  128 0000010C E59F7554        ldr              r7,=dir2y   ; r7=@dir1y
+  129 00000110 E92D00FE        PUSH             {r1-r7}     ; apilar ascii,x2,y
+                                                            2,@x2,@y2,@dir2x,@d
+                                                            ir2y
+  130 00000114 EB0000F4        bl               dibujar     ; llamar a dibujar
+  131 00000118 E28DD01C        add              sp,sp,#28   ; desapilar paramet
+
+
+
+ARM Macro Assembler    Page 5 
+
+
+                                                            ros
+  132 0000011C         
+  133 0000011C         ; direccion random jugador 1
+  134 0000011C E3A01002        mov              r1,#2       ; valor maximo rand
+                                                            om de direccion
+  135 00000120 E52D1004        PUSH             {r1}        ; apilar valor maxi
+                                                            mo
+  136 00000124 EB0000E2        bl               num_random  ; llamar a num_rand
+                                                            om
+  137 00000128 E28DD004        add              sp,sp,#4    ; libera parametros
+                                                            
+  138 0000012C E49D1004        POP              {r1}        ; desapilar numero 
+                                                            random de direccion
+                                                            
+  139 00000130         
+  140 00000130 E2411001        sub              r1,r1,#1    ; numRandom=numRand
+                                                            om-1
+  141 00000134 E59F2518        ldr              r2,=dir1x   ; r2=@dir1x
+  142 00000138 E5C21000        strb             r1,[r2]     ; dir1x=numRandom
+  143 0000013C E3510000        cmp              r1,#0       ; if numRandom != 0
+                                                            
+  144 00000140 1A000009        bne              direccion2  ; saltar a la direc
+                                                            cion 2
+  145 00000144         
+  146 00000144 E3A01001        mov              r1,#1       ; valor maximo rand
+                                                            om de direccion
+  147 00000148 E52D1004        PUSH             {r1}        ; apilar valor maxi
+                                                            mo
+  148 0000014C EB0000D8        bl               num_random  ; llamar a num_rand
+                                                            om
+  149 00000150 E28DD004        add              sp,sp,#4    ; libera parametros
+                                                            
+  150 00000154 E49D1004        POP              {r1}        ; desapilar numero 
+                                                            random de direccion
+                                                            
+  151 00000158         
+  152 00000158 E2411001        sub              r1,r1,#1    ; numRandom=numRand
+                                                            om-1
+  153 0000015C E3510000        cmp              r1,#0       ; if numRandom=0
+  154 00000160 E2811001        add              r1,r1,#1    ; numRandom=numRand
+                                                            om+1
+  155 00000164 E59F24EC        ldr              r2,=dir1y   ; r2=@dir1y
+  156 00000168 E5821000        str              r1,[r2]     ; dir1y=numRandom
+  157 0000016C         
+  158 0000016C         
+  159 0000016C         direccion2                           ; direccion random 
+                                                            jugador 2
+  160 0000016C E3A01002        mov              r1,#2       ; valor maximo rand
+                                                            om de direccion
+  161 00000170 E52D1004        PUSH             {r1}        ; apilar valor maxi
+                                                            mo
+  162 00000174 EB0000CE        bl               num_random  ; llamar a num_rand
+                                                            om
+  163 00000178 E28DD004        add              sp,sp,#4    ; libera parametros
+                                                            
+  164 0000017C E49D1004        POP              {r1}        ; desapilar numero 
+                                                            random de direccion
+                                                            
+  165 00000180         
+
+
+
+ARM Macro Assembler    Page 6 
+
+
+  166 00000180 E2411001        sub              r1,r1,#1    ; numRandom=numRand
+                                                            om-1
+  167 00000184 E59F24D8        ldr              r2,=dir2x   ; r2=@dir1x
+  168 00000188 E5C21000        strb             r1,[r2]     ; dir1x=numRandom
+  169 0000018C E3510000        cmp              r1,#0       ; if numRandom != 0
+                                                            
+  170 00000190 1A000009        bne              direccion2x ; saltar a la direc
+                                                            cion 2
+  171 00000194         
+  172 00000194 E3A01001        mov              r1,#1       ; valor maximo rand
+                                                            om de direccion
+  173 00000198 E52D1004        PUSH             {r1}        ; apilar valor maxi
+                                                            mo
+  174 0000019C EB0000C4        bl               num_random  ; llamar a num_rand
+                                                            om
+  175 000001A0 E28DD004        add              sp,sp,#4    ; libera parametros
+                                                            
+  176 000001A4 E49D1004        POP              {r1}        ; desapilar numero 
+                                                            random de direccion
+                                                            
+  177 000001A8         
+  178 000001A8 E2411001        sub              r1,r1,#1    ; numRandom=numRand
+                                                            om-1
+  179 000001AC E3510000        cmp              r1,#0       ; if numRandom=0
+  180 000001B0 E2811001        add              r1,r1,#1    ; numRandom=numRand
+                                                            om+1
+  181 000001B4 E59F24AC        ldr              r2,=dir2y   ; r2=@dir1y
+  182 000001B8 E5821000        str              r1,[r2]     ; dir1y=numRandom
+  183 000001BC         
+  184 000001BC         
+  185 000001BC E59F04A8 
+                       direccion2x
+                               LDR              r0,=fin
+  186 000001C0 E5901000 
+                       bucle   ldr              r1,[r0]     ; r1=terminar
+  187 000001C4 E3510000        cmp              r1,#0       ; if terminar = 0
+  188 000001C8 1A00002F        bne              fin_juego   ; salta a bucle
+  189 000001CC         
+  190 000001CC E59F249C        ldr              r2,=cont    ; r2=@cont
+  191 000001D0 E5921000        ldr              r1,[r2]     ; r1=cont
+  192 000001D4 E3510000        cmp              r1,#0       ; if cont!=0
+  193 000001D8 1AFFFFF8        bne              bucle       ; salta a bucle
+  194 000001DC         
+  195 000001DC E59F1490        ldr              r1,=max     ; r1=@max
+  196 000001E0 E5913000        ldr              r3,[r1]     ; r3=max
+  197 000001E4 E5823000        str              r3,[r2]     ; cont=max
+  198 000001E8         
+  199 000001E8         ; coger direccion del jugador 1
+  200 000001E8 E59F1464        ldr              r1,=dir1x   ; r1=@dir1x
+  201 000001EC E1D140D0        ldrsb            r4,[r1]     ; r4=dir1x
+  202 000001F0 E59F3454        ldr              r3,=x1      ; r3=@x1
+  203 000001F4 E5932000        ldr              r2,[r3]     ; r2=x1
+  204 000001F8 E0822004        add              r2,r2,r4    ; r2=r2+r4 ;x1=x1+d
+                                                            ir1x
+  205 000001FC E202201F        and              r2,#31      ; empieza por el ot
+                                                            ro lado (x1 en modu
+                                                            lo 31)
+  206 00000200         
+  207 00000200 E59F1450        ldr              r1,=dir1y   ; r1=@dir1y
+
+
+
+ARM Macro Assembler    Page 7 
+
+
+  208 00000204 E1D140D0        ldrsb            r4,[r1]     ; r4=dir1y
+  209 00000208 E59F5440        ldr              r5,=y1      ; r5=@y1
+  210 0000020C E5953000        ldr              r3,[r5]     ; r3=y1
+  211 00000210 E0833004        add              r3,r3,r4    ; r3=r3+r4 ;y1=y1+d
+                                                            ir1y
+  212 00000214 E203300F        and              r3,#15      ; empieza por el ot
+                                                            ro lado (y1 en modu
+                                                            lo 31)
+  213 00000218         
+  214 00000218         ; dibujar jugador 1 pantalla inicial 
+  215 00000218 E3A01058        mov              r1,#'X'     ; r1=@ascii1
+  216 0000021C E59F4428        ldr              r4,=x1      ; r4=@x1
+  217 00000220 E59F5428        ldr              r5,=y1      ; r5=@y1
+  218 00000224 E59F6428        ldr              r6,=dir1x   ; r6=@dir1x
+  219 00000228 E59F7428        ldr              r7,=dir1y   ; r7=@dir1y
+  220 0000022C E92D00FE        PUSH             {r1-r7}     ; apilar ascii,x1,y
+                                                            1,@x1,@y1,@dir1x,@d
+                                                            ir1y
+  221 00000230 EB0000AD        bl               dibujar     ; llamar a dibujar
+  222 00000234 E28DD01C        add              sp,sp,#28   ; desapilar paramet
+                                                            ros
+  223 00000238         
+  224 00000238         ; coger direccion del jugador 2
+  225 00000238 E59F1424        ldr              r1,=dir2x   ; r1=@dir2x
+  226 0000023C E1D140D0        ldrsb            r4,[r1]     ; r4=dir2x
+  227 00000240 E59F3414        ldr              r3,=x2      ; r3=@x2
+  228 00000244 E5932000        ldr              r2,[r3]     ; r2=x2
+  229 00000248 E0822004        add              r2,r2,r4    ; r2=r2+r4 ;x2=x2+d
+                                                            ir2x
+  230 0000024C E202201F        and              r2,#31      ; empieza por el ot
+                                                            ro lado (x2 en modu
+                                                            lo 31)
+  231 00000250         
+  232 00000250 E59F1410        ldr              r1,=dir2y   ; r1=@dir2y
+  233 00000254 E1D140D0        ldrsb            r4,[r1]     ; r4=dir2y
+  234 00000258 E59F5400        ldr              r5,=y2      ; r5=@y2
+  235 0000025C E5953000        ldr              r3,[r5]     ; r3=y2
+  236 00000260 E0833004        add              r3,r3,r4    ; r3=r3+r4 ;y2=y2+d
+                                                            ir2y
+  237 00000264 E203300F        and              r3,#15      ; empieza por el ot
+                                                            ro lado (y2 en modu
+                                                            lo 31)
+  238 00000268         
+  239 00000268         ; dibujar jugador 2 pantalla inicial 
+  240 00000268 E3A0104F        mov              r1,#'O'     ; r1=@ascii2
+  241 0000026C E59F43E8        ldr              r4,=x2      ; r4=@x2
+  242 00000270 E59F53E8        ldr              r5,=y2      ; r5=@y2
+  243 00000274 E59F63E8        ldr              r6,=dir2x   ; r6=@dir1x
+  244 00000278 E59F73E8        ldr              r7,=dir2y   ; r7=@dir1y
+  245 0000027C E92D00FE        PUSH             {r1-r7}     ; apilar ascii,x2,y
+                                                            2,@x2,@y2,@dir2x,@d
+                                                            ir2y
+  246 00000280 EB000099        bl               dibujar     ; llamar a dibujar
+  247 00000284 E28DD01C        add              sp,sp,#28   ; desapilar paramet
+                                                            ros
+  248 00000288         
+  249 00000288 EAFFFFCC        b                bucle
+  250 0000028C         
+  251 0000028C         ;mientras fin==0 
+
+
+
+ARM Macro Assembler    Page 8 
+
+
+  252 0000028C         ;  para cada elemento movil 
+  253 0000028C         ;    si toca mover elemento 
+  254 0000028C         ;      calcular instante siguiente movimiento 
+  255 0000028C         ;      borrar elemento anterior 
+  256 0000028C         ;      calcular nueva posicion (dirx,diry) elemento 
+  257 0000028C         ;      dibujar nuevo elemento 
+  258 0000028C         ;    fin si 
+  259 0000028C         ;  fin para 
+  260 0000028C         ;  si toca añadir elemento movil 
+  261 0000028C         ;    calcular instante siguiente aparicion 
+  262 0000028C         ;    calcular instante siguiente movimiento 
+  263 0000028C         ;    generar posicion inicial 
+  264 0000028C         ;    dibujar nuevo elemento movil 
+  265 0000028C         ;  fin si 
+  266 0000028C         ;fin mientras 
+  267 0000028C         
+  268 0000028C         ;desactivar IRQ4
+  269 0000028C E59F03E4 
+                       fin_juego
+                               LDR              r0,=VICIntEnClear 
+                                                            ; r0=@VICIntEnClr
+  270 00000290 E3A01010        mov              r1,#0x10    ; r1=#2_10000000
+  271 00000294 E5801000        str              r1,[r0]     ; VICIntEnable[7]=0
+                                                            
+  272 00000298         ;desactivar RSI_reloj 
+  273 00000298 E59F0390        LDR              r0,=VICVectAddr0 ; r0=@VI
+  274 0000029C E59F1390        LDR              r1,=timer_so
+  275 000002A0 E5911000        ldr              r1,[r1]     ; r1=@RSI_tecl_SO
+  276 000002A4 E3A02004        mov              r2,#4       ; r2=7
+  277 000002A8 E7801102        str              r1,[r0,r2,LSL #2] ; VI[7]=@RSI_
+                                                            tecl_SO
+  278 000002AC         
+  279 000002AC         ;desactivar IRQ7 
+  280 000002AC E59F03C4        LDR              r0,=VICIntEnClear 
+                                                            ; r0=@VICIntEnClr
+  281 000002B0 E3A01080        mov              r1,#2_10000000 ; r1=#2_10000000
+                                                            
+  282 000002B4 E5801000        str              r1,[r0]     ; VICIntEnable[7]=0
+                                                            
+  283 000002B8         ;desactivar RSI_teclado
+  284 000002B8 E59F0370        LDR              r0,=VICVectAddr0 ; r0=@VI
+  285 000002BC E59F137C        LDR              r1,=tecl_so
+  286 000002C0 E5911000        ldr              r1,[r1]     ; r1=@RSI_tecl_SO
+  287 000002C4 E3A02007        mov              r2,#7       ; r2=7
+  288 000002C8 E7801102        str              r1,[r0,r2,LSL #2] ; VI[7]=@RSI_
+                                                            tecl_SO
+  289 000002CC         
+  290 000002CC EAFFFFFE 
+                       bfin    b                bfin
+  291 000002D0         
+  292 000002D0         RSI_reloj                            ;Rutina de servicio
+                                                             a la interrupcion 
+                                                            IRQ4 (timer 0) 
+  293 000002D0         ;Cada 0,01 s. llega una peticion de interrupcion
+  294 000002D0         
+  295 000002D0 E24EE004        sub              lr,lr,#4    ; correccion @ret. 
+                                                            (segment.)
+  296 000002D4 E52DE004        PUSH             {lr}        ; apilar retorno
+  297 000002D8 E14FE000        mrs              r14,spsr    ; r14=cpsr prog int
+
+
+
+ARM Macro Assembler    Page 9 
+
+
+                                                            err.
+  298 000002DC E52DE004        PUSH             {r14}       ; apilar estado por
+                                                            g interr.
+  299 000002E0 E321F052        msr              cpsr_c,#2_01010010 ; I=0 -> act
+                                                            .IRQs (modo IRQ)
+  300 000002E4         
+  301 000002E4 E92D000F        PUSH             {r0-r3}     ; apilar registros 
+                                                            utilizados
+  302 000002E8         
+  303 000002E8 E59F038C        LDR              r0,=TO_IR   ; escribir 1 en TO_
+                                                            IR
+  304 000002EC E3A01001        mov              r1,#1       ; para
+  305 000002F0 E5801000        str              r1,[r0]     ; bajar peticion IR
+                                                            Q[4]
+  306 000002F4         
+  307 000002F4 E59F0384        LDR              r0,=reloj   ; r0=@reloj
+  308 000002F8 E5901000        ldr              r1,[r0]     ; r1=reloj
+  309 000002FC E2811001        add              r1,r1,#1    ; r1=reloj+1
+  310 00000300 E5801000        str              r1,[r0]     ; reloj=reloj+1
+  311 00000304         
+  312 00000304 E59F0364        LDR              r0,=cont    ; r0=@cont
+  313 00000308 E5901000        ldr              r1,[r0]     ; r1=cont
+  314 0000030C E3510000        cmp              r1,#0       ; if cont!=0
+  315 00000310 12411001        subne            r1,r1,#1    ; r1=r1-1
+  316 00000314 E5801000        str              r1,[r0]     ; cont=r1
+  317 00000318         
+  318 00000318         
+  319 00000318 E8BD000F 
+                       fintimer
+                               POP              {r0-r3}     ; desapilar registr
+                                                            os utilizados
+  320 0000031C         
+  321 0000031C E321F0D2        msr              cpsr_c,#2_11010010 ; I=1 -> des
+                                                            activar Interr. IRQ
+                                                            
+  322 00000320 E49DE004        POP              {r14}       ; desapilar cpsr pr
+                                                            og. interrumpido
+  323 00000324 E16FF00E        msr              spsr_fsxc,r14 ; spsr_cpsr porg.
+                                                             intrrumpido
+  324 00000328 E59FE354        LDR              r14,=VICVectAddr ; EOI r14=@VIC
+                                                            VectAddr
+  325 0000032C E58EE000        str              r14,[r14]   ; EOI escribir VICV
+                                                            ectAddr
+  326 00000330 E8FD8000        POP              {pc}^       ; retorno al progra
+                                                            ma interrumpido
+  327 00000334         
+  328 00000334         RSI_teclado                          ; mi RSI teclado po
+                                                            r UART1
+  329 00000334 E24EE004        sub              lr,lr,#4    ; correccion @ret. 
+                                                            (segment.)
+  330 00000338 E52DE004        PUSH             {lr}        ; apilar retorno
+  331 0000033C E14FE000        mrs              r14,spsr    ; r14=cpsr prog int
+                                                            err.
+  332 00000340 E52DE004        PUSH             {r14}       ; apilar estado por
+                                                            g interr.
+  333 00000344 E321F052        msr              cpsr_c,#2_01010010 ; I=0 -> act
+                                                            .IRQs (modo IRQ)
+  334 00000348         
+  335 00000348 E92D001F        PUSH             {r0-r4}     ; apilar registros 
+
+
+
+ARM Macro Assembler    Page 10 
+
+
+                                                            utilizados
+  336 0000034C         
+  337 0000034C E59F1334        LDR              r1,=RDAT    ; r1=@reg. Datos te
+                                                            clado
+  338 00000350 E5D10000        ldrb             r0,[r1]     ; r0=codigo ASCII t
+                                                            ecla
+  339 00000354         
+  340 00000354 E350002B        cmp              r0,#'+'     ; if codigo ASCII =
+                                                             "+"
+  341 00000358 0A000023        beq              suma_vel    ; salta a suma_vel
+  342 0000035C         
+  343 0000035C E350002D        cmp              r0,#'-'     ; if codigo ASCII =
+                                                             "-"
+  344 00000360 0A000027        beq              resta_vel   ; salta a resta_vel
+                                                            
+  345 00000364         
+  346 00000364 E3C00020        bic              r0,r0,#2_100000 
+                                                            ; paso a MAYUSCULAS
+                                                            
+  347 00000368         
+  348 00000368 E2400041        sub              r0,r0,#65   ; r0=numero letra (
+                                                            i)
+  349 0000036C E3500019        cmp              r0, #25     ; CONTROL 0<=I<=25
+  350 00000370 8A000048        bhi              fintec      ; salta si no es un
+                                                            a letra
+  351 00000374         
+  352 00000374 E59F12D8        ldr              r1,=dir1x
+  353 00000378 E59F22D8        ldr              r2,=dir1y
+  354 0000037C E5D13000        ldrb             r3,[r1]
+  355 00000380 E5D24000        ldrb             r4,[r2]
+  356 00000384 E3500000        cmp              r0,#0       ; if tecla == "a"
+  357 00000388 0A000023        beq              izq         ; jugador 1 a la iz
+                                                            q
+  358 0000038C E3500003        cmp              r0,#3       ; if tecla == "d"
+  359 00000390 0A000027        beq              der         ; jugador 1 a la iz
+                                                            q
+  360 00000394 E3500016        cmp              r0,#22      ; if tecla == "w"
+  361 00000398 0A00002B        beq              arr         ; jugador 1 a la iz
+                                                            q
+  362 0000039C E3500012        cmp              r0,#18      ; if tecla == "s"
+  363 000003A0 0A00002F        beq              aba         ; jugador 1 a la iz
+                                                            q
+  364 000003A4         
+  365 000003A4 E59F12B8        ldr              r1,=dir2x
+  366 000003A8 E59F22B8        ldr              r2,=dir2y
+  367 000003AC E5D13000        ldrb             r3,[r1]
+  368 000003B0 E5D24000        ldrb             r4,[r2]
+  369 000003B4 E3500009        cmp              r0,#9       ; if tecla == "j"
+  370 000003B8 0A000017        beq              izq         ; jugador 2 a la iz
+                                                            q
+  371 000003BC E350000B        cmp              r0,#11      ; if tecla == "l"
+  372 000003C0 0A00001B        beq              der         ; jugador 2 a la de
+                                                            r
+  373 000003C4 E3500008        cmp              r0,#8       ; if tecla == "i"
+  374 000003C8 0A00001F        beq              arr         ; jugador 2 a la de
+                                                            r
+  375 000003CC E350000A        cmp              r0,#10      ; if tecla == "k"
+  376 000003D0 0A000023        beq              aba         ; jugador 2 a la de
+                                                            r
+
+
+
+ARM Macro Assembler    Page 11 
+
+
+  377 000003D4         
+  378 000003D4 E3500010        cmp              r0,#16      ; if tecla != 'Q' o
+                                                            r tecla != 'q'
+  379 000003D8 1A000027        bne              sigue       ; salta a sigue
+  380 000003DC         
+  381 000003DC E59F1288        LDR              r1,=fin     ; termianr=1
+  382 000003E0 E3A00001        mov              r0,#1       ; si se ha pulsado
+  383 000003E4 E5810000        str              r0,[r1]     ; tecla 'Q'
+  384 000003E8 EA00002A        b                fintec
+  385 000003EC         
+  386 000003EC E59F0280 
+                       suma_vel
+                               ldr              r0,=max     ; r0=@max
+  387 000003F0 E5901000        ldr              r1,[r0]     ; r1=max
+  388 000003F4 E3510001        cmp              r1,#1       ; if r1!=0
+  389 000003F8 11A010C1        movne            r1,r1,asr #1 ; r1=r1/2  
+  390 000003FC E5801000        str              r1,[r0]     ; max=r1
+  391 00000400 EA00001D        b                sigue
+  392 00000404         
+  393 00000404 E59F0268 
+                       resta_vel
+                               ldr              r0,=max     ; r0=@max
+  394 00000408 E5901000        ldr              r1,[r0]     ; r1=max
+  395 0000040C E3510080        cmp              r1,#128     ; if r1!=128
+  396 00000410 10811001        addne            r1,r1,r1    ; r1=r1+r1
+  397 00000414 E5801000        str              r1,[r0]     ; max=r1
+  398 00000418 EA000017        b                sigue
+  399 0000041C         
+  400 0000041C E35300FF 
+                       izq     cmp              r3,#0x000000FF
+  401 00000420 12433001        subne            r3,r3,#1
+  402 00000424 E3A04000        mov              r4,#0
+  403 00000428 E5C13000        strb             r3,[r1]
+  404 0000042C E5C24000        strb             r4,[r2]
+  405 00000430 EA000011        b                sigue
+  406 00000434 E3530001 
+                       der     cmp              r3,#1
+  407 00000438 12833001        addne            r3,r3,#1
+  408 0000043C E3A04000        mov              r4,#0
+  409 00000440 E5C13000        strb             r3,[r1]
+  410 00000444 E5C24000        strb             r4,[r2]
+  411 00000448 EA00000B        b                sigue
+  412 0000044C E35400FF 
+                       arr     cmp              r4,#0x000000FF
+  413 00000450 12444001        subne            r4,r4,#1
+  414 00000454 E3A03000        mov              r3,#0
+  415 00000458 E5C24000        strb             r4,[r2]
+  416 0000045C E5C13000        strb             r3,[r1]
+  417 00000460 EA000005        b                sigue
+  418 00000464 E3540001 
+                       aba     cmp              r4,#1
+  419 00000468 12844001        addne            r4,r4,#1
+  420 0000046C E3A03000        mov              r3,#0
+  421 00000470 E5C24000        strb             r4,[r2]
+  422 00000474 E5C13000        strb             r3,[r1]
+  423 00000478 EAFFFFFF        b                sigue
+  424 0000047C         
+  425 0000047C E59F1208 
+                       sigue   LDR              r1,=IOCLR   ; r1=@IOCLR
+
+
+
+ARM Macro Assembler    Page 12 
+
+
+  426 00000480 E3E02000        mvn              r2,#0       ; r2=0xFFFFFFFF
+  427 00000484 E5812000        str              r2,[r1]     ; IOSET=0
+  428 00000488 E59F1200        LDR              r1,=IOSET   ; r1=@IOSET
+  429 0000048C E3A02001        mov              r2,#1       ; r2=1
+  430 00000490 E1A02012        mov              r2,r2,LSL r0 ; bit r2[i]=1
+  431 00000494 E5812000        str              r2,[r1]     ; bit IOSET[i]=1
+  432 00000498         
+  433 00000498 E8BD001F 
+                       fintec  POP              {r0-r4}     ; desapilar registr
+                                                            os utilizados
+  434 0000049C         
+  435 0000049C E321F0D2        msr              cpsr_c,#2_11010010 ; I=1 -> des
+                                                            activar Interr. IRQ
+                                                            
+  436 000004A0 E49DE004        POP              {r14}       ; desapilar cpsr pr
+                                                            og. interrumpido
+  437 000004A4 E16FF00E        msr              spsr_fsxc,r14 ; spsr_cpsr porg.
+                                                             intrrumpido
+  438 000004A8 E59FE1D4        LDR              r14,=VICVectAddr ; EOI r14=@VIC
+                                                            VectAddr
+  439 000004AC E58EE000        str              r14,[r14]   ; EOI escribir VICV
+                                                            ectAddr
+  440 000004B0 E8FD8000        POP              {pc}^       ; retorno al progra
+                                                            ma interrumpido
+  441 000004B4         
+  442 000004B4         
+  443 000004B4         
+  444 000004B4 E92D4800 
+                       num_random
+                               PUSH             {lr,r11}    ; apilar @ret y r11
+                                                            
+  445 000004B8 E1A0B00D        mov              fp,sp       ; r11=fp=frame poin
+                                                            ter
+  446 000004BC E92D000F        PUSH             {r0-r3}     ; apilar registros
+  447 000004C0         
+  448 000004C0 E59B1008        ldr              r1,[fp,#8]  ; r1=valor maximo
+  449 000004C4 E0800001        add              r0,r0,r1    ; r0=r0+r1
+  450 000004C8 E0822003        add              r2,r2,r3    ; r2=r2+r3
+  451 000004CC E0800002        add              r0,r0,r2    ; r0=r0+r2
+  452 000004D0 E52D0004        PUSH             {r0}        ; apilar r0=semilla
+                                                            
+  453 000004D4 EBFFFFFE        bl               srand       ; llama a srand
+  454 000004D8         ; no libero parametros por que va a ser el espacio para 
+                       los resultados
+  455 000004D8 EBFFFFFE        bl               rand        ; llama a rand
+  456 000004DC E49D0004        POP              {r0}        ; desapilar numero 
+                                                            aliatorio
+  457 000004E0 E0000001        and              r0,r1       ; numero aleatorio 
+                                                            en modulo valor max
+                                                            imo
+  458 000004E4 E58B000C        str              r0,[fp,#12] ; almacenar numero 
+                                                            aleatorio
+  459 000004E8         
+  460 000004E8 E8BD880F        POP              {r0-r3,r11,pc} ; desapilar regi
+                                                            stros, r11 y pc
+  461 000004EC         
+  462 000004EC E92D4800 
+                       dibujar PUSH             {r11,lr}    ; apilar @ret y r11
+                                                            
+
+
+
+ARM Macro Assembler    Page 13 
+
+
+  463 000004F0 E1A0B00D        mov              fp,sp       ; r11=fp=frame poin
+                                                            ter
+  464 000004F4 E92D01FF        PUSH             {r0-r8}     ; apilar registros
+  465 000004F8         
+  466 000004F8 E59B200C        ldr              r2,[fp,#12] ; r2=valor del X
+  467 000004FC E59B3010        ldr              r3,[fp,#16] ; r3=valor del Y
+  468 00000500 E59B4014        ldr              r4,[fp,#20] ; r4=@x
+  469 00000504 E59B5018        ldr              r5,[fp,#24] ; r5=@y
+  470 00000508 E59F0138        LDR              r0,=inicio_pan ; r0=@inicio_pan
+                                                            =0x40007E00
+  471 0000050C E3A06020        LDR              r6,=tam_fila ; r6=32
+  472 00000510 E0070693        mul              r7,r3,r6    ; r7=r3*r6=y*32
+  473 00000514 E0878002        add              r8,r7,r2    ; r8=r3*r6+r2=y*32+
+                                                            x 
+  474 00000518 E0808008        add              r8,r0,r8    ; r8=@inicio_pan+r8
+                                                            
+  475 0000051C E5D87000        ldrb             r7,[r8]     ; r7=posicion 
+  476 00000520 E3570020        cmp              r7,#' '     ; if r7 != ' '
+  477 00000524 1A000004        bne              buscar_libre ; saltar a buscar 
+                                                            libre
+  478 00000528 E5842000 
+                       fin_dibujar
+                               str              r2,[r4]     ; x=r2
+  479 0000052C E5853000        str              r3,[r5]     ; y=r3
+  480 00000530 E59B1008        ldr              r1,[fp,#8]  ; r1=valor del asci
+                                                            i
+  481 00000534 E5C81000        strb             r1,[r8]     ; inicio_pan+posici
+                                                            on='X'
+  482 00000538         
+  483 00000538 E8BD89FF        POP              {r0-r8,r11,pc} ; desapilar regi
+                                                            stros, r11 y pc
+  484 0000053C         
+  485 0000053C         buscar_libre                         ; mirar si algun hu
+                                                            eco alrededor esta 
+                                                            libre
+  486 0000053C         
+  487 0000053C         ; mirar a la derecha
+  488 0000053C E5942000        ldr              r2,[r4]     ; r2=x
+  489 00000540 E5953000        ldr              r3,[r5]     ; r3=y
+  490 00000544 E2822001        add              r2,r2,#1    ; r2=r2+1
+  491 00000548 E202201F        and              r2,#31      ; empieza por el ot
+                                                            ro lado (x en modul
+                                                            o 31)
+  492 0000054C E3A06020        LDR              r6,=tam_fila ; r6=32
+  493 00000550 E0070693        mul              r7,r3,r6    ; r7=r3*r6=y*32
+  494 00000554 E0878002        add              r8,r7,r2    ; r8=r3*r6+r2=y*32+
+                                                            x 
+  495 00000558 E0808008        add              r8,r0,r8    ; r8=@inicio_pan+r8
+                                                            
+  496 0000055C E5D87000        ldrb             r7,[r8]     ; r7=posicion 
+  497 00000560 E3A06001        mov              r6,#1       ; r6=1
+  498 00000564 E3A01000        mov              r1,#0       ; r8=0
+  499 00000568 E3570020        cmp              r7,#' '     ; if r7 != ' '
+  500 0000056C 0A00002A        beq              cambio_dir  ; saltar a fin dibu
+                                                            jar
+  501 00000570         
+  502 00000570         ; mirar a la izquierda
+  503 00000570 E5942000        ldr              r2,[r4]     ; r2=x
+  504 00000574 E5953000        ldr              r3,[r5]     ; r3=y
+
+
+
+ARM Macro Assembler    Page 14 
+
+
+  505 00000578 E2422001        sub              r2,r2,#1    ; r2=r2-1
+  506 0000057C E202201F        and              r2,#31      ; empieza por el ot
+                                                            ro lado (x en modul
+                                                            o 31)
+  507 00000580 E3A06020        LDR              r6,=tam_fila ; r6=32
+  508 00000584 E0070693        mul              r7,r3,r6    ; r7=r3*r6=y*32
+  509 00000588 E0878002        add              r8,r7,r2    ; r8=r3*r6+r2=y*32+
+                                                            x 
+  510 0000058C E0808008        add              r8,r0,r8    ; r8=@inicio_pan+r8
+                                                            
+  511 00000590 E5D87000        ldrb             r7,[r8]     ; r7=posicion 
+  512 00000594 E3E06000        mov              r6,#-1      ; r6=-1
+  513 00000598 E3A01000        mov              r1,#0       ; r8=0
+  514 0000059C E3570020        cmp              r7,#' '     ; if r7 != ' '
+  515 000005A0 0A00001D        beq              cambio_dir  ; saltar a fin dibu
+                                                            jar
+  516 000005A4         
+  517 000005A4         ; mirar abajo
+  518 000005A4 E5942000        ldr              r2,[r4]     ; r2=x
+  519 000005A8 E5953000        ldr              r3,[r5]     ; r3=y
+  520 000005AC E2833001        add              r3,r3,#1    ; r3=r3+1
+  521 000005B0 E203300F        and              r3,#15      ; empieza por el ot
+                                                            ro lado (y en modul
+                                                            o 15)
+  522 000005B4 E3A06020        LDR              r6,=tam_fila ; r6=32
+  523 000005B8 E0070693        mul              r7,r3,r6    ; r7=r3*r6=y*32
+  524 000005BC E0878002        add              r8,r7,r2    ; r8=r3*r6+r2=y*32+
+                                                            x 
+  525 000005C0 E0808008        add              r8,r0,r8    ; r8=@inicio_pan+r8
+                                                            
+  526 000005C4 E5D87000        ldrb             r7,[r8]     ; r7=posicion 
+  527 000005C8 E3A06000        mov              r6,#0       ; r6=0
+  528 000005CC E3A01001        mov              r1,#1       ; r8=1
+  529 000005D0 E3570020        cmp              r7,#' '     ; if r7 != ' 
+  530 000005D4 0A000010        beq              cambio_dir  ; saltar a fin_dibu
+                                                            jar
+  531 000005D8         
+  532 000005D8         ; mirar arriba
+  533 000005D8 E5942000        ldr              r2,[r4]     ; r2=x
+  534 000005DC E5953000        ldr              r3,[r5]     ; r3=y
+  535 000005E0 E2433001        sub              r3,r3,#1    ; r3=r3-1
+  536 000005E4 E203300F        and              r3,#15      ; empieza por el ot
+                                                            ro lado (y en modul
+                                                            o 15)
+  537 000005E8 E3A06020        LDR              r6,=tam_fila ; r6=32
+  538 000005EC E0070693        mul              r7,r3,r6    ; r7=r3*r6=y*32
+  539 000005F0 E0878002        add              r8,r7,r2    ; r8=r3*r6+r2=y*32+
+                                                            x 
+  540 000005F4 E0808008        add              r8,r0,r8    ; r8=@inicio_pan+r8
+                                                            
+  541 000005F8 E5D87000        ldrb             r7,[r8]     ; r7=posicion 
+  542 000005FC E3A06000        mov              r6,#0       ; r6=0
+  543 00000600 E3E01000        mov              r1,#-1      ; r8=-1
+  544 00000604 E3570020        cmp              r7,#' '     ; if r7 != ' '
+  545 00000608 0A000003        beq              cambio_dir  ; saltar a fin_dibu
+                                                            jar
+  546 0000060C         
+  547 0000060C E59F0058        ldr              r0,=fin     ; r0=@fin
+  548 00000610 E3A01001        mov              r1,#1       ; r1=1
+
+
+
+ARM Macro Assembler    Page 15 
+
+
+  549 00000614 E5801000        str              r1,[r0]     ; fin=1
+  550 00000618 E8BD89FF        POP              {r0-r8,r11,pc} ; desapilar regi
+                                                            stros, r11 y pc
+  551 0000061C         
+  552 0000061C         
+  553 0000061C E59B001C 
+                       cambio_dir
+                               ldr              r0,[fp,#28] ; r0=@dirx
+  554 00000620 E59B7020        ldr              r7,[fp,#32] ; r7=@diry
+  555 00000624 E5C06000        strb             r6,[r0]     ; dirx=r6
+  556 00000628 E5C71000        strb             r1,[r7]     ; diry=r8
+  557 0000062C EAFFFFBD        b                fin_dibujar ; saltar a fin_dibu
+                                                            jar
+  558 00000630         
+  559 00000630                 END
+              FFFFF100 
+              00000000 
+              00000000 
+              FFFFF010 
+              00000000 
+              00000000 
+              40007E00 
+              00000000 
+              00000000 
+              00000000 
+              00000000 
+              00000000 
+              00000000 
+              00000000 
+              00000000 
+              00000000 
+              00000000 
+              00000000 
+              FFFFF014 
+              E0004000 
+              00000000 
+              FFFFF030 
+              E0010000 
+              E002800C 
+              E0028004 
+Command Line: --debug --xref --diag_suppress=9931 --apcs=interwork --depend=.\p
+rac5.d -o.\prac5.o -IC:\Keil_v5\ARM\RV31\INC -IC:\Keil_v5\ARM\CMSIS\Include -IC
+:\Keil_v5\ARM\INC\Philips --predefine="__EVAL SETA 1" --predefine="__UVISION_VE
+RSION SETA 526" --list=.\prac5.lst prac5.s
+
+
+
+ARM Macro Assembler    Page 1 Alphabetic symbol ordering
+Relocatable symbols
+
+cont 00000010
+
+Symbol: cont
+   Definitions
+      At line 24 in file prac5.s
+   Uses
+      At line 190 in file prac5.s
+      At line 312 in file prac5.s
+
+datos 00000000
+
+Symbol: datos
+   Definitions
+      At line 2 in file prac5.s
+   Uses
+      None
+Comment: datos unused
+dir1x 00000024
+
+Symbol: dir1x
+   Definitions
+      At line 30 in file prac5.s
+   Uses
+      At line 105 in file prac5.s
+      At line 141 in file prac5.s
+      At line 200 in file prac5.s
+      At line 218 in file prac5.s
+      At line 352 in file prac5.s
+
+dir1y 00000025
+
+Symbol: dir1y
+   Definitions
+      At line 31 in file prac5.s
+   Uses
+      At line 106 in file prac5.s
+      At line 155 in file prac5.s
+      At line 207 in file prac5.s
+      At line 219 in file prac5.s
+      At line 353 in file prac5.s
+
+dir2x 00000026
+
+Symbol: dir2x
+   Definitions
+      At line 32 in file prac5.s
+   Uses
+      At line 127 in file prac5.s
+      At line 167 in file prac5.s
+      At line 225 in file prac5.s
+      At line 243 in file prac5.s
+      At line 365 in file prac5.s
+
+dir2y 00000027
+
+Symbol: dir2y
+   Definitions
+      At line 33 in file prac5.s
+   Uses
+
+
+
+ARM Macro Assembler    Page 2 Alphabetic symbol ordering
+Relocatable symbols
+
+      At line 128 in file prac5.s
+      At line 181 in file prac5.s
+      At line 232 in file prac5.s
+      At line 244 in file prac5.s
+      At line 366 in file prac5.s
+
+fin 00000028
+
+Symbol: fin
+   Definitions
+      At line 34 in file prac5.s
+   Uses
+      At line 185 in file prac5.s
+      At line 381 in file prac5.s
+      At line 547 in file prac5.s
+
+max 0000000C
+
+Symbol: max
+   Definitions
+      At line 23 in file prac5.s
+   Uses
+      At line 195 in file prac5.s
+      At line 386 in file prac5.s
+      At line 393 in file prac5.s
+
+reloj 00000008
+
+Symbol: reloj
+   Definitions
+      At line 22 in file prac5.s
+   Uses
+      At line 307 in file prac5.s
+Comment: reloj used once
+tecl_so 00000000
+
+Symbol: tecl_so
+   Definitions
+      At line 14 in file prac5.s
+   Uses
+      At line 58 in file prac5.s
+      At line 285 in file prac5.s
+
+timer_so 00000004
+
+Symbol: timer_so
+   Definitions
+      At line 15 in file prac5.s
+   Uses
+      At line 44 in file prac5.s
+      At line 274 in file prac5.s
+
+x1 00000014
+
+Symbol: x1
+   Definitions
+      At line 26 in file prac5.s
+   Uses
+      At line 103 in file prac5.s
+
+
+
+ARM Macro Assembler    Page 3 Alphabetic symbol ordering
+Relocatable symbols
+
+      At line 202 in file prac5.s
+      At line 216 in file prac5.s
+
+x2 0000001C
+
+Symbol: x2
+   Definitions
+      At line 28 in file prac5.s
+   Uses
+      At line 125 in file prac5.s
+      At line 227 in file prac5.s
+      At line 241 in file prac5.s
+
+y1 00000018
+
+Symbol: y1
+   Definitions
+      At line 27 in file prac5.s
+   Uses
+      At line 104 in file prac5.s
+      At line 209 in file prac5.s
+      At line 217 in file prac5.s
+
+y2 00000020
+
+Symbol: y2
+   Definitions
+      At line 29 in file prac5.s
+   Uses
+      At line 126 in file prac5.s
+      At line 234 in file prac5.s
+      At line 242 in file prac5.s
+
+15 symbols
+
+
+
+ARM Macro Assembler    Page 1 Alphabetic symbol ordering
+Relocatable symbols
+
+RSI_reloj 000002D0
+
+Symbol: RSI_reloj
+   Definitions
+      At line 292 in file prac5.s
+   Uses
+      At line 49 in file prac5.s
+Comment: RSI_reloj used once
+RSI_teclado 00000334
+
+Symbol: RSI_teclado
+   Definitions
+      At line 328 in file prac5.s
+   Uses
+      At line 63 in file prac5.s
+Comment: RSI_teclado used once
+aba 00000464
+
+Symbol: aba
+   Definitions
+      At line 418 in file prac5.s
+   Uses
+      At line 363 in file prac5.s
+      At line 376 in file prac5.s
+
+arr 0000044C
+
+Symbol: arr
+   Definitions
+      At line 412 in file prac5.s
+   Uses
+      At line 361 in file prac5.s
+      At line 374 in file prac5.s
+
+bfin 000002CC
+
+Symbol: bfin
+   Definitions
+      At line 290 in file prac5.s
+   Uses
+      At line 290 in file prac5.s
+Comment: bfin used once
+bucle 000001C0
+
+Symbol: bucle
+   Definitions
+      At line 186 in file prac5.s
+   Uses
+      At line 193 in file prac5.s
+      At line 249 in file prac5.s
+
+buscar_libre 0000053C
+
+Symbol: buscar_libre
+   Definitions
+      At line 485 in file prac5.s
+   Uses
+      At line 477 in file prac5.s
+Comment: buscar_libre used once
+
+
+
+ARM Macro Assembler    Page 2 Alphabetic symbol ordering
+Relocatable symbols
+
+cambio_dir 0000061C
+
+Symbol: cambio_dir
+   Definitions
+      At line 553 in file prac5.s
+   Uses
+      At line 500 in file prac5.s
+      At line 515 in file prac5.s
+      At line 530 in file prac5.s
+      At line 545 in file prac5.s
+
+codigo 00000000
+
+Symbol: codigo
+   Definitions
+      At line 36 in file prac5.s
+   Uses
+      None
+Comment: codigo unused
+der 00000434
+
+Symbol: der
+   Definitions
+      At line 406 in file prac5.s
+   Uses
+      At line 359 in file prac5.s
+      At line 372 in file prac5.s
+
+dibujar 000004EC
+
+Symbol: dibujar
+   Definitions
+      At line 462 in file prac5.s
+   Uses
+      At line 108 in file prac5.s
+      At line 130 in file prac5.s
+      At line 221 in file prac5.s
+      At line 246 in file prac5.s
+
+direccion2 0000016C
+
+Symbol: direccion2
+   Definitions
+      At line 159 in file prac5.s
+   Uses
+      At line 144 in file prac5.s
+Comment: direccion2 used once
+direccion2x 000001BC
+
+Symbol: direccion2x
+   Definitions
+      At line 185 in file prac5.s
+   Uses
+      At line 170 in file prac5.s
+Comment: direccion2x used once
+fin_dibujar 00000528
+
+Symbol: fin_dibujar
+   Definitions
+
+
+
+ARM Macro Assembler    Page 3 Alphabetic symbol ordering
+Relocatable symbols
+
+      At line 478 in file prac5.s
+   Uses
+      At line 557 in file prac5.s
+Comment: fin_dibujar used once
+fin_juego 0000028C
+
+Symbol: fin_juego
+   Definitions
+      At line 269 in file prac5.s
+   Uses
+      At line 188 in file prac5.s
+Comment: fin_juego used once
+fintec 00000498
+
+Symbol: fintec
+   Definitions
+      At line 433 in file prac5.s
+   Uses
+      At line 350 in file prac5.s
+      At line 384 in file prac5.s
+
+fintimer 00000318
+
+Symbol: fintimer
+   Definitions
+      At line 319 in file prac5.s
+   Uses
+      None
+Comment: fintimer unused
+inicio 00000000
+
+Symbol: inicio
+   Definitions
+      At line 41 in file prac5.s
+   Uses
+      At line 37 in file prac5.s
+Comment: inicio used once
+izq 0000041C
+
+Symbol: izq
+   Definitions
+      At line 400 in file prac5.s
+   Uses
+      At line 357 in file prac5.s
+      At line 370 in file prac5.s
+
+limpia 00000058
+
+Symbol: limpia
+   Definitions
+      At line 73 in file prac5.s
+   Uses
+      At line 81 in file prac5.s
+      At line 85 in file prac5.s
+
+num_random 000004B4
+
+Symbol: num_random
+   Definitions
+
+
+
+ARM Macro Assembler    Page 4 Alphabetic symbol ordering
+Relocatable symbols
+
+      At line 444 in file prac5.s
+   Uses
+      At line 92 in file prac5.s
+      At line 97 in file prac5.s
+      At line 114 in file prac5.s
+      At line 119 in file prac5.s
+      At line 136 in file prac5.s
+      At line 148 in file prac5.s
+      At line 162 in file prac5.s
+      At line 174 in file prac5.s
+
+resta_vel 00000404
+
+Symbol: resta_vel
+   Definitions
+      At line 393 in file prac5.s
+   Uses
+      At line 344 in file prac5.s
+Comment: resta_vel used once
+sigue 0000047C
+
+Symbol: sigue
+   Definitions
+      At line 425 in file prac5.s
+   Uses
+      At line 379 in file prac5.s
+      At line 391 in file prac5.s
+      At line 398 in file prac5.s
+      At line 405 in file prac5.s
+      At line 411 in file prac5.s
+      At line 417 in file prac5.s
+      At line 423 in file prac5.s
+
+suma_vel 000003EC
+
+Symbol: suma_vel
+   Definitions
+      At line 386 in file prac5.s
+   Uses
+      At line 341 in file prac5.s
+Comment: suma_vel used once
+24 symbols
+
+
+
+ARM Macro Assembler    Page 1 Alphabetic symbol ordering
+Absolute symbols
+
+IOCLR E002800C
+
+Symbol: IOCLR
+   Definitions
+      At line 12 in file prac5.s
+   Uses
+      At line 425 in file prac5.s
+Comment: IOCLR used once
+IOSET E0028004
+
+Symbol: IOSET
+   Definitions
+      At line 11 in file prac5.s
+   Uses
+      At line 428 in file prac5.s
+Comment: IOSET used once
+MAX_TICS 0000000A
+
+Symbol: MAX_TICS
+   Definitions
+      At line 20 in file prac5.s
+   Uses
+      None
+Comment: MAX_TICS unused
+RDAT E0010000
+
+Symbol: RDAT
+   Definitions
+      At line 9 in file prac5.s
+   Uses
+      At line 337 in file prac5.s
+Comment: RDAT used once
+TO_IR E0004000
+
+Symbol: TO_IR
+   Definitions
+      At line 8 in file prac5.s
+   Uses
+      At line 303 in file prac5.s
+Comment: TO_IR used once
+VICIntEnClear FFFFF014
+
+Symbol: VICIntEnClear
+   Definitions
+      At line 4 in file prac5.s
+   Uses
+      At line 269 in file prac5.s
+      At line 280 in file prac5.s
+
+VICIntEnable FFFFF010
+
+Symbol: VICIntEnable
+   Definitions
+      At line 3 in file prac5.s
+   Uses
+      At line 52 in file prac5.s
+      At line 66 in file prac5.s
+
+VICVectAddr FFFFF030
+
+
+
+ARM Macro Assembler    Page 2 Alphabetic symbol ordering
+Absolute symbols
+
+
+Symbol: VICVectAddr
+   Definitions
+      At line 6 in file prac5.s
+   Uses
+      At line 324 in file prac5.s
+      At line 438 in file prac5.s
+
+VICVectAddr0 FFFFF100
+
+Symbol: VICVectAddr0
+   Definitions
+      At line 5 in file prac5.s
+   Uses
+      At line 43 in file prac5.s
+      At line 57 in file prac5.s
+      At line 273 in file prac5.s
+      At line 284 in file prac5.s
+
+inicio_pan 40007E00
+
+Symbol: inicio_pan
+   Definitions
+      At line 17 in file prac5.s
+   Uses
+      At line 73 in file prac5.s
+      At line 470 in file prac5.s
+
+tam_fila 00000020
+
+Symbol: tam_fila
+   Definitions
+      At line 18 in file prac5.s
+   Uses
+      At line 75 in file prac5.s
+      At line 471 in file prac5.s
+      At line 492 in file prac5.s
+      At line 507 in file prac5.s
+      At line 522 in file prac5.s
+      At line 537 in file prac5.s
+
+11 symbols
+
+
+
+ARM Macro Assembler    Page 1 Alphabetic symbol ordering
+External symbols
+
+rand 00000000
+
+Symbol: rand
+   Definitions
+      At line 39 in file prac5.s
+   Uses
+      At line 455 in file prac5.s
+Comment: rand used once
+srand 00000000
+
+Symbol: srand
+   Definitions
+      At line 38 in file prac5.s
+   Uses
+      At line 453 in file prac5.s
+Comment: srand used once
+2 symbols
+386 symbols in table

@@ -1,0 +1,49 @@
+#*****************************************************************
+# File:   Makefile_p4
+# Author: PSCD-Unizar
+# Date:   noviembre 2024
+# Coms:   Ejecutar "make -f Makefile_p4" para compilar
+#         Ejecutar "make -f Makefile_p4 clean" para limpiar (borrar lo que genere)
+#*****************************************************************
+
+#---------------------------------------------------------
+# macros
+RM = /bin/rm -f  # para limpiar
+CC = g++         # compilador
+#---------------------------------------------------------
+MON_LIB=./monitores
+MONITOR_SILLA=${MON_LIB}/MonitorSilla
+MONITOR_DATOS=${MON_LIB}/MonitorDatos
+MONITOR_FINAL=${MON_LIB}/MonitorFinal
+#---------------------------------------------------------
+# opciones compilación y enlazado ("linkado")
+CPPFLAGS = -I. -I${MON_LIB} -O2 -std=c++11 -fmax-errors=1 # opciones compil.
+LDFLAGS  = -pthread  # opciones de "linkado"
+#---------------------------------------------------------
+EJEC = practica_4
+
+all: ${EJEC}
+#---------------------------------------------------------
+# "linkar"
+# ${EJEC}: ${EJEC}.o ${MONITOR_SILLA}.o 
+# 	${CC} ${EJEC}.o ${MONITOR_SILLA}.o -o ${EJEC} ${CPPFLAGS} ${LDFLAGS}
+${EJEC}: ${EJEC}.o ${MONITOR_SILLA}.o ${MONITOR_DATOS}.o ${MONITOR_FINAL}.o
+	${CC} ${EJEC}.o ${MONITOR_SILLA}.o ${MONITOR_DATOS}.o ${MONITOR_FINAL}.o -o ${EJEC} ${CPPFLAGS} ${LDFLAGS}
+#---------------------------------------------------------
+# compilar
+${EJEC}.o: ${EJEC}.cpp
+	${CC} -c ${EJEC}.cpp -o ${EJEC}.o ${CPPFLAGS}
+
+${MONITOR_SILLA}.o: ${MONITOR_SILLA}.hpp ${MONITOR_SILLA}.cpp
+	${CC} -c ${MONITOR_SILLA}.cpp -o ${MONITOR_SILLA}.o ${CPPFLAGS}
+
+${MONITOR_DATOS}.o: ${MONITOR_DATOS}.hpp ${MONITOR_DATOS}.cpp
+	${CC} -c ${MONITOR_DATOS}.cpp -o ${MONITOR_DATOS}.o ${CPPFLAGS}
+
+${MONITOR_FINAL}.o: ${MONITOR_FINAL}.hpp ${MONITOR_FINAL}.cpp
+	${CC} -c ${MONITOR_FINAL}.cpp -o ${MONITOR_FINAL}.o ${CPPFLAGS}
+
+#---------------------------------------------------------
+# Cuidado con lo que se pone aquí, que se borra sin preguntar
+clean:
+	$(RM) ${MONITOR_SILLA}.o ${MONITOR_DATOS}.o ${MONITOR_FINAL}.o ${EJEC}.o ${EJEC}

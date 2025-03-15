@@ -1,0 +1,31 @@
+v 4
+file "C:\Users\edu7g\mystuff\AOC2_p2\" "BR_test.vhd" "f9da784ce16d7fd9d795a23c336aca747594c2b9" "20250307002515.575":
+  entity br_testbench at 3( 26) + 2 on 4;
+  architecture behavior of br_testbench at 10( 155) + 2 on 4;
+file "C:\Users\edu7g\mystuff\AOC2_p2\" "BReg_delays.vhd" "54c2808bab0af4438bb0c7041acc7a2ee07ed945" "20250307002557.510":
+  entity breg at 20( 517) + 0 on 21;
+  architecture behavioral of breg at 49( 1823) + 0 on 22;
+file "C:\Users\edu7g\mystuff\AOC2_p2\" "Mov_Add_test.vhd" "976e285d73b7c001ed7b7970dab5f39ae602898f" "20250307200937.744":
+  entity mov_add_testbench at 3( 26) + 2 on 63;
+  architecture behavior of mov_add_testbench at 10( 165) + 2 on 64;
+file "C:\Users\edu7g\mystuff\AOC2_p2\" "Mov_add.vhd" "a976d2f6e380c2a5117e04c6cf2950085f7e9e39" "20250307002556.865":
+  entity mov_add at 11( 358) + 2 on 13;
+  architecture behavior of mov_add at 21( 561) + 2 on 14;
+file "C:\Users\edu7g\mystuff\AOC2_p2\" "REGISTER_delay.vhd" "615dbf31decb296ca20267c72334d72db86eecdb" "20250307002557.694":
+  entity reg at 2( 2) + 0 on 23;
+  architecture behavioral of reg at 18( 505) + 0 on 24;
+file "C:\Users\edu7g\mystuff\AOC2_p2\" "ROM_I_delay.vhd" "aadd6f9b93a348f81a2c23a17b4c0ad80c8ed33d" "20250307193314.438":
+  entity memoriarom_i at 10( 361) + 0 on 47;
+  architecture behavioral of memoriarom_i at 32( 1032) + 0 on 48;
+file "C:\Users\edu7g\mystuff\AOC2_p2\" "UC_Mov_add.vhd" "ce2986a0fb735fd57368a6dcc423c205570f2f4d" "20250307200236.506":
+  entity uc_mov_add at 10( 360) + 0 on 51;
+  architecture behavioral of uc_mov_add at 37( 1262) + 0 on 52;
+file "C:\Users\edu7g\mystuff\AOC2_p2\" "adder32_delay.vhd" "f7c3ed9e23478efe1ace2ed1df5bbc9cc3f93ece" "20250307002557.838":
+  entity adder32 at 20( 486) + 0 on 25;
+  architecture behavioral of adder32 at 41( 1153) + 0 on 26;
+file "C:\Users\edu7g\mystuff\AOC2_p2\" "counter_delay.vhd" "e5863088e3f3d8d1b5730200d5a56b9217dcb646" "20250307002557.064":
+  entity counter at 20( 487) + 0 on 15;
+  architecture behavioral of counter at 47( 1453) + 0 on 16;
+file "C:\Users\edu7g\mystuff\AOC2_p2\" "mux2_1_delay.vhd" "f1bd080e08899ee1be016aaafe1881eec9e107b5" "20250307002558.035":
+  entity mux2_1 at 20( 493) + 0 on 27;
+  architecture behavioral of mux2_1 at 44( 1327) + 0 on 28;

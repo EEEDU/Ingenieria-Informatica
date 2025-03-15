@@ -1,0 +1,50 @@
+[Project]
+Current Flow=Generic
+VCS=0
+version=4
+Current Config=compile
+[Configurations]
+compile=Practica2_design
+[Library]
+Practica2_design=.\Practica2_design\Practica2_design.lib
+[$LibMap$]
+Practica2_design=.
+Active_lib=
+[Settings]
+FLOW_TYPE=HDL
+LANGUAGE=VHDL
+REFRESH_FLOW=1
+FLOWTOOLS=NONE
+FAMILY=
+[Files]
+/rom_i_delay.vhd=-1
+/uc_mov_add.vhd=-1
+/register_delay.vhd=-1
+/mux2_1_delay.vhd=-1
+/breg_delays.vhd=-1
+/counter_delay.vhd=-1
+/adder32_delay.vhd=-1
+/br_testbench.gtkw=-1
+/mov_add_testbench.gtkw=-1
+/mov_add.vhd=-1
+/mov_add_test.vhd=-1
+/br_test.vhd=-1
+[Files.Data]
+.\src\rom_i_delay.vhd=VHDL Source Code
+.\src\uc_mov_add.vhd=VHDL Source Code
+.\src\register_delay.vhd=VHDL Source Code
+.\src\mux2_1_delay.vhd=VHDL Source Code
+.\src\breg_delays.vhd=VHDL Source Code
+.\src\counter_delay.vhd=VHDL Source Code
+.\src\adder32_delay.vhd=VHDL Source Code
+.\src\br_testbench.gtkw=External File
+.\src\mov_add_testbench.gtkw=External File
+.\src\mov_add.vhd=VHDL Source Code
+.\src\mov_add_test.vhd=VHDL Source Code
+.\src\br_test.vhd=VHDL Source Code
+[ORDER]
+Synchronize=1
+[HierarchyViewer]
+HierarchyInformation=mov_add_testbench|behavior|0
+ShowHide=ShowTopLevel
+Selected=

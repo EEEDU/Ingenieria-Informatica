@@ -1,0 +1,44 @@
+Active-HDL 15.0.261.9132 2025-03-14 17:26:45
+
+Elaboration top modules:
+Architecture                  behavior(Mov_add_testbench)
+
+
+-------------------------------------------------------------------------------------------------------------
+Entity            | Architecture | Library          | Info | Compiler Version          | Compilation Options
+-------------------------------------------------------------------------------------------------------------
+Mov_add_testbench | behavior     | practica2_design |      | 15.0.261.9132 (Windows64) | -O3
+Mov_add           | behavior     | practica2_design |      | 15.0.261.9132 (Windows64) | -O3
+counter           | Behavioral   | practica2_design |      | 15.0.261.9132 (Windows64) | -O3
+memoriaROM_I      | Behavioral   | practica2_design |      | 15.0.261.9132 (Windows64) | -O3
+UC_Mov_Add        | Behavioral   | practica2_design |      | 15.0.261.9132 (Windows64) | -O3
+BReg              | Behavioral   | practica2_design |      | 15.0.261.9132 (Windows64) | -O3
+reg               | behavioral   | practica2_design |      | 15.0.261.9132 (Windows64) | -O3
+adder32           | Behavioral   | practica2_design |      | 15.0.261.9132 (Windows64) | -O3
+mux2_1            | Behavioral   | practica2_design |      | 15.0.261.9132 (Windows64) | -O3
+-------------------------------------------------------------------------------------------------------------
+
+-------------------------------------------------------------------------------------------------------------
+VHDL Package                     | Library          | Info | Compiler Version          | Compilation Options
+-------------------------------------------------------------------------------------------------------------
+standard                         | std              |      |                           | <unavailable>
+TEXTIO                           | std              |      | 15.0.261.9132 (Windows64) |  -2019
+std_logic_1164                   | ieee             |      | 15.0.261.9132 (Windows64) |  -2008
+NUMERIC_STD                      | ieee             |      | 15.0.261.9132 (Windows64) |  -2008
+std_logic_arith                  | ieee             |      | 15.0.261.9132 (Windows64) | <unavailable>
+STD_LOGIC_UNSIGNED               | ieee             |      | 15.0.261.9132 (Windows64) | <unavailable>
+-------------------------------------------------------------------------------------------------------------
+
+-------------------------------------------------------------------------------------------------------------
+Library                          | Comment
+-------------------------------------------------------------------------------------------------------------
+ieee                             | Standard IEEE packages library
+practica2_design                 | None
+std                              | Standard VHDL library
+-------------------------------------------------------------------------------------------------------------
+
+
+Simulation Options: asim -O5 +access +r +m+mov_add_testbench mov_add_testbench behavior
+
+
+The performance of simulation is reduced. Version Student Edition

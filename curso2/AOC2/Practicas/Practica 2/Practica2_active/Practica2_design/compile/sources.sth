@@ -1,0 +1,19 @@
+[Files List]
+C:/Aldec/Active-HDL-Student-Edition/vlib/std/src/standard.vhd=S
+C:/Aldec/Active-HDL-Student-Edition/vlib/std/src/textio.vhd=S
+C:/Aldec/Active-HDL-Student-Edition/vlib/ieee/src/std_logic_1164.vhdl=S
+C:/Aldec/Active-HDL-Student-Edition/vlib/ieee/src/std_logic_1164-body.vhdl=S
+C:/Aldec/Active-HDL-Student-Edition/vlib/ieee/src/numeric_std.vhdl=S
+C:/Aldec/Active-HDL-Student-Edition/vlib/ieee/src/numeric_std-body.vhdl=S
+C:/Aldec/Active-HDL-Student-Edition/vlib/ieee/src/std_logic_arith.vhdl=S
+C:/Aldec/Active-HDL-Student-Edition/vlib/ieee/src/unsigned_p.vhd=S
+C:/Aldec/Active-HDL-Student-Edition/vlib/ieee/src/unsigned_b.vhd=S
+C:/Users/edu7g/OneDrive/Uni/2024-25/Aoc2/Practicas/Practica 2/Practica2_active/Practica2_design/src/mux2_1_delay.vhd=S
+C:/Users/edu7g/OneDrive/Uni/2024-25/Aoc2/Practicas/Practica 2/Practica2_active/Practica2_design/src/register_delay.vhd=S
+C:/Users/edu7g/OneDrive/Uni/2024-25/Aoc2/Practicas/Practica 2/Practica2_active/Practica2_design/src/adder32_delay.vhd=S
+C:/Users/edu7g/OneDrive/Uni/2024-25/Aoc2/Practicas/Practica 2/Practica2_active/Practica2_design/src/breg_delays.vhd=S
+C:/Users/edu7g/OneDrive/Uni/2024-25/Aoc2/Practicas/Practica 2/Practica2_active/Practica2_design/src/uc_mov_add.vhd=S
+C:/Users/edu7g/OneDrive/Uni/2024-25/Aoc2/Practicas/Practica 2/Practica2_active/Practica2_design/src/rom_i_delay.vhd=S
+C:/Users/edu7g/OneDrive/Uni/2024-25/Aoc2/Practicas/Practica 2/Practica2_active/Practica2_design/src/counter_delay.vhd=S
+C:/Users/edu7g/OneDrive/Uni/2024-25/Aoc2/Practicas/Practica 2/Practica2_active/Practica2_design/src/mov_add.vhd=S
+C:/Users/edu7g/OneDrive/Uni/2024-25/Aoc2/Practicas/Practica 2/Practica2_active/Practica2_design/src/mov_add_test.vhd=S

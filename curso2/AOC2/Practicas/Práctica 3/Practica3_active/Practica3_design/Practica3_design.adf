@@ -1,0 +1,66 @@
+[Project]
+Current Flow=Generic
+VCS=0
+version=4
+Current Config=compile
+[Configurations]
+compile=Practica3_design
+[Library]
+Practica3_design=.\Practica3_design\Practica3_design.lib
+[$LibMap$]
+Practica3_design=.
+Active_lib=
+[Settings]
+FLOW_TYPE=HDL
+LANGUAGE=VHDL
+REFRESH_FLOW=1
+FLOWTOOLS=NONE
+FAMILY=
+[Files]
+/counter.vhd=-1
+/mux4_1.vhd=-1
+/uc_completar.vhd=-1
+/ram-i_ejemplo_sin_nops_planificar.vhd=-1
+/register.vhd=-1
+/ram-d_ejemplo.vhd=-1
+/mux2_5bits.vhd=-1
+/mux2_1.vhd=-1
+/ext_signo.vhd=-1
+/banco_id.vhd=-1
+/banco_wb.vhd=-1
+/bits_shifter.vhd=-1
+/breg.vhd=-1
+/banco_mem.vhd=-1
+/alu.vhd=-1
+/banco_ex.vhd=-1
+/adder32.vhd=-1
+/mips_segmentado_practicas_completar_v2.vhd=-1
+/testbench_mips.vhd=-1
+/ejemplo_sin_nops_planificar.txt=-1
+/generación instrucciones.xlsx=-1
+[Files.Data]
+.\src\counter.vhd=VHDL Source Code
+.\src\mux4_1.vhd=VHDL Source Code
+.\src\uc_completar.vhd=VHDL Source Code
+.\src\ram-i_ejemplo_sin_nops_planificar.vhd=VHDL Source Code
+.\src\register.vhd=VHDL Source Code
+.\src\ram-d_ejemplo.vhd=VHDL Source Code
+.\src\mux2_5bits.vhd=VHDL Source Code
+.\src\mux2_1.vhd=VHDL Source Code
+.\src\ext_signo.vhd=VHDL Source Code
+.\src\banco_id.vhd=VHDL Source Code
+.\src\banco_wb.vhd=VHDL Source Code
+.\src\bits_shifter.vhd=VHDL Source Code
+.\src\breg.vhd=VHDL Source Code
+.\src\banco_mem.vhd=VHDL Source Code
+.\src\alu.vhd=VHDL Source Code
+.\src\banco_ex.vhd=VHDL Source Code
+.\src\adder32.vhd=VHDL Source Code
+.\src\mips_segmentado_practicas_completar_v2.vhd=VHDL Source Code
+.\src\testbench_mips.vhd=VHDL Source Code
+.\src\ejemplo_sin_nops_planificar.txt=Text File
+.\src\generación instrucciones.xlsx=External File
+[HierarchyViewer]
+HierarchyInformation=testbench|behavior|0
+ShowHide=ShowTopLevel
+Selected=

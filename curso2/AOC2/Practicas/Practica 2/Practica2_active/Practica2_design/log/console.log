@@ -1,0 +1,281 @@
+# ELBREAD: Elaboration process.
+# ELBREAD: Elaboration time 0.2 [s].
+asim -O5 +access +r +m+mov_add_testbench mov_add_testbench behavior
+# ELBREAD: Elaboration process.
+# ELBREAD: Elaboration time 0.0 [s].
+# VSIM: Stack memory: 32MB
+# VSIM: Retval memory: 32MB
+# 
+# KERNEL: Main thread initiated.
+# KERNEL: Kernel process initialization phase.
+# ELAB2: Elaboration final pass...
+# ELAB2: Create instances ...
+# KERNEL: Time resolution set to 1ps.
+# ELAB2: Create instances complete.
+# SLP: Started
+# SLP: Elaboration phase ...
+# SLP: Elaboration phase ... skipped, nothing to simulate in SLP mode : 0.0 [s]
+# SLP: Finished : 0.0 [s]
+# ELAB2: Elaboration final pass complete - time: 0.2 [s].
+# KERNEL: Warning: You are using the Active-HDL Student Edition. The performance of simulation is running at a reduced rate.
+# KERNEL: Warning: Contact Aldec for available upgrade options - sales@aldec.com.
+# KERNEL: Kernel process initialization done.
+# Allocation: Simulator allocated 6634 kB (elbread=427 elab2=6066 kernel=141 sdf=0)
+# ASDB: Error: remove: "C:\Users\edu7g\OneDrive\Uni\2024-25\Aoc2\Practicas\Practica 2\Practica2_active\Practica2_design\src\wave.asdbw\001122681cd9540bd2679490af221000.sid": Acceso denegado. 
+# VSIM: Error: Fatal error occurred during simulation.
+asim -O5 +access +r +m+mov_add_testbench mov_add_testbench behavior
+# ELBREAD: Elaboration process.
+# ELBREAD: Elaboration time 0.0 [s].
+# VSIM: Stack memory: 32MB
+# VSIM: Retval memory: 32MB
+# 
+# KERNEL: Main thread initiated.
+# KERNEL: Kernel process initialization phase.
+# ELAB2: Elaboration final pass...
+# ELAB2: Create instances ...
+# KERNEL: Time resolution set to 1ps.
+# ELAB2: Create instances complete.
+# SLP: Started
+# SLP: Elaboration phase ...
+# SLP: Elaboration phase ... skipped, nothing to simulate in SLP mode : 0.0 [s]
+# SLP: Finished : 0.0 [s]
+# ELAB2: Elaboration final pass complete - time: 0.0 [s].
+# KERNEL: Warning: You are using the Active-HDL Student Edition. The performance of simulation is running at a reduced rate.
+# KERNEL: Warning: Contact Aldec for available upgrade options - sales@aldec.com.
+# KERNEL: Kernel process initialization done.
+# Allocation: Simulator allocated 6634 kB (elbread=427 elab2=6066 kernel=141 sdf=0)
+# ASDB: Error: remove: "C:\Users\edu7g\OneDrive\Uni\2024-25\Aoc2\Practicas\Practica 2\Practica2_active\Practica2_design\src\wave.asdbw\001122681cd9540bd2679490af221000.sid": Acceso denegado. 
+# VSIM: Error: Fatal error occurred during simulation.
+# Error: Accelerated Waveform: Simulation database is not connected. Initialize simulation or load simulation database by opening waveform file (AWC, ASDB).
+# Error: Accelerated Waveform: Simulation database is not connected. Initialize simulation or load simulation database by opening waveform file (AWC, ASDB).
+# Error: Accelerated Waveform: Simulation database is not connected. Initialize simulation or load simulation database by opening waveform file (AWC, ASDB).
+# Error: Accelerated Waveform: Simulation database is not connected. Initialize simulation or load simulation database by opening waveform file (AWC, ASDB).
+asim -O5 +access +r +m+mov_add_testbench mov_add_testbench behavior
+# ELBREAD: Elaboration process.
+# ELBREAD: Elaboration time 0.0 [s].
+# VSIM: Stack memory: 32MB
+# VSIM: Retval memory: 32MB
+# 
+# KERNEL: Main thread initiated.
+# KERNEL: Kernel process initialization phase.
+# ELAB2: Elaboration final pass...
+# ELAB2: Create instances ...
+# KERNEL: Time resolution set to 1ps.
+# ELAB2: Create instances complete.
+# SLP: Started
+# SLP: Elaboration phase ...
+# SLP: Elaboration phase ... skipped, nothing to simulate in SLP mode : 0.0 [s]
+# SLP: Finished : 0.0 [s]
+# ELAB2: Elaboration final pass complete - time: 0.0 [s].
+# KERNEL: Warning: You are using the Active-HDL Student Edition. The performance of simulation is running at a reduced rate.
+# KERNEL: Warning: Contact Aldec for available upgrade options - sales@aldec.com.
+# KERNEL: Kernel process initialization done.
+# Allocation: Simulator allocated 6634 kB (elbread=427 elab2=6066 kernel=141 sdf=0)
+# ASDB: Error: remove: "C:\Users\edu7g\OneDrive\Uni\2024-25\Aoc2\Practicas\Practica 2\Practica2_active\Practica2_design\src\wave.asdbw\001122681cd9540bd2679490af221000.sid": Acceso denegado. 
+# VSIM: Error: Fatal error occurred during simulation.
+# Error: Accelerated Waveform: Simulation database is not connected. Initialize simulation or load simulation database by opening waveform file (AWC, ASDB).
+# Error: Accelerated Waveform: Simulation database is not connected. Initialize simulation or load simulation database by opening waveform file (AWC, ASDB).
+asim -O5 +access +r +m+mov_add_testbench mov_add_testbench behavior
+# ELBREAD: Elaboration process.
+# ELBREAD: Elaboration time 0.0 [s].
+# VSIM: Stack memory: 32MB
+# VSIM: Retval memory: 32MB
+# 
+# KERNEL: Main thread initiated.
+# KERNEL: Kernel process initialization phase.
+# ELAB2: Elaboration final pass...
+# ELAB2: Create instances ...
+# KERNEL: Time resolution set to 1ps.
+# ELAB2: Create instances complete.
+# SLP: Started
+# SLP: Elaboration phase ...
+# SLP: Elaboration phase ... skipped, nothing to simulate in SLP mode : 0.0 [s]
+# SLP: Finished : 0.0 [s]
+# ELAB2: Elaboration final pass complete - time: 0.0 [s].
+# KERNEL: Warning: You are using the Active-HDL Student Edition. The performance of simulation is running at a reduced rate.
+# KERNEL: Warning: Contact Aldec for available upgrade options - sales@aldec.com.
+# KERNEL: Kernel process initialization done.
+# Allocation: Simulator allocated 6634 kB (elbread=427 elab2=6066 kernel=141 sdf=0)
+# ASDB: Error: remove: "C:\Users\edu7g\OneDrive\Uni\2024-25\Aoc2\Practicas\Practica 2\Practica2_active\Practica2_design\src\wave.asdbw\001122681cd9540bd2679490af221000.sid": Acceso denegado. 
+# VSIM: Error: Fatal error occurred during simulation.
+# Compile Entity "Mov_add_testbench"
+# Compile Architecture "behavior" of Entity "Mov_add_testbench"
+# Compile success 0 Errors 0 Warnings  Analysis time :  0.1 [s]
+# Error: Accelerated Waveform: Simulation database is not connected. Initialize simulation or load simulation database by opening waveform file (AWC, ASDB).
+# Error: Accelerated Waveform: Simulation database is not connected. Initialize simulation or load simulation database by opening waveform file (AWC, ASDB).
+acom -O3 -e 100 -work Practica2_design -2002  $dsn/src/rom_i_delay.vhd $dsn/src/uc_mov_add.vhd $dsn/src/register_delay.vhd $dsn/src/mux2_1_delay.vhd $dsn/src/breg_delays.vhd $dsn/src/counter_delay.vhd $dsn/src/adder32_delay.vhd $dsn/src/mov_add.vhd $dsn/src/mov_add_test.vhd $dsn/src/br_test.vhd
+# Compile Entity "memoriaROM_I"
+# Compile Architecture "Behavioral" of Entity "memoriaROM_I"
+# Compile Entity "UC_Mov_Add"
+# Compile Architecture "Behavioral" of Entity "UC_Mov_Add"
+# Compile Entity "reg"
+# Compile Architecture "behavioral" of Entity "REG"
+# Compile Entity "mux2_1"
+# Compile Architecture "Behavioral" of Entity "mux2_1"
+# Compile Entity "BReg"
+# Compile Architecture "Behavioral" of Entity "BReg"
+# Compile Entity "counter"
+# Compile Architecture "Behavioral" of Entity "counter"
+# Compile Entity "adder32"
+# Compile Architecture "Behavioral" of Entity "adder32"
+# Compile Entity "Mov_add"
+# Compile Architecture "behavior" of Entity "Mov_add"
+# Compile Entity "Mov_add_testbench"
+# Compile Architecture "behavior" of Entity "Mov_add_testbench"
+# Compile Entity "BR_testbench"
+# Compile Architecture "behavior" of Entity "BR_testbench"
+# Compile success 0 Errors 0 Warnings  Analysis time :  0.8 [s]
+# Error: Accelerated Waveform: Simulation database is not connected. Initialize simulation or load simulation database by opening waveform file (AWC, ASDB).
+asim -O5 +access +r +m+mov_add_testbench mov_add_testbench behavior
+# ELBREAD: Elaboration process.
+# ELBREAD: Elaboration time 0.0 [s].
+# VSIM: Stack memory: 32MB
+# VSIM: Retval memory: 32MB
+# 
+# KERNEL: Main thread initiated.
+# KERNEL: Kernel process initialization phase.
+# ELAB2: Elaboration final pass...
+# ELAB2: Create instances ...
+# KERNEL: Time resolution set to 1ps.
+# ELAB2: Create instances complete.
+# SLP: Started
+# SLP: Elaboration phase ...
+# SLP: Elaboration phase ... skipped, nothing to simulate in SLP mode : 0.0 [s]
+# SLP: Finished : 0.0 [s]
+# ELAB2: Elaboration final pass complete - time: 0.0 [s].
+# KERNEL: Warning: You are using the Active-HDL Student Edition. The performance of simulation is running at a reduced rate.
+# KERNEL: Warning: Contact Aldec for available upgrade options - sales@aldec.com.
+# KERNEL: Kernel process initialization done.
+# Allocation: Simulator allocated 6634 kB (elbread=427 elab2=6066 kernel=141 sdf=0)
+# ASDB: Error: remove: "C:\Users\edu7g\OneDrive\Uni\2024-25\Aoc2\Practicas\Practica 2\Practica2_active\Practica2_design\src\wave.asdbw\001122681cd9540bd2679490af221000.sid": Acceso denegado. 
+# VSIM: Error: Fatal error occurred during simulation.
+asim -O5 +access +r +m+mov_add_testbench mov_add_testbench behavior
+# ELBREAD: Elaboration process.
+# ELBREAD: Elaboration time 0.0 [s].
+# VSIM: Stack memory: 32MB
+# VSIM: Retval memory: 32MB
+# 
+# KERNEL: Main thread initiated.
+# KERNEL: Kernel process initialization phase.
+# ELAB2: Elaboration final pass...
+# ELAB2: Create instances ...
+# KERNEL: Time resolution set to 1ps.
+# ELAB2: Create instances complete.
+# SLP: Started
+# SLP: Elaboration phase ...
+# SLP: Elaboration phase ... skipped, nothing to simulate in SLP mode : 0.0 [s]
+# SLP: Finished : 0.0 [s]
+# ELAB2: Elaboration final pass complete - time: 0.0 [s].
+# KERNEL: Warning: You are using the Active-HDL Student Edition. The performance of simulation is running at a reduced rate.
+# KERNEL: Warning: Contact Aldec for available upgrade options - sales@aldec.com.
+# KERNEL: Kernel process initialization done.
+# Allocation: Simulator allocated 6634 kB (elbread=427 elab2=6066 kernel=141 sdf=0)
+# KERNEL: ASDB file was created in location C:\Users\edu7g\OneDrive\Uni\2024-25\Aoc2\Practicas\Practica 2\Practica2_active\Practica2_design\src\wave.asdb
+#  17:07, viernes, 14 de marzo de 2025
+#  Simulation has been initialized
+# VSIM: 21 object(s) traced.
+# Waveform file 'untitled.awc' connected to 'C:/Users/edu7g/OneDrive/Uni/2024-25/Aoc2/Practicas/Practica 2/Practica2_active/Practica2_design/src/wave.asdb'.
+run
+# KERNEL: WARNING: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+# KERNEL: Time: 0 ps,  Iteration: 0,  Instance: /Mov_add_testbench/uut/Mem_I,  Process: line__77.
+# KERNEL: WARNING: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+# KERNEL: Time: 0 ps,  Iteration: 0,  Instance: /Mov_add_testbench/uut/Register_bank,  Process: line__84.
+# KERNEL: WARNING: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+# KERNEL: Time: 0 ps,  Iteration: 0,  Instance: /Mov_add_testbench/uut/Register_bank,  Process: line__86.
+# KERNEL: WARNING: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+# KERNEL: Time: 0 ps,  Iteration: 0,  Instance: /Mov_add_testbench/uut/adder,  Process: line__44.
+# EXECUTION:: NOTE   : Simulation time : 231000 ps.  Data written: 10000, in Reg = 1
+# EXECUTION:: Time: 231 ns,  Iteration: 1,  Instance: /Mov_add_testbench/uut/Register_bank,  Process: line__60.
+# EXECUTION:: NOTE   : Simulation time : 363000 ps.  Data written: 0, in Reg = 2
+# EXECUTION:: Time: 363 ns,  Iteration: 1,  Instance: /Mov_add_testbench/uut/Register_bank,  Process: line__60.
+# EXECUTION:: NOTE   : Simulation time : 495000 ps.  Data written: 0, in Reg = 3
+# EXECUTION:: Time: 495 ns,  Iteration: 1,  Instance: /Mov_add_testbench/uut/Register_bank,  Process: line__60.
+# EXECUTION:: NOTE   : Simulation time : 627000 ps.  Data written: 6000, in Reg = 4
+# EXECUTION:: Time: 627 ns,  Iteration: 1,  Instance: /Mov_add_testbench/uut/Register_bank,  Process: line__60.
+# EXECUTION:: NOTE   : Simulation time : 759000 ps.  Data written: 100, in Reg = 5
+# EXECUTION:: Time: 759 ns,  Iteration: 1,  Instance: /Mov_add_testbench/uut/Register_bank,  Process: line__60.
+# EXECUTION:: NOTE   : Simulation time : 891000 ps.  Data written: 0, in Reg = 6
+# EXECUTION:: Time: 891 ns,  Iteration: 1,  Instance: /Mov_add_testbench/uut/Register_bank,  Process: line__60.
+# EXECUTION:: NOTE   : Simulation time : 1023000 ps.  Data written: 6, in Reg = 7
+# EXECUTION:: Time: 1023 ns,  Iteration: 1,  Instance: /Mov_add_testbench/uut/Register_bank,  Process: line__60.
+# EXECUTION:: NOTE   : Simulation time : 1155000 ps.  Data written: 0, in Reg = 0
+# EXECUTION:: Time: 1155 ns,  Iteration: 1,  Instance: /Mov_add_testbench/uut/Register_bank,  Process: line__60.
+# EXECUTION:: NOTE   : Simulation time : 1353000 ps.  Data written: 10000, in Reg = 0
+# EXECUTION:: Time: 1353 ns,  Iteration: 1,  Instance: /Mov_add_testbench/uut/Register_bank,  Process: line__60.
+# EXECUTION:: NOTE   : Simulation time : 1551000 ps.  Data written: 10000, in Reg = 0
+# EXECUTION:: Time: 1551 ns,  Iteration: 1,  Instance: /Mov_add_testbench/uut/Register_bank,  Process: line__60.
+# EXECUTION:: NOTE   : Simulation time : 1749000 ps.  Data written: 16000, in Reg = 0
+# EXECUTION:: Time: 1749 ns,  Iteration: 1,  Instance: /Mov_add_testbench/uut/Register_bank,  Process: line__60.
+# EXECUTION:: NOTE   : Simulation time : 1947000 ps.  Data written: 16100, in Reg = 0
+# EXECUTION:: Time: 1947 ns,  Iteration: 1,  Instance: /Mov_add_testbench/uut/Register_bank,  Process: line__60.
+# EXECUTION:: NOTE   : Simulation time : 2145000 ps.  Data written: 16100, in Reg = 0
+# EXECUTION:: Time: 2145 ns,  Iteration: 1,  Instance: /Mov_add_testbench/uut/Register_bank,  Process: line__60.
+# EXECUTION:: NOTE   : Simulation time : 2343000 ps.  Data written: 16106, in Reg = 0
+# EXECUTION:: Time: 2343 ns,  Iteration: 1,  Instance: /Mov_add_testbench/uut/Register_bank,  Process: line__60.
+endsim
+# KERNEL: stopped at time: 13647447 ns
+# VSIM: Simulation has finished.
+# Warning: WAVEFORM: Object matching /mov_add_testbench/uut/UC/state not found in C:/Users/edu7g/OneDrive/Uni/2024-25/Aoc2/Practicas/Practica 2/Practica2_active/Practica2_design/src/wave.asdb.
+# Warning: WAVEFORM: Object matching /mov_add_testbench/uut/UC/next_state not found in C:/Users/edu7g/OneDrive/Uni/2024-25/Aoc2/Practicas/Practica 2/Practica2_active/Practica2_design/src/wave.asdb.
+# Warning: WAVEFORM: Object matching /mov_add_testbench/uut/UC/internal_RegWr not found in C:/Users/edu7g/OneDrive/Uni/2024-25/Aoc2/Practicas/Practica 2/Practica2_active/Practica2_design/src/wave.asdb.
+# Warning: WAVEFORM: Object matching /mov_add_testbench/uut/UC/internal_MUX_ctrl not found in C:/Users/edu7g/OneDrive/Uni/2024-25/Aoc2/Practicas/Practica 2/Practica2_active/Practica2_design/src/wave.asdb.
+# Warning: WAVEFORM: Object matching /mov_add_testbench/uut/UC/internal_load_A not found in C:/Users/edu7g/OneDrive/Uni/2024-25/Aoc2/Practicas/Practica 2/Practica2_active/Practica2_design/src/wave.asdb.
+# Warning: WAVEFORM: Object matching /mov_add_testbench/uut/UC/internal_load_B not found in C:/Users/edu7g/OneDrive/Uni/2024-25/Aoc2/Practicas/Practica 2/Practica2_active/Practica2_design/src/wave.asdb.
+# Warning: WAVEFORM: Object matching /mov_add_testbench/uut/UC/internal_load_ALUout not found in C:/Users/edu7g/OneDrive/Uni/2024-25/Aoc2/Practicas/Practica 2/Practica2_active/Practica2_design/src/wave.asdb.
+# Warning: WAVEFORM: Object matching /mov_add_testbench/uut/UC/internal_PC_ce not found in C:/Users/edu7g/OneDrive/Uni/2024-25/Aoc2/Practicas/Practica 2/Practica2_active/Practica2_design/src/wave.asdb.
+# Warning: WAVEFORM: Object matching /mov_add_testbench/uut/UC/clk not found in C:/Users/edu7g/OneDrive/Uni/2024-25/Aoc2/Practicas/Practica 2/Practica2_active/Practica2_design/src/wave.asdb.
+# Warning: WAVEFORM: Object matching /mov_add_testbench/uut/UC/reset not found in C:/Users/edu7g/OneDrive/Uni/2024-25/Aoc2/Practicas/Practica 2/Practica2_active/Practica2_design/src/wave.asdb.
+# Warning: WAVEFORM: Object matching /mov_add_testbench/uut/UC/op_code not found in C:/Users/edu7g/OneDrive/Uni/2024-25/Aoc2/Practicas/Practica 2/Practica2_active/Practica2_design/src/wave.asdb.
+# Warning: WAVEFORM: Object matching /mov_add_testbench/uut/UC/PC_ce not found in C:/Users/edu7g/OneDrive/Uni/2024-25/Aoc2/Practicas/Practica 2/Practica2_active/Practica2_design/src/wave.asdb.
+# Warning: WAVEFORM: Object matching /mov_add_testbench/uut/UC/load_A not found in C:/Users/edu7g/OneDrive/Uni/2024-25/Aoc2/Practicas/Practica 2/Practica2_active/Practica2_design/src/wave.asdb.
+# Warning: WAVEFORM: Object matching /mov_add_testbench/uut/UC/load_B not found in C:/Users/edu7g/OneDrive/Uni/2024-25/Aoc2/Practicas/Practica 2/Practica2_active/Practica2_design/src/wave.asdb.
+# Warning: WAVEFORM: Object matching /mov_add_testbench/uut/UC/load_ALUout not found in C:/Users/edu7g/OneDrive/Uni/2024-25/Aoc2/Practicas/Practica 2/Practica2_active/Practica2_design/src/wave.asdb.
+# Warning: WAVEFORM: Object matching /mov_add_testbench/uut/UC/RegWr not found in C:/Users/edu7g/OneDrive/Uni/2024-25/Aoc2/Practicas/Practica 2/Practica2_active/Practica2_design/src/wave.asdb.
+# Warning: WAVEFORM: Object matching /mov_add_testbench/uut/UC/MUX_ctrl not found in C:/Users/edu7g/OneDrive/Uni/2024-25/Aoc2/Practicas/Practica 2/Practica2_active/Practica2_design/src/wave.asdb.
+# Warning: WAVEFORM: Object matching /mov_add_testbench/uut/UC/state not found in C:/Users/edu7g/OneDrive/Uni/2024-25/Aoc2/Practicas/Practica 2/Practica2_active/Practica2_design/src/wave.asdb.
+asim -O5 +access +r +m+mov_add_testbench mov_add_testbench behavior
+# ELBREAD: Elaboration process.
+# ELBREAD: Elaboration time 0.0 [s].
+# VSIM: Stack memory: 32MB
+# VSIM: Retval memory: 32MB
+# 
+# KERNEL: Main thread initiated.
+# KERNEL: Kernel process initialization phase.
+# ELAB2: Elaboration final pass...
+# ELAB2: Create instances ...
+# KERNEL: Time resolution set to 1ps.
+# ELAB2: Create instances complete.
+# SLP: Started
+# SLP: Elaboration phase ...
+# SLP: Elaboration phase ... skipped, nothing to simulate in SLP mode : 0.0 [s]
+# SLP: Finished : 0.0 [s]
+# ELAB2: Elaboration final pass complete - time: 0.0 [s].
+# KERNEL: Warning: You are using the Active-HDL Student Edition. The performance of simulation is running at a reduced rate.
+# KERNEL: Warning: Contact Aldec for available upgrade options - sales@aldec.com.
+# KERNEL: Kernel process initialization done.
+# Allocation: Simulator allocated 6634 kB (elbread=427 elab2=6066 kernel=141 sdf=0)
+# ASDB: Error: remove: "C:\Users\edu7g\OneDrive\Uni\2024-25\Aoc2\Practicas\Practica 2\Practica2_active\Practica2_design\src\wave.asdbw\current": Acceso denegado. 
+# VSIM: Error: Fatal error occurred during simulation.
+asim -O5 +access +r +m+mov_add_testbench mov_add_testbench behavior
+# ELBREAD: Elaboration process.
+# ELBREAD: Elaboration time 0.0 [s].
+# VSIM: Stack memory: 32MB
+# VSIM: Retval memory: 32MB
+# 
+# KERNEL: Main thread initiated.
+# KERNEL: Kernel process initialization phase.
+# ELAB2: Elaboration final pass...
+# ELAB2: Create instances ...
+# KERNEL: Time resolution set to 1ps.
+# ELAB2: Create instances complete.
+# SLP: Started
+# SLP: Elaboration phase ...
+# SLP: Elaboration phase ... skipped, nothing to simulate in SLP mode : 0.0 [s]
+# SLP: Finished : 0.0 [s]
+# ELAB2: Elaboration final pass complete - time: 0.0 [s].
+# KERNEL: Warning: You are using the Active-HDL Student Edition. The performance of simulation is running at a reduced rate.
+# KERNEL: Warning: Contact Aldec for available upgrade options - sales@aldec.com.
+# KERNEL: Kernel process initialization done.
+# Allocation: Simulator allocated 6634 kB (elbread=427 elab2=6066 kernel=141 sdf=0)
+# ASDB: Error: remove: "C:\Users\edu7g\OneDrive\Uni\2024-25\Aoc2\Practicas\Practica 2\Practica2_active\Practica2_design\src\wave.asdbw\current": Acceso denegado. 
+# VSIM: Error: Fatal error occurred during simulation.

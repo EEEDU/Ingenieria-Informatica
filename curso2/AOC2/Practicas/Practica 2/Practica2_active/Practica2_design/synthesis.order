@@ -1,0 +1,10 @@
+i<>.\src\mov_add_test.vhd
+i<>.\src\breg_delays.vhd
+i<>.\src\uc_mov_add.vhd
+i<>.\src\br_test.vhd
+i<>.\src\rom_i_delay.vhd
+i<>.\src\register_delay.vhd
+i<>.\src\mov_add.vhd
+i<>.\src\adder32_delay.vhd
+i<>.\src\mux2_1_delay.vhd
+i<>.\src\counter_delay.vhd

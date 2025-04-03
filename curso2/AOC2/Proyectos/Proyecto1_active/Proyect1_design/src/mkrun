@@ -1,0 +1,2 @@
+ghdl -m --ieee=synopsys -fexplicit --workdir=$1 $2
+./$2 --stop-time=$3 --wave=test.ghw

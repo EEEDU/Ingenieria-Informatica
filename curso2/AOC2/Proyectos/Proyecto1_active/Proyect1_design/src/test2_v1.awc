@@ -1,0 +1,89 @@
+<config>
+    <version>
+        3.1
+    </version>
+    <comment>
+    </comment>
+    <databases>
+        <database id="">*virtual*</database>
+        <database id="LOCAL___3132e9670208d2061800">test2_v1.asdb</database>
+    </databases>
+    <gridshown/>
+    <signallists>
+        <signallist id="0">
+        <signal>/testbench/clk</signal>
+        <signal>/testbench/reset</signal>
+        <signal>/testbench/uut/MIPS_core/Exception_accepted</signal>
+        <signal>/testbench/uut/MIPS_core/Data_abort</signal>
+        <signal>/testbench/uut/MIPS_core/Undef</signal>
+        <signal>/testbench/uut/MIPS_core/IRQ</signal>
+        <signal>/testbench/uut/MIPS_core/RTE_ID</signal>
+        <signal>/testbench/uut/MIPS_core/ret_ID</signal>
+        <signal>/testbench/uut/MIPS_core/salto_tomado</signal>
+        <signal>/testbench/uut/IO_Mem/INT_ACK</signal>
+        <signal>/testbench/uut/IO_Mem/Ext_IRQ</signal>
+        <signal>/testbench/uut/IO_Mem/MIPS_IRQ</signal>
+        <signal>/testbench/uut/MIPS_core/Kill_IF</signal>
+        <signal>/testbench/uut/MIPS_core/valid_I_IF</signal>
+        <signal>/testbench/uut/MIPS_core/valid_I_ID</signal>
+        <signal>/testbench/uut/MIPS_core/valid_I_EX</signal>
+        <signal>/testbench/uut/MIPS_core/valid_I_MEM</signal>
+        <signal>/testbench/uut/MIPS_core/valid_I_WB</signal>
+        <signal>/testbench/uut/MIPS_core/pc/Dout</signal>
+        <signal>/testbench/uut/MIPS_core/IR_in</signal>
+        <signal>/testbench/uut/MIPS_core/Banco_IF_ID/valid_I_ID</signal>
+        <signal>/testbench/uut/MIPS_core/Banco_IF_ID/IR_ID</signal>
+        <signal>/testbench/uut/MIPS_core/UC_seg/IR_op_code</signal>
+        <signal>/testbench/uut/MIPS_core/Dirsalto_ID</signal>
+        <signal>/testbench/uut/MIPS_core/INT_Register_bank/RA</signal>
+        <signal>/testbench/uut/MIPS_core/INT_Register_bank/RB</signal>
+        <signal>/testbench/uut/MIPS_core/INT_Register_bank/BusA</signal>
+        <signal>/testbench/uut/MIPS_core/INT_Register_bank/BusB</signal>
+        <signal>/testbench/uut/MIPS_core/adder_dir/Dout</signal>
+        <signal>/testbench/uut/MIPS_core/sign_ext/inm_ext</signal>
+        <signal>/testbench/uut/MIPS_core/Banco_ID_EX/busA</signal>
+        <signal>/testbench/uut/MIPS_core/Banco_ID_EX/valid_I_EX</signal>
+        <signal>/testbench/uut/MIPS_core/Banco_ID_EX/busA_EX</signal>
+        <signal>/testbench/uut/MIPS_core/ALU_MIPs/DA</signal>
+        <signal>/testbench/uut/MIPS_core/ALU_MIPs/DB</signal>
+        <signal>/testbench/uut/MIPS_core/ALU_MIPs/Dout</signal>
+        <signal>/testbench/uut/MIPS_core/Banco_EX_MEM/valid_I_MEM</signal>
+        <signal>/testbench/uut/IO_Mem/MD/ADDR</signal>
+        <signal>/testbench/uut/IO_Mem/MD/Din</signal>
+        <signal>/testbench/uut/IO_Mem/MD/Dout</signal>
+        <signal>/testbench/uut/MIPS_core/Banco_MEM_WB/valid_I_WB</signal>
+        <signal>/testbench/uut/MIPS_core/INT_Register_bank/BusW</signal>
+        <signal>/testbench/uut/MIPS_core/INT_Register_bank/RW</signal>
+        <signal>/testbench/uut/MIPS_core/INT_Register_bank/reg_file</signal>
+        <signal>/testbench/uut/IO_Mem/MD/RAM</signal>
+        <signal>/testbench/uut/IO_Mem/Output_data</signal>
+        </signallist>
+    </signallists>
+    <timebases>
+        <timebase id="0">
+            <time start_time="0" end_time="2000000" />
+        </timebase>
+    </timebases>
+    <prefbases>
+        <prefbase id="0" >
+        </prefbase>
+    </prefbases>
+    <bookmarkbases>
+        <bookmarks id="0">
+        </bookmarks>
+    </bookmarkbases>
+    <cursorbases>
+        <cursors id="0">
+            <cursor value="5000" label="Cursor 1" locked="0" />
+        </cursors>
+    </cursorbases>
+    <measurementbases>
+    </measurementbases>
+    <commentbases>
+        <comments id="0">
+        </comments>
+    </commentbases>
+    <views>
+        <view signallist="0" propertybase="0" prefbase="0" type="1" bookmarks="0" cursors="0" measurements="-1" comments="-1" />
+    </views>
+</config>

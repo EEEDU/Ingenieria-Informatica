@@ -1,0 +1,72 @@
+<config>
+    <version>
+        3.1
+    </version>
+    <comment>
+    </comment>
+    <databases>
+        <database id="">*virtual*</database>
+        <database id="LOCAL___0acbe6671fd681080000">wave_ejemplo.asdb</database>
+    </databases>
+    <gridshown/>
+    <signallists>
+        <signallist id="0">
+        <signal>/testbench/clk</signal>
+        <signal>/testbench/reset</signal>
+        <signal>/testbench/uut/MIPS_core/UC_seg/Branch</signal>
+        <signal>/testbench/uut/MIPS_core/UC_seg/RegDst</signal>
+        <signal>/testbench/uut/MIPS_core/UC_seg/ALUSrc</signal>
+        <signal>/testbench/uut/MIPS_core/UC_seg/MemWrite</signal>
+        <signal>/testbench/uut/MIPS_core/UC_seg/MemRead</signal>
+        <signal>/testbench/uut/MIPS_core/UC_seg/MemtoReg</signal>
+        <signal>/testbench/uut/MIPS_core/UC_seg/RegWrite</signal>
+        <signal>/testbench/uut/MIPS_core/UC_seg/jal</signal>
+        <signal>/testbench/uut/MIPS_core/UC_seg/ret</signal>
+        <signal>/testbench/uut/MIPS_core/UC_seg/undef</signal>
+        <signal>/testbench/uut/MIPS_core/UC_seg/RTE</signal>
+        <signal>/testbench/uut/MIPS_core/UC_seg/f_inc</signal>
+        <signal>/testbench/uut/MIPS_core/UC_seg/valid_I_ID</signal>
+        <signal>/testbench/uut/MIPS_core/UC_seg/IR_op_code</signal>
+        <signal>/testbench/uut/MIPS_core/Mem_I/RAM</signal>
+        <signal>/testbench/uut/MIPS_core/pc/Dout</signal>
+        <signal>/testbench/uut/MIPS_core/INT_Register_bank/reg_file</signal>
+        </signallist>
+    </signallists>
+    <timebases>
+        <timebase id="0">
+            <time start_time="0" end_time="505386" />
+        </timebase>
+    </timebases>
+    <prefbases>
+        <prefbase id="0" >
+        </prefbase>
+    </prefbases>
+    <bookmarkbases>
+        <bookmarks id="0">
+            <bookmark value="34963"/>
+            <bookmark value="41320"/>
+            <bookmark value="41809"/>
+            <bookmark value="42054"/>
+            <bookmark value="42298"/>
+            <bookmark value="42543"/>
+            <bookmark value="43765"/>
+            <bookmark value="44988"/>
+        </bookmarks>
+    </bookmarkbases>
+    <cursorbases>
+        <cursors id="0">
+            <cursor value="76284" label="Cursor 1" locked="0" />
+        </cursors>
+    </cursorbases>
+    <measurementbases>
+    </measurementbases>
+    <commentbases>
+        <comments id="0">
+        </comments>
+        <comments id="1">
+        </comments>
+    </commentbases>
+    <views>
+        <view signallist="0" propertybase="0" prefbase="0" type="1" bookmarks="0" cursors="0" measurements="-1" comments="1" />
+    </views>
+</config>

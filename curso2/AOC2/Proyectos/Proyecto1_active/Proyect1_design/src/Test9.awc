@@ -1,0 +1,82 @@
+<config>
+    <version>
+        3.1
+    </version>
+    <comment>
+    </comment>
+    <databases>
+        <database id="">*virtual*</database>
+        <database id="LOCAL___9d2ceb67263d8c0e2900">Test9.asdb</database>
+    </databases>
+    <gridshown/>
+    <signallists>
+        <signallist id="0">
+        <signal>/testbench/clk</signal>
+        <signal>/testbench/reset</signal>
+        <signal>/testbench/uut/MIPS_core/pc/Dout</signal>
+        <signal>/testbench/uut/MIPS_core/Banco_IF_ID/IR_in</signal>
+        <signal>/testbench/uut/MIPS_core/Unidad_detencion_riesgos/dep_rs_EX</signal>
+        <signal>/testbench/uut/MIPS_core/Unidad_detencion_riesgos/dep_rs_Mem</signal>
+        <signal>/testbench/uut/MIPS_core/Unidad_detencion_riesgos/dep_rt_EX</signal>
+        <signal>/testbench/uut/MIPS_core/Unidad_detencion_riesgos/dep_rt_Mem</signal>
+        <signal>/testbench/uut/MIPS_core/Unidad_detencion_riesgos/ld_uso_rs</signal>
+        <signal>/testbench/uut/MIPS_core/Unidad_detencion_riesgos/ld_uso_rt</signal>
+        <signal>/testbench/uut/MIPS_core/Unidad_detencion_riesgos/JAL_uso_rs</signal>
+        <signal>/testbench/uut/MIPS_core/Unidad_detencion_riesgos/JAL_uso_rt</signal>
+        <signal>/testbench/uut/MIPS_core/Unidad_detencion_riesgos/RET_rs</signal>
+        <signal>/testbench/uut/MIPS_core/Unidad_detencion_riesgos/BEQ_rs</signal>
+        <signal>/testbench/uut/MIPS_core/Unidad_detencion_riesgos/BEQ_rt</signal>
+        <signal>/testbench/uut/MIPS_core/Unidad_detencion_riesgos/riesgo_datos_ID</signal>
+        <signal>/testbench/uut/MIPS_core/Unidad_detencion_riesgos/stall_MIPS_internal</signal>
+        <signal>/testbench/uut/MIPS_core/Unidad_detencion_riesgos/rs_read</signal>
+        <signal>/testbench/uut/MIPS_core/Unidad_detencion_riesgos/rt_read</signal>
+        <signal>/testbench/uut/MIPS_core/Unidad_detencion_riesgos/valid_I_ID</signal>
+        <signal>/testbench/uut/MIPS_core/Unidad_detencion_riesgos/valid_I_EX</signal>
+        <signal>/testbench/uut/MIPS_core/Unidad_detencion_riesgos/valid_I_MEM</signal>
+        <signal>/testbench/uut/MIPS_core/Unidad_detencion_riesgos/Reg_Rs_ID</signal>
+        <signal>/testbench/uut/MIPS_core/Unidad_detencion_riesgos/Reg_Rt_ID</signal>
+        <signal>/testbench/uut/MIPS_core/Unidad_detencion_riesgos/MemRead_EX</signal>
+        <signal>/testbench/uut/MIPS_core/Unidad_detencion_riesgos/RegWrite_EX</signal>
+        <signal>/testbench/uut/MIPS_core/Unidad_detencion_riesgos/RW_EX</signal>
+        <signal>/testbench/uut/MIPS_core/Unidad_detencion_riesgos/RegWrite_Mem</signal>
+        <signal>/testbench/uut/MIPS_core/Unidad_detencion_riesgos/RW_Mem</signal>
+        <signal>/testbench/uut/MIPS_core/Unidad_detencion_riesgos/IR_op_code</signal>
+        <signal>/testbench/uut/MIPS_core/Unidad_detencion_riesgos/salto_tomado</signal>
+        <signal>/testbench/uut/MIPS_core/Unidad_detencion_riesgos/JAL_EX</signal>
+        <signal>/testbench/uut/MIPS_core/Unidad_detencion_riesgos/JAL_MEM</signal>
+        <signal>/testbench/uut/MIPS_core/Unidad_detencion_riesgos/IO_MEM_ready</signal>
+        <signal>/testbench/uut/MIPS_core/Unidad_detencion_riesgos/stall_MIPS</signal>
+        <signal>/testbench/uut/MIPS_core/Unidad_detencion_riesgos/Kill_IF</signal>
+        <signal>/testbench/uut/MIPS_core/Unidad_detencion_riesgos/stall_ID</signal>
+        <signal>/testbench/uut/MIPS_core/INT_Register_bank/reg_file</signal>
+        <signal>/testbench/uut/IO_Mem/MD/RAM</signal>
+        </signallist>
+    </signallists>
+    <timebases>
+        <timebase id="0">
+            <time start_time="0" end_time="303232" />
+        </timebase>
+    </timebases>
+    <prefbases>
+        <prefbase id="0" >
+        </prefbase>
+    </prefbases>
+    <bookmarkbases>
+        <bookmarks id="0">
+        </bookmarks>
+    </bookmarkbases>
+    <cursorbases>
+        <cursors id="0">
+            <cursor value="300000" label="Cursor 1" locked="0" />
+        </cursors>
+    </cursorbases>
+    <measurementbases>
+    </measurementbases>
+    <commentbases>
+        <comments id="0">
+        </comments>
+    </commentbases>
+    <views>
+        <view signallist="0" propertybase="0" prefbase="0" type="1" bookmarks="0" cursors="0" measurements="-1" comments="-1" />
+    </views>
+</config>

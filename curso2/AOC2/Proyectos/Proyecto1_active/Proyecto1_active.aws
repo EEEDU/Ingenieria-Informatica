@@ -1,0 +1,11 @@
+[Version]
+Version=15.0
+[Designs]
+proyect1_design=.\Proyect1_design\Proyect1_design.adf
+[Browser]
+sort=order
+mode=none
+[Order]
+order=1
+[Expand]
+proyect1_design=1

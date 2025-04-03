@@ -1,0 +1,66 @@
+<config>
+    <version>
+        3.1
+    </version>
+    <comment>
+    </comment>
+    <databases>
+        <database id="">*virtual*</database>
+        <database id="LOCAL___692aeb67e7a1830e2600">Test8.asdb</database>
+    </databases>
+    <gridshown/>
+    <signallists>
+        <signallist id="0">
+        <signal>/testbench/clk</signal>
+        <signal>/testbench/reset</signal>
+        <signal>/testbench/uut/MIPS_core/pc/Dout</signal>
+        <signal>/testbench/uut/MIPS_core/Banco_IF_ID/IR_in</signal>
+        <signal>/testbench/uut/MIPS_core/Unidad_Ant_INT/Corto_A_Mem</signal>
+        <signal>/testbench/uut/MIPS_core/Unidad_Ant_INT/Corto_B_Mem</signal>
+        <signal>/testbench/uut/MIPS_core/Unidad_Ant_INT/Corto_A_WB</signal>
+        <signal>/testbench/uut/MIPS_core/Unidad_Ant_INT/Corto_B_WB</signal>
+        <signal>/testbench/uut/MIPS_core/Unidad_Ant_INT/valid_I_MEM</signal>
+        <signal>/testbench/uut/MIPS_core/Unidad_Ant_INT/valid_I_WB</signal>
+        <signal>/testbench/uut/MIPS_core/Unidad_Ant_INT/Reg_Rs_EX</signal>
+        <signal>/testbench/uut/MIPS_core/Unidad_Ant_INT/Reg_Rt_EX</signal>
+        <signal>/testbench/uut/MIPS_core/Unidad_Ant_INT/RegWrite_MEM</signal>
+        <signal>/testbench/uut/MIPS_core/Unidad_Ant_INT/RW_MEM</signal>
+        <signal>/testbench/uut/MIPS_core/Unidad_Ant_INT/RegWrite_WB</signal>
+        <signal>/testbench/uut/MIPS_core/Unidad_Ant_INT/RW_WB</signal>
+        <signal>/testbench/uut/MIPS_core/Unidad_Ant_INT/MUX_ctrl_A</signal>
+        <signal>/testbench/uut/MIPS_core/Unidad_Ant_INT/MUX_ctrl_B</signal>
+        <signal>/testbench/uut/MIPS_core/ALU_MIPs/DA</signal>
+        <signal>/testbench/uut/MIPS_core/ALU_MIPs/DB</signal>
+        <signal>/testbench/uut/MIPS_core/ALU_MIPs/Dout</signal>
+        <signal>/testbench/uut/MIPS_core/INT_Register_bank/reg_file</signal>
+        <signal>/testbench/uut/IO_Mem/MD/RAM</signal>
+        </signallist>
+    </signallists>
+    <timebases>
+        <timebase id="0">
+            <time start_time="0" end_time="303232" />
+        </timebase>
+    </timebases>
+    <prefbases>
+        <prefbase id="0" >
+        </prefbase>
+    </prefbases>
+    <bookmarkbases>
+        <bookmarks id="0">
+        </bookmarks>
+    </bookmarkbases>
+    <cursorbases>
+        <cursors id="0">
+            <cursor value="300000" label="Cursor 1" locked="0" />
+        </cursors>
+    </cursorbases>
+    <measurementbases>
+    </measurementbases>
+    <commentbases>
+        <comments id="0">
+        </comments>
+    </commentbases>
+    <views>
+        <view signallist="0" propertybase="0" prefbase="0" type="1" bookmarks="0" cursors="0" measurements="-1" comments="-1" />
+    </views>
+</config>

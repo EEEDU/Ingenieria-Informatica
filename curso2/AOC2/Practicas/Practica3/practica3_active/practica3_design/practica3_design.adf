@@ -1,0 +1,77 @@
+[Project]
+Current Flow=Generic
+VCS=0
+version=4
+Current Config=compile
+[Configurations]
+compile=practica3_design
+[Library]
+practica3_design=.\practica3_design\practica3_design.lib
+[$LibMap$]
+practica3_design=.
+Active_lib=
+[Settings]
+FLOW_TYPE=HDL
+LANGUAGE=VHDL
+REFRESH_FLOW=1
+FLOWTOOLS=NONE
+FAMILY=
+fileopenfolder=C:\Users\edu7g\Ingenieria-Informatica\curso2\AOC2\Practicas\Practica3\practica3_active\practica3_design\src
+[Files]
+/mips_segmentado_practicas_completar_v2.vhd=-1
+/bits_shifter.vhd=-1
+/alu.vhd=-1
+/uc_completar.vhd=-1
+/counter.vhd=-1
+/register.vhd=-1
+/ext_signo.vhd=-1
+/adder32.vhd=-1
+/testbench_mips.vhd=-1
+/mux4_1.vhd=-1
+/mux2_1.vhd=-1
+/breg.vhd=-1
+/mux2_5bits.vhd=-1
+/banco_wb.vhd=-1
+/banco_mem.vhd=-1
+/banco_id.vhd=-1
+/banco_ex.vhd=-1
+/Practica3_v1.asdb=-1
+/Practica3_v1.awc=-1
+/Practica3_NIA-R.asdb=-1
+/Practica3_NIA-R.awc=-1
+/Practica3_NIA.asdb=-1
+/Practica3_NIA.awc=-1
+/RAM_D.vhd=-1
+/RAM_I_816106-R.vhd=-1
+/RAM_I_816106.vhd=-1
+[Files.Data]
+.\src\mips_segmentado_practicas_completar_v2.vhd=VHDL Source Code
+.\src\bits_shifter.vhd=VHDL Source Code
+.\src\alu.vhd=VHDL Source Code
+.\src\uc_completar.vhd=VHDL Source Code
+.\src\counter.vhd=VHDL Source Code
+.\src\register.vhd=VHDL Source Code
+.\src\ext_signo.vhd=VHDL Source Code
+.\src\adder32.vhd=VHDL Source Code
+.\src\testbench_mips.vhd=VHDL Source Code
+.\src\mux4_1.vhd=VHDL Source Code
+.\src\mux2_1.vhd=VHDL Source Code
+.\src\breg.vhd=VHDL Source Code
+.\src\mux2_5bits.vhd=VHDL Source Code
+.\src\banco_wb.vhd=VHDL Source Code
+.\src\banco_mem.vhd=VHDL Source Code
+.\src\banco_id.vhd=VHDL Source Code
+.\src\banco_ex.vhd=VHDL Source Code
+.\src\Practica3_v1.asdb=Accelerated Waveform File
+.\src\Practica3_v1.awc=Accelerated Waveform Configuration
+.\src\Practica3_NIA-R.asdb=Accelerated Waveform File
+.\src\Practica3_NIA-R.awc=Accelerated Waveform Configuration
+.\src\Practica3_NIA.asdb=Accelerated Waveform File
+.\src\Practica3_NIA.awc=Accelerated Waveform Configuration
+.\src\RAM_D.vhd=VHDL Source Code
+.\src\RAM_I_816106-R.vhd=VHDL Source Code
+.\src\RAM_I_816106.vhd=VHDL Source Code
+[HierarchyViewer]
+HierarchyInformation=testbench|behavior|0
+ShowHide=ShowTopLevel
+Selected=

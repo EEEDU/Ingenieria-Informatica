@@ -1,0 +1,1 @@
+-w -d C:/My_Designs/practica3_active/practica3_design/compile -s C:/My_Designs/practica3_active/library.cfg -j C:/My_Designs/practica3_active/practica3_design/projlib.cfg -work practica3_design -O3 -e 100 -work practica3_design -2002 C:/My_Designs/practica3_active/practica3_design/src/ram-i_ejemplo_sin_nops_planificar.vhd 

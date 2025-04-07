@@ -1,0 +1,54 @@
+Active-HDL 15.0.261.9132 2025-03-27 01:29:00
+
+Elaboration top modules:
+Architecture                  behavior(testbench)
+
+
+-----------------------------------------------------------------------------------------------------------------
+Entity                | Architecture | Library          | Info | Compiler Version          | Compilation Options
+-----------------------------------------------------------------------------------------------------------------
+testbench             | behavior     | practica3_design |      | 15.0.261.9132 (Windows64) | -O3
+MIPs_segmentado       | Behavioral   | practica3_design |      | 15.0.261.9132 (Windows64) | -O3
+reg                   | behavioral   | practica3_design |      | 15.0.261.9132 (Windows64) | -O3
+adder32               | Behavioral   | practica3_design |      | 15.0.261.9132 (Windows64) | -O3
+mux4_1                | Behavioral   | practica3_design |      | 15.0.261.9132 (Windows64) | -O3
+memoriaRAM_I          | Behavioral   | practica3_design |      | 15.0.261.9132 (Windows64) | -O3
+Banco_ID              | Behavioral   | practica3_design |      | 15.0.261.9132 (Windows64) | -O3
+BReg                  | Behavioral   | practica3_design |      | 15.0.261.9132 (Windows64) | -O3
+Ext_signo             | Behavioral   | practica3_design |      | 15.0.261.9132 (Windows64) | -O3
+two_bits_shifter      | Behavioral   | practica3_design |      | 15.0.261.9132 (Windows64) | -O3
+UC                    | Behavioral   | practica3_design |      | 15.0.261.9132 (Windows64) | -O3
+Banco_EX              | Behavioral   | practica3_design |      | 15.0.261.9132 (Windows64) | -O3
+mux2_1                | Behavioral   | practica3_design |      | 15.0.261.9132 (Windows64) | -O3
+ALU                   | Behavioral   | practica3_design |      | 15.0.261.9132 (Windows64) | -O3
+mux2_5bits            | Behavioral   | practica3_design |      | 15.0.261.9132 (Windows64) | -O3
+Banco_MEM             | Behavioral   | practica3_design |      | 15.0.261.9132 (Windows64) | -O3
+Data_Memory_Subsystem | Behavioral   | practica3_design |      | 15.0.261.9132 (Windows64) | -O3
+Banco_WB              | Behavioral   | practica3_design |      | 15.0.261.9132 (Windows64) | -O3
+counter               | Behavioral   | practica3_design |      | 15.0.261.9132 (Windows64) | -O3
+-----------------------------------------------------------------------------------------------------------------
+
+-----------------------------------------------------------------------------------------------------------------
+VHDL Package                         | Library          | Info | Compiler Version          | Compilation Options
+-----------------------------------------------------------------------------------------------------------------
+standard                             | std              |      |                           | <unavailable>
+TEXTIO                               | std              |      | 15.0.261.9132 (Windows64) |  -2019
+std_logic_1164                       | ieee             |      | 15.0.261.9132 (Windows64) |  -2008
+NUMERIC_STD                          | ieee             |      | 15.0.261.9132 (Windows64) |  -2008
+std_logic_arith                      | ieee             |      | 15.0.261.9132 (Windows64) | <unavailable>
+STD_LOGIC_UNSIGNED                   | ieee             |      | 15.0.261.9132 (Windows64) | <unavailable>
+-----------------------------------------------------------------------------------------------------------------
+
+-----------------------------------------------------------------------------------------------------------------
+Library                              | Comment
+-----------------------------------------------------------------------------------------------------------------
+ieee                                 | Standard IEEE packages library
+practica3_design                     | None
+std                                  | Standard VHDL library
+-----------------------------------------------------------------------------------------------------------------
+
+
+Simulation Options: asim -O5 +access +r +m+testbench testbench behavior
+
+
+The performance of simulation is reduced. Version Student Edition

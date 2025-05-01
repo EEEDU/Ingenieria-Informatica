@@ -1,0 +1,1014 @@
+# ELBREAD: Elaboration process.
+# ELBREAD: Elaboration time 0.2 [s].
+# Waveform file 'C:/Users/edu7g/Ingenieria-Informatica/curso2/AOC2/Proyectos/Proyecto1/Proyecto1_active/Proyect1_design/src/test2_v1.awc' connected to 'C:/Users/edu7g/Ingenieria-Informatica/curso2/AOC2/Proyectos/Proyecto1/Proyecto1_active/Proyect1_design/src/test2_v1.asdb'.
+# Waveform file 'C:/Users/edu7g/Ingenieria-Informatica/curso2/AOC2/Proyectos/Proyecto1/Proyecto1_active/Proyect1_design/src/Testbench2_IRQ.awc' connected to 'C:/Users/edu7g/Ingenieria-Informatica/curso2/AOC2/Proyectos/Proyecto1/Proyecto1_active/Proyect1_design/src/Testbench2_IRQ.asdb'.
+# Waveform file 'C:/Users/edu7g/Ingenieria-Informatica/curso2/AOC2/Proyectos/Proyecto1/Proyecto1_active/Proyect1_design/src/Testbench3_DataAbort.awc' connected to 'C:/Users/edu7g/Ingenieria-Informatica/curso2/AOC2/Proyectos/Proyecto1/Proyecto1_active/Proyect1_design/src/Testbench3_DataAbort.asdb'.
+# Waveform file 'C:/Users/edu7g/Ingenieria-Informatica/curso2/AOC2/Proyectos/Proyecto1/Proyecto1_active/Proyect1_design/src/Test6.awc' connected to 'C:/Users/edu7g/Ingenieria-Informatica/curso2/AOC2/Proyectos/Proyecto1/Proyecto1_active/Proyect1_design/src/Test6.asdb'.
+# Waveform file 'C:/Users/edu7g/Ingenieria-Informatica/curso2/AOC2/Proyectos/Proyecto1/Proyecto1_active/Proyect1_design/src/Test8.awc' connected to 'C:/Users/edu7g/Ingenieria-Informatica/curso2/AOC2/Proyectos/Proyecto1/Proyecto1_active/Proyect1_design/src/Test8.asdb'.
+# Waveform file 'C:/Users/edu7g/Ingenieria-Informatica/curso2/AOC2/Proyectos/Proyecto1/Proyecto1_active/Proyect1_design/src/Test9.awc' connected to 'C:/Users/edu7g/Ingenieria-Informatica/curso2/AOC2/Proyectos/Proyecto1/Proyecto1_active/Proyect1_design/src/Test9.asdb'.
+acom -O3 -e 100 -work Proyect1_design -2002  $dsn/src/incomplete_uc_mips_2025.vhd $dsn/src/mux2_5bits.vhd $dsn/src/register.vhd $dsn/src/ram_i_test_exceptions.vhd $dsn/src/mux4_1.vhd $dsn/src/mux2_1.vhd $dsn/src/incomplete_ud_2025.vhd $dsn/src/banco_mem.vhd $dsn/src/counter.vhd $dsn/src/incomplete_ua_2025.vhd $dsn/src/ext_signo.vhd $dsn/src/bits_shifter.vhd $dsn/src/breg.vhd $dsn/src/banco_wb.vhd $dsn/src/banco_ex.vhd $dsn/src/banco_id.vhd $dsn/src/alu.vhd $dsn/src/adder32.vhd $dsn/src/incomplete_mips_segmentado_irq.vhd $dsn/src/aoc2_soc.vhd $dsn/src/io_md_subsystem.vhd $dsn/src/ram_128_32_p1_2025.vhd $dsn/src/exception_manager.vhd $dsn/src/testbench_aoc2_soc.vhd $dsn/src/testbench_md.vhd
+# Compile Entity "UC"
+# Compile Architecture "Behavioral" of Entity "UC"
+# Compile Entity "mux2_5bits"
+# Compile Architecture "Behavioral" of Entity "mux2_5bits"
+# Compile Entity "reg"
+# Compile Architecture "behavioral" of Entity "REG"
+# Compile Entity "memoriaRAM_I"
+# Compile Architecture "Behavioral" of Entity "memoriaRAM_I"
+# Compile Entity "mux4_1"
+# Compile Architecture "Behavioral" of Entity "mux4_1"
+# Compile Entity "mux2_1"
+# Compile Architecture "Behavioral" of Entity "mux2_1"
+# Compile Entity "UD"
+# Compile Architecture "Behavioral" of Entity "UD"
+# Compile Entity "Banco_MEM"
+# Compile Architecture "Behavioral" of Entity "Banco_MEM"
+# Compile Entity "counter"
+# Compile Architecture "Behavioral" of Entity "counter"
+# Compile Entity "UA"
+# Compile Architecture "Behavioral" of Entity "UA"
+# Compile Entity "Ext_signo"
+# Compile Architecture "Behavioral" of Entity "Ext_signo"
+# Compile Entity "two_bits_shifter"
+# Compile Architecture "Behavioral" of Entity "two_bits_shifter"
+# Compile Entity "BReg"
+# Compile Architecture "Behavioral" of Entity "BReg"
+# Compile Entity "Banco_WB"
+# Compile Architecture "Behavioral" of Entity "Banco_WB"
+# Compile Entity "Banco_EX"
+# Compile Architecture "Behavioral" of Entity "Banco_EX"
+# Compile Entity "Banco_ID"
+# Compile Architecture "Behavioral" of Entity "Banco_ID"
+# Compile Entity "ALU"
+# Compile Architecture "Behavioral" of Entity "ALU"
+# Compile Entity "adder32"
+# Compile Architecture "Behavioral" of Entity "adder32"
+# Compile Entity "MIPs_segmentado"
+# Compile Architecture "Behavioral" of Entity "MIPs_segmentado"
+# Compile Entity "AOC2_SoC"
+# Compile Architecture "behavior" of Entity "AOC2_SoC"
+# Compile Entity "IO_Data_Memory_Subsystem"
+# Compile Architecture "Behavioral" of Entity "IO_Data_Memory_Subsystem"
+# Compile Entity "RAM_128_32"
+# Compile Architecture "Behavioral" of Entity "RAM_128_32"
+# Compile Entity "Exception_manager"
+# Compile Architecture "Behavioral" of Entity "Exception_manager"
+# Compile Entity "testbench"
+# Compile Architecture "behavior" of Entity "testbench"
+# Compile Entity "testbench_MD_mas_MC"
+# Compile Architecture "behavior" of Entity "testbench_MD_mas_MC"
+# Compile success 0 Errors 0 Warnings  Analysis time :  2.0 [s]
+asim -O5 +access +r +m+testbench testbench behavior
+# ELBREAD: Elaboration process.
+# ELBREAD: Elaboration time 0.0 [s].
+# VSIM: Stack memory: 32MB
+# VSIM: Retval memory: 32MB
+# 
+# KERNEL: Main thread initiated.
+# KERNEL: Kernel process initialization phase.
+# ELAB2: Elaboration final pass...
+# ELAB2: Create instances ...
+# KERNEL: Time resolution set to 1ps.
+# ELAB2: Create instances complete.
+# SLP: Started
+# SLP: Elaboration phase ...
+# SLP: Elaboration phase ... skipped, nothing to simulate in SLP mode : 0.0 [s]
+# SLP: Finished : 0.0 [s]
+# ELAB2: Elaboration final pass complete - time: 0.2 [s].
+# KERNEL: Warning: You are using the Active-HDL Student Edition. The performance of simulation is running at a reduced rate.
+# KERNEL: Warning: Contact Aldec for available upgrade options - sales@aldec.com.
+# KERNEL: Kernel process initialization done.
+# Allocation: Simulator allocated 6714 kB (elbread=427 elab2=6141 kernel=145 sdf=0)
+# KERNEL: ASDB file was created in location C:\Users\edu7g\Ingenieria-Informatica\curso2\AOC2\Proyectos\Proyecto1\Proyecto1_active\Proyect1_design\src\wave.asdb
+#  16:29, miércoles, 16 de abril de 2025
+#  Simulation has been initialized
+# VSIM: 2 object(s) traced.
+# Waveform file 'untitled.awc' connected to 'C:/Users/edu7g/Ingenieria-Informatica/curso2/AOC2/Proyectos/Proyecto1/Proyecto1_active/Proyect1_design/src/wave.asdb'.
+run @10000ns
+# KERNEL: WARNING: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+# KERNEL: Time: 0 ps,  Iteration: 0,  Instance: /testbench/uut/IO_Mem,  Process: line__101.
+# KERNEL: WARNING: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+# KERNEL: Time: 0 ps,  Iteration: 0,  Instance: /testbench/uut/IO_Mem,  Process: line__103.
+# KERNEL: WARNING: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+# KERNEL: Time: 0 ps,  Iteration: 0,  Instance: /testbench/uut/IO_Mem,  Process: line__142.
+# KERNEL: WARNING: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+# KERNEL: Time: 0 ps,  Iteration: 0,  Instance: /testbench/uut/IO_Mem/MD,  Process: line__179.
+# KERNEL: WARNING: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+# KERNEL: Time: 0 ps,  Iteration: 0,  Instance: /testbench/uut/MIPS_core/adder_4,  Process: line__42.
+# KERNEL: WARNING: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+# KERNEL: Time: 0 ps,  Iteration: 0,  Instance: /testbench/uut/MIPS_core/Mem_I,  Process: line__312.
+# KERNEL: WARNING: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+# KERNEL: Time: 0 ps,  Iteration: 0,  Instance: /testbench/uut/MIPS_core/INT_Register_bank,  Process: line__74.
+# KERNEL: WARNING: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+# KERNEL: Time: 0 ps,  Iteration: 0,  Instance: /testbench/uut/MIPS_core/INT_Register_bank,  Process: line__76.
+# KERNEL: WARNING: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+# KERNEL: Time: 0 ps,  Iteration: 0,  Instance: /testbench/uut/MIPS_core/adder_dir,  Process: line__42.
+# KERNEL: WARNING: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+# KERNEL: Time: 0 ps,  Iteration: 0,  Instance: /testbench/uut/MIPS_core/ALU_MIPs,  Process: line__43.
+# KERNEL: WARNING: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+# KERNEL: Time: 0 ps,  Iteration: 0,  Instance: /testbench/uut/MIPS_core/ALU_MIPs,  Process: line__43.
+# KERNEL: WARNING: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+# KERNEL: Time: 0 ps,  Iteration: 0,  Instance: /testbench/uut/MIPS_core/ALU_MIPs,  Process: line__43.
+# KERNEL: WARNING: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+# KERNEL: Time: 0 ps,  Iteration: 0,  Instance: /testbench/uut/MIPS_core/ALU_MIPs,  Process: line__43.
+# KERNEL: WARNING: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+# KERNEL: Time: 0 ps,  Iteration: 1,  Instance: /testbench/uut/MIPS_core/adder_dir,  Process: line__42.
+# KERNEL: WARNING: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+# KERNEL: Time: 0 ps,  Iteration: 2,  Instance: /testbench/uut/MIPS_core/INT_Register_bank,  Process: line__74.
+# KERNEL: WARNING: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+# KERNEL: Time: 0 ps,  Iteration: 2,  Instance: /testbench/uut/MIPS_core/INT_Register_bank,  Process: line__76.
+# KERNEL: WARNING: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+# KERNEL: Time: 0 ps,  Iteration: 2,  Instance: /testbench/uut/MIPS_core/adder_dir,  Process: line__42.
+# KERNEL: WARNING: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+# KERNEL: Time: 5 ns,  Iteration: 2,  Instance: /testbench/uut/MIPS_core/ALU_MIPs,  Process: line__43.
+# KERNEL: WARNING: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+# KERNEL: Time: 5 ns,  Iteration: 2,  Instance: /testbench/uut/MIPS_core/adder_dir,  Process: line__42.
+# KERNEL: WARNING: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+# KERNEL: Time: 5 ns,  Iteration: 3,  Instance: /testbench/uut/MIPS_core/ALU_MIPs,  Process: line__43.
+# EXECUTION:: NOTE   : Simulation time : 80000 ps.  Data written: 256, in Reg = 31
+# EXECUTION:: Time: 80 ns,  Iteration: 1,  Instance: /testbench/uut/MIPS_core/INT_Register_bank,  Process: line__55.
+# EXECUTION:: NOTE   : Simulation time : 90000 ps.  Data written: 8, in Reg = 1
+# EXECUTION:: Time: 90 ns,  Iteration: 1,  Instance: /testbench/uut/MIPS_core/INT_Register_bank,  Process: line__55.
+# EXECUTION:: NOTE   : Simulation time : 120000 ps.  Data written: 16, in Reg = 2
+# EXECUTION:: Time: 120 ns,  Iteration: 1,  Instance: /testbench/uut/MIPS_core/INT_Register_bank,  Process: line__55.
+# EXECUTION:: NOTE   : Simulation time : 130000 ps.  Data written: 12, in Reg = 3
+# EXECUTION:: Time: 130 ns,  Iteration: 1,  Instance: /testbench/uut/MIPS_core/INT_Register_bank,  Process: line__55.
+# EXECUTION:: NOTE   : Simulation time : 140000 ps.  Data written: 32, in Reg = 4
+# EXECUTION:: Time: 140 ns,  Iteration: 1,  Instance: /testbench/uut/MIPS_core/INT_Register_bank,  Process: line__55.
+# EXECUTION:: NOTE   : Simulation time : 150000 ps.  Data written: 44, in Reg = 5
+# EXECUTION:: Time: 150 ns,  Iteration: 1,  Instance: /testbench/uut/MIPS_core/INT_Register_bank,  Process: line__55.
+# EXECUTION:: NOTE   : Simulation time : 155000 ps.  Data written: 44, in ADDR = 24
+# EXECUTION:: Time: 155 ns,  Iteration: 1,  Instance: /testbench/uut/IO_Mem/MD,  Process: line__128.
+# EXECUTION:: NOTE   : Simulation time : 190000 ps.  Data written: 0, in Reg = 0
+# EXECUTION:: Time: 190 ns,  Iteration: 1,  Instance: /testbench/uut/MIPS_core/INT_Register_bank,  Process: line__55.
+# EXECUTION:: NOTE   : Simulation time : 200000 ps.  Data written: 8, in Reg = 0
+# EXECUTION:: Time: 200 ns,  Iteration: 1,  Instance: /testbench/uut/MIPS_core/INT_Register_bank,  Process: line__55.
+# EXECUTION:: NOTE   : Simulation time : 220000 ps.  Data written: 1, in Reg = 0
+# EXECUTION:: Time: 220 ns,  Iteration: 1,  Instance: /testbench/uut/MIPS_core/INT_Register_bank,  Process: line__55.
+# EXECUTION:: NOTE   : Simulation time : 270000 ps.  Data written: 256, in Reg = 1
+# EXECUTION:: Time: 270 ns,  Iteration: 1,  Instance: /testbench/uut/MIPS_core/INT_Register_bank,  Process: line__55.
+# EXECUTION:: NOTE   : Simulation time : 300000 ps.  Data written: -1160729136, in Reg = 1
+# EXECUTION:: Time: 300 ns,  Iteration: 1,  Instance: /testbench/uut/MIPS_core/INT_Register_bank,  Process: line__55.
+# EXECUTION:: NOTE   : Simulation time : 360000 ps.  Data written: 2736, in Reg = 1
+# EXECUTION:: Time: 360 ns,  Iteration: 1,  Instance: /testbench/uut/MIPS_core/INT_Register_bank,  Process: line__55.
+# EXECUTION:: NOTE   : Simulation time : 410000 ps.  Data written: 44, in Reg = 1
+# EXECUTION:: Time: 410 ns,  Iteration: 1,  Instance: /testbench/uut/MIPS_core/INT_Register_bank,  Process: line__55.
+# EXECUTION:: NOTE   : Simulation time : 420000 ps.  Data written: 44, in Reg = 1
+# EXECUTION:: Time: 420 ns,  Iteration: 1,  Instance: /testbench/uut/MIPS_core/INT_Register_bank,  Process: line__55.
+# EXECUTION:: NOTE   : Simulation time : 425000 ps.  Data written: 12, in ADDR = 24
+# EXECUTION:: Time: 425 ns,  Iteration: 1,  Instance: /testbench/uut/IO_Mem/MD,  Process: line__128.
+# EXECUTION:: NOTE   : Simulation time : 430000 ps.  Data written: 44, in Reg = 3
+# EXECUTION:: Time: 430 ns,  Iteration: 1,  Instance: /testbench/uut/MIPS_core/INT_Register_bank,  Process: line__55.
+# EXECUTION:: NOTE   : Simulation time : 485000 ps.  Data written: 44, in ADDR = 256
+# EXECUTION:: Time: 485 ns,  Iteration: 1,  Instance: /testbench/uut/IO_Mem/MD,  Process: line__128.
+# EXECUTION:: NOTE   : Simulation time : 495000 ps.  Data written: 16, in ADDR = 260
+# EXECUTION:: Time: 495 ns,  Iteration: 1,  Instance: /testbench/uut/IO_Mem/MD,  Process: line__128.
+# EXECUTION:: NOTE   : Simulation time : 510000 ps.  Data written: 8, in Reg = 1
+# EXECUTION:: Time: 510 ns,  Iteration: 1,  Instance: /testbench/uut/MIPS_core/INT_Register_bank,  Process: line__55.
+# EXECUTION:: NOTE   : Simulation time : 530000 ps.  Data written: 264, in Reg = 31
+# EXECUTION:: Time: 530 ns,  Iteration: 1,  Instance: /testbench/uut/MIPS_core/INT_Register_bank,  Process: line__55.
+# EXECUTION:: NOTE   : Simulation time : 540000 ps.  Data written: 0, in Reg = 2
+# EXECUTION:: Time: 540 ns,  Iteration: 1,  Instance: /testbench/uut/MIPS_core/INT_Register_bank,  Process: line__55.
+# EXECUTION:: NOTE   : Simulation time : 550000 ps.  Data written: 1, in Reg = 1
+# EXECUTION:: Time: 550 ns,  Iteration: 1,  Instance: /testbench/uut/MIPS_core/INT_Register_bank,  Process: line__55.
+# EXECUTION:: NOTE   : Simulation time : 570000 ps.  Data written: 1, in Reg = 2
+# EXECUTION:: Time: 570 ns,  Iteration: 1,  Instance: /testbench/uut/MIPS_core/INT_Register_bank,  Process: line__55.
+# EXECUTION:: NOTE   : Simulation time : 585000 ps.  Data written: 1, in ADDR = 12
+# EXECUTION:: Time: 585 ns,  Iteration: 1,  Instance: /testbench/uut/IO_Mem/MD,  Process: line__128.
+# EXECUTION:: NOTE   : Simulation time : 610000 ps.  Data written: 8, in Reg = 1
+# EXECUTION:: Time: 610 ns,  Iteration: 1,  Instance: /testbench/uut/MIPS_core/INT_Register_bank,  Process: line__55.
+# EXECUTION:: NOTE   : Simulation time : 630000 ps.  Data written: 256, in Reg = 31
+# EXECUTION:: Time: 630 ns,  Iteration: 1,  Instance: /testbench/uut/MIPS_core/INT_Register_bank,  Process: line__55.
+# EXECUTION:: NOTE   : Simulation time : 640000 ps.  Data written: 44, in Reg = 1
+# EXECUTION:: Time: 640 ns,  Iteration: 1,  Instance: /testbench/uut/MIPS_core/INT_Register_bank,  Process: line__55.
+# EXECUTION:: NOTE   : Simulation time : 650000 ps.  Data written: 16, in Reg = 2
+# EXECUTION:: Time: 650 ns,  Iteration: 1,  Instance: /testbench/uut/MIPS_core/INT_Register_bank,  Process: line__55.
+# EXECUTION:: NOTE   : Simulation time : 680000 ps.  Data written: 45, in Reg = 5
+# EXECUTION:: Time: 680 ns,  Iteration: 1,  Instance: /testbench/uut/MIPS_core/INT_Register_bank,  Process: line__55.
+# EXECUTION:: NOTE   : Simulation time : 715000 ps.  Data written: 44, in ADDR = 24
+# EXECUTION:: Time: 715 ns,  Iteration: 1,  Instance: /testbench/uut/IO_Mem/MD,  Process: line__128.
+# EXECUTION:: NOTE   : Simulation time : 720000 ps.  Data written: 45, in Reg = 3
+# EXECUTION:: Time: 720 ns,  Iteration: 1,  Instance: /testbench/uut/MIPS_core/INT_Register_bank,  Process: line__55.
+# EXECUTION:: NOTE   : Simulation time : 770000 ps.  Data written: -1160729136, in Reg = 1
+# EXECUTION:: Time: 770 ns,  Iteration: 1,  Instance: /testbench/uut/MIPS_core/INT_Register_bank,  Process: line__55.
+# EXECUTION:: NOTE   : Simulation time : 830000 ps.  Data written: 2736, in Reg = 1
+# EXECUTION:: Time: 830 ns,  Iteration: 1,  Instance: /testbench/uut/MIPS_core/INT_Register_bank,  Process: line__55.
+# EXECUTION:: NOTE   : Simulation time : 880000 ps.  Data written: 128, in Reg = 1
+# EXECUTION:: Time: 880 ns,  Iteration: 1,  Instance: /testbench/uut/MIPS_core/INT_Register_bank,  Process: line__55.
+# EXECUTION:: NOTE   : Simulation time : 930000 ps.  Data written: 132, in Reg = 1
+# EXECUTION:: Time: 930 ns,  Iteration: 1,  Instance: /testbench/uut/MIPS_core/INT_Register_bank,  Process: line__55.
+# EXECUTION:: NOTE   : Simulation time : 960000 ps.  Data written: 132, in Reg = 1
+# EXECUTION:: Time: 960 ns,  Iteration: 1,  Instance: /testbench/uut/MIPS_core/INT_Register_bank,  Process: line__55.
+# EXECUTION:: NOTE   : Simulation time : 1050000 ps.  Data written: 195890189, in Reg = 1
+# EXECUTION:: Time: 1050 ns,  Iteration: 1,  Instance: /testbench/uut/MIPS_core/INT_Register_bank,  Process: line__55.
+# KERNEL: stopped at time: 10 us
+endsim
+# VSIM: Simulation has finished.
+asim -O5 +access +r +m+testbench testbench behavior
+# ELBREAD: Elaboration process.
+# ELBREAD: Elaboration time 0.0 [s].
+# VSIM: Stack memory: 32MB
+# VSIM: Retval memory: 32MB
+# 
+# KERNEL: Main thread initiated.
+# KERNEL: Kernel process initialization phase.
+# ELAB2: Elaboration final pass...
+# ELAB2: Create instances ...
+# KERNEL: Time resolution set to 1ps.
+# ELAB2: Create instances complete.
+# SLP: Started
+# SLP: Elaboration phase ...
+# SLP: Elaboration phase ... skipped, nothing to simulate in SLP mode : 0.0 [s]
+# SLP: Finished : 0.0 [s]
+# ELAB2: Elaboration final pass complete - time: 0.0 [s].
+# KERNEL: Warning: You are using the Active-HDL Student Edition. The performance of simulation is running at a reduced rate.
+# KERNEL: Warning: Contact Aldec for available upgrade options - sales@aldec.com.
+# KERNEL: Kernel process initialization done.
+# Allocation: Simulator allocated 6714 kB (elbread=427 elab2=6141 kernel=145 sdf=0)
+# KERNEL: ASDB file was created in location C:\Users\edu7g\Ingenieria-Informatica\curso2\AOC2\Proyectos\Proyecto1\Proyecto1_active\Proyect1_design\src\wave.asdb
+#  16:30, miércoles, 16 de abril de 2025
+#  Simulation has been initialized
+# Waveform file 'untitled.awc' connected to 'C:/Users/edu7g/Ingenieria-Informatica/curso2/AOC2/Proyectos/Proyecto1/Proyecto1_active/Proyect1_design/src/wave.asdb'.
+run @10us
+# KERNEL: WARNING: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+# KERNEL: Time: 0 ps,  Iteration: 0,  Instance: /testbench/uut/IO_Mem,  Process: line__101.
+# KERNEL: WARNING: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+# KERNEL: Time: 0 ps,  Iteration: 0,  Instance: /testbench/uut/IO_Mem,  Process: line__103.
+# KERNEL: WARNING: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+# KERNEL: Time: 0 ps,  Iteration: 0,  Instance: /testbench/uut/IO_Mem,  Process: line__142.
+# KERNEL: WARNING: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+# KERNEL: Time: 0 ps,  Iteration: 0,  Instance: /testbench/uut/IO_Mem/MD,  Process: line__179.
+# KERNEL: WARNING: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+# KERNEL: Time: 0 ps,  Iteration: 0,  Instance: /testbench/uut/MIPS_core/adder_4,  Process: line__42.
+# KERNEL: WARNING: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+# KERNEL: Time: 0 ps,  Iteration: 0,  Instance: /testbench/uut/MIPS_core/Mem_I,  Process: line__312.
+# KERNEL: WARNING: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+# KERNEL: Time: 0 ps,  Iteration: 0,  Instance: /testbench/uut/MIPS_core/INT_Register_bank,  Process: line__74.
+# KERNEL: WARNING: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+# KERNEL: Time: 0 ps,  Iteration: 0,  Instance: /testbench/uut/MIPS_core/INT_Register_bank,  Process: line__76.
+# KERNEL: WARNING: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+# KERNEL: Time: 0 ps,  Iteration: 0,  Instance: /testbench/uut/MIPS_core/adder_dir,  Process: line__42.
+# KERNEL: WARNING: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+# KERNEL: Time: 0 ps,  Iteration: 0,  Instance: /testbench/uut/MIPS_core/ALU_MIPs,  Process: line__43.
+# KERNEL: WARNING: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+# KERNEL: Time: 0 ps,  Iteration: 0,  Instance: /testbench/uut/MIPS_core/ALU_MIPs,  Process: line__43.
+# KERNEL: WARNING: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+# KERNEL: Time: 0 ps,  Iteration: 0,  Instance: /testbench/uut/MIPS_core/ALU_MIPs,  Process: line__43.
+# KERNEL: WARNING: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+# KERNEL: Time: 0 ps,  Iteration: 0,  Instance: /testbench/uut/MIPS_core/ALU_MIPs,  Process: line__43.
+# KERNEL: WARNING: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+# KERNEL: Time: 0 ps,  Iteration: 1,  Instance: /testbench/uut/MIPS_core/adder_dir,  Process: line__42.
+# KERNEL: WARNING: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+# KERNEL: Time: 0 ps,  Iteration: 2,  Instance: /testbench/uut/MIPS_core/INT_Register_bank,  Process: line__74.
+# KERNEL: WARNING: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+# KERNEL: Time: 0 ps,  Iteration: 2,  Instance: /testbench/uut/MIPS_core/INT_Register_bank,  Process: line__76.
+# KERNEL: WARNING: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+# KERNEL: Time: 0 ps,  Iteration: 2,  Instance: /testbench/uut/MIPS_core/adder_dir,  Process: line__42.
+# KERNEL: WARNING: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+# KERNEL: Time: 5 ns,  Iteration: 2,  Instance: /testbench/uut/MIPS_core/ALU_MIPs,  Process: line__43.
+# KERNEL: WARNING: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+# KERNEL: Time: 5 ns,  Iteration: 2,  Instance: /testbench/uut/MIPS_core/adder_dir,  Process: line__42.
+# KERNEL: WARNING: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+# KERNEL: Time: 5 ns,  Iteration: 3,  Instance: /testbench/uut/MIPS_core/ALU_MIPs,  Process: line__43.
+# EXECUTION:: NOTE   : Simulation time : 80000 ps.  Data written: 256, in Reg = 31
+# EXECUTION:: Time: 80 ns,  Iteration: 1,  Instance: /testbench/uut/MIPS_core/INT_Register_bank,  Process: line__55.
+# EXECUTION:: NOTE   : Simulation time : 90000 ps.  Data written: 8, in Reg = 1
+# EXECUTION:: Time: 90 ns,  Iteration: 1,  Instance: /testbench/uut/MIPS_core/INT_Register_bank,  Process: line__55.
+# EXECUTION:: NOTE   : Simulation time : 120000 ps.  Data written: 16, in Reg = 2
+# EXECUTION:: Time: 120 ns,  Iteration: 1,  Instance: /testbench/uut/MIPS_core/INT_Register_bank,  Process: line__55.
+# EXECUTION:: NOTE   : Simulation time : 130000 ps.  Data written: 12, in Reg = 3
+# EXECUTION:: Time: 130 ns,  Iteration: 1,  Instance: /testbench/uut/MIPS_core/INT_Register_bank,  Process: line__55.
+# EXECUTION:: NOTE   : Simulation time : 140000 ps.  Data written: 32, in Reg = 4
+# EXECUTION:: Time: 140 ns,  Iteration: 1,  Instance: /testbench/uut/MIPS_core/INT_Register_bank,  Process: line__55.
+# EXECUTION:: NOTE   : Simulation time : 150000 ps.  Data written: 44, in Reg = 5
+# EXECUTION:: Time: 150 ns,  Iteration: 1,  Instance: /testbench/uut/MIPS_core/INT_Register_bank,  Process: line__55.
+# EXECUTION:: NOTE   : Simulation time : 155000 ps.  Data written: 44, in ADDR = 24
+# EXECUTION:: Time: 155 ns,  Iteration: 1,  Instance: /testbench/uut/IO_Mem/MD,  Process: line__128.
+# EXECUTION:: NOTE   : Simulation time : 190000 ps.  Data written: 0, in Reg = 0
+# EXECUTION:: Time: 190 ns,  Iteration: 1,  Instance: /testbench/uut/MIPS_core/INT_Register_bank,  Process: line__55.
+# EXECUTION:: NOTE   : Simulation time : 200000 ps.  Data written: 8, in Reg = 0
+# EXECUTION:: Time: 200 ns,  Iteration: 1,  Instance: /testbench/uut/MIPS_core/INT_Register_bank,  Process: line__55.
+# EXECUTION:: NOTE   : Simulation time : 220000 ps.  Data written: 1, in Reg = 0
+# EXECUTION:: Time: 220 ns,  Iteration: 1,  Instance: /testbench/uut/MIPS_core/INT_Register_bank,  Process: line__55.
+# EXECUTION:: NOTE   : Simulation time : 270000 ps.  Data written: 256, in Reg = 1
+# EXECUTION:: Time: 270 ns,  Iteration: 1,  Instance: /testbench/uut/MIPS_core/INT_Register_bank,  Process: line__55.
+# EXECUTION:: NOTE   : Simulation time : 300000 ps.  Data written: -1160729136, in Reg = 1
+# EXECUTION:: Time: 300 ns,  Iteration: 1,  Instance: /testbench/uut/MIPS_core/INT_Register_bank,  Process: line__55.
+# EXECUTION:: NOTE   : Simulation time : 360000 ps.  Data written: 2736, in Reg = 1
+# EXECUTION:: Time: 360 ns,  Iteration: 1,  Instance: /testbench/uut/MIPS_core/INT_Register_bank,  Process: line__55.
+# EXECUTION:: NOTE   : Simulation time : 410000 ps.  Data written: 44, in Reg = 1
+# EXECUTION:: Time: 410 ns,  Iteration: 1,  Instance: /testbench/uut/MIPS_core/INT_Register_bank,  Process: line__55.
+# EXECUTION:: NOTE   : Simulation time : 420000 ps.  Data written: 44, in Reg = 1
+# EXECUTION:: Time: 420 ns,  Iteration: 1,  Instance: /testbench/uut/MIPS_core/INT_Register_bank,  Process: line__55.
+# EXECUTION:: NOTE   : Simulation time : 425000 ps.  Data written: 12, in ADDR = 24
+# EXECUTION:: Time: 425 ns,  Iteration: 1,  Instance: /testbench/uut/IO_Mem/MD,  Process: line__128.
+# EXECUTION:: NOTE   : Simulation time : 430000 ps.  Data written: 44, in Reg = 3
+# EXECUTION:: Time: 430 ns,  Iteration: 1,  Instance: /testbench/uut/MIPS_core/INT_Register_bank,  Process: line__55.
+# EXECUTION:: NOTE   : Simulation time : 485000 ps.  Data written: 44, in ADDR = 256
+# EXECUTION:: Time: 485 ns,  Iteration: 1,  Instance: /testbench/uut/IO_Mem/MD,  Process: line__128.
+# EXECUTION:: NOTE   : Simulation time : 495000 ps.  Data written: 16, in ADDR = 260
+# EXECUTION:: Time: 495 ns,  Iteration: 1,  Instance: /testbench/uut/IO_Mem/MD,  Process: line__128.
+# EXECUTION:: NOTE   : Simulation time : 510000 ps.  Data written: 8, in Reg = 1
+# EXECUTION:: Time: 510 ns,  Iteration: 1,  Instance: /testbench/uut/MIPS_core/INT_Register_bank,  Process: line__55.
+# EXECUTION:: NOTE   : Simulation time : 530000 ps.  Data written: 264, in Reg = 31
+# EXECUTION:: Time: 530 ns,  Iteration: 1,  Instance: /testbench/uut/MIPS_core/INT_Register_bank,  Process: line__55.
+# EXECUTION:: NOTE   : Simulation time : 540000 ps.  Data written: 0, in Reg = 2
+# EXECUTION:: Time: 540 ns,  Iteration: 1,  Instance: /testbench/uut/MIPS_core/INT_Register_bank,  Process: line__55.
+# EXECUTION:: NOTE   : Simulation time : 550000 ps.  Data written: 1, in Reg = 1
+# EXECUTION:: Time: 550 ns,  Iteration: 1,  Instance: /testbench/uut/MIPS_core/INT_Register_bank,  Process: line__55.
+# EXECUTION:: NOTE   : Simulation time : 570000 ps.  Data written: 1, in Reg = 2
+# EXECUTION:: Time: 570 ns,  Iteration: 1,  Instance: /testbench/uut/MIPS_core/INT_Register_bank,  Process: line__55.
+# EXECUTION:: NOTE   : Simulation time : 585000 ps.  Data written: 1, in ADDR = 12
+# EXECUTION:: Time: 585 ns,  Iteration: 1,  Instance: /testbench/uut/IO_Mem/MD,  Process: line__128.
+# EXECUTION:: NOTE   : Simulation time : 610000 ps.  Data written: 8, in Reg = 1
+# EXECUTION:: Time: 610 ns,  Iteration: 1,  Instance: /testbench/uut/MIPS_core/INT_Register_bank,  Process: line__55.
+# EXECUTION:: NOTE   : Simulation time : 630000 ps.  Data written: 256, in Reg = 31
+# EXECUTION:: Time: 630 ns,  Iteration: 1,  Instance: /testbench/uut/MIPS_core/INT_Register_bank,  Process: line__55.
+# EXECUTION:: NOTE   : Simulation time : 640000 ps.  Data written: 44, in Reg = 1
+# EXECUTION:: Time: 640 ns,  Iteration: 1,  Instance: /testbench/uut/MIPS_core/INT_Register_bank,  Process: line__55.
+# EXECUTION:: NOTE   : Simulation time : 650000 ps.  Data written: 16, in Reg = 2
+# EXECUTION:: Time: 650 ns,  Iteration: 1,  Instance: /testbench/uut/MIPS_core/INT_Register_bank,  Process: line__55.
+# EXECUTION:: NOTE   : Simulation time : 680000 ps.  Data written: 45, in Reg = 5
+# EXECUTION:: Time: 680 ns,  Iteration: 1,  Instance: /testbench/uut/MIPS_core/INT_Register_bank,  Process: line__55.
+# EXECUTION:: NOTE   : Simulation time : 715000 ps.  Data written: 44, in ADDR = 24
+# EXECUTION:: Time: 715 ns,  Iteration: 1,  Instance: /testbench/uut/IO_Mem/MD,  Process: line__128.
+# EXECUTION:: NOTE   : Simulation time : 720000 ps.  Data written: 45, in Reg = 3
+# EXECUTION:: Time: 720 ns,  Iteration: 1,  Instance: /testbench/uut/MIPS_core/INT_Register_bank,  Process: line__55.
+# EXECUTION:: NOTE   : Simulation time : 770000 ps.  Data written: -1160729136, in Reg = 1
+# EXECUTION:: Time: 770 ns,  Iteration: 1,  Instance: /testbench/uut/MIPS_core/INT_Register_bank,  Process: line__55.
+# EXECUTION:: NOTE   : Simulation time : 830000 ps.  Data written: 2736, in Reg = 1
+# EXECUTION:: Time: 830 ns,  Iteration: 1,  Instance: /testbench/uut/MIPS_core/INT_Register_bank,  Process: line__55.
+# EXECUTION:: NOTE   : Simulation time : 880000 ps.  Data written: 128, in Reg = 1
+# EXECUTION:: Time: 880 ns,  Iteration: 1,  Instance: /testbench/uut/MIPS_core/INT_Register_bank,  Process: line__55.
+# EXECUTION:: NOTE   : Simulation time : 930000 ps.  Data written: 132, in Reg = 1
+# EXECUTION:: Time: 930 ns,  Iteration: 1,  Instance: /testbench/uut/MIPS_core/INT_Register_bank,  Process: line__55.
+# EXECUTION:: NOTE   : Simulation time : 960000 ps.  Data written: 132, in Reg = 1
+# EXECUTION:: Time: 960 ns,  Iteration: 1,  Instance: /testbench/uut/MIPS_core/INT_Register_bank,  Process: line__55.
+# EXECUTION:: NOTE   : Simulation time : 1050000 ps.  Data written: 195890189, in Reg = 1
+# EXECUTION:: Time: 1050 ns,  Iteration: 1,  Instance: /testbench/uut/MIPS_core/INT_Register_bank,  Process: line__55.
+# KERNEL: stopped at time: 10 us
+run @11us
+# KERNEL: stopped at time: 11 us
+endsim
+# VSIM: Simulation has finished.
+asim -O5 +access +r +m+testbench testbench behavior
+# ELBREAD: Elaboration process.
+# ELBREAD: Elaboration time 0.0 [s].
+# VSIM: Stack memory: 32MB
+# VSIM: Retval memory: 32MB
+# 
+# KERNEL: Main thread initiated.
+# KERNEL: Kernel process initialization phase.
+# ELAB2: Elaboration final pass...
+# ELAB2: Create instances ...
+# KERNEL: Time resolution set to 1ps.
+# ELAB2: Create instances complete.
+# SLP: Started
+# SLP: Elaboration phase ...
+# SLP: Elaboration phase ... skipped, nothing to simulate in SLP mode : 0.0 [s]
+# SLP: Finished : 0.0 [s]
+# ELAB2: Elaboration final pass complete - time: 0.0 [s].
+# KERNEL: Warning: You are using the Active-HDL Student Edition. The performance of simulation is running at a reduced rate.
+# KERNEL: Warning: Contact Aldec for available upgrade options - sales@aldec.com.
+# KERNEL: Kernel process initialization done.
+# Allocation: Simulator allocated 6714 kB (elbread=427 elab2=6141 kernel=145 sdf=0)
+# KERNEL: ASDB file was created in location C:\Users\edu7g\Ingenieria-Informatica\curso2\AOC2\Proyectos\Proyecto1\Proyecto1_active\Proyect1_design\src\wave.asdb
+#  16:39, miércoles, 16 de abril de 2025
+#  Simulation has been initialized
+# Waveform file 'untitled.awc' connected to 'C:/Users/edu7g/Ingenieria-Informatica/curso2/AOC2/Proyectos/Proyecto1/Proyecto1_active/Proyect1_design/src/wave.asdb'.
+run
+# KERNEL: WARNING: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+# KERNEL: Time: 0 ps,  Iteration: 0,  Instance: /testbench/uut/IO_Mem,  Process: line__101.
+# KERNEL: WARNING: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+# KERNEL: Time: 0 ps,  Iteration: 0,  Instance: /testbench/uut/IO_Mem,  Process: line__103.
+# KERNEL: WARNING: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+# KERNEL: Time: 0 ps,  Iteration: 0,  Instance: /testbench/uut/IO_Mem,  Process: line__142.
+# KERNEL: WARNING: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+# KERNEL: Time: 0 ps,  Iteration: 0,  Instance: /testbench/uut/IO_Mem/MD,  Process: line__179.
+# KERNEL: WARNING: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+# KERNEL: Time: 0 ps,  Iteration: 0,  Instance: /testbench/uut/MIPS_core/adder_4,  Process: line__42.
+# KERNEL: WARNING: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+# KERNEL: Time: 0 ps,  Iteration: 0,  Instance: /testbench/uut/MIPS_core/Mem_I,  Process: line__312.
+# KERNEL: WARNING: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+# KERNEL: Time: 0 ps,  Iteration: 0,  Instance: /testbench/uut/MIPS_core/INT_Register_bank,  Process: line__74.
+# KERNEL: WARNING: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+# KERNEL: Time: 0 ps,  Iteration: 0,  Instance: /testbench/uut/MIPS_core/INT_Register_bank,  Process: line__76.
+# KERNEL: WARNING: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+# KERNEL: Time: 0 ps,  Iteration: 0,  Instance: /testbench/uut/MIPS_core/adder_dir,  Process: line__42.
+# KERNEL: WARNING: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+# KERNEL: Time: 0 ps,  Iteration: 0,  Instance: /testbench/uut/MIPS_core/ALU_MIPs,  Process: line__43.
+# KERNEL: WARNING: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+# KERNEL: Time: 0 ps,  Iteration: 0,  Instance: /testbench/uut/MIPS_core/ALU_MIPs,  Process: line__43.
+# KERNEL: WARNING: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+# KERNEL: Time: 0 ps,  Iteration: 0,  Instance: /testbench/uut/MIPS_core/ALU_MIPs,  Process: line__43.
+# KERNEL: WARNING: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+# KERNEL: Time: 0 ps,  Iteration: 0,  Instance: /testbench/uut/MIPS_core/ALU_MIPs,  Process: line__43.
+# KERNEL: WARNING: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+# KERNEL: Time: 0 ps,  Iteration: 1,  Instance: /testbench/uut/MIPS_core/adder_dir,  Process: line__42.
+# KERNEL: WARNING: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+# KERNEL: Time: 0 ps,  Iteration: 2,  Instance: /testbench/uut/MIPS_core/INT_Register_bank,  Process: line__74.
+# KERNEL: WARNING: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+# KERNEL: Time: 0 ps,  Iteration: 2,  Instance: /testbench/uut/MIPS_core/INT_Register_bank,  Process: line__76.
+# KERNEL: WARNING: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+# KERNEL: Time: 0 ps,  Iteration: 2,  Instance: /testbench/uut/MIPS_core/adder_dir,  Process: line__42.
+# KERNEL: WARNING: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+# KERNEL: Time: 5 ns,  Iteration: 2,  Instance: /testbench/uut/MIPS_core/ALU_MIPs,  Process: line__43.
+# KERNEL: WARNING: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+# KERNEL: Time: 5 ns,  Iteration: 2,  Instance: /testbench/uut/MIPS_core/adder_dir,  Process: line__42.
+# KERNEL: WARNING: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+# KERNEL: Time: 5 ns,  Iteration: 3,  Instance: /testbench/uut/MIPS_core/ALU_MIPs,  Process: line__43.
+# EXECUTION:: NOTE   : Simulation time : 80000 ps.  Data written: 256, in Reg = 31
+# EXECUTION:: Time: 80 ns,  Iteration: 1,  Instance: /testbench/uut/MIPS_core/INT_Register_bank,  Process: line__55.
+# EXECUTION:: NOTE   : Simulation time : 90000 ps.  Data written: 8, in Reg = 1
+# EXECUTION:: Time: 90 ns,  Iteration: 1,  Instance: /testbench/uut/MIPS_core/INT_Register_bank,  Process: line__55.
+# EXECUTION:: NOTE   : Simulation time : 120000 ps.  Data written: 16, in Reg = 2
+# EXECUTION:: Time: 120 ns,  Iteration: 1,  Instance: /testbench/uut/MIPS_core/INT_Register_bank,  Process: line__55.
+# EXECUTION:: NOTE   : Simulation time : 130000 ps.  Data written: 12, in Reg = 3
+# EXECUTION:: Time: 130 ns,  Iteration: 1,  Instance: /testbench/uut/MIPS_core/INT_Register_bank,  Process: line__55.
+# EXECUTION:: NOTE   : Simulation time : 140000 ps.  Data written: 32, in Reg = 4
+# EXECUTION:: Time: 140 ns,  Iteration: 1,  Instance: /testbench/uut/MIPS_core/INT_Register_bank,  Process: line__55.
+# EXECUTION:: NOTE   : Simulation time : 150000 ps.  Data written: 44, in Reg = 5
+# EXECUTION:: Time: 150 ns,  Iteration: 1,  Instance: /testbench/uut/MIPS_core/INT_Register_bank,  Process: line__55.
+# EXECUTION:: NOTE   : Simulation time : 155000 ps.  Data written: 44, in ADDR = 24
+# EXECUTION:: Time: 155 ns,  Iteration: 1,  Instance: /testbench/uut/IO_Mem/MD,  Process: line__128.
+# EXECUTION:: NOTE   : Simulation time : 190000 ps.  Data written: 0, in Reg = 0
+# EXECUTION:: Time: 190 ns,  Iteration: 1,  Instance: /testbench/uut/MIPS_core/INT_Register_bank,  Process: line__55.
+# EXECUTION:: NOTE   : Simulation time : 200000 ps.  Data written: 8, in Reg = 0
+# EXECUTION:: Time: 200 ns,  Iteration: 1,  Instance: /testbench/uut/MIPS_core/INT_Register_bank,  Process: line__55.
+# EXECUTION:: NOTE   : Simulation time : 220000 ps.  Data written: 1, in Reg = 0
+# EXECUTION:: Time: 220 ns,  Iteration: 1,  Instance: /testbench/uut/MIPS_core/INT_Register_bank,  Process: line__55.
+# EXECUTION:: NOTE   : Simulation time : 270000 ps.  Data written: 256, in Reg = 1
+# EXECUTION:: Time: 270 ns,  Iteration: 1,  Instance: /testbench/uut/MIPS_core/INT_Register_bank,  Process: line__55.
+# EXECUTION:: NOTE   : Simulation time : 300000 ps.  Data written: -1160729136, in Reg = 1
+# EXECUTION:: Time: 300 ns,  Iteration: 1,  Instance: /testbench/uut/MIPS_core/INT_Register_bank,  Process: line__55.
+# EXECUTION:: NOTE   : Simulation time : 360000 ps.  Data written: 2736, in Reg = 1
+# EXECUTION:: Time: 360 ns,  Iteration: 1,  Instance: /testbench/uut/MIPS_core/INT_Register_bank,  Process: line__55.
+# EXECUTION:: NOTE   : Simulation time : 410000 ps.  Data written: 44, in Reg = 1
+# EXECUTION:: Time: 410 ns,  Iteration: 1,  Instance: /testbench/uut/MIPS_core/INT_Register_bank,  Process: line__55.
+# EXECUTION:: NOTE   : Simulation time : 420000 ps.  Data written: 44, in Reg = 1
+# EXECUTION:: Time: 420 ns,  Iteration: 1,  Instance: /testbench/uut/MIPS_core/INT_Register_bank,  Process: line__55.
+# EXECUTION:: NOTE   : Simulation time : 425000 ps.  Data written: 12, in ADDR = 24
+# EXECUTION:: Time: 425 ns,  Iteration: 1,  Instance: /testbench/uut/IO_Mem/MD,  Process: line__128.
+# EXECUTION:: NOTE   : Simulation time : 430000 ps.  Data written: 44, in Reg = 3
+# EXECUTION:: Time: 430 ns,  Iteration: 1,  Instance: /testbench/uut/MIPS_core/INT_Register_bank,  Process: line__55.
+# EXECUTION:: NOTE   : Simulation time : 485000 ps.  Data written: 44, in ADDR = 256
+# EXECUTION:: Time: 485 ns,  Iteration: 1,  Instance: /testbench/uut/IO_Mem/MD,  Process: line__128.
+# EXECUTION:: NOTE   : Simulation time : 495000 ps.  Data written: 16, in ADDR = 260
+# EXECUTION:: Time: 495 ns,  Iteration: 1,  Instance: /testbench/uut/IO_Mem/MD,  Process: line__128.
+# EXECUTION:: NOTE   : Simulation time : 510000 ps.  Data written: 8, in Reg = 1
+# EXECUTION:: Time: 510 ns,  Iteration: 1,  Instance: /testbench/uut/MIPS_core/INT_Register_bank,  Process: line__55.
+# EXECUTION:: NOTE   : Simulation time : 530000 ps.  Data written: 264, in Reg = 31
+# EXECUTION:: Time: 530 ns,  Iteration: 1,  Instance: /testbench/uut/MIPS_core/INT_Register_bank,  Process: line__55.
+# EXECUTION:: NOTE   : Simulation time : 540000 ps.  Data written: 0, in Reg = 2
+# EXECUTION:: Time: 540 ns,  Iteration: 1,  Instance: /testbench/uut/MIPS_core/INT_Register_bank,  Process: line__55.
+# EXECUTION:: NOTE   : Simulation time : 550000 ps.  Data written: 1, in Reg = 1
+# EXECUTION:: Time: 550 ns,  Iteration: 1,  Instance: /testbench/uut/MIPS_core/INT_Register_bank,  Process: line__55.
+# EXECUTION:: NOTE   : Simulation time : 570000 ps.  Data written: 1, in Reg = 2
+# EXECUTION:: Time: 570 ns,  Iteration: 1,  Instance: /testbench/uut/MIPS_core/INT_Register_bank,  Process: line__55.
+# EXECUTION:: NOTE   : Simulation time : 585000 ps.  Data written: 1, in ADDR = 12
+# EXECUTION:: Time: 585 ns,  Iteration: 1,  Instance: /testbench/uut/IO_Mem/MD,  Process: line__128.
+# EXECUTION:: NOTE   : Simulation time : 610000 ps.  Data written: 8, in Reg = 1
+# EXECUTION:: Time: 610 ns,  Iteration: 1,  Instance: /testbench/uut/MIPS_core/INT_Register_bank,  Process: line__55.
+# EXECUTION:: NOTE   : Simulation time : 630000 ps.  Data written: 256, in Reg = 31
+# EXECUTION:: Time: 630 ns,  Iteration: 1,  Instance: /testbench/uut/MIPS_core/INT_Register_bank,  Process: line__55.
+# EXECUTION:: NOTE   : Simulation time : 640000 ps.  Data written: 44, in Reg = 1
+# EXECUTION:: Time: 640 ns,  Iteration: 1,  Instance: /testbench/uut/MIPS_core/INT_Register_bank,  Process: line__55.
+# EXECUTION:: NOTE   : Simulation time : 650000 ps.  Data written: 16, in Reg = 2
+# EXECUTION:: Time: 650 ns,  Iteration: 1,  Instance: /testbench/uut/MIPS_core/INT_Register_bank,  Process: line__55.
+# EXECUTION:: NOTE   : Simulation time : 680000 ps.  Data written: 45, in Reg = 5
+# EXECUTION:: Time: 680 ns,  Iteration: 1,  Instance: /testbench/uut/MIPS_core/INT_Register_bank,  Process: line__55.
+# EXECUTION:: NOTE   : Simulation time : 715000 ps.  Data written: 44, in ADDR = 24
+# EXECUTION:: Time: 715 ns,  Iteration: 1,  Instance: /testbench/uut/IO_Mem/MD,  Process: line__128.
+# EXECUTION:: NOTE   : Simulation time : 720000 ps.  Data written: 45, in Reg = 3
+# EXECUTION:: Time: 720 ns,  Iteration: 1,  Instance: /testbench/uut/MIPS_core/INT_Register_bank,  Process: line__55.
+# EXECUTION:: NOTE   : Simulation time : 770000 ps.  Data written: -1160729136, in Reg = 1
+# EXECUTION:: Time: 770 ns,  Iteration: 1,  Instance: /testbench/uut/MIPS_core/INT_Register_bank,  Process: line__55.
+# EXECUTION:: NOTE   : Simulation time : 830000 ps.  Data written: 2736, in Reg = 1
+# EXECUTION:: Time: 830 ns,  Iteration: 1,  Instance: /testbench/uut/MIPS_core/INT_Register_bank,  Process: line__55.
+# EXECUTION:: NOTE   : Simulation time : 880000 ps.  Data written: 128, in Reg = 1
+# EXECUTION:: Time: 880 ns,  Iteration: 1,  Instance: /testbench/uut/MIPS_core/INT_Register_bank,  Process: line__55.
+# EXECUTION:: NOTE   : Simulation time : 930000 ps.  Data written: 132, in Reg = 1
+# EXECUTION:: Time: 930 ns,  Iteration: 1,  Instance: /testbench/uut/MIPS_core/INT_Register_bank,  Process: line__55.
+# EXECUTION:: NOTE   : Simulation time : 960000 ps.  Data written: 132, in Reg = 1
+# EXECUTION:: Time: 960 ns,  Iteration: 1,  Instance: /testbench/uut/MIPS_core/INT_Register_bank,  Process: line__55.
+# EXECUTION:: NOTE   : Simulation time : 1050000 ps.  Data written: 195890189, in Reg = 1
+# EXECUTION:: Time: 1050 ns,  Iteration: 1,  Instance: /testbench/uut/MIPS_core/INT_Register_bank,  Process: line__55.
+endsim
+# KERNEL: stopped at time: 50485 ns
+# VSIM: Simulation has finished.
+asim -O5 +access +r +m+testbench testbench behavior
+# ELBREAD: Elaboration process.
+# ELBREAD: Elaboration time 0.0 [s].
+# VSIM: Stack memory: 32MB
+# VSIM: Retval memory: 32MB
+# 
+# KERNEL: Main thread initiated.
+# KERNEL: Kernel process initialization phase.
+# ELAB2: Elaboration final pass...
+# ELAB2: Create instances ...
+# KERNEL: Time resolution set to 1ps.
+# ELAB2: Create instances complete.
+# SLP: Started
+# SLP: Elaboration phase ...
+# SLP: Elaboration phase ... skipped, nothing to simulate in SLP mode : 0.0 [s]
+# SLP: Finished : 0.0 [s]
+# ELAB2: Elaboration final pass complete - time: 0.0 [s].
+# KERNEL: Warning: You are using the Active-HDL Student Edition. The performance of simulation is running at a reduced rate.
+# KERNEL: Warning: Contact Aldec for available upgrade options - sales@aldec.com.
+# KERNEL: Kernel process initialization done.
+# Allocation: Simulator allocated 6714 kB (elbread=427 elab2=6141 kernel=145 sdf=0)
+# KERNEL: ASDB file was created in location C:\Users\edu7g\Ingenieria-Informatica\curso2\AOC2\Proyectos\Proyecto1\Proyecto1_active\Proyect1_design\src\wave.asdb
+#  16:40, miércoles, 16 de abril de 2025
+#  Simulation has been initialized
+# Waveform file 'untitled.awc' connected to 'C:/Users/edu7g/Ingenieria-Informatica/curso2/AOC2/Proyectos/Proyecto1/Proyecto1_active/Proyect1_design/src/wave.asdb'.
+# VSIM: 1 object(s) traced.
+endsim
+# VSIM: Simulation has finished.
+acom -O3 -e 100 -work Proyect1_design -2002  $dsn/src/incomplete_uc_mips_2025.vhd $dsn/src/mux2_5bits.vhd $dsn/src/register.vhd $dsn/src/ram_i_test_exceptions.vhd $dsn/src/mux4_1.vhd $dsn/src/mux2_1.vhd $dsn/src/incomplete_ud_2025.vhd $dsn/src/banco_mem.vhd $dsn/src/counter.vhd $dsn/src/incomplete_ua_2025.vhd $dsn/src/ext_signo.vhd $dsn/src/bits_shifter.vhd $dsn/src/breg.vhd $dsn/src/banco_wb.vhd $dsn/src/banco_ex.vhd $dsn/src/banco_id.vhd $dsn/src/alu.vhd $dsn/src/adder32.vhd $dsn/src/incomplete_mips_segmentado_irq.vhd $dsn/src/aoc2_soc.vhd $dsn/src/io_md_subsystem.vhd $dsn/src/ram_128_32_p1_2025.vhd $dsn/src/exception_manager.vhd $dsn/src/testbench_aoc2_soc.vhd $dsn/src/testbench_md.vhd
+# Compile Entity "UC"
+# Compile Architecture "Behavioral" of Entity "UC"
+# Compile Entity "mux2_5bits"
+# Compile Architecture "Behavioral" of Entity "mux2_5bits"
+# Compile Entity "reg"
+# Compile Architecture "behavioral" of Entity "REG"
+# Compile Entity "memoriaRAM_I"
+# Compile Architecture "Behavioral" of Entity "memoriaRAM_I"
+# Compile Entity "mux4_1"
+# Compile Architecture "Behavioral" of Entity "mux4_1"
+# Compile Entity "mux2_1"
+# Compile Architecture "Behavioral" of Entity "mux2_1"
+# Compile Entity "UD"
+# Compile Architecture "Behavioral" of Entity "UD"
+# Compile Entity "Banco_MEM"
+# Compile Architecture "Behavioral" of Entity "Banco_MEM"
+# Compile Entity "counter"
+# Compile Architecture "Behavioral" of Entity "counter"
+# Compile Entity "UA"
+# Compile Architecture "Behavioral" of Entity "UA"
+# Compile Entity "Ext_signo"
+# Compile Architecture "Behavioral" of Entity "Ext_signo"
+# Compile Entity "two_bits_shifter"
+# Compile Architecture "Behavioral" of Entity "two_bits_shifter"
+# Compile Entity "BReg"
+# Compile Architecture "Behavioral" of Entity "BReg"
+# Compile Entity "Banco_WB"
+# Compile Architecture "Behavioral" of Entity "Banco_WB"
+# Compile Entity "Banco_EX"
+# Compile Architecture "Behavioral" of Entity "Banco_EX"
+# Compile Entity "Banco_ID"
+# Compile Architecture "Behavioral" of Entity "Banco_ID"
+# Compile Entity "ALU"
+# Compile Architecture "Behavioral" of Entity "ALU"
+# Compile Entity "adder32"
+# Compile Architecture "Behavioral" of Entity "adder32"
+# Compile Entity "MIPs_segmentado"
+# Compile Architecture "Behavioral" of Entity "MIPs_segmentado"
+# Compile Entity "AOC2_SoC"
+# Compile Architecture "behavior" of Entity "AOC2_SoC"
+# Compile Entity "IO_Data_Memory_Subsystem"
+# Compile Architecture "Behavioral" of Entity "IO_Data_Memory_Subsystem"
+# Compile Entity "RAM_128_32"
+# Compile Architecture "Behavioral" of Entity "RAM_128_32"
+# Compile Entity "Exception_manager"
+# Compile Architecture "Behavioral" of Entity "Exception_manager"
+# Compile Entity "testbench"
+# Compile Architecture "behavior" of Entity "testbench"
+# Compile Entity "testbench_MD_mas_MC"
+# Compile Architecture "behavior" of Entity "testbench_MD_mas_MC"
+# Compile success 0 Errors 0 Warnings  Analysis time :  1.0 [s]
+asim -O5 +access +r +m+testbench testbench behavior
+# ELBREAD: Elaboration process.
+# ELBREAD: Elaboration time 0.0 [s].
+# VSIM: Stack memory: 32MB
+# VSIM: Retval memory: 32MB
+# 
+# KERNEL: Main thread initiated.
+# KERNEL: Kernel process initialization phase.
+# ELAB2: Elaboration final pass...
+# ELAB2: Create instances ...
+# KERNEL: Time resolution set to 1ps.
+# ELAB2: Create instances complete.
+# SLP: Started
+# SLP: Elaboration phase ...
+# SLP: Elaboration phase ... skipped, nothing to simulate in SLP mode : 0.0 [s]
+# SLP: Finished : 0.0 [s]
+# ELAB2: Elaboration final pass complete - time: 0.0 [s].
+# KERNEL: Warning: You are using the Active-HDL Student Edition. The performance of simulation is running at a reduced rate.
+# KERNEL: Warning: Contact Aldec for available upgrade options - sales@aldec.com.
+# KERNEL: Kernel process initialization done.
+# Allocation: Simulator allocated 6714 kB (elbread=427 elab2=6141 kernel=145 sdf=0)
+# KERNEL: ASDB file was created in location C:\Users\edu7g\Ingenieria-Informatica\curso2\AOC2\Proyectos\Proyecto1\Proyecto1_active\Proyect1_design\src\wave.asdb
+#  16:41, miércoles, 16 de abril de 2025
+#  Simulation has been initialized
+# Waveform file 'untitled.awc' connected to 'C:/Users/edu7g/Ingenieria-Informatica/curso2/AOC2/Proyectos/Proyecto1/Proyecto1_active/Proyect1_design/src/wave.asdb'.
+# KERNEL: Warning: KERNEL_0291 Object "/testbench/clk" has already been traced.
+# VSIM: 0 object(s) traced.
+run @1us
+# KERNEL: WARNING: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+# KERNEL: Time: 0 ps,  Iteration: 0,  Instance: /testbench/uut/IO_Mem,  Process: line__101.
+# KERNEL: WARNING: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+# KERNEL: Time: 0 ps,  Iteration: 0,  Instance: /testbench/uut/IO_Mem,  Process: line__103.
+# KERNEL: WARNING: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+# KERNEL: Time: 0 ps,  Iteration: 0,  Instance: /testbench/uut/IO_Mem,  Process: line__142.
+# KERNEL: WARNING: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+# KERNEL: Time: 0 ps,  Iteration: 0,  Instance: /testbench/uut/IO_Mem/MD,  Process: line__179.
+# KERNEL: WARNING: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+# KERNEL: Time: 0 ps,  Iteration: 0,  Instance: /testbench/uut/MIPS_core/adder_4,  Process: line__42.
+# KERNEL: WARNING: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+# KERNEL: Time: 0 ps,  Iteration: 0,  Instance: /testbench/uut/MIPS_core/Mem_I,  Process: line__312.
+# KERNEL: WARNING: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+# KERNEL: Time: 0 ps,  Iteration: 0,  Instance: /testbench/uut/MIPS_core/INT_Register_bank,  Process: line__74.
+# KERNEL: WARNING: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+# KERNEL: Time: 0 ps,  Iteration: 0,  Instance: /testbench/uut/MIPS_core/INT_Register_bank,  Process: line__76.
+# KERNEL: WARNING: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+# KERNEL: Time: 0 ps,  Iteration: 0,  Instance: /testbench/uut/MIPS_core/adder_dir,  Process: line__42.
+# KERNEL: WARNING: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+# KERNEL: Time: 0 ps,  Iteration: 0,  Instance: /testbench/uut/MIPS_core/ALU_MIPs,  Process: line__43.
+# KERNEL: WARNING: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+# KERNEL: Time: 0 ps,  Iteration: 0,  Instance: /testbench/uut/MIPS_core/ALU_MIPs,  Process: line__43.
+# KERNEL: WARNING: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+# KERNEL: Time: 0 ps,  Iteration: 0,  Instance: /testbench/uut/MIPS_core/ALU_MIPs,  Process: line__43.
+# KERNEL: WARNING: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+# KERNEL: Time: 0 ps,  Iteration: 0,  Instance: /testbench/uut/MIPS_core/ALU_MIPs,  Process: line__43.
+# KERNEL: WARNING: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+# KERNEL: Time: 0 ps,  Iteration: 1,  Instance: /testbench/uut/MIPS_core/adder_dir,  Process: line__42.
+# KERNEL: WARNING: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+# KERNEL: Time: 0 ps,  Iteration: 2,  Instance: /testbench/uut/MIPS_core/INT_Register_bank,  Process: line__74.
+# KERNEL: WARNING: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+# KERNEL: Time: 0 ps,  Iteration: 2,  Instance: /testbench/uut/MIPS_core/INT_Register_bank,  Process: line__76.
+# KERNEL: WARNING: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+# KERNEL: Time: 0 ps,  Iteration: 2,  Instance: /testbench/uut/MIPS_core/adder_dir,  Process: line__42.
+# KERNEL: WARNING: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+# KERNEL: Time: 5 ns,  Iteration: 2,  Instance: /testbench/uut/MIPS_core/ALU_MIPs,  Process: line__43.
+# KERNEL: WARNING: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+# KERNEL: Time: 5 ns,  Iteration: 2,  Instance: /testbench/uut/MIPS_core/adder_dir,  Process: line__42.
+# KERNEL: WARNING: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+# KERNEL: Time: 5 ns,  Iteration: 3,  Instance: /testbench/uut/MIPS_core/ALU_MIPs,  Process: line__43.
+# EXECUTION:: NOTE   : Simulation time : 80000 ps.  Data written: 256, in Reg = 31
+# EXECUTION:: Time: 80 ns,  Iteration: 1,  Instance: /testbench/uut/MIPS_core/INT_Register_bank,  Process: line__55.
+# EXECUTION:: NOTE   : Simulation time : 90000 ps.  Data written: 8, in Reg = 1
+# EXECUTION:: Time: 90 ns,  Iteration: 1,  Instance: /testbench/uut/MIPS_core/INT_Register_bank,  Process: line__55.
+# EXECUTION:: NOTE   : Simulation time : 120000 ps.  Data written: 16, in Reg = 2
+# EXECUTION:: Time: 120 ns,  Iteration: 1,  Instance: /testbench/uut/MIPS_core/INT_Register_bank,  Process: line__55.
+# EXECUTION:: NOTE   : Simulation time : 130000 ps.  Data written: 12, in Reg = 3
+# EXECUTION:: Time: 130 ns,  Iteration: 1,  Instance: /testbench/uut/MIPS_core/INT_Register_bank,  Process: line__55.
+# EXECUTION:: NOTE   : Simulation time : 140000 ps.  Data written: 32, in Reg = 4
+# EXECUTION:: Time: 140 ns,  Iteration: 1,  Instance: /testbench/uut/MIPS_core/INT_Register_bank,  Process: line__55.
+# EXECUTION:: NOTE   : Simulation time : 150000 ps.  Data written: 44, in Reg = 5
+# EXECUTION:: Time: 150 ns,  Iteration: 1,  Instance: /testbench/uut/MIPS_core/INT_Register_bank,  Process: line__55.
+# EXECUTION:: NOTE   : Simulation time : 155000 ps.  Data written: 44, in ADDR = 24
+# EXECUTION:: Time: 155 ns,  Iteration: 1,  Instance: /testbench/uut/IO_Mem/MD,  Process: line__128.
+# EXECUTION:: NOTE   : Simulation time : 190000 ps.  Data written: 0, in Reg = 0
+# EXECUTION:: Time: 190 ns,  Iteration: 1,  Instance: /testbench/uut/MIPS_core/INT_Register_bank,  Process: line__55.
+# EXECUTION:: NOTE   : Simulation time : 200000 ps.  Data written: 8, in Reg = 0
+# EXECUTION:: Time: 200 ns,  Iteration: 1,  Instance: /testbench/uut/MIPS_core/INT_Register_bank,  Process: line__55.
+# EXECUTION:: NOTE   : Simulation time : 220000 ps.  Data written: 1, in Reg = 0
+# EXECUTION:: Time: 220 ns,  Iteration: 1,  Instance: /testbench/uut/MIPS_core/INT_Register_bank,  Process: line__55.
+# EXECUTION:: NOTE   : Simulation time : 270000 ps.  Data written: 256, in Reg = 1
+# EXECUTION:: Time: 270 ns,  Iteration: 1,  Instance: /testbench/uut/MIPS_core/INT_Register_bank,  Process: line__55.
+# EXECUTION:: NOTE   : Simulation time : 300000 ps.  Data written: -1160729136, in Reg = 1
+# EXECUTION:: Time: 300 ns,  Iteration: 1,  Instance: /testbench/uut/MIPS_core/INT_Register_bank,  Process: line__55.
+# EXECUTION:: NOTE   : Simulation time : 360000 ps.  Data written: 2736, in Reg = 1
+# EXECUTION:: Time: 360 ns,  Iteration: 1,  Instance: /testbench/uut/MIPS_core/INT_Register_bank,  Process: line__55.
+# EXECUTION:: NOTE   : Simulation time : 410000 ps.  Data written: 44, in Reg = 1
+# EXECUTION:: Time: 410 ns,  Iteration: 1,  Instance: /testbench/uut/MIPS_core/INT_Register_bank,  Process: line__55.
+# EXECUTION:: NOTE   : Simulation time : 420000 ps.  Data written: 44, in Reg = 1
+# EXECUTION:: Time: 420 ns,  Iteration: 1,  Instance: /testbench/uut/MIPS_core/INT_Register_bank,  Process: line__55.
+# EXECUTION:: NOTE   : Simulation time : 425000 ps.  Data written: 12, in ADDR = 24
+# EXECUTION:: Time: 425 ns,  Iteration: 1,  Instance: /testbench/uut/IO_Mem/MD,  Process: line__128.
+# EXECUTION:: NOTE   : Simulation time : 430000 ps.  Data written: 44, in Reg = 3
+# EXECUTION:: Time: 430 ns,  Iteration: 1,  Instance: /testbench/uut/MIPS_core/INT_Register_bank,  Process: line__55.
+# EXECUTION:: NOTE   : Simulation time : 485000 ps.  Data written: 44, in ADDR = 256
+# EXECUTION:: Time: 485 ns,  Iteration: 1,  Instance: /testbench/uut/IO_Mem/MD,  Process: line__128.
+# EXECUTION:: NOTE   : Simulation time : 495000 ps.  Data written: 16, in ADDR = 260
+# EXECUTION:: Time: 495 ns,  Iteration: 1,  Instance: /testbench/uut/IO_Mem/MD,  Process: line__128.
+# EXECUTION:: NOTE   : Simulation time : 510000 ps.  Data written: 8, in Reg = 1
+# EXECUTION:: Time: 510 ns,  Iteration: 1,  Instance: /testbench/uut/MIPS_core/INT_Register_bank,  Process: line__55.
+# EXECUTION:: NOTE   : Simulation time : 530000 ps.  Data written: 264, in Reg = 31
+# EXECUTION:: Time: 530 ns,  Iteration: 1,  Instance: /testbench/uut/MIPS_core/INT_Register_bank,  Process: line__55.
+# EXECUTION:: NOTE   : Simulation time : 540000 ps.  Data written: 0, in Reg = 2
+# EXECUTION:: Time: 540 ns,  Iteration: 1,  Instance: /testbench/uut/MIPS_core/INT_Register_bank,  Process: line__55.
+# EXECUTION:: NOTE   : Simulation time : 550000 ps.  Data written: 1, in Reg = 1
+# EXECUTION:: Time: 550 ns,  Iteration: 1,  Instance: /testbench/uut/MIPS_core/INT_Register_bank,  Process: line__55.
+# EXECUTION:: NOTE   : Simulation time : 570000 ps.  Data written: 1, in Reg = 2
+# EXECUTION:: Time: 570 ns,  Iteration: 1,  Instance: /testbench/uut/MIPS_core/INT_Register_bank,  Process: line__55.
+# EXECUTION:: NOTE   : Simulation time : 585000 ps.  Data written: 1, in ADDR = 12
+# EXECUTION:: Time: 585 ns,  Iteration: 1,  Instance: /testbench/uut/IO_Mem/MD,  Process: line__128.
+# EXECUTION:: NOTE   : Simulation time : 610000 ps.  Data written: 8, in Reg = 1
+# EXECUTION:: Time: 610 ns,  Iteration: 1,  Instance: /testbench/uut/MIPS_core/INT_Register_bank,  Process: line__55.
+# EXECUTION:: NOTE   : Simulation time : 630000 ps.  Data written: 256, in Reg = 31
+# EXECUTION:: Time: 630 ns,  Iteration: 1,  Instance: /testbench/uut/MIPS_core/INT_Register_bank,  Process: line__55.
+# EXECUTION:: NOTE   : Simulation time : 640000 ps.  Data written: 44, in Reg = 1
+# EXECUTION:: Time: 640 ns,  Iteration: 1,  Instance: /testbench/uut/MIPS_core/INT_Register_bank,  Process: line__55.
+# EXECUTION:: NOTE   : Simulation time : 650000 ps.  Data written: 16, in Reg = 2
+# EXECUTION:: Time: 650 ns,  Iteration: 1,  Instance: /testbench/uut/MIPS_core/INT_Register_bank,  Process: line__55.
+# EXECUTION:: NOTE   : Simulation time : 680000 ps.  Data written: 45, in Reg = 5
+# EXECUTION:: Time: 680 ns,  Iteration: 1,  Instance: /testbench/uut/MIPS_core/INT_Register_bank,  Process: line__55.
+# EXECUTION:: NOTE   : Simulation time : 715000 ps.  Data written: 44, in ADDR = 24
+# EXECUTION:: Time: 715 ns,  Iteration: 1,  Instance: /testbench/uut/IO_Mem/MD,  Process: line__128.
+# EXECUTION:: NOTE   : Simulation time : 720000 ps.  Data written: 45, in Reg = 3
+# EXECUTION:: Time: 720 ns,  Iteration: 1,  Instance: /testbench/uut/MIPS_core/INT_Register_bank,  Process: line__55.
+# EXECUTION:: NOTE   : Simulation time : 770000 ps.  Data written: -1160729136, in Reg = 1
+# EXECUTION:: Time: 770 ns,  Iteration: 1,  Instance: /testbench/uut/MIPS_core/INT_Register_bank,  Process: line__55.
+# EXECUTION:: NOTE   : Simulation time : 830000 ps.  Data written: 2736, in Reg = 1
+# EXECUTION:: Time: 830 ns,  Iteration: 1,  Instance: /testbench/uut/MIPS_core/INT_Register_bank,  Process: line__55.
+# EXECUTION:: NOTE   : Simulation time : 880000 ps.  Data written: 128, in Reg = 1
+# EXECUTION:: Time: 880 ns,  Iteration: 1,  Instance: /testbench/uut/MIPS_core/INT_Register_bank,  Process: line__55.
+# EXECUTION:: NOTE   : Simulation time : 930000 ps.  Data written: 132, in Reg = 1
+# EXECUTION:: Time: 930 ns,  Iteration: 1,  Instance: /testbench/uut/MIPS_core/INT_Register_bank,  Process: line__55.
+# EXECUTION:: NOTE   : Simulation time : 960000 ps.  Data written: 132, in Reg = 1
+# EXECUTION:: Time: 960 ns,  Iteration: 1,  Instance: /testbench/uut/MIPS_core/INT_Register_bank,  Process: line__55.
+# KERNEL: stopped at time: 1 us
+endsim
+# VSIM: Simulation has finished.
+# Warning: WAVEFORM: Object matching /testbench/uut/MIPS_core/Banco_IF_ID/IR_in not found in C:/Users/edu7g/Ingenieria-Informatica/curso2/AOC2/Proyectos/Proyecto1/Proyecto1_active/Proyect1_design/src/wave.asdb.
+# Warning: WAVEFORM: Object matching /testbench/uut/MIPS_core/Banco_IF_ID/IR_in not found in C:/Users/edu7g/Ingenieria-Informatica/curso2/AOC2/Proyectos/Proyecto1/Proyecto1_active/Proyect1_design/src/wave.asdb.
+asim -O5 +access +r +m+testbench testbench behavior
+# ELBREAD: Elaboration process.
+# ELBREAD: Elaboration time 0.0 [s].
+# VSIM: Stack memory: 32MB
+# VSIM: Retval memory: 32MB
+# 
+# KERNEL: Main thread initiated.
+# KERNEL: Kernel process initialization phase.
+# ELAB2: Elaboration final pass...
+# ELAB2: Create instances ...
+# KERNEL: Time resolution set to 1ps.
+# ELAB2: Create instances complete.
+# SLP: Started
+# SLP: Elaboration phase ...
+# SLP: Elaboration phase ... skipped, nothing to simulate in SLP mode : 0.0 [s]
+# SLP: Finished : 0.0 [s]
+# ELAB2: Elaboration final pass complete - time: 0.0 [s].
+# KERNEL: Warning: You are using the Active-HDL Student Edition. The performance of simulation is running at a reduced rate.
+# KERNEL: Warning: Contact Aldec for available upgrade options - sales@aldec.com.
+# KERNEL: Kernel process initialization done.
+# Allocation: Simulator allocated 6714 kB (elbread=427 elab2=6141 kernel=145 sdf=0)
+# KERNEL: ASDB file was created in location C:\Users\edu7g\Ingenieria-Informatica\curso2\AOC2\Proyectos\Proyecto1\Proyecto1_active\Proyect1_design\src\wave.asdb
+#  16:43, miércoles, 16 de abril de 2025
+#  Simulation has been initialized
+# Waveform file 'untitled.awc' connected to 'C:/Users/edu7g/Ingenieria-Informatica/curso2/AOC2/Proyectos/Proyecto1/Proyecto1_active/Proyect1_design/src/wave.asdb'.
+# VSIM: 1 object(s) traced.
+# VSIM: 13 object(s) traced.
+# VSIM: 1 object(s) traced.
+# VSIM: 3 object(s) traced.
+run @1us
+# KERNEL: WARNING: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+# KERNEL: Time: 0 ps,  Iteration: 0,  Instance: /testbench/uut/IO_Mem,  Process: line__101.
+# KERNEL: WARNING: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+# KERNEL: Time: 0 ps,  Iteration: 0,  Instance: /testbench/uut/IO_Mem,  Process: line__103.
+# KERNEL: WARNING: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+# KERNEL: Time: 0 ps,  Iteration: 0,  Instance: /testbench/uut/IO_Mem,  Process: line__142.
+# KERNEL: WARNING: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+# KERNEL: Time: 0 ps,  Iteration: 0,  Instance: /testbench/uut/IO_Mem/MD,  Process: line__179.
+# KERNEL: WARNING: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+# KERNEL: Time: 0 ps,  Iteration: 0,  Instance: /testbench/uut/MIPS_core/adder_4,  Process: line__42.
+# KERNEL: WARNING: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+# KERNEL: Time: 0 ps,  Iteration: 0,  Instance: /testbench/uut/MIPS_core/Mem_I,  Process: line__312.
+# KERNEL: WARNING: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+# KERNEL: Time: 0 ps,  Iteration: 0,  Instance: /testbench/uut/MIPS_core/INT_Register_bank,  Process: line__74.
+# KERNEL: WARNING: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+# KERNEL: Time: 0 ps,  Iteration: 0,  Instance: /testbench/uut/MIPS_core/INT_Register_bank,  Process: line__76.
+# KERNEL: WARNING: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+# KERNEL: Time: 0 ps,  Iteration: 0,  Instance: /testbench/uut/MIPS_core/adder_dir,  Process: line__42.
+# KERNEL: WARNING: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+# KERNEL: Time: 0 ps,  Iteration: 0,  Instance: /testbench/uut/MIPS_core/ALU_MIPs,  Process: line__43.
+# KERNEL: WARNING: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+# KERNEL: Time: 0 ps,  Iteration: 0,  Instance: /testbench/uut/MIPS_core/ALU_MIPs,  Process: line__43.
+# KERNEL: WARNING: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+# KERNEL: Time: 0 ps,  Iteration: 0,  Instance: /testbench/uut/MIPS_core/ALU_MIPs,  Process: line__43.
+# KERNEL: WARNING: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+# KERNEL: Time: 0 ps,  Iteration: 0,  Instance: /testbench/uut/MIPS_core/ALU_MIPs,  Process: line__43.
+# KERNEL: WARNING: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+# KERNEL: Time: 0 ps,  Iteration: 1,  Instance: /testbench/uut/MIPS_core/adder_dir,  Process: line__42.
+# KERNEL: WARNING: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+# KERNEL: Time: 0 ps,  Iteration: 2,  Instance: /testbench/uut/MIPS_core/INT_Register_bank,  Process: line__74.
+# KERNEL: WARNING: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+# KERNEL: Time: 0 ps,  Iteration: 2,  Instance: /testbench/uut/MIPS_core/INT_Register_bank,  Process: line__76.
+# KERNEL: WARNING: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+# KERNEL: Time: 0 ps,  Iteration: 2,  Instance: /testbench/uut/MIPS_core/adder_dir,  Process: line__42.
+# KERNEL: WARNING: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+# KERNEL: Time: 5 ns,  Iteration: 2,  Instance: /testbench/uut/MIPS_core/ALU_MIPs,  Process: line__43.
+# KERNEL: WARNING: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+# KERNEL: Time: 5 ns,  Iteration: 2,  Instance: /testbench/uut/MIPS_core/adder_dir,  Process: line__42.
+# KERNEL: WARNING: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+# KERNEL: Time: 5 ns,  Iteration: 3,  Instance: /testbench/uut/MIPS_core/ALU_MIPs,  Process: line__43.
+# EXECUTION:: NOTE   : Simulation time : 80000 ps.  Data written: 256, in Reg = 31
+# EXECUTION:: Time: 80 ns,  Iteration: 1,  Instance: /testbench/uut/MIPS_core/INT_Register_bank,  Process: line__55.
+# EXECUTION:: NOTE   : Simulation time : 90000 ps.  Data written: 8, in Reg = 1
+# EXECUTION:: Time: 90 ns,  Iteration: 1,  Instance: /testbench/uut/MIPS_core/INT_Register_bank,  Process: line__55.
+# EXECUTION:: NOTE   : Simulation time : 120000 ps.  Data written: 16, in Reg = 2
+# EXECUTION:: Time: 120 ns,  Iteration: 1,  Instance: /testbench/uut/MIPS_core/INT_Register_bank,  Process: line__55.
+# EXECUTION:: NOTE   : Simulation time : 130000 ps.  Data written: 12, in Reg = 3
+# EXECUTION:: Time: 130 ns,  Iteration: 1,  Instance: /testbench/uut/MIPS_core/INT_Register_bank,  Process: line__55.
+# EXECUTION:: NOTE   : Simulation time : 140000 ps.  Data written: 32, in Reg = 4
+# EXECUTION:: Time: 140 ns,  Iteration: 1,  Instance: /testbench/uut/MIPS_core/INT_Register_bank,  Process: line__55.
+# EXECUTION:: NOTE   : Simulation time : 150000 ps.  Data written: 44, in Reg = 5
+# EXECUTION:: Time: 150 ns,  Iteration: 1,  Instance: /testbench/uut/MIPS_core/INT_Register_bank,  Process: line__55.
+# EXECUTION:: NOTE   : Simulation time : 155000 ps.  Data written: 44, in ADDR = 24
+# EXECUTION:: Time: 155 ns,  Iteration: 1,  Instance: /testbench/uut/IO_Mem/MD,  Process: line__128.
+# EXECUTION:: NOTE   : Simulation time : 190000 ps.  Data written: 0, in Reg = 0
+# EXECUTION:: Time: 190 ns,  Iteration: 1,  Instance: /testbench/uut/MIPS_core/INT_Register_bank,  Process: line__55.
+# EXECUTION:: NOTE   : Simulation time : 200000 ps.  Data written: 8, in Reg = 0
+# EXECUTION:: Time: 200 ns,  Iteration: 1,  Instance: /testbench/uut/MIPS_core/INT_Register_bank,  Process: line__55.
+# EXECUTION:: NOTE   : Simulation time : 220000 ps.  Data written: 1, in Reg = 0
+# EXECUTION:: Time: 220 ns,  Iteration: 1,  Instance: /testbench/uut/MIPS_core/INT_Register_bank,  Process: line__55.
+# EXECUTION:: NOTE   : Simulation time : 270000 ps.  Data written: 256, in Reg = 1
+# EXECUTION:: Time: 270 ns,  Iteration: 1,  Instance: /testbench/uut/MIPS_core/INT_Register_bank,  Process: line__55.
+# EXECUTION:: NOTE   : Simulation time : 300000 ps.  Data written: -1160729136, in Reg = 1
+# EXECUTION:: Time: 300 ns,  Iteration: 1,  Instance: /testbench/uut/MIPS_core/INT_Register_bank,  Process: line__55.
+# EXECUTION:: NOTE   : Simulation time : 360000 ps.  Data written: 2736, in Reg = 1
+# EXECUTION:: Time: 360 ns,  Iteration: 1,  Instance: /testbench/uut/MIPS_core/INT_Register_bank,  Process: line__55.
+# EXECUTION:: NOTE   : Simulation time : 410000 ps.  Data written: 44, in Reg = 1
+# EXECUTION:: Time: 410 ns,  Iteration: 1,  Instance: /testbench/uut/MIPS_core/INT_Register_bank,  Process: line__55.
+# EXECUTION:: NOTE   : Simulation time : 420000 ps.  Data written: 44, in Reg = 1
+# EXECUTION:: Time: 420 ns,  Iteration: 1,  Instance: /testbench/uut/MIPS_core/INT_Register_bank,  Process: line__55.
+# EXECUTION:: NOTE   : Simulation time : 425000 ps.  Data written: 12, in ADDR = 24
+# EXECUTION:: Time: 425 ns,  Iteration: 1,  Instance: /testbench/uut/IO_Mem/MD,  Process: line__128.
+# EXECUTION:: NOTE   : Simulation time : 430000 ps.  Data written: 44, in Reg = 3
+# EXECUTION:: Time: 430 ns,  Iteration: 1,  Instance: /testbench/uut/MIPS_core/INT_Register_bank,  Process: line__55.
+# EXECUTION:: NOTE   : Simulation time : 485000 ps.  Data written: 44, in ADDR = 256
+# EXECUTION:: Time: 485 ns,  Iteration: 1,  Instance: /testbench/uut/IO_Mem/MD,  Process: line__128.
+# EXECUTION:: NOTE   : Simulation time : 495000 ps.  Data written: 16, in ADDR = 260
+# EXECUTION:: Time: 495 ns,  Iteration: 1,  Instance: /testbench/uut/IO_Mem/MD,  Process: line__128.
+# EXECUTION:: NOTE   : Simulation time : 510000 ps.  Data written: 8, in Reg = 1
+# EXECUTION:: Time: 510 ns,  Iteration: 1,  Instance: /testbench/uut/MIPS_core/INT_Register_bank,  Process: line__55.
+# EXECUTION:: NOTE   : Simulation time : 530000 ps.  Data written: 264, in Reg = 31
+# EXECUTION:: Time: 530 ns,  Iteration: 1,  Instance: /testbench/uut/MIPS_core/INT_Register_bank,  Process: line__55.
+# EXECUTION:: NOTE   : Simulation time : 540000 ps.  Data written: 0, in Reg = 2
+# EXECUTION:: Time: 540 ns,  Iteration: 1,  Instance: /testbench/uut/MIPS_core/INT_Register_bank,  Process: line__55.
+# EXECUTION:: NOTE   : Simulation time : 550000 ps.  Data written: 1, in Reg = 1
+# EXECUTION:: Time: 550 ns,  Iteration: 1,  Instance: /testbench/uut/MIPS_core/INT_Register_bank,  Process: line__55.
+# EXECUTION:: NOTE   : Simulation time : 570000 ps.  Data written: 1, in Reg = 2
+# EXECUTION:: Time: 570 ns,  Iteration: 1,  Instance: /testbench/uut/MIPS_core/INT_Register_bank,  Process: line__55.
+# EXECUTION:: NOTE   : Simulation time : 585000 ps.  Data written: 1, in ADDR = 12
+# EXECUTION:: Time: 585 ns,  Iteration: 1,  Instance: /testbench/uut/IO_Mem/MD,  Process: line__128.
+# EXECUTION:: NOTE   : Simulation time : 610000 ps.  Data written: 8, in Reg = 1
+# EXECUTION:: Time: 610 ns,  Iteration: 1,  Instance: /testbench/uut/MIPS_core/INT_Register_bank,  Process: line__55.
+# EXECUTION:: NOTE   : Simulation time : 630000 ps.  Data written: 256, in Reg = 31
+# EXECUTION:: Time: 630 ns,  Iteration: 1,  Instance: /testbench/uut/MIPS_core/INT_Register_bank,  Process: line__55.
+# EXECUTION:: NOTE   : Simulation time : 640000 ps.  Data written: 44, in Reg = 1
+# EXECUTION:: Time: 640 ns,  Iteration: 1,  Instance: /testbench/uut/MIPS_core/INT_Register_bank,  Process: line__55.
+# EXECUTION:: NOTE   : Simulation time : 650000 ps.  Data written: 16, in Reg = 2
+# EXECUTION:: Time: 650 ns,  Iteration: 1,  Instance: /testbench/uut/MIPS_core/INT_Register_bank,  Process: line__55.
+# EXECUTION:: NOTE   : Simulation time : 680000 ps.  Data written: 45, in Reg = 5
+# EXECUTION:: Time: 680 ns,  Iteration: 1,  Instance: /testbench/uut/MIPS_core/INT_Register_bank,  Process: line__55.
+# EXECUTION:: NOTE   : Simulation time : 715000 ps.  Data written: 44, in ADDR = 24
+# EXECUTION:: Time: 715 ns,  Iteration: 1,  Instance: /testbench/uut/IO_Mem/MD,  Process: line__128.
+# EXECUTION:: NOTE   : Simulation time : 720000 ps.  Data written: 45, in Reg = 3
+# EXECUTION:: Time: 720 ns,  Iteration: 1,  Instance: /testbench/uut/MIPS_core/INT_Register_bank,  Process: line__55.
+# EXECUTION:: NOTE   : Simulation time : 770000 ps.  Data written: -1160729136, in Reg = 1
+# EXECUTION:: Time: 770 ns,  Iteration: 1,  Instance: /testbench/uut/MIPS_core/INT_Register_bank,  Process: line__55.
+# EXECUTION:: NOTE   : Simulation time : 830000 ps.  Data written: 2736, in Reg = 1
+# EXECUTION:: Time: 830 ns,  Iteration: 1,  Instance: /testbench/uut/MIPS_core/INT_Register_bank,  Process: line__55.
+# EXECUTION:: NOTE   : Simulation time : 880000 ps.  Data written: 128, in Reg = 1
+# EXECUTION:: Time: 880 ns,  Iteration: 1,  Instance: /testbench/uut/MIPS_core/INT_Register_bank,  Process: line__55.
+# EXECUTION:: NOTE   : Simulation time : 930000 ps.  Data written: 132, in Reg = 1
+# EXECUTION:: Time: 930 ns,  Iteration: 1,  Instance: /testbench/uut/MIPS_core/INT_Register_bank,  Process: line__55.
+# EXECUTION:: NOTE   : Simulation time : 960000 ps.  Data written: 132, in Reg = 1
+# EXECUTION:: Time: 960 ns,  Iteration: 1,  Instance: /testbench/uut/MIPS_core/INT_Register_bank,  Process: line__55.
+# KERNEL: stopped at time: 1 us
+# VSIM: 1 object(s) traced.
+endsim
+# VSIM: Simulation has finished.
+asim -O5 +access +r +m+testbench testbench behavior
+# ELBREAD: Elaboration process.
+# ELBREAD: Elaboration time 0.0 [s].
+# VSIM: Stack memory: 32MB
+# VSIM: Retval memory: 32MB
+# 
+# KERNEL: Main thread initiated.
+# KERNEL: Kernel process initialization phase.
+# ELAB2: Elaboration final pass...
+# ELAB2: Create instances ...
+# KERNEL: Time resolution set to 1ps.
+# ELAB2: Create instances complete.
+# SLP: Started
+# SLP: Elaboration phase ...
+# SLP: Elaboration phase ... skipped, nothing to simulate in SLP mode : 0.0 [s]
+# SLP: Finished : 0.0 [s]
+# ELAB2: Elaboration final pass complete - time: 0.0 [s].
+# KERNEL: Warning: You are using the Active-HDL Student Edition. The performance of simulation is running at a reduced rate.
+# KERNEL: Warning: Contact Aldec for available upgrade options - sales@aldec.com.
+# KERNEL: Kernel process initialization done.
+# Allocation: Simulator allocated 6714 kB (elbread=427 elab2=6141 kernel=145 sdf=0)
+# KERNEL: ASDB file was created in location C:\Users\edu7g\Ingenieria-Informatica\curso2\AOC2\Proyectos\Proyecto1\Proyecto1_active\Proyect1_design\src\wave.asdb
+#  16:58, miércoles, 16 de abril de 2025
+#  Simulation has been initialized
+# Waveform file 'untitled.awc' connected to 'C:/Users/edu7g/Ingenieria-Informatica/curso2/AOC2/Proyectos/Proyecto1/Proyecto1_active/Proyect1_design/src/wave.asdb'.
+run @1us
+# KERNEL: WARNING: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+# KERNEL: Time: 0 ps,  Iteration: 0,  Instance: /testbench/uut/IO_Mem,  Process: line__101.
+# KERNEL: WARNING: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+# KERNEL: Time: 0 ps,  Iteration: 0,  Instance: /testbench/uut/IO_Mem,  Process: line__103.
+# KERNEL: WARNING: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+# KERNEL: Time: 0 ps,  Iteration: 0,  Instance: /testbench/uut/IO_Mem,  Process: line__142.
+# KERNEL: WARNING: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+# KERNEL: Time: 0 ps,  Iteration: 0,  Instance: /testbench/uut/IO_Mem/MD,  Process: line__179.
+# KERNEL: WARNING: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+# KERNEL: Time: 0 ps,  Iteration: 0,  Instance: /testbench/uut/MIPS_core/adder_4,  Process: line__42.
+# KERNEL: WARNING: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+# KERNEL: Time: 0 ps,  Iteration: 0,  Instance: /testbench/uut/MIPS_core/Mem_I,  Process: line__312.
+# KERNEL: WARNING: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+# KERNEL: Time: 0 ps,  Iteration: 0,  Instance: /testbench/uut/MIPS_core/INT_Register_bank,  Process: line__74.
+# KERNEL: WARNING: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+# KERNEL: Time: 0 ps,  Iteration: 0,  Instance: /testbench/uut/MIPS_core/INT_Register_bank,  Process: line__76.
+# KERNEL: WARNING: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+# KERNEL: Time: 0 ps,  Iteration: 0,  Instance: /testbench/uut/MIPS_core/adder_dir,  Process: line__42.
+# KERNEL: WARNING: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+# KERNEL: Time: 0 ps,  Iteration: 0,  Instance: /testbench/uut/MIPS_core/ALU_MIPs,  Process: line__43.
+# KERNEL: WARNING: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+# KERNEL: Time: 0 ps,  Iteration: 0,  Instance: /testbench/uut/MIPS_core/ALU_MIPs,  Process: line__43.
+# KERNEL: WARNING: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+# KERNEL: Time: 0 ps,  Iteration: 0,  Instance: /testbench/uut/MIPS_core/ALU_MIPs,  Process: line__43.
+# KERNEL: WARNING: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+# KERNEL: Time: 0 ps,  Iteration: 0,  Instance: /testbench/uut/MIPS_core/ALU_MIPs,  Process: line__43.
+# KERNEL: WARNING: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+# KERNEL: Time: 0 ps,  Iteration: 1,  Instance: /testbench/uut/MIPS_core/adder_dir,  Process: line__42.
+# KERNEL: WARNING: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+# KERNEL: Time: 0 ps,  Iteration: 2,  Instance: /testbench/uut/MIPS_core/INT_Register_bank,  Process: line__74.
+# KERNEL: WARNING: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+# KERNEL: Time: 0 ps,  Iteration: 2,  Instance: /testbench/uut/MIPS_core/INT_Register_bank,  Process: line__76.
+# KERNEL: WARNING: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+# KERNEL: Time: 0 ps,  Iteration: 2,  Instance: /testbench/uut/MIPS_core/adder_dir,  Process: line__42.
+# KERNEL: WARNING: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+# KERNEL: Time: 5 ns,  Iteration: 2,  Instance: /testbench/uut/MIPS_core/ALU_MIPs,  Process: line__43.
+# KERNEL: WARNING: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+# KERNEL: Time: 5 ns,  Iteration: 2,  Instance: /testbench/uut/MIPS_core/adder_dir,  Process: line__42.
+# KERNEL: WARNING: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+# KERNEL: Time: 5 ns,  Iteration: 3,  Instance: /testbench/uut/MIPS_core/ALU_MIPs,  Process: line__43.
+# EXECUTION:: NOTE   : Simulation time : 80000 ps.  Data written: 256, in Reg = 31
+# EXECUTION:: Time: 80 ns,  Iteration: 1,  Instance: /testbench/uut/MIPS_core/INT_Register_bank,  Process: line__55.
+# EXECUTION:: NOTE   : Simulation time : 90000 ps.  Data written: 8, in Reg = 1
+# EXECUTION:: Time: 90 ns,  Iteration: 1,  Instance: /testbench/uut/MIPS_core/INT_Register_bank,  Process: line__55.
+# EXECUTION:: NOTE   : Simulation time : 120000 ps.  Data written: 16, in Reg = 2
+# EXECUTION:: Time: 120 ns,  Iteration: 1,  Instance: /testbench/uut/MIPS_core/INT_Register_bank,  Process: line__55.
+# EXECUTION:: NOTE   : Simulation time : 130000 ps.  Data written: 12, in Reg = 3
+# EXECUTION:: Time: 130 ns,  Iteration: 1,  Instance: /testbench/uut/MIPS_core/INT_Register_bank,  Process: line__55.
+# EXECUTION:: NOTE   : Simulation time : 140000 ps.  Data written: 32, in Reg = 4
+# EXECUTION:: Time: 140 ns,  Iteration: 1,  Instance: /testbench/uut/MIPS_core/INT_Register_bank,  Process: line__55.
+# EXECUTION:: NOTE   : Simulation time : 150000 ps.  Data written: 44, in Reg = 5
+# EXECUTION:: Time: 150 ns,  Iteration: 1,  Instance: /testbench/uut/MIPS_core/INT_Register_bank,  Process: line__55.
+# EXECUTION:: NOTE   : Simulation time : 155000 ps.  Data written: 44, in ADDR = 24
+# EXECUTION:: Time: 155 ns,  Iteration: 1,  Instance: /testbench/uut/IO_Mem/MD,  Process: line__128.
+# EXECUTION:: NOTE   : Simulation time : 190000 ps.  Data written: 0, in Reg = 0
+# EXECUTION:: Time: 190 ns,  Iteration: 1,  Instance: /testbench/uut/MIPS_core/INT_Register_bank,  Process: line__55.
+# EXECUTION:: NOTE   : Simulation time : 200000 ps.  Data written: 8, in Reg = 0
+# EXECUTION:: Time: 200 ns,  Iteration: 1,  Instance: /testbench/uut/MIPS_core/INT_Register_bank,  Process: line__55.
+# EXECUTION:: NOTE   : Simulation time : 220000 ps.  Data written: 1, in Reg = 0
+# EXECUTION:: Time: 220 ns,  Iteration: 1,  Instance: /testbench/uut/MIPS_core/INT_Register_bank,  Process: line__55.
+# EXECUTION:: NOTE   : Simulation time : 270000 ps.  Data written: 256, in Reg = 1
+# EXECUTION:: Time: 270 ns,  Iteration: 1,  Instance: /testbench/uut/MIPS_core/INT_Register_bank,  Process: line__55.
+# EXECUTION:: NOTE   : Simulation time : 300000 ps.  Data written: -1160729136, in Reg = 1
+# EXECUTION:: Time: 300 ns,  Iteration: 1,  Instance: /testbench/uut/MIPS_core/INT_Register_bank,  Process: line__55.
+# EXECUTION:: NOTE   : Simulation time : 360000 ps.  Data written: 2736, in Reg = 1
+# EXECUTION:: Time: 360 ns,  Iteration: 1,  Instance: /testbench/uut/MIPS_core/INT_Register_bank,  Process: line__55.
+# EXECUTION:: NOTE   : Simulation time : 410000 ps.  Data written: 44, in Reg = 1
+# EXECUTION:: Time: 410 ns,  Iteration: 1,  Instance: /testbench/uut/MIPS_core/INT_Register_bank,  Process: line__55.
+# EXECUTION:: NOTE   : Simulation time : 420000 ps.  Data written: 44, in Reg = 1
+# EXECUTION:: Time: 420 ns,  Iteration: 1,  Instance: /testbench/uut/MIPS_core/INT_Register_bank,  Process: line__55.
+# EXECUTION:: NOTE   : Simulation time : 425000 ps.  Data written: 12, in ADDR = 24
+# EXECUTION:: Time: 425 ns,  Iteration: 1,  Instance: /testbench/uut/IO_Mem/MD,  Process: line__128.
+# EXECUTION:: NOTE   : Simulation time : 430000 ps.  Data written: 44, in Reg = 3
+# EXECUTION:: Time: 430 ns,  Iteration: 1,  Instance: /testbench/uut/MIPS_core/INT_Register_bank,  Process: line__55.
+# EXECUTION:: NOTE   : Simulation time : 485000 ps.  Data written: 44, in ADDR = 256
+# EXECUTION:: Time: 485 ns,  Iteration: 1,  Instance: /testbench/uut/IO_Mem/MD,  Process: line__128.
+# EXECUTION:: NOTE   : Simulation time : 495000 ps.  Data written: 16, in ADDR = 260
+# EXECUTION:: Time: 495 ns,  Iteration: 1,  Instance: /testbench/uut/IO_Mem/MD,  Process: line__128.
+# EXECUTION:: NOTE   : Simulation time : 510000 ps.  Data written: 8, in Reg = 1
+# EXECUTION:: Time: 510 ns,  Iteration: 1,  Instance: /testbench/uut/MIPS_core/INT_Register_bank,  Process: line__55.
+# EXECUTION:: NOTE   : Simulation time : 530000 ps.  Data written: 264, in Reg = 31
+# EXECUTION:: Time: 530 ns,  Iteration: 1,  Instance: /testbench/uut/MIPS_core/INT_Register_bank,  Process: line__55.
+# EXECUTION:: NOTE   : Simulation time : 540000 ps.  Data written: 0, in Reg = 2
+# EXECUTION:: Time: 540 ns,  Iteration: 1,  Instance: /testbench/uut/MIPS_core/INT_Register_bank,  Process: line__55.
+# EXECUTION:: NOTE   : Simulation time : 550000 ps.  Data written: 1, in Reg = 1
+# EXECUTION:: Time: 550 ns,  Iteration: 1,  Instance: /testbench/uut/MIPS_core/INT_Register_bank,  Process: line__55.
+# EXECUTION:: NOTE   : Simulation time : 570000 ps.  Data written: 1, in Reg = 2
+# EXECUTION:: Time: 570 ns,  Iteration: 1,  Instance: /testbench/uut/MIPS_core/INT_Register_bank,  Process: line__55.
+# EXECUTION:: NOTE   : Simulation time : 585000 ps.  Data written: 1, in ADDR = 12
+# EXECUTION:: Time: 585 ns,  Iteration: 1,  Instance: /testbench/uut/IO_Mem/MD,  Process: line__128.
+# EXECUTION:: NOTE   : Simulation time : 610000 ps.  Data written: 8, in Reg = 1
+# EXECUTION:: Time: 610 ns,  Iteration: 1,  Instance: /testbench/uut/MIPS_core/INT_Register_bank,  Process: line__55.
+# EXECUTION:: NOTE   : Simulation time : 630000 ps.  Data written: 256, in Reg = 31
+# EXECUTION:: Time: 630 ns,  Iteration: 1,  Instance: /testbench/uut/MIPS_core/INT_Register_bank,  Process: line__55.
+# EXECUTION:: NOTE   : Simulation time : 640000 ps.  Data written: 44, in Reg = 1
+# EXECUTION:: Time: 640 ns,  Iteration: 1,  Instance: /testbench/uut/MIPS_core/INT_Register_bank,  Process: line__55.
+# EXECUTION:: NOTE   : Simulation time : 650000 ps.  Data written: 16, in Reg = 2
+# EXECUTION:: Time: 650 ns,  Iteration: 1,  Instance: /testbench/uut/MIPS_core/INT_Register_bank,  Process: line__55.
+# EXECUTION:: NOTE   : Simulation time : 680000 ps.  Data written: 45, in Reg = 5
+# EXECUTION:: Time: 680 ns,  Iteration: 1,  Instance: /testbench/uut/MIPS_core/INT_Register_bank,  Process: line__55.
+# EXECUTION:: NOTE   : Simulation time : 715000 ps.  Data written: 44, in ADDR = 24
+# EXECUTION:: Time: 715 ns,  Iteration: 1,  Instance: /testbench/uut/IO_Mem/MD,  Process: line__128.
+# EXECUTION:: NOTE   : Simulation time : 720000 ps.  Data written: 45, in Reg = 3
+# EXECUTION:: Time: 720 ns,  Iteration: 1,  Instance: /testbench/uut/MIPS_core/INT_Register_bank,  Process: line__55.
+# EXECUTION:: NOTE   : Simulation time : 770000 ps.  Data written: -1160729136, in Reg = 1
+# EXECUTION:: Time: 770 ns,  Iteration: 1,  Instance: /testbench/uut/MIPS_core/INT_Register_bank,  Process: line__55.
+# EXECUTION:: NOTE   : Simulation time : 830000 ps.  Data written: 2736, in Reg = 1
+# EXECUTION:: Time: 830 ns,  Iteration: 1,  Instance: /testbench/uut/MIPS_core/INT_Register_bank,  Process: line__55.
+# EXECUTION:: NOTE   : Simulation time : 880000 ps.  Data written: 128, in Reg = 1
+# EXECUTION:: Time: 880 ns,  Iteration: 1,  Instance: /testbench/uut/MIPS_core/INT_Register_bank,  Process: line__55.
+# EXECUTION:: NOTE   : Simulation time : 930000 ps.  Data written: 132, in Reg = 1
+# EXECUTION:: Time: 930 ns,  Iteration: 1,  Instance: /testbench/uut/MIPS_core/INT_Register_bank,  Process: line__55.
+# EXECUTION:: NOTE   : Simulation time : 960000 ps.  Data written: 132, in Reg = 1
+# EXECUTION:: Time: 960 ns,  Iteration: 1,  Instance: /testbench/uut/MIPS_core/INT_Register_bank,  Process: line__55.
+# KERNEL: stopped at time: 1 us

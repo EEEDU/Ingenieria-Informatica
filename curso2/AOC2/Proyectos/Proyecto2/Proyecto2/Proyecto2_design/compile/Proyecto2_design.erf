@@ -1,0 +1,3 @@
+WARNING ELAB1_0026: "There is no default binding for component "UC_MC". (Port "inc_inv" is not on the entity)." "C:/Users/edu7g/Ingenieria-Informatica/curso2/AOC2/Proyectos/Proyecto2/Proyecto2/Proyecto2_design/src/mc_datos_2025_wt.vhd" 209 0
+ERROR COMP96_0078: "Unknown identifier "inc_inv"." "C:/Users/edu7g/Ingenieria-Informatica/curso2/AOC2/Proyectos/Proyecto2/Proyecto2/Proyecto2_design/src/completar_uc_mc_2025_wt_ciclo_arb.vhd" 187 2
+ERROR COMP96_0133: "Cannot find object declaration." "C:/Users/edu7g/Ingenieria-Informatica/curso2/AOC2/Proyectos/Proyecto2/Proyecto2/Proyecto2_design/src/completar_uc_mc_2025_wt_ciclo_arb.vhd" 187 2

@@ -1,0 +1,92 @@
+[Project]
+Current Flow=Generic
+VCS=0
+version=4
+Current Config=compile
+[Configurations]
+compile=Proyecto2_design
+[Library]
+Proyecto2_design=.\Proyecto2_design\Proyecto2_design.lib
+[$LibMap$]
+Proyecto2_design=.
+Active_lib=
+[Settings]
+FLOW_TYPE=HDL
+LANGUAGE=VHDL
+REFRESH_FLOW=1
+FLOWTOOLS=NONE
+FAMILY=
+[Files]
+/via_2025_wt.vhd=-1
+/md_scratch_2025.vhd=-1
+/io_master_2025.vhd=-1
+/incomplete_uc_mips_2025.vhd=-1
+/incomplete_mips_segmentado_irq.vhd=-1
+/memoriaram_i_test.bucle_lectura.p2.vhd=-1
+/bits_shifter.vhd=-1
+/counter.vhd=-1
+/arbitro.vhd=-1
+/adder32.vhd=-1
+/banco_mem.vhd=-1
+/alu.vhd=-1
+/register.vhd=-1
+/breg.vhd=-1
+/mux4_1.vhd=-1
+/mux2_1.vhd=-1
+/fifo_reg.vhd=-1
+/memoriaram_64_32_enable.vhd=-1
+/mc_datos_2025_wt.vhd=-1
+/ram_128_32_p2_2025_bucle_lectura.vhd=-1
+/io_md_subsystem_p2_25.vhd=-1
+/ext_signo.vhd=-1
+/testbench_aoc2_soc.vhd=-1
+/md_cont_2025.vhd=-1
+/counter_2bits.vhd=-1
+/mux2_5bits.vhd=-1
+/incomplete_ud_2025.vhd=-1
+/incomplete_ua_2025.vhd=-1
+/completar_uc_mc_2025_wt_ciclo_arb.vhd=-1
+/exception_manager.vhd=-1
+/aoc2_soc.vhd=-1
+/banco_wb.vhd=-1
+/banco_id.vhd=-1
+/banco_ex.vhd=-1
+[Files.Data]
+.\src\via_2025_wt.vhd=VHDL Source Code
+.\src\md_scratch_2025.vhd=VHDL Source Code
+.\src\io_master_2025.vhd=VHDL Source Code
+.\src\incomplete_uc_mips_2025.vhd=VHDL Source Code
+.\src\incomplete_mips_segmentado_irq.vhd=VHDL Source Code
+.\src\memoriaram_i_test.bucle_lectura.p2.vhd=VHDL Source Code
+.\src\bits_shifter.vhd=VHDL Source Code
+.\src\counter.vhd=VHDL Source Code
+.\src\arbitro.vhd=VHDL Source Code
+.\src\adder32.vhd=VHDL Source Code
+.\src\banco_mem.vhd=VHDL Source Code
+.\src\alu.vhd=VHDL Source Code
+.\src\register.vhd=VHDL Source Code
+.\src\breg.vhd=VHDL Source Code
+.\src\mux4_1.vhd=VHDL Source Code
+.\src\mux2_1.vhd=VHDL Source Code
+.\src\fifo_reg.vhd=VHDL Source Code
+.\src\memoriaram_64_32_enable.vhd=VHDL Source Code
+.\src\mc_datos_2025_wt.vhd=VHDL Source Code
+.\src\ram_128_32_p2_2025_bucle_lectura.vhd=VHDL Source Code
+.\src\io_md_subsystem_p2_25.vhd=VHDL Source Code
+.\src\ext_signo.vhd=VHDL Source Code
+.\src\testbench_aoc2_soc.vhd=VHDL Source Code
+.\src\md_cont_2025.vhd=VHDL Source Code
+.\src\counter_2bits.vhd=VHDL Source Code
+.\src\mux2_5bits.vhd=VHDL Source Code
+.\src\incomplete_ud_2025.vhd=VHDL Source Code
+.\src\incomplete_ua_2025.vhd=VHDL Source Code
+.\src\completar_uc_mc_2025_wt_ciclo_arb.vhd=VHDL Source Code
+.\src\exception_manager.vhd=VHDL Source Code
+.\src\aoc2_soc.vhd=VHDL Source Code
+.\src\banco_wb.vhd=VHDL Source Code
+.\src\banco_id.vhd=VHDL Source Code
+.\src\banco_ex.vhd=VHDL Source Code
+[HierarchyViewer]
+HierarchyInformation=
+ShowHide=ShowTopLevel
+Selected=

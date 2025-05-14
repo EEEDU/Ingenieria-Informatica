@@ -1,4 +1,0 @@
-Tengo que corregir un pequeño fallo para el segundo proyecto.
-
-Si después de hacer un lw_uso, se lanza un jal, el jal se para un ciclo, no debería ser asi.
-No ser porque pasa.

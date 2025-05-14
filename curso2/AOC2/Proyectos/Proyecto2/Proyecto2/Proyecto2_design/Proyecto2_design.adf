@@ -51,6 +51,8 @@ FAMILY=
 /banco_wb.vhd=-1
 /banco_id.vhd=-1
 /banco_ex.vhd=-1
+/test_completo.asdb=-1
+/test_completo.awc=-1
 [Files.Data]
 .\src\via_2025_wt.vhd=VHDL Source Code
 .\src\md_scratch_2025.vhd=VHDL Source Code
@@ -86,7 +88,9 @@ FAMILY=
 .\src\banco_wb.vhd=VHDL Source Code
 .\src\banco_id.vhd=VHDL Source Code
 .\src\banco_ex.vhd=VHDL Source Code
+.\src\test_completo.asdb=Accelerated Waveform File
+.\src\test_completo.awc=Accelerated Waveform Configuration
 [HierarchyViewer]
-HierarchyInformation=
+HierarchyInformation=testbench|behavior|0
 ShowHide=ShowTopLevel
 Selected=

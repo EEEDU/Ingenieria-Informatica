@@ -1,0 +1,68 @@
+Active-HDL 15.0.261.9132 2025-05-12 18:46:00
+
+Elaboration top modules:
+Architecture                  behavior(testbench)
+
+
+--------------------------------------------------------------------------------------------------------------------
+Entity                   | Architecture | Library          | Info | Compiler Version          | Compilation Options
+--------------------------------------------------------------------------------------------------------------------
+testbench                | behavior     | proyecto2_design |      | 15.0.261.9132 (Windows64) | -O3
+AOC2_SoC                 | behavior     | proyecto2_design |      | 15.0.261.9132 (Windows64) | -O3
+IO_Data_Memory_Subsystem | Behavioral   | proyecto2_design |      | 15.0.261.9132 (Windows64) | -O3
+MIPs_segmentado          | Behavioral   | proyecto2_design |      | 15.0.261.9132 (Windows64) | -O3
+MC_datos                 | Behavioral   | proyecto2_design |      | 15.0.261.9132 (Windows64) | -O3
+MD_cont                  | Behavioral   | proyecto2_design |      | 15.0.261.9132 (Windows64) | -O3
+MD_scratch               | Behavioral   | proyecto2_design |      | 15.0.261.9132 (Windows64) | -O3
+Arbitro                  | Behavioral   | proyecto2_design |      | 15.0.261.9132 (Windows64) | -O3
+counter                  | Behavioral   | proyecto2_design |      | 15.0.261.9132 (Windows64) | -O3
+IO_master                | Behavioral   | proyecto2_design |      | 15.0.261.9132 (Windows64) | -O3
+reg                      | behavioral   | proyecto2_design |      | 15.0.261.9132 (Windows64) | -O3
+Via                      | Behavioral   | proyecto2_design |      | 15.0.261.9132 (Windows64) | -O3
+FIFO_reg                 | Behavioral   | proyecto2_design |      | 15.0.261.9132 (Windows64) | -O3
+UC_MC                    | Behavioral   | proyecto2_design |      | 15.0.261.9132 (Windows64) | -O3
+RAM_128_32               | Behavioral   | proyecto2_design |      | 15.0.261.9132 (Windows64) | -O3
+RAM_64_32                | Behavioral   | proyecto2_design |      | 15.0.261.9132 (Windows64) | -O3
+adder32                  | Behavioral   | proyecto2_design |      | 15.0.261.9132 (Windows64) | -O3
+memoriaRAM_I             | Behavioral   | proyecto2_design |      | 15.0.261.9132 (Windows64) | -O3
+Banco_ID                 | Behavioral   | proyecto2_design |      | 15.0.261.9132 (Windows64) | -O3
+BReg                     | Behavioral   | proyecto2_design |      | 15.0.261.9132 (Windows64) | -O3
+Ext_signo                | Behavioral   | proyecto2_design |      | 15.0.261.9132 (Windows64) | -O3
+two_bits_shifter         | Behavioral   | proyecto2_design |      | 15.0.261.9132 (Windows64) | -O3
+UC                       | Behavioral   | proyecto2_design |      | 15.0.261.9132 (Windows64) | -O3
+UD                       | Behavioral   | proyecto2_design |      | 15.0.261.9132 (Windows64) | -O3
+Banco_EX                 | Behavioral   | proyecto2_design |      | 15.0.261.9132 (Windows64) | -O3
+UA                       | Behavioral   | proyecto2_design |      | 15.0.261.9132 (Windows64) | -O3
+mux4_1                   | Behavioral   | proyecto2_design |      | 15.0.261.9132 (Windows64) | -O3
+mux2_1                   | Behavioral   | proyecto2_design |      | 15.0.261.9132 (Windows64) | -O3
+ALU                      | Behavioral   | proyecto2_design |      | 15.0.261.9132 (Windows64) | -O3
+mux2_5bits               | Behavioral   | proyecto2_design |      | 15.0.261.9132 (Windows64) | -O3
+Banco_MEM                | Behavioral   | proyecto2_design |      | 15.0.261.9132 (Windows64) | -O3
+Exception_manager        | Behavioral   | proyecto2_design |      | 15.0.261.9132 (Windows64) | -O3
+Banco_WB                 | Behavioral   | proyecto2_design |      | 15.0.261.9132 (Windows64) | -O3
+--------------------------------------------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------------------------------------------
+VHDL Package                            | Library          | Info | Compiler Version          | Compilation Options
+--------------------------------------------------------------------------------------------------------------------
+standard                                | std              |      |                           | <unavailable>
+TEXTIO                                  | std              |      | 15.0.261.9132 (Windows64) |  -2019
+std_logic_1164                          | ieee             |      | 15.0.261.9132 (Windows64) |  -2008
+NUMERIC_STD                             | ieee             |      | 15.0.261.9132 (Windows64) |  -2008
+std_logic_arith                         | ieee             |      | 15.0.261.9132 (Windows64) | <unavailable>
+STD_LOGIC_UNSIGNED                      | ieee             |      | 15.0.261.9132 (Windows64) | <unavailable>
+--------------------------------------------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------------------------------------------
+Library                                 | Comment
+--------------------------------------------------------------------------------------------------------------------
+ieee                                    | Standard IEEE packages library
+proyecto2_design                        | None
+std                                     | Standard VHDL library
+--------------------------------------------------------------------------------------------------------------------
+
+
+Simulation Options: asim -O5 +access +r +m+testbench testbench behavior
+
+
+The performance of simulation is reduced. Version Student Edition

@@ -1,0 +1,99 @@
+<config>
+    <version>
+        3.1
+    </version>
+    <comment>
+    </comment>
+    <databases>
+        <database id="">*virtual*</database>
+        <database id="LOCAL___7f182268bedcc1460500">test_completo.asdb</database>
+    </databases>
+    <gridshown/>
+    <signallists>
+        <signallist id="0">
+        <signal>/testbench/uut/clk</signal>
+        <signal>/testbench/uut/reset</signal>
+        <signal>/testbench/uut/MIPS_core/Banco_IF_ID/IR_ID</signal>
+        <signal>/testbench/uut/IO_Mem/MC/Unidad_Control/state</signal>
+        <signal>/testbench/uut/IO_Mem/MC/Unidad_Control/RE</signal>
+        <signal>/testbench/uut/IO_Mem/MC/Unidad_Control/WE</signal>
+        <signal>/testbench/uut/IO_Mem/MC/Unidad_Control/Fetch_inc</signal>
+        <signal>/testbench/uut/IO_Mem/MC/Unidad_Control/hit</signal>
+        <signal>/testbench/uut/IO_Mem/ADDR</signal>
+        <signal>/testbench/uut/IO_Mem/Din</signal>
+        <signal>/testbench/uut/MIPS_core/INT_Register_bank/reg_file</signal>
+        <signal>/testbench/uut/IO_Mem/MC/Via_0/MC_Tags</signal>
+        <signal>/testbench/uut/IO_Mem/MC/Via_0/MC_data</signal>
+        <signal>/testbench/uut/IO_Mem/MC/Via_1/MC_Tags</signal>
+        <signal>/testbench/uut/IO_Mem/MC/Via_1/MC_data</signal>
+        <signal>/testbench/uut/IO_Mem/controlador_MD/MD/RAM</signal>
+        <signal>/testbench/uut/IO_Mem/MC/Unidad_Control/next_state</signal>
+        <signal>/testbench/uut/IO_Mem/MC/Unidad_Control/error_state</signal>
+        <signal>/testbench/uut/IO_Mem/MC/Unidad_Control/next_error_state</signal>
+        <signal>/testbench/uut/IO_Mem/MC/Unidad_Control/last_word_block</signal>
+        <signal>/testbench/uut/IO_Mem/MC/Unidad_Control/count_enable</signal>
+        <signal>/testbench/uut/IO_Mem/MC/Unidad_Control/palabra_UC</signal>
+        <signal>/testbench/uut/IO_Mem/MC/Unidad_Control/clk</signal>
+        <signal>/testbench/uut/IO_Mem/MC/Unidad_Control/reset</signal>
+        <signal>/testbench/uut/IO_Mem/MC/Unidad_Control/invalidate_bit</signal>
+        <signal>/testbench/uut/IO_Mem/MC/Unidad_Control/ready</signal>
+        <signal>/testbench/uut/IO_Mem/MC/Unidad_Control/hit0</signal>
+        <signal>/testbench/uut/IO_Mem/MC/Unidad_Control/hit1</signal>
+        <signal>/testbench/uut/IO_Mem/MC/Unidad_Control/via_2_rpl</signal>
+        <signal>/testbench/uut/IO_Mem/MC/Unidad_Control/addr_non_cacheable</signal>
+        <signal>/testbench/uut/IO_Mem/MC/Unidad_Control/internal_addr</signal>
+        <signal>/testbench/uut/IO_Mem/MC/Unidad_Control/MC_WE0</signal>
+        <signal>/testbench/uut/IO_Mem/MC/Unidad_Control/MC_WE1</signal>
+        <signal>/testbench/uut/IO_Mem/MC/Unidad_Control/MC_bus_Read</signal>
+        <signal>/testbench/uut/IO_Mem/MC/Unidad_Control/MC_bus_Write</signal>
+        <signal>/testbench/uut/IO_Mem/MC/Unidad_Control/MC_bus_Fetch_inc</signal>
+        <signal>/testbench/uut/IO_Mem/MC/Unidad_Control/MC_tags_WE</signal>
+        <signal>/testbench/uut/IO_Mem/MC/Unidad_Control/palabra</signal>
+        <signal>/testbench/uut/IO_Mem/MC/Unidad_Control/mux_origen</signal>
+        <signal>/testbench/uut/IO_Mem/MC/Unidad_Control/block_addr</signal>
+        <signal>/testbench/uut/IO_Mem/MC/Unidad_Control/mux_output</signal>
+        <signal>/testbench/uut/IO_Mem/MC/Unidad_Control/inc_m</signal>
+        <signal>/testbench/uut/IO_Mem/MC/Unidad_Control/inc_w</signal>
+        <signal>/testbench/uut/IO_Mem/MC/Unidad_Control/inc_r</signal>
+        <signal>/testbench/uut/IO_Mem/MC/Unidad_Control/inc_inv</signal>
+        <signal>/testbench/uut/IO_Mem/MC/Unidad_Control/unaligned</signal>
+        <signal>/testbench/uut/IO_Mem/MC/Unidad_Control/Mem_ERROR</signal>
+        <signal>/testbench/uut/IO_Mem/MC/Unidad_Control/load_addr_error</signal>
+        <signal>/testbench/uut/IO_Mem/MC/Unidad_Control/bus_TRDY</signal>
+        <signal>/testbench/uut/IO_Mem/MC/Unidad_Control/Bus_DevSel</signal>
+        <signal>/testbench/uut/IO_Mem/MC/Unidad_Control/Bus_grant</signal>
+        <signal>/testbench/uut/IO_Mem/MC/Unidad_Control/MC_send_addr_ctrl</signal>
+        <signal>/testbench/uut/IO_Mem/MC/Unidad_Control/MC_send_data</signal>
+        <signal>/testbench/uut/IO_Mem/MC/Unidad_Control/Frame</signal>
+        <signal>/testbench/uut/IO_Mem/MC/Unidad_Control/last_word</signal>
+        <signal>/testbench/uut/IO_Mem/MC/Unidad_Control/Bus_req</signal>
+        </signallist>
+    </signallists>
+    <timebases>
+        <timebase id="0">
+            <time start_time="0" end_time="10107579" />
+        </timebase>
+    </timebases>
+    <prefbases>
+        <prefbase id="0" >
+        </prefbase>
+    </prefbases>
+    <bookmarkbases>
+        <bookmarks id="0">
+        </bookmarks>
+    </bookmarkbases>
+    <cursorbases>
+        <cursors id="0">
+            <cursor value="3207824" label="Cursor 1" locked="0" />
+        </cursors>
+    </cursorbases>
+    <measurementbases>
+    </measurementbases>
+    <commentbases>
+        <comments id="0">
+        </comments>
+    </commentbases>
+    <views>
+        <view signallist="0" propertybase="0" prefbase="0" type="1" bookmarks="0" cursors="0" measurements="-1" comments="-1" />
+    </views>
+</config>

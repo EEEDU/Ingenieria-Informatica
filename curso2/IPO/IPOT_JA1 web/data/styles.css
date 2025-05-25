@@ -1,0 +1,129 @@
+﻿.ax_default {
+  font-family:"Arial Normal", "Arial", sans-serif;
+  font-weight:400;
+  font-style:normal;
+  font-size:13px;
+  letter-spacing:normal;
+  color:#333333;
+  vertical-align:none;
+  text-align:center;
+  line-height:normal;
+  text-transform:none;
+}
+.image {
+}
+.placeholder {
+}
+.heading_1 {
+  font-family:"Alegreya Bold", "Alegreya", sans-serif;
+  font-weight:bold;
+  font-style:normal;
+  font-size:150px;
+  color:#142655;
+  text-align:center;
+}
+.heading_2 {
+  font-family:"Alegreya Bold", "Alegreya", sans-serif;
+  font-weight:bold;
+  font-style:normal;
+  font-size:90px;
+  color:#142655;
+  text-align:left;
+}
+.heading_3 {
+  font-family:"Alegreya Medium", "Alegreya", sans-serif;
+  font-weight:500;
+  font-style:normal;
+  font-size:50px;
+  color:#142655;
+  text-align:left;
+}
+.heading_4 {
+  font-family:"Arial Normal", "Arial", sans-serif;
+  font-weight:bold;
+  font-style:normal;
+  font-size:14px;
+  text-align:left;
+}
+.heading_5 {
+  font-family:"Arial Normal", "Arial", sans-serif;
+  font-weight:bold;
+  font-style:normal;
+  text-align:left;
+}
+.heading_6 {
+  font-family:"Arial Normal", "Arial", sans-serif;
+  font-weight:bold;
+  font-style:normal;
+  font-size:10px;
+  text-align:left;
+}
+.label {
+  font-size:13px;
+  text-align:left;
+}
+.paragraph {
+  text-align:left;
+}
+.line {
+}
+.arrow {
+}
+.icon {
+}
+.form_hint {
+  color:#999999;
+}
+.form_disabled {
+}
+.flow_shape {
+}
+.box_2 {
+  color:#000000;
+}
+.ellipse {
+}
+.shape {
+}
+.box_1 {
+}
+.icono_menu {
+}
+.text_field {
+  font-family:"Alegreya Sans", sans-serif;
+  font-weight:400;
+  font-style:normal;
+  font-size:30px;
+  color:#000000;
+  text-align:left;
+}
+.text_area {
+  color:#000000;
+  text-align:left;
+}
+.droplist {
+  color:#000000;
+  text-align:left;
+}
+.list_box {
+  color:#000000;
+  text-align:left;
+}
+.checkbox {
+  text-align:left;
+}
+.tree_node {
+  text-align:left;
+}
+.sticky_1 {
+  text-align:left;
+}
+.checkbox1 {
+  text-align:left;
+}
+.icon1 {
+}
+.primary_button {
+  color:#FFFFFF;
+}
+textarea, select, input, button, div, svg { outline: none; }

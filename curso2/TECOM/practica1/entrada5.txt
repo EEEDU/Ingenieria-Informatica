@@ -1,0 +1,5 @@
+Ciudad ,:Habitantes:,Comida,Otros
+Zaragoza, 600000, migas,1:10
+  
+Barcelona,1000000,pan y tomate
+Huesca,30000,trenza de Huesca,3:123

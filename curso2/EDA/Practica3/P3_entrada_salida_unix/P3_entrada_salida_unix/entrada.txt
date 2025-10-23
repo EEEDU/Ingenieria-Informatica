@@ -1,0 +1,116 @@
+LT
+C 
+apertura_2025_10_6
+apertura del edificio 2025-10-7
+1
+A
+cierre_2025_10_6
+Cierre del edificio
+2
+INDependiente
+-.-.-.-.-
+D
+cierre_2025_10_6
+cierre_2025_10_6
+A
+ON_luces Z008
+Encendidas luces008, deteccion sensor presencia
+2
+DEPendiente
+presencia_S008
+LD
+presencia_S008
+LT
+A
+Validacion_P001_exterior
+Validacion acceso en puerta P001, desde exterior
+3
+INDependiente
+-.-.-.-.-
+A
+apertura_P001
+Abierta puerta P001 
+3
+DEPendiente
+Validacion_P001_exterior
+A
+presencia_S008
+Deteccion presencia, sensor S008
+3
+INDependiente
+-.-.-.-.-
+A
+ON_luces Z008
+Encendidas luces008, deteccion sensor presencia
+4
+DEPendiente
+presencia_S008
+A
+OFF_luces Z008
+Apagadas luces zona 008, por expiracion tiempo
+2
+DEPendiente
+ON_luces Z008
+LT
+O
+presencia_S008
+O
+OFF_luces Z008
+O
+apertura_2025_10_7
+E
+presencia_S008
+E
+OFF_luces Z008
+E
+apertura_2025_10_7
+LD
+Validacion_P001_exterior
+C 
+apertura_P001
+Abierta puerta P001, previa validacion
+2
+O
+apertura_P001
+C 
+presencia_S008
+presencia, sensor S008
+4
+LD
+presencia_S008
+LT
+D
+OFF_luces Z008
+presencia_S008
+LD
+presencia_S008
+I
+Validacion_P001_exterior
+I
+apertura_2025_10_6
+I
+apertura_P001
+LD
+Validacion_P001_exterior
+C 
+apertura_P001
+Abierta puerta P001 sin validacion acceso
+5
+D
+presencia_S008
+apertura_P001
+D
+cierre_2025_10_6
+apertura_2025_10_6
+LT
+B
+apertura_2025_10_7
+B
+OFF_luces Z008
+B
+presencia_S008
+LD
+presencia_S008
+LD
+apertura_P001
+LT

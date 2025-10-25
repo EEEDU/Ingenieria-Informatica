@@ -1,0 +1,254 @@
+
+ /* ========================================
+   CASO 1: Ejemplo del enunciado
+   ======================================== */
+/* un comentario */
+// comentario con ups
+if (ups(p1, p2)&&ups(t1, t2+t3)) {
+    a = b + c;
+}
+/*5>ups(a1, a2)>0*/
+ups(a1,
+   a2);
+ups(r1);
+ups(a1, a2, ups1, ups2);
+// otro comentario con cups
+cups(a1, a2);
+/*
+ * Comentario con ups
+ * // ups
+ ***/
+ups()
+
+/* ========================================
+   CASO 2: Funciones que NO son ups
+   ======================================== */
+// Estas NO deben modificarse
+cups(a, b);
+upsala(x, y);
+ups1(m, n);
+myups(p, q);
+setupstream(a, b);
+
+/* ========================================
+   CASO 3: ups con diferentes números de parámetros
+   ======================================== */
+// Sin parámetros
+ups();
+
+// Un parámetro (NO intercambiar)
+ups(x);
+ups(variable_larga);
+
+// Dos parámetros (SÍ intercambiar)
+ups(a, b);
+ups(x1, y2);
+ups(param1, param2);
+
+// Tres parámetros (NO intercambiar)
+ups(a, b, c);
+ups(x, y, z);
+
+// Cuatro o más parámetros (NO intercambiar)
+ups(a, b, c, d);
+ups(p1, p2, p3, p4, p5);
+
+
+
+
+/* ========================================
+   CASO 4: ups con espacios variados
+   ======================================== */
+ups (a, b);
+ups  (x, y);
+ups	(m, n);
+ups      (p, q);
+ups                                          (s, t);
+
+/* ========================================
+   CASO 5: Parámetros con expresiones
+   ======================================== */
+ups(a+b, c-d);
+ups(x*2, y/3);
+ups(arr[0], arr[1]);
+ups(func(), var);
+ups(a++, --b);
+ups(x>0, y<10);
+ups(x>0, y<10,a);
+ups(x>0;asdfaf, y<10);
+
+/* ========================================
+   CASO 6: Parámetros con espacios y saltos
+   ======================================== */
+ups(a ,b);
+ups(a , b);
+ups( a, b);
+ups(a, b );
+ups( a , b );
+ups(
+    param1,
+    param2
+);
+ups(
+a,
+b
+);
+ups
+(t1,t2)
+
+/* ========================================
+   CASO 7: Comentarios de línea con ups
+   ======================================== */
+// Esta función ups(a, b) debe actualizarse
+// La llamada ups(x, y) es importante
+// Nota sobre ups
+// Sin mencionar la palabra prohibida
+// cups no cuenta
+// ups1 tampoco cuenta
+// pero ups sí
+
+//comentario con ups
+//comentario con cups
+//comentario con upsups
+//comentario con ups ups
+//comentario con cups
+//comentario con ups()
+//comentario con ups(t1, t2)
+// UPS
+// úps
+// ups,esto tiene
+// noups
+ups
+
+
+/* ========================================
+   CASO 8: Comentarios multi-línea con ups
+   ======================================== */
+/* Este comentario menciona ups */
+/* 
+   Comentario largo
+   que menciona ups
+   en algún lugar
+*/
+/*ups al inicio*/
+/*al final ups*/
+/* solo cups aquí */
+/* ups1 y ups2 pero también ups */
+
+/*
+  Comentario con ups
+
+ */
+
+/*
+ * Comentario con ups
+ * // ups
+ */
+
+/*
+ * Comentario con cups
+ */
+
+/*
+ * Comentario con ups ups
+ */
+
+
+
+/* ========================================
+   CASO 9: Comentarios anidados y complejos
+   ======================================== */
+/* Primera línea
+ * Segunda línea con ups
+ * Tercera línea
+ */
+
+/*
+ * Función ups(a, b)
+ * Descripción de ups
+ ****/
+
+/* comentario */ ups(a, b); /* otro comentario con ups */
+
+// ups al inicio de comentario
+ups(x, y); // ups al final
+
+/* Comentario anidado con 
+   //ups 
+*/
+
+/*
+ * Comentario con ups
+ /*
+ Comentario con ups
+ */
+ asdfasdf
+ */
+
+/* ========================================
+   CASO 10: Casos extremos
+   ======================================== */
+// Múltiples llamadas en una línea
+ups(a, b); ups(c, d); ups(e, f);
+
+// Llamadas dentro de expresiones
+if (ups(a, b) > 0 && ups(c, d) < 10) {
+    x = ups(e, f);
+}
+
+// Llamadas anidadas en estructura
+while (ups(i, j)) {
+    ups(k, l);
+}
+
+/* ========================================
+   CASO 11: Parámetros vacíos o raros
+   ======================================== */
+ups( , );
+ups(,b);
+ups(a,);
+
+/* ========================================
+   CASO 12: Variables y funciones con ups
+   ======================================== */
+int cups = 5;
+float ups1 = 3.14;
+char setupsvar = 'a';
+
+// Estas llamadas NO deben modificarse
+cups(a, b);
+ups1(x, y);
+setupsvar(m, n);
+
+// Esta SÍ debe modificarse
+ups(real1, real2);
+
+/* ========================================
+   CASO 13: Comentarios sin ups
+   ======================================== */
+// Este comentario no tiene la palabra
+/* Nieste tampoco */
+// cups y ups1 no cuentan
+
+/* ========================================
+   CASO 14: Casos mixtos complejos
+   ======================================== */
+// Comentario con upsNO ACTUALIZADO
+ups(beta,alpha); /* también upsNO ACTUALIZADO */
+if (ups(delta,gamma)) { // otra vez upsNO ACTUALIZADO
+    ups(zeta,epsilon);
+}
+/* final con upsNO ACTUALIZADO */
+
+/* ========================================
+   CASO 15: Parámetros largos
+   ======================================== */
+ups(variable_con_nombre_muy_largo_2,variable_con_nombre_muy_largo_1);
+ups(
+    segundo_parametro_en_nueva_linea,
+    primer_parametro_en_nueva_linea
+);
+
+/* ========================================
+   FIN DE PRUEBAS
+   ======================================== */

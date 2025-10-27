@@ -479,12 +479,11 @@ char *yytext;
     #include <stdbool.h>
     #include <stdio.h>
     #include <string.h>
-    int elementos_funcion = 0;
     char *parametro1 = NULL;  
     char *parametro2 = NULL;  
-#line 485 "lex.yy.c"
+#line 484 "lex.yy.c"
 
-#line 487 "lex.yy.c"
+#line 486 "lex.yy.c"
 
 #define INITIAL 0
 #define COMENTARIO_LINEA 1
@@ -708,10 +707,10 @@ YY_DECL
 		}
 
 	{
-#line 12 ".\\ejercicio1.l"
+#line 11 ".\\ejercicio1.l"
 
 
-#line 714 "lex.yy.c"
+#line 713 "lex.yy.c"
 
 	while ( /*CONSTCOND*/1 )		/* loops until end-of-file is reached */
 		{
@@ -770,17 +769,17 @@ do_action:	/* This label is used only to access EOF actions. */
 
 case 1:
 YY_RULE_SETUP
-#line 14 ".\\ejercicio1.l"
+#line 13 ".\\ejercicio1.l"
 { BEGIN(COMENTARIO_LINEA); ECHO; }
 	YY_BREAK
 case 2:
 YY_RULE_SETUP
-#line 15 ".\\ejercicio1.l"
+#line 14 ".\\ejercicio1.l"
 { BEGIN(COMENTARIO_MULTI_LINEA); ECHO; }
 	YY_BREAK
 case 3:
 YY_RULE_SETUP
-#line 17 ".\\ejercicio1.l"
+#line 16 ".\\ejercicio1.l"
 {
     printf ("NO ACTUALIZADO");
     BEGIN(INITIAL); 
@@ -789,7 +788,7 @@ YY_RULE_SETUP
 	YY_BREAK
 case 4:
 YY_RULE_SETUP
-#line 22 ".\\ejercicio1.l"
+#line 21 ".\\ejercicio1.l"
 {
     BEGIN(INITIAL); 
     ECHO;
@@ -798,7 +797,7 @@ YY_RULE_SETUP
 case 5:
 /* rule 5 can match eol */
 YY_RULE_SETUP
-#line 26 ".\\ejercicio1.l"
+#line 25 ".\\ejercicio1.l"
 {
     printf ("NO ACTUALIZADO");
     BEGIN(INITIAL); 
@@ -808,7 +807,7 @@ YY_RULE_SETUP
 case 6:
 /* rule 6 can match eol */
 YY_RULE_SETUP
-#line 31 ".\\ejercicio1.l"
+#line 30 ".\\ejercicio1.l"
 {
     BEGIN(INITIAL); 
     ECHO;
@@ -817,7 +816,7 @@ YY_RULE_SETUP
 
 case 7:
 YY_RULE_SETUP
-#line 36 ".\\ejercicio1.l"
+#line 35 ".\\ejercicio1.l"
 { 
         BEGIN(COMENTARIO_LINEA_NO_ACTUALIZADO);
         ECHO; 
@@ -827,7 +826,7 @@ YY_RULE_SETUP
 
 case 8:
 YY_RULE_SETUP
-#line 42 ".\\ejercicio1.l"
+#line 41 ".\\ejercicio1.l"
 { 
         BEGIN(COMENTARIO_MULTI_LINEA_NO_ACTUALIZADO);
         ECHO; 
@@ -838,18 +837,18 @@ YY_RULE_SETUP
 case 9:
 /* rule 9 can match eol */
 YY_RULE_SETUP
-#line 48 ".\\ejercicio1.l"
+#line 47 ".\\ejercicio1.l"
 {ECHO;}
 	YY_BREAK
 case 10:
 YY_RULE_SETUP
-#line 49 ".\\ejercicio1.l"
+#line 48 ".\\ejercicio1.l"
 {ECHO;}
 	YY_BREAK
 
 case 11:
 YY_RULE_SETUP
-#line 53 ".\\ejercicio1.l"
+#line 52 ".\\ejercicio1.l"
 { 
     // Si encuentra ups, espacios y ( entra en posible funcion error 
     BEGIN(FUNCION_UPS);
@@ -860,7 +859,7 @@ YY_RULE_SETUP
 case 12:
 /* rule 12 can match eol */
 YY_RULE_SETUP
-#line 60 ".\\ejercicio1.l"
+#line 59 ".\\ejercicio1.l"
 { 
         // Estando en la funcion error, si encuentra cualquier concatenacion de elementos que no sean , o ) son el parametro 1
         parametro1 = strdup(yytext);
@@ -869,7 +868,7 @@ YY_RULE_SETUP
 	YY_BREAK
 case 13:
 YY_RULE_SETUP
-#line 65 ".\\ejercicio1.l"
+#line 64 ".\\ejercicio1.l"
 { 
         // funcion sin elementos 
         BEGIN(INITIAL); 
@@ -880,7 +879,7 @@ YY_RULE_SETUP
 
 case 14:
 YY_RULE_SETUP
-#line 73 ".\\ejercicio1.l"
+#line 72 ".\\ejercicio1.l"
 {
         // Si dentro del parametro 1 encuentra una coma, pasa al parametro 2
         BEGIN(PARAMETRO_2);
@@ -888,7 +887,7 @@ YY_RULE_SETUP
 	YY_BREAK
 case 15:
 YY_RULE_SETUP
-#line 77 ".\\ejercicio1.l"
+#line 76 ".\\ejercicio1.l"
 {
         // Si dentro del parametro 1 encuentra un parentesis, la funcion solo tenia un elemento, restaura todo
         printf("%s", parametro1);
@@ -903,7 +902,7 @@ YY_RULE_SETUP
 case 16:
 /* rule 16 can match eol */
 YY_RULE_SETUP
-#line 88 ".\\ejercicio1.l"
+#line 87 ".\\ejercicio1.l"
 {
         // Dentro del parametro 2, todo lo que encuentra que no sea , o ) es parte del parametro 2
         parametro2 = strdup(yytext);
@@ -911,11 +910,11 @@ YY_RULE_SETUP
 	YY_BREAK
 case 17:
 YY_RULE_SETUP
-#line 93 ".\\ejercicio1.l"
+#line 92 ".\\ejercicio1.l"
 {
         // Dentro del parametro 2, hay una coma es que hay mas de 2 parametros, restaura todo
         if (parametro2 == NULL) {parametro2="";}
-        printf("%s, %s", parametro1, parametro2);
+        printf("%s,%s", parametro1, parametro2);
         parametro1 = NULL;
         parametro2 = NULL;
         BEGIN(INITIAL);
@@ -924,11 +923,11 @@ YY_RULE_SETUP
 	YY_BREAK
 case 18:
 YY_RULE_SETUP
-#line 102 ".\\ejercicio1.l"
+#line 101 ".\\ejercicio1.l"
 {
         // Dentro del parametro 2, hay un parentesis es que hay 2 elementos, intercambiarlos
         if (parametro2 == NULL) {parametro2="";}
-        printf("%s, %s", parametro2, parametro1);
+        printf("%s,%s", parametro2, parametro1);
         parametro1 = NULL;
         parametro2 = NULL;
         BEGIN(INITIAL);
@@ -938,26 +937,26 @@ YY_RULE_SETUP
 
 case 19:
 YY_RULE_SETUP
-#line 112 ".\\ejercicio1.l"
+#line 111 ".\\ejercicio1.l"
 {ECHO;}
 	YY_BREAK
 case 20:
 YY_RULE_SETUP
-#line 113 ".\\ejercicio1.l"
+#line 112 ".\\ejercicio1.l"
 { ECHO; }
 	YY_BREAK
 case 21:
 /* rule 21 can match eol */
 YY_RULE_SETUP
-#line 114 ".\\ejercicio1.l"
+#line 113 ".\\ejercicio1.l"
 { ECHO; }
 	YY_BREAK
 case 22:
 YY_RULE_SETUP
-#line 116 ".\\ejercicio1.l"
+#line 115 ".\\ejercicio1.l"
 ECHO;
 	YY_BREAK
-#line 960 "lex.yy.c"
+#line 959 "lex.yy.c"
 case YY_STATE_EOF(INITIAL):
 case YY_STATE_EOF(COMENTARIO_LINEA):
 case YY_STATE_EOF(COMENTARIO_MULTI_LINEA):
@@ -1969,7 +1968,7 @@ void yyfree (void * ptr )
 
 #define YYTABLES_NAME "yytables"
 
-#line 116 ".\\ejercicio1.l"
+#line 115 ".\\ejercicio1.l"
 
 
 int main(){

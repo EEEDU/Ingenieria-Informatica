@@ -61,7 +61,7 @@ ups(p1, p2, p3, p4, p5);
    ======================================== NO ACTUALIZADO*/
 ups ( b,a);
 ups  ( y,x);
-ups	( n,m);
+ups	(m, n);
 ups      ( q,p);
 ups                                          ( t,s);
 
@@ -168,10 +168,10 @@ NO ACTUALIZADO*/
  * Descripción de ups
  ***NO ACTUALIZADO*/
 
-/* comentario */ ups( b,a); /* otro comentario con ups NO ACTUALIZADO*/
+/* comentario */ ups( b,a); /* otro comentario con ups */
 
 // ups al inicio de comentarioNO ACTUALIZADO
-ups( y,x); // ups al finalNO ACTUALIZADO
+ups( y,x); // ups al final
 
 /* Comentario anidado con 
    //ups 
@@ -205,8 +205,8 @@ while (ups( j,i)) {
    CASO 11: Parámetros vacíos o raros
    ======================================== */
 ups( , );
-ups(,b);
-ups(,a);
+ups(b, );
+ups(b,a);
 
 /* ========================================
    CASO 12: Variables y funciones con ups

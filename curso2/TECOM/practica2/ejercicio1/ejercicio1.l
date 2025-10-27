@@ -92,7 +92,7 @@ ups             {
 ,               {
         // Dentro del parametro 2, hay una coma es que hay mas de 2 parametros, restaura todo
         if (parametro2 == NULL) {parametro2="";}
-        printf("%s, %s", parametro1, parametro2);
+        printf("%s,%s", parametro1, parametro2);
         parametro1 = NULL;
         parametro2 = NULL;
         BEGIN(INITIAL);
@@ -101,7 +101,7 @@ ups             {
 ")"             {
         // Dentro del parametro 2, hay un parentesis es que hay 2 elementos, intercambiarlos
         if (parametro2 == NULL) {parametro2="";}
-        printf("%s, %s", parametro2, parametro1);
+        printf("%s,%s", parametro2, parametro1);
         parametro1 = NULL;
         parametro2 = NULL;
         BEGIN(INITIAL);

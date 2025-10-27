@@ -2,37 +2,48 @@
     #include <stdbool.h>
     #include <stdio.h>
     #include <string.h>
-    bool comentario_no_actualizado = false;
-    int elementos_funcion = 0;
     char *parametro1 = NULL;  
     char *parametro2 = NULL;  
 %}
 
-%x COMENTARIO_LINEA COMENTARIO_MULTI_LINEA FUNCION_UPS PARAMETRO_1 PARAMETRO_2
+%x COMENTARIO_LINEA COMENTARIO_MULTI_LINEA COMENTARIO_LINEA_NO_ACTUALIZADO COMENTARIO_MULTI_LINEA_NO_ACTUALIZADO FUNCION_UPS PARAMETRO_1 PARAMETRO_2
 
 %%
 
 "//"            { BEGIN(COMENTARIO_LINEA); ECHO; }
 "/*"            { BEGIN(COMENTARIO_MULTI_LINEA); ECHO; }
 
+<COMENTARIO_MULTI_LINEA_NO_ACTUALIZADO>"*/"   {
+    printf ("NO ACTUALIZADO");
+    BEGIN(INITIAL); 
+    ECHO;
+}
 <COMENTARIO_MULTI_LINEA>"*/"   {
-    if (comentario_no_actualizado) {
-        printf ("NO ACTUALIZADO");
-        comentario_no_actualizado = false;
-    } 
+    BEGIN(INITIAL); 
+    ECHO;
+}
+<COMENTARIO_LINEA_NO_ACTUALIZADO>\n        {
+    printf ("NO ACTUALIZADO");
     BEGIN(INITIAL); 
     ECHO;
 }
 <COMENTARIO_LINEA>\n        {
-    if (comentario_no_actualizado) {
-        printf ("NO ACTUALIZADO");
-        comentario_no_actualizado = false;
-    } 
     BEGIN(INITIAL); 
     ECHO;
 }
+<COMENTARIO_LINEA>{
+ups             { 
+        BEGIN(COMENTARIO_LINEA_NO_ACTUALIZADO);
+        ECHO; 
+    }
+}
+<COMENTARIO_MULTI_LINEA>{
+ups             { 
+        BEGIN(COMENTARIO_MULTI_LINEA_NO_ACTUALIZADO);
+        ECHO; 
+    }
+}
 <COMENTARIO_LINEA,COMENTARIO_MULTI_LINEA>{
-ups             { comentario_no_actualizado=true; ECHO; }
 .|\n            {ECHO;}
 [a-zA-Z0-9]+    {ECHO;}
 }

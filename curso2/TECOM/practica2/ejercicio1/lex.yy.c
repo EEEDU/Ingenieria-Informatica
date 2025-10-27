@@ -351,8 +351,8 @@ static void yynoreturn yy_fatal_error ( const char* msg  );
 	(yy_hold_char) = *yy_cp; \
 	*yy_cp = '\0'; \
 	(yy_c_buf_p) = yy_cp;
-#define YY_NUM_RULES 19
-#define YY_END_OF_BUFFER 20
+#define YY_NUM_RULES 22
+#define YY_END_OF_BUFFER 23
 /* This struct is not used in this scanner,
    but its presence is necessary. */
 struct yy_trans_info
@@ -360,13 +360,14 @@ struct yy_trans_info
 	flex_int32_t yy_verify;
 	flex_int32_t yy_nxt;
 	};
-static const flex_int16_t yy_accept[51] =
+static const flex_int16_t yy_accept[61] =
     {   0,
         0,    0,    0,    0,    0,    0,    0,    0,    0,    0,
-        0,    0,   20,   17,   18,   17,   17,   17,    6,    4,
-        6,    6,    6,    9,   10,   19,   12,   11,   13,   15,
-       14,    2,    1,    0,    0,    0,    7,    7,    3,    9,
-       13,    0,    0,    5,    0,    0,    8,    0,   16,    0
+        0,    0,    0,    0,    0,    0,   23,   20,   21,   20,
+       20,   20,    9,    6,    9,    9,    9,    9,   22,    5,
+       22,   12,   13,   15,   14,   16,   18,   17,    2,    1,
+        0,    0,    0,   10,   10,    4,   10,    3,   12,   16,
+        0,    0,    7,    8,    0,    0,   11,    0,   19,    0
     } ;
 
 static const YY_CHAR yy_ec[256] =
@@ -407,53 +408,55 @@ static const YY_CHAR yy_meta[13] =
         3,    3
     } ;
 
-static const flex_int16_t yy_base[58] =
+static const flex_int16_t yy_base[68] =
     {   0,
-        0,    0,   12,    0,   22,   26,   28,   31,   34,   37,
-       40,   43,   52,   84,   84,   45,   37,   44,   84,   84,
-        0,   36,   35,    0,   84,   84,   84,   84,    0,   84,
-       84,   84,   84,   28,   27,   23,    0,   20,   84,    0,
-        0,   19,   55,    0,   58,   61,   84,   64,   84,   84,
-       68,   71,   74,   24,   23,   77,   80
+        0,    0,   12,    0,   22,    0,   63,   60,   54,   51,
+       30,   33,   36,   39,   42,   45,   54,   86,   86,   47,
+       39,   46,   86,   86,    0,   38,   37,   32,   86,   86,
+       31,    0,   86,   86,   86,    0,   86,   86,   86,   86,
+       24,   23,   21,    0,   20,   86,   19,   86,    0,    0,
+       18,   57,    0,    0,   60,   63,   86,   66,   86,   86,
+       70,   73,   76,   24,   23,   79,   82
     } ;
 
-static const flex_int16_t yy_def[58] =
+static const flex_int16_t yy_def[68] =
     {   0,
-       50,    1,   50,    3,    3,    3,   51,   51,   52,   52,
-       53,   53,   50,   50,   50,   50,   54,   54,   50,   50,
-       55,   55,   50,   56,   50,   50,   50,   50,   57,   50,
-       50,   50,   50,   54,   34,   34,   55,   55,   50,   56,
-       57,   34,   34,   55,   34,   50,   50,   50,   50,    0,
-       50,   50,   50,   50,   50,   50,   50
+       60,    1,   60,    3,    3,    5,   61,   61,   61,   61,
+       62,   62,   61,   61,   63,   63,   60,   60,   60,   60,
+       64,   64,   60,   60,   65,   65,   60,   65,   60,   60,
+       60,   66,   60,   60,   60,   67,   60,   60,   60,   60,
+       64,   41,   41,   65,   65,   60,   65,   60,   66,   67,
+       41,   41,   65,   65,   41,   60,   60,   60,   60,    0,
+       60,   60,   60,   60,   60,   60,   60
     } ;
 
-static const flex_int16_t yy_nxt[97] =
+static const flex_int16_t yy_nxt[99] =
     {   0,
-       14,   14,   15,   14,   14,   14,   14,   16,   17,   17,
-       17,   18,   19,   19,   20,   19,   19,   19,   19,   19,
-       21,   21,   21,   22,   19,   37,   34,   23,   19,   45,
-       44,   23,   25,   43,   26,   25,   42,   26,   27,   35,
-       28,   27,   39,   28,   30,   38,   31,   30,   35,   31,
-       32,   50,   33,   36,   50,   35,   46,   50,   47,   48,
-       50,   49,   46,   50,   47,   48,   50,   49,   24,   24,
-       24,   26,   26,   26,   29,   29,   29,   40,   50,   40,
-       41,   50,   41,   13,   50,   50,   50,   50,   50,   50,
-       50,   50,   50,   50,   50,   50
+       18,   18,   19,   18,   18,   18,   18,   20,   21,   21,
+       21,   22,   23,   23,   24,   23,   23,   23,   23,   23,
+       25,   25,   25,   26,   23,   44,   41,   27,   55,   54,
+       53,   52,   51,   28,   33,   42,   29,   33,   48,   29,
+       34,   47,   35,   34,   46,   35,   37,   45,   38,   37,
+       42,   38,   39,   60,   40,   43,   31,   42,   56,   31,
+       57,   58,   30,   59,   56,   30,   57,   58,   60,   59,
+       29,   29,   29,   32,   32,   32,   36,   36,   36,   49,
+       60,   49,   50,   60,   50,   17,   60,   60,   60,   60,
+       60,   60,   60,   60,   60,   60,   60,   60
 
     } ;
 
-static const flex_int16_t yy_chk[97] =
+static const flex_int16_t yy_chk[99] =
     {   0,
         1,    1,    1,    1,    1,    1,    1,    1,    1,    1,
         1,    1,    3,    3,    3,    3,    3,    3,    3,    3,
-        3,    3,    3,    3,    5,   55,   54,    5,    6,   42,
-       38,    6,    7,   36,    7,    8,   35,    8,    9,   34,
-        9,   10,   23,   10,   11,   22,   11,   12,   17,   12,
-       16,   13,   16,   18,    0,   18,   43,    0,   43,   45,
-        0,   45,   46,    0,   46,   48,    0,   48,   51,   51,
-       51,   52,   52,   52,   53,   53,   53,   56,    0,   56,
-       57,    0,   57,   50,   50,   50,   50,   50,   50,   50,
-       50,   50,   50,   50,   50,   50
+        3,    3,    3,    3,    5,   65,   64,    5,   51,   47,
+       45,   43,   42,    5,   11,   41,   11,   12,   31,   12,
+       13,   28,   13,   14,   27,   14,   15,   26,   15,   16,
+       21,   16,   20,   17,   20,   22,   10,   22,   52,    9,
+       52,   55,    8,   55,   56,    7,   56,   58,    0,   58,
+       61,   61,   61,   62,   62,   62,   63,   63,   63,   66,
+        0,   66,   67,    0,   67,   60,   60,   60,   60,   60,
+       60,   60,   60,   60,   60,   60,   60,   60
 
     } ;
 
@@ -476,20 +479,21 @@ char *yytext;
     #include <stdbool.h>
     #include <stdio.h>
     #include <string.h>
-    bool comentario_no_actualizado = false;
     int elementos_funcion = 0;
     char *parametro1 = NULL;  
     char *parametro2 = NULL;  
-#line 483 "lex.yy.c"
-
 #line 485 "lex.yy.c"
+
+#line 487 "lex.yy.c"
 
 #define INITIAL 0
 #define COMENTARIO_LINEA 1
 #define COMENTARIO_MULTI_LINEA 2
-#define FUNCION_UPS 3
-#define PARAMETRO_1 4
-#define PARAMETRO_2 5
+#define COMENTARIO_LINEA_NO_ACTUALIZADO 3
+#define COMENTARIO_MULTI_LINEA_NO_ACTUALIZADO 4
+#define FUNCION_UPS 5
+#define PARAMETRO_1 6
+#define PARAMETRO_2 7
 
 #ifndef YY_NO_UNISTD_H
 /* Special case for "unistd.h", since it is non-ANSI. We include it way
@@ -704,10 +708,10 @@ YY_DECL
 		}
 
 	{
-#line 13 ".\\ejercicio1.l"
+#line 12 ".\\ejercicio1.l"
 
 
-#line 710 "lex.yy.c"
+#line 714 "lex.yy.c"
 
 	while ( /*CONSTCOND*/1 )		/* loops until end-of-file is reached */
 		{
@@ -734,13 +738,13 @@ yy_match:
 			while ( yy_chk[yy_base[yy_current_state] + yy_c] != yy_current_state )
 				{
 				yy_current_state = (int) yy_def[yy_current_state];
-				if ( yy_current_state >= 51 )
+				if ( yy_current_state >= 61 )
 					yy_c = yy_meta[yy_c];
 				}
 			yy_current_state = yy_nxt[yy_base[yy_current_state] + yy_c];
 			++yy_cp;
 			}
-		while ( yy_base[yy_current_state] != 84 );
+		while ( yy_base[yy_current_state] != 86 );
 
 yy_find_action:
 		yy_act = yy_accept[yy_current_state];
@@ -766,60 +770,86 @@ do_action:	/* This label is used only to access EOF actions. */
 
 case 1:
 YY_RULE_SETUP
-#line 15 ".\\ejercicio1.l"
+#line 14 ".\\ejercicio1.l"
 { BEGIN(COMENTARIO_LINEA); ECHO; }
 	YY_BREAK
 case 2:
 YY_RULE_SETUP
-#line 16 ".\\ejercicio1.l"
+#line 15 ".\\ejercicio1.l"
 { BEGIN(COMENTARIO_MULTI_LINEA); ECHO; }
 	YY_BREAK
 case 3:
 YY_RULE_SETUP
-#line 18 ".\\ejercicio1.l"
+#line 17 ".\\ejercicio1.l"
 {
-    if (comentario_no_actualizado) {
-        printf ("NO ACTUALIZADO");
-        comentario_no_actualizado = false;
-    } 
+    printf ("NO ACTUALIZADO");
     BEGIN(INITIAL); 
     ECHO;
 }
 	YY_BREAK
 case 4:
-/* rule 4 can match eol */
+YY_RULE_SETUP
+#line 22 ".\\ejercicio1.l"
+{
+    BEGIN(INITIAL); 
+    ECHO;
+}
+	YY_BREAK
+case 5:
+/* rule 5 can match eol */
 YY_RULE_SETUP
 #line 26 ".\\ejercicio1.l"
 {
-    if (comentario_no_actualizado) {
-        printf ("NO ACTUALIZADO");
-        comentario_no_actualizado = false;
-    } 
+    printf ("NO ACTUALIZADO");
+    BEGIN(INITIAL); 
+    ECHO;
+}
+	YY_BREAK
+case 6:
+/* rule 6 can match eol */
+YY_RULE_SETUP
+#line 31 ".\\ejercicio1.l"
+{
     BEGIN(INITIAL); 
     ECHO;
 }
 	YY_BREAK
 
-case 5:
-YY_RULE_SETUP
-#line 35 ".\\ejercicio1.l"
-{ comentario_no_actualizado=true; ECHO; }
-	YY_BREAK
-case 6:
-/* rule 6 can match eol */
-YY_RULE_SETUP
-#line 36 ".\\ejercicio1.l"
-{ECHO;}
-	YY_BREAK
 case 7:
 YY_RULE_SETUP
-#line 37 ".\\ejercicio1.l"
-{ECHO;}
+#line 36 ".\\ejercicio1.l"
+{ 
+        BEGIN(COMENTARIO_LINEA_NO_ACTUALIZADO);
+        ECHO; 
+    }
 	YY_BREAK
+
 
 case 8:
 YY_RULE_SETUP
-#line 41 ".\\ejercicio1.l"
+#line 42 ".\\ejercicio1.l"
+{ 
+        BEGIN(COMENTARIO_MULTI_LINEA_NO_ACTUALIZADO);
+        ECHO; 
+    }
+	YY_BREAK
+
+
+case 9:
+/* rule 9 can match eol */
+YY_RULE_SETUP
+#line 48 ".\\ejercicio1.l"
+{ECHO;}
+	YY_BREAK
+case 10:
+YY_RULE_SETUP
+#line 49 ".\\ejercicio1.l"
+{ECHO;}
+	YY_BREAK
+
+case 11:
+YY_RULE_SETUP
+#line 53 ".\\ejercicio1.l"
 { 
     // Si encuentra ups, espacios y ( entra en posible funcion error 
     BEGIN(FUNCION_UPS);
@@ -827,19 +857,19 @@ YY_RULE_SETUP
 }
 	YY_BREAK
 
-case 9:
-/* rule 9 can match eol */
+case 12:
+/* rule 12 can match eol */
 YY_RULE_SETUP
-#line 48 ".\\ejercicio1.l"
+#line 60 ".\\ejercicio1.l"
 { 
         // Estando en la funcion error, si encuentra cualquier concatenacion de elementos que no sean , o ) son el parametro 1
         parametro1 = strdup(yytext);
         BEGIN(PARAMETRO_1);
     }
 	YY_BREAK
-case 10:
+case 13:
 YY_RULE_SETUP
-#line 53 ".\\ejercicio1.l"
+#line 65 ".\\ejercicio1.l"
 { 
         // funcion sin elementos 
         BEGIN(INITIAL); 
@@ -848,17 +878,17 @@ YY_RULE_SETUP
 	YY_BREAK
 
 
-case 11:
+case 14:
 YY_RULE_SETUP
-#line 61 ".\\ejercicio1.l"
+#line 73 ".\\ejercicio1.l"
 {
         // Si dentro del parametro 1 encuentra una coma, pasa al parametro 2
         BEGIN(PARAMETRO_2);
     }
 	YY_BREAK
-case 12:
+case 15:
 YY_RULE_SETUP
-#line 65 ".\\ejercicio1.l"
+#line 77 ".\\ejercicio1.l"
 {
         // Si dentro del parametro 1 encuentra un parentesis, la funcion solo tenia un elemento, restaura todo
         printf("%s", parametro1);
@@ -870,18 +900,18 @@ YY_RULE_SETUP
 	YY_BREAK
 
 
-case 13:
-/* rule 13 can match eol */
+case 16:
+/* rule 16 can match eol */
 YY_RULE_SETUP
-#line 76 ".\\ejercicio1.l"
+#line 88 ".\\ejercicio1.l"
 {
         // Dentro del parametro 2, todo lo que encuentra que no sea , o ) es parte del parametro 2
         parametro2 = strdup(yytext);
     }
 	YY_BREAK
-case 14:
+case 17:
 YY_RULE_SETUP
-#line 81 ".\\ejercicio1.l"
+#line 93 ".\\ejercicio1.l"
 {
         // Dentro del parametro 2, hay una coma es que hay mas de 2 parametros, restaura todo
         if (parametro2 == NULL) {parametro2="";}
@@ -892,9 +922,9 @@ YY_RULE_SETUP
         ECHO;
     }
 	YY_BREAK
-case 15:
+case 18:
 YY_RULE_SETUP
-#line 90 ".\\ejercicio1.l"
+#line 102 ".\\ejercicio1.l"
 {
         // Dentro del parametro 2, hay un parentesis es que hay 2 elementos, intercambiarlos
         if (parametro2 == NULL) {parametro2="";}
@@ -906,31 +936,33 @@ YY_RULE_SETUP
     }
 	YY_BREAK
 
-case 16:
-YY_RULE_SETUP
-#line 100 ".\\ejercicio1.l"
-{ECHO;}
-	YY_BREAK
-case 17:
-YY_RULE_SETUP
-#line 101 ".\\ejercicio1.l"
-{ ECHO; }
-	YY_BREAK
-case 18:
-/* rule 18 can match eol */
-YY_RULE_SETUP
-#line 102 ".\\ejercicio1.l"
-{ ECHO; }
-	YY_BREAK
 case 19:
 YY_RULE_SETUP
-#line 104 ".\\ejercicio1.l"
+#line 112 ".\\ejercicio1.l"
+{ECHO;}
+	YY_BREAK
+case 20:
+YY_RULE_SETUP
+#line 113 ".\\ejercicio1.l"
+{ ECHO; }
+	YY_BREAK
+case 21:
+/* rule 21 can match eol */
+YY_RULE_SETUP
+#line 114 ".\\ejercicio1.l"
+{ ECHO; }
+	YY_BREAK
+case 22:
+YY_RULE_SETUP
+#line 116 ".\\ejercicio1.l"
 ECHO;
 	YY_BREAK
-#line 930 "lex.yy.c"
+#line 960 "lex.yy.c"
 case YY_STATE_EOF(INITIAL):
 case YY_STATE_EOF(COMENTARIO_LINEA):
 case YY_STATE_EOF(COMENTARIO_MULTI_LINEA):
+case YY_STATE_EOF(COMENTARIO_LINEA_NO_ACTUALIZADO):
+case YY_STATE_EOF(COMENTARIO_MULTI_LINEA_NO_ACTUALIZADO):
 case YY_STATE_EOF(FUNCION_UPS):
 case YY_STATE_EOF(PARAMETRO_1):
 case YY_STATE_EOF(PARAMETRO_2):
@@ -1229,7 +1261,7 @@ static int yy_get_next_buffer (void)
 		while ( yy_chk[yy_base[yy_current_state] + yy_c] != yy_current_state )
 			{
 			yy_current_state = (int) yy_def[yy_current_state];
-			if ( yy_current_state >= 51 )
+			if ( yy_current_state >= 61 )
 				yy_c = yy_meta[yy_c];
 			}
 		yy_current_state = yy_nxt[yy_base[yy_current_state] + yy_c];
@@ -1257,11 +1289,11 @@ static int yy_get_next_buffer (void)
 	while ( yy_chk[yy_base[yy_current_state] + yy_c] != yy_current_state )
 		{
 		yy_current_state = (int) yy_def[yy_current_state];
-		if ( yy_current_state >= 51 )
+		if ( yy_current_state >= 61 )
 			yy_c = yy_meta[yy_c];
 		}
 	yy_current_state = yy_nxt[yy_base[yy_current_state] + yy_c];
-	yy_is_jam = (yy_current_state == 50);
+	yy_is_jam = (yy_current_state == 60);
 
 		return yy_is_jam ? 0 : yy_current_state;
 }
@@ -1937,7 +1969,7 @@ void yyfree (void * ptr )
 
 #define YYTABLES_NAME "yytables"
 
-#line 104 ".\\ejercicio1.l"
+#line 116 ".\\ejercicio1.l"
 
 
 int main(){

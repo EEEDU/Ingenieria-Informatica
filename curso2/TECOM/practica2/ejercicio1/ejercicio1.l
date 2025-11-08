@@ -30,7 +30,7 @@
 <COMENTARIO_LINEA>\n        {
     BEGIN(INITIAL); 
     ECHO;
-}
+}   
 <COMENTARIO_LINEA>{
 ups             { 
         BEGIN(COMENTARIO_LINEA_NO_ACTUALIZADO);

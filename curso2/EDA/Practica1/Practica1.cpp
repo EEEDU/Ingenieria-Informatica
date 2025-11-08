@@ -101,7 +101,6 @@ int preguntar_accion(){
     if (respuesta_tipo == 1 || respuesta_tipo == 2) {
         respuesta_valida = true;
     }
-    // TODO: Comprobar que la respuesta es valida
 
     cout << "Que accion te gustaria hacer?" << endl;
     if (respuesta_tipo == 1){

@@ -1,0 +1,128 @@
+LT
+C 
+arranque_2025_11_03
+Arranque general del servidor principal 2025-11-03
+1
+A
+verificacion_red_R010
+Comprobación de conectividad en red R010
+2
+INDependiente
+-.-.-.-.-
+A
+ON_modulo_RF001
+Activación del módulo RF001 de comunicaciones internas
+3
+DEPendiente
+verificacion_red_R010
+A
+alerta_temperatura_S301
+Aviso por temperatura elevada en servidor S301
+4
+INDependiente
+-.-.-.-.-
+A
+ON_refrigeracion_S301
+Refrigeración automática activada por temperatura alta
+5
+DEPendiente
+alerta_temperatura_S301
+A
+OFF_refrigeracion_S301
+Refrigeración detenida tras normalización térmica
+3
+DEPendiente
+ON_refrigeracion_S301
+A
+sensor_movimiento_H002
+Sensor H002 detecta movimiento en pasillo técnico
+2
+INDependiente
+-.-.-.-.-
+A
+ON_luz_H002
+Iluminación automática activada en pasillo técnico
+3
+DEPendiente
+sensor_movimiento_H002
+A
+OFF_luz_H002
+Apagado de iluminación H002 por inactividad
+4
+DEPendiente
+ON_luz_H002
+A
+inicio_transporte_TK07
+Inicio del transporte automatizado TK07
+2
+INDependiente
+-.-.-.-.-
+A
+fin_transporte_TK07
+Cierre del ciclo de transporte TK07
+3
+DEPendiente
+inicio_transporte_TK07
+LT
+O
+ON_modulo_RF001
+O
+sensor_movimiento_H002
+O
+inicio_transporte_TK07
+E
+alerta_temperatura_S301
+E
+ON_refrigeracion_S301
+E
+fin_transporte_TK07
+LD
+sensor_movimiento_H002
+C 
+ON_refrigeracion_S301
+Refrigeración ajustada a modo de bajo consumo
+2
+O
+ON_refrigeracion_S301
+C 
+ON_luz_H002
+Iluminación forzada por mantenimiento técnico
+5
+LD
+ON_luz_H002
+LT
+D
+OFF_refrigeracion_S301
+alerta_temperatura_S301
+LD
+alerta_temperatura_S301
+I
+verificacion_red_R010
+I
+inicio_transporte_TK07
+I
+ON_modulo_RF001
+LD
+alerta_temperatura_S301
+C 
+verificacion_red_R010
+Validación de conectividad en red R010 con diagnóstico extendido
+6
+D
+sensor_movimiento_H002
+ON_luz_H002
+D
+fin_transporte_TK07
+inicio_transporte_TK07
+LT
+B
+inicio_transporte_TK07
+B
+OFF_luz_H002
+B
+ON_refrigeracion_S301
+LD
+ON_modulo_RF001
+LD
+OFF_refrigeracion_S301
+LT

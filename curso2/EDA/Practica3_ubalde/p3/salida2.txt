@@ -1,0 +1,92 @@
+-----LISTADO: 0
+-----
+NO CAMBIADO: inicio_2025_11_03
+INTRODUCIDO: [ encendido_bomba_A101 ] --- Activación de bomba A101 por nivel bajo de presión --- ( 2 )
+INTRODUCIDO: [ alarma_presion_A101 ] --- Alarma de presión baja detectada en sistema A101 --- ( 3 )
+INTRODUCIDO: [ apagado_bomba_A101 -de-> encendido_bomba_A101 ] --- Apagado de bomba A101 tras restablecer presión --- ( 4 )
+INTRODUCIDO: [ sensor_puerta_L002 ] --- Sensor puerta L002 detecta apertura --- ( 3 )
+INTRODUCIDO: [ ON_luz_L002 -de-> sensor_puerta_L002 ] --- Encendido de luz L002 por detección apertura --- ( 3 )
+INTRODUCIDO: [ OFF_luz_L002 -de-> ON_luz_L002 ] --- Apagado de luz L002 por cierre de puerta --- ( 4 )
+INTRODUCIDO: [ inicio_turno_T1 ] --- Inicio del turno T1 en línea de ensamblaje --- ( 2 )
+INTRODUCIDO: [ fin_turno_T1 -de-> inicio_turno_T1 ] --- Finalización del turno T1, cierre de registros --- ( 3 )
+-----LISTADO: 8
+[ OFF_luz_L002 -de-> ON_luz_L002 ;;; 0 ] --- Apagado de luz L002 por cierre de puerta --- ( 4 )
+[ ON_luz_L002 -de-> sensor_puerta_L002 ;;; 1 ] --- Encendido de luz L002 por detección apertura --- ( 3 )
+[ alarma_presion_A101 --- 0 ] --- Alarma de presión baja detectada en sistema A101 --- ( 3 )
+[ apagado_bomba_A101 -de-> encendido_bomba_A101 ;;; 0 ] --- Apagado de bomba A101 tras restablecer presión --- ( 4 )
+[ encendido_bomba_A101 --- 1 ] --- Activación de bomba A101 por nivel bajo de presión --- ( 2 )
+[ fin_turno_T1 -de-> inicio_turno_T1 ;;; 0 ] --- Finalización del turno T1, cierre de registros --- ( 3 )
+[ inicio_turno_T1 --- 1 ] --- Inicio del turno T1 en línea de ensamblaje --- ( 2 )
+[ sensor_puerta_L002 --- 1 ] --- Sensor puerta L002 detecta apertura --- ( 3 )
+-----
+LOCALIZADO: [ encendido_bomba_A101 --- 1 ] --- Activación de bomba A101 por nivel bajo de presión --- ( 2 )
+LOCALIZADO: [ ON_luz_L002 -de-> sensor_puerta_L002 ;;; 1 ] --- Encendido de luz L002 por detección apertura --- ( 3 )
+LOCALIZADO: [ inicio_turno_T1 --- 1 ] --- Inicio del turno T1 en línea de ensamblaje --- ( 2 )
+INDEPendiente: alarma_presion_A101
+INDEPendiente: sensor_puerta_L002
+DEPendiente: fin_turno_T1
+****DEPENDIENTES: encendido_bomba_A101
+[ encendido_bomba_A101 --- 1 ] --- Activación de bomba A101 por nivel bajo de presión --- ( 2 ) ****
+[1 -> apagado_bomba_A101 -de-> encendido_bomba_A101 ;;; 0 ] --- Apagado de bomba A101 tras restablecer presión --- ( 4 ) ;;;;
+****FINAL dependientes -de-> encendido_bomba_A101
+CAMBIADO: [ apagado_bomba_A101 -de-> encendido_bomba_A101 ;;; 0 ] --- Apagado automático tras corrección manual --- ( 2 )
+LOCALIZADO: [ apagado_bomba_A101 -de-> encendido_bomba_A101 ;;; 0 ] --- Apagado automático tras corrección manual --- ( 2 )
+CAMBIADO: [ ON_luz_L002 -de-> sensor_puerta_L002 ;;; 1 ] --- Encendido por detección prolongada de movimiento --- ( 5 )
+****DEPENDIENTES: ON_luz_L002
+[ ON_luz_L002 -de-> sensor_puerta_L002 ;;; 1 ] --- Encendido por detección prolongada de movimiento --- ( 5 ) ****
+[1 -> OFF_luz_L002 -de-> ON_luz_L002 ;;; 0 ] --- Apagado de luz L002 por cierre de puerta --- ( 4 ) ;;;;
+****FINAL dependientes -de-> ON_luz_L002
+-----LISTADO: 8
+[ OFF_luz_L002 -de-> ON_luz_L002 ;;; 0 ] --- Apagado de luz L002 por cierre de puerta --- ( 4 )
+[ ON_luz_L002 -de-> sensor_puerta_L002 ;;; 1 ] --- Encendido por detección prolongada de movimiento --- ( 5 )
+[ alarma_presion_A101 --- 0 ] --- Alarma de presión baja detectada en sistema A101 --- ( 3 )
+[ apagado_bomba_A101 -de-> encendido_bomba_A101 ;;; 0 ] --- Apagado automático tras corrección manual --- ( 2 )
+[ encendido_bomba_A101 --- 1 ] --- Activación de bomba A101 por nivel bajo de presión --- ( 2 )
+[ fin_turno_T1 -de-> inicio_turno_T1 ;;; 0 ] --- Finalización del turno T1, cierre de registros --- ( 3 )
+[ inicio_turno_T1 --- 1 ] --- Inicio del turno T1 en línea de ensamblaje --- ( 2 )
+[ sensor_puerta_L002 --- 1 ] --- Sensor puerta L002 detecta apertura --- ( 3 )
+-----
+INTENTANDO hacer depend.: OFF_luz_L002 -de-> sensor_puerta_L002
+****DEPENDIENTES: sensor_puerta_L002
+[ sensor_puerta_L002 --- 2 ] --- Sensor puerta L002 detecta apertura --- ( 3 ) ****
+[1 -> OFF_luz_L002 -de-> sensor_puerta_L002 ;;; 0 ] --- Apagado de luz L002 por cierre de puerta --- ( 4 ) ;;;;
+[2 -> ON_luz_L002 -de-> sensor_puerta_L002 ;;; 0 ] --- Encendido por detección prolongada de movimiento --- ( 5 ) ;;;;
+****FINAL dependientes -de-> sensor_puerta_L002
+YA ERA INDepend.: alarma_presion_A101
+YA ERA INDepend.: inicio_turno_T1
+YA ERA INDepend.: encendido_bomba_A101
+****DEPENDIENTES: alarma_presion_A101
+[ alarma_presion_A101 --- 0 ] --- Alarma de presión baja detectada en sistema A101 --- ( 3 ) ****
+****FINAL dependientes -de-> alarma_presion_A101
+CAMBIADO: [ encendido_bomba_A101 --- 1 ] --- Encendido de bomba A101 sin alarma previa --- ( 6 )
+INTENTANDO hacer depend.: sensor_puerta_L002 -de-> ON_luz_L002
+INTENTANDO hacer depend.: fin_turno_T1 -de-> inicio_turno_T1
+-----LISTADO: 8
+[ OFF_luz_L002 -de-> sensor_puerta_L002 ;;; 0 ] --- Apagado de luz L002 por cierre de puerta --- ( 4 )
+[ ON_luz_L002 -de-> sensor_puerta_L002 ;;; 1 ] --- Encendido por detección prolongada de movimiento --- ( 5 )
+[ alarma_presion_A101 --- 0 ] --- Alarma de presión baja detectada en sistema A101 --- ( 3 )
+[ apagado_bomba_A101 -de-> encendido_bomba_A101 ;;; 0 ] --- Apagado automático tras corrección manual --- ( 2 )
+[ encendido_bomba_A101 --- 1 ] --- Encendido de bomba A101 sin alarma previa --- ( 6 )
+[ fin_turno_T1 -de-> inicio_turno_T1 ;;; 0 ] --- Finalización del turno T1, cierre de registros --- ( 3 )
+[ inicio_turno_T1 --- 1 ] --- Inicio del turno T1 en línea de ensamblaje --- ( 2 )
+[ sensor_puerta_L002 -de-> ON_luz_L002 ;;; 2 ] --- Sensor puerta L002 detecta apertura --- ( 3 )
+-----
+NO BORRADO: inicio_turno_T1
+BORRADO: OFF_luz_L002
+NO BORRADO: encendido_bomba_A101
+****DEPENDIENTES: ON_luz_L002
+[ ON_luz_L002 -de-> sensor_puerta_L002 ;;; 1 ] --- Encendido por detección prolongada de movimiento --- ( 5 ) ****
+[1 -> sensor_puerta_L002 -de-> ON_luz_L002 ;;; 1 ] --- Sensor puerta L002 detecta apertura --- ( 3 ) ;;;;
+****FINAL dependientes -de-> ON_luz_L002
+****DEPENDIENTES: apagado_bomba_A101
+[ apagado_bomba_A101 -de-> encendido_bomba_A101 ;;; 0 ] --- Apagado automático tras corrección manual --- ( 2 ) ****
+****FINAL dependientes -de-> apagado_bomba_A101
+-----LISTADO: 7
+[ ON_luz_L002 -de-> sensor_puerta_L002 ;;; 1 ] --- Encendido por detección prolongada de movimiento --- ( 5 )
+[ alarma_presion_A101 --- 0 ] --- Alarma de presión baja detectada en sistema A101 --- ( 3 )
+[ apagado_bomba_A101 -de-> encendido_bomba_A101 ;;; 0 ] --- Apagado automático tras corrección manual --- ( 2 )
+[ encendido_bomba_A101 --- 1 ] --- Encendido de bomba A101 sin alarma previa --- ( 6 )
+[ fin_turno_T1 -de-> inicio_turno_T1 ;;; 0 ] --- Finalización del turno T1, cierre de registros --- ( 3 )
+[ inicio_turno_T1 --- 1 ] --- Inicio del turno T1 en línea de ensamblaje --- ( 2 )
+[ sensor_puerta_L002 -de-> ON_luz_L002 ;;; 1 ] --- Sensor puerta L002 detecta apertura --- ( 3 )
+-----

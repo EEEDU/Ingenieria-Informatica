@@ -1,0 +1,584 @@
+#include <string>
+#include "evento.hpp"
+#include "colecInterdep.hpp"
+
+using namespace std;
+
+void mostrarEvento(const string &id, const Evento &e) {
+  // Utilidad: mostrar un evento formateado junto con su identificador
+  printf("Evento[id=%s, desc=\"%s\", prio=%d]\n", id.c_str(), descripcion(e).c_str(), suPrioridad(e));
+}
+
+void testHacerDependiente() {
+
+  colecInterdep<string, Evento> c1;
+  Evento testEvento;
+  string id, super_id;
+  int n = 5;
+
+  crearEvento("Test desc", 20, testEvento);
+
+  crear(c1);
+
+   // Hacer dependiente con lista vacía (debe FALLAR => false)
+  id = "t0";
+  super_id = "t1";
+
+  hacerDependiente(c1, id, super_id);
+  if (existeDependiente(id, c1)) {
+    printf("ERROR: testHacerDependiente (lista vacía) debería fallar - id: %s, super_id: %s\n", id.c_str(), super_id.c_str());
+    exit(1);
+  }
+
+  // Introducir n elementos
+  for (size_t i = 0; i < n; i++) {
+    id = "t" + to_string(i);
+    aniadirIndependiente(c1, id, testEvento);
+    if (!existeIndependiente(id, c1)) {
+      printf("No se pudo testHacerDependiente: %s\n", id.c_str());
+      exit(1);
+    }
+  }
+
+  // Hacer dependiente el primero del segundo
+  id = "t0";
+  super_id = "t1";
+  hacerDependiente(c1, id, super_id);
+  if (!existeDependiente(id, c1)) {
+    printf("No se pudo testHacerDependiente - id: %s, super_id: %s\n", id.c_str(), super_id.c_str());
+    exit(1);
+  }
+
+  // Obtener el super del primero
+  id = "t0";
+  super_id = "";
+  if (obtenerSupervisor(id, c1, super_id) && super_id != "t1") {
+    printf("ERROR: testHacerDependiente - obtenerSupervisor 1, expected: %s, obtained: %s\n", id.c_str(), super_id.c_str());
+    exit(1);
+  }
+
+  // Obtener el supervisor de un nodo que es independiente
+  id = "t2";
+  super_id = "";
+  if (!obtenerSupervisor(id, c1, super_id) && super_id != "") {
+    printf("ERROR: testHacerDependiente - obtenerSupervisor 2, expected: %s, obtained: %s\n", id.c_str(), super_id.c_str());
+    exit(1);
+  }
+
+  // Obtener el supervisor de un nodo inexistente
+  id = "t3";
+  super_id = "";
+  if (!obtenerSupervisor(id, c1, super_id) && super_id != "") {
+    printf("ERROR: testHacerDependiente - obtenerSupervisor 3, expected: %s, obtained: %s\n", id.c_str(), super_id.c_str());
+    exit(1);
+  }
+  printf("PASS: testHacerDependiente\n");
+}
+
+void testHacerIndependiente() {
+
+  colecInterdep<string, Evento> c1;
+  Evento eventos[5];
+  string id, super_id;
+  unsigned int n_depen, n;
+
+  n = 5;
+
+  for (size_t i = 0; i < n; i++) {
+    crearEvento("Test desc", i, eventos[i]);
+  }
+
+  crear(c1);
+
+  // Añadimos el nodo super para estas pruebas
+  id = "t0";
+  aniadirIndependiente(c1, id, eventos[0]);
+  if (!existeIndependiente(id, c1)) {
+    printf("ERROR: testHacerIndependiente - aniadirIndependiente 1\n");
+    exit(1);
+  }
+
+  super_id = "t0";
+  for (size_t i = 1; i < n; i++) {
+    id = "t" + to_string(i);
+    aniadirDependiente(c1, id, eventos[i], super_id);
+    if (!existeDependiente(id, c1)) {
+      printf("ERROR: testHacerIndependiente - aniadirDependiente 2\n");
+      exit(1);
+    }
+  }
+
+  for (size_t i = 1; i < n; i++) {
+    id = "t" + to_string(i);
+    hacerIndependiente(c1, id);
+    if (!existeIndependiente(id, c1)) {
+      printf("ERROR: testHacerIndependiente - hacerIndependiente 3\n");
+      exit(1);
+    }
+  }
+
+  id = "t3";
+  // Hacer independiente algo que ya lo és
+  hacerIndependiente(c1, id);
+  if (!existeIndependiente(id, c1)) {
+    printf("ERROR: testHacerIndependiente - hacerIndependiente 4\n");
+    exit(1);
+  }
+
+  id = "t0";
+  if (!obtenerNumDependientes(id, c1, n_depen) || n_depen != 0) {
+    printf("ERROR: testHacerIndependiente - obtenerNumDependientes, expected: 0, obtained: %d\n", n_depen);
+    exit(1);
+  }
+
+  printf("PASS: testHacerIndependiente\n");
+}
+
+void testExiste() {
+
+  colecInterdep<string, Evento> c1;
+  Evento testEvento;
+  string id;
+
+  crearEvento("Test desc", 20, testEvento);
+
+  crear(c1);
+
+  // Pruebas con más de 1 elemento
+  // Inserción
+  for (size_t i = 0; i < 3; i++) {
+    id = "t" + to_string(i);
+    aniadirIndependiente(c1, id, testEvento);
+    if(!existeIndependiente(id, c1)) {
+      printf("No se pudo aniadirIndependiente: %s\n", id.c_str());
+      exit(1);
+    }
+  }
+
+  for (size_t i = 0; i < 3; i++) {
+    id = "t" + to_string(i);
+    if (!existe(id, c1)) {
+      printf("ERROR: testExiste\n");
+      exit(1);
+    }
+  }
+
+  id = "taaa";
+  if (existe(id, c1)) {
+    printf("ERROR: testExiste\n");
+    exit(1);
+  }
+
+  printf("PASS: testExiste\n");
+}
+
+void testExisteIndependiente() {
+  colecInterdep<string, Evento> c1;
+  Evento testEvento;
+  string id;
+
+  crearEvento("Test desc", 20, testEvento);
+
+  crear(c1);
+
+  for (size_t i = 0; i < 3; i++) {
+    id = "t" + to_string(i);
+    aniadirIndependiente(c1, id, testEvento);
+    if(!existeIndependiente(id, c1)) {
+      printf("No se pudo aniadirIndependiente: %s\n", id.c_str());
+      exit(1);
+    }
+  }
+
+    for (size_t i = 0; i < 3; i++) {
+    id = "t" + to_string(i);
+    if (!existeIndependiente(id, c1)) {
+      printf("ERROR: testExisteIndependiente\n");
+      exit(1);
+    }
+  }
+
+  id = "taaa";
+  if (existeIndependiente(id, c1)) {
+    printf("ERROR: testExisteIndependiente\n");
+    exit(1);
+  }
+
+  printf("PASS: testExisteIndependiente\n");
+}
+
+void testExisteDependiente() {
+
+  colecInterdep<string, Evento> c1;
+  Evento eventos[5];
+  string id, super_id;
+  unsigned int n_depen, n;
+
+  n = 5;
+
+  for (size_t i = 0; i < n; i++) {
+    crearEvento("Test desc", i, eventos[i]);
+  }
+
+  crear(c1);
+
+  // aniadir un elemento que no existe cuyo super no existe
+  id = "t0";
+  super_id = "dawda";
+  aniadirDependiente(c1, id, eventos[0], super_id);
+  if(existeDependiente(id, c1)) {
+    printf("ERROR: testExisteDependiente - aniadirDependiente 1\n");
+    exit(1);
+  }
+
+  // Añadimos el nodo super para estas pruebas
+  id = "t0";
+  aniadirIndependiente(c1, id, eventos[0]);
+  if (!existeIndependiente(id, c1)) {
+    printf("ERROR: testExisteDependiente - aniadirIndependiente 2\n");
+    exit(1);
+  }
+
+  // Intentar encadenarse a sí mismo
+  id = "t0";
+  super_id = "t0";
+  aniadirDependiente(c1, id, eventos[0], super_id);
+  if (existeDependiente(id, c1)) {
+    printf("ERROR: testExisteDependiente - aniadirDependiente 3\n");
+    exit(1);
+  }
+
+  // aniadir un elemento cuyo super no existe
+  id = "t0";
+  super_id = "dawda";
+  aniadirDependiente(c1, id, eventos[0], super_id);
+  if (existeDependiente(id, c1)) {
+    printf("ERROR: testExisteDependiente - aniadirDependiente 4\n");
+    exit(1);
+  }
+
+  super_id = "t0";
+  for (size_t i = 1; i < n; i++) {
+    id = "t" + to_string(i);
+    aniadirDependiente(c1, id, eventos[i], super_id);
+    if (!existeDependiente(id, c1)) {
+      printf("ERROR: testExisteDependiente - aniadirDependiente 5\n");
+      exit(1);
+    }
+  }
+
+  if (obtenerNumDependientes(super_id, c1, n_depen) && n_depen != n - 1) {
+    printf("ERROR: testExisteDependiente - obtenerNumDependientes, expected: %d, obtained: %d\n", n - 1, n_depen);
+    exit(1);
+  }
+
+  // Comprobar que se han añadido correctamente
+  for (size_t i = 1; i < n; i++) {
+    id = "t" + to_string(i);
+    if (!existeDependiente(id, c1)) {
+      printf("ERROR: testExisteDependiente - existeDependiente 6\n");
+      exit(1);
+    }
+  }
+
+  printf("PASS: testExisteDependiente\n");
+}
+
+void testaniadirIndependiente() {
+  colecInterdep<string, Evento> c1;
+  Evento testEvento;
+  string id;
+  int n = 5;
+
+  crearEvento("Test desc", 20, testEvento);
+
+  crear(c1);
+
+  // Pruebas con 1 elemento
+  id = "t0";
+  aniadirIndependiente(c1, id, testEvento);
+  if (!existeIndependiente(id, c1)) {
+    printf("ERROR: testaniadirIndependiente 1\n");
+    exit(1);
+  }
+
+  if (!existe(id, c1) || tamanio(c1) != 1) {
+    printf("ERROR: testaniadirIndependiente 2\n");
+    exit(1);
+  }
+
+  // aniadir varios
+
+  for (size_t i = 1; i < n; i++) {
+    id = "t" + to_string(i);
+    aniadirIndependiente(c1, id, testEvento);
+    if (!existeIndependiente(id, c1)) {
+      printf("ERROR: testaniadirIndependiente 3\n");
+      exit(1);
+    }
+  }
+  for (size_t i = 0; i < n; i++) {
+    id = "t" + to_string(i);
+    if (!existe(id, c1) || tamanio(c1) != n) {
+      printf("ERROR: testaniadirIndependiente 4\n");
+      exit(1);
+    }
+  }
+
+  printf("PASS: testaniadirIndependiente\n");
+}
+
+void testaniadirDependiente() {
+
+  colecInterdep<string, Evento> c1;
+  Evento testEvento;
+  string id, super_id;
+  int n = 5;
+
+  crearEvento("Test desc", 20, testEvento);
+
+  crear(c1);
+
+  // Pruebas con 1 elemento
+  id = "t0";
+  aniadirIndependiente(c1, id, testEvento);
+  if (!existeIndependiente(id, c1)) {
+    printf("ERROR: testaniadirDependiente 1\n");
+    exit(1);
+  }
+
+  if (!existe(id, c1) || tamanio(c1) != 1) {
+    printf("ERROR: testaniadirDependiente 2\n");
+    exit(1);
+  }
+
+  // aniadir varios
+  super_id = "t0";
+  for (size_t i = 1; i < n; i++) {
+    id = "t" + to_string(i);
+    aniadirDependiente(c1, id, testEvento, super_id);
+    if (!existeDependiente(id, c1)) {
+      printf("ERROR: testaniadirDependiente 3\n");
+      exit(1);
+    }
+  }
+
+  for (size_t i = 0; i < n; i++) {
+    id = "t" + to_string(i);
+    if (!existe(id, c1) || tamanio(c1) != n) {
+      printf("ERROR: testaniadirDependiente 4\n");
+      exit(1);
+    }
+  }
+
+  printf("PASS: testaniadirDependiente\n");
+}
+
+void testObtenerSupervisor() {
+
+  colecInterdep<string, Evento> c1;
+  Evento testEvento;
+  string id, super_id;
+  int n = 5;
+
+  crearEvento("Test desc", 20, testEvento);
+
+  crear(c1);
+
+  // Pruebas con 1 elemento
+  id = "t0";
+  aniadirIndependiente(c1, id, testEvento);
+  if (!existeIndependiente(id, c1)) {
+    printf("ERROR: testObtenerSupervisor 1\n");
+    exit(1);
+  }
+
+  if (!existe(id, c1) || tamanio(c1) != 1) {
+    printf("ERROR: testObtenerSupervisor 2\n");
+    exit(1);
+  }
+
+  // aniadir varios
+  super_id = "t0";
+  for (size_t i = 1; i < n; i++) {
+    id = "t" + to_string(i);
+    aniadirDependiente(c1, id, testEvento, super_id);
+    if (!existeDependiente(id, c1)) {
+      printf("ERROR: testObtenerSupervisor 3\n");
+      exit(1);
+    }
+  }
+
+  for (size_t i = 1; i < n; i++) {
+    id = "t" + to_string(i);
+
+    if (!obtenerSupervisor(id, c1, super_id) || super_id != "t0") {
+      printf("ERROR: testObtenerSupervisor 4\n");
+      exit(1);
+    }
+  }
+  printf("PASS: testObtenerSupervisor\n");
+}
+
+void testBorrado() {
+  colecInterdep<string, Evento> c1;
+  Evento testEvento;
+  string id;
+
+  crearEvento("Test desc", 20, testEvento);
+
+  crear(c1);
+
+  // Pruebas con 1 elemento
+  id = "t1";
+  aniadirIndependiente(c1, id, testEvento);
+  if (!existeIndependiente(id, c1)) {
+    exit(1);
+  }
+
+  if (existe(id, c1)) {
+    borrar(id, c1);
+    if (existe(id, c1)) {
+      printf("No se pudo borrar: %s\n", id.c_str());
+      exit(1);
+    }
+  } else {
+    printf("No se pudo borrar: %s\n", id.c_str());
+    exit(1);
+  }
+
+  // Pruebas con más de 1 elemento
+  // Inserción
+  for (size_t i = 0; i < 3; i++) {
+    id = "t" + to_string(i);
+    aniadirIndependiente(c1, id, testEvento);
+    if (!existeIndependiente(id, c1)) {
+      printf("No se pudo aniadirIndependiente: %s\n", id.c_str());
+      exit(1);
+    }
+  }
+
+  // Borrado
+  for (size_t i = 0; i < 3; i++) {
+    id = "t" + to_string(i);
+    if (existe(id, c1)) {
+      borrar(id, c1);
+      if (existe(id, c1)) {
+        printf("No se pudo borrar: %s\n", id.c_str());
+        exit(1);
+      }
+    } else {
+      printf("No se pudo borrar: %s\n", id.c_str());
+      exit(1);
+    }
+  }
+
+  if (esVacia(c1)) {
+    printf("PASS: testBorrado\n");
+  } else {
+    printf("ERROR: testBorrado\n");
+    exit(1);
+  }
+}
+
+void testIterator() {
+
+  colecInterdep<string, Evento> c1;
+  Evento testEvento;
+  string id, desc;
+  int n = 5;
+
+  crear(c1);
+
+  // aniadir varios elementos
+  for (size_t i = 0; i < n; i++) {
+    id = "t" + to_string(i);
+    desc = "Test desc" + to_string(i);
+    crearEvento(desc, i, testEvento);
+    aniadirIndependiente(c1, id, testEvento);
+    if (!existeIndependiente(id, c1)) {
+      printf("ERROR: testIterator 1\n");
+      exit(1);
+    }
+  }
+
+  iniciarIterador(c1);
+
+  while (existeSiguiente(c1)) {
+    siguienteIdent(c1, id);
+    siguienteVal(c1, testEvento);
+    mostrarEvento(id, testEvento);
+    avanza(c1);
+  }
+
+  printf("PASS: testIterator\n");
+}
+
+// int main(int argc, char const *argv[])
+// {
+
+//   /* Test evento */
+//   Evento testEvento;
+//   crearEvento("Test desc", 20, testEvento);
+//   printf("Desc: %s, Prio: %d\n", descripcion(testEvento).c_str(), suPrioridad(testEvento));
+
+//   cambiarDescripcion(testEvento, "Nueva desc");
+//   cambiarPrioridad(testEvento, 1);
+//   printf("Desc: %s, Prio: %d\n", descripcion(testEvento).c_str(), suPrioridad(testEvento));
+
+
+
+//   colecInterdep<string, Evento> c1;
+
+//   crear(c1);
+//   if (esVacia(c1)) {
+//     printf("La colección está vacía\n");
+//   } else {
+//     printf("La colección no está vacía\n");
+//   }
+//   printf("tamanio: %d\n", tamanio(c1));
+
+//   string id = "test";
+//   aniadirIndependiente(c1, id, testEvento);
+
+//   if (esVacia(c1)) {
+//     printf("La colección está vacía\n");
+//   } else {
+//     printf("La colección no está vacía\n");
+//   }
+
+//   printf("tamanio: %d\n", tamanio(c1));
+
+//   if (existe(id, c1)) {
+//     printf("El id ha sido encontrado\n");
+//   }
+
+//   Evento e_obtenido;
+//   if (obtenerVal(id, c1, e_obtenido)) {
+//     printf("Desc: %s, Prio: %d\n", descripcion(e_obtenido).c_str(), suPrioridad(e_obtenido));
+//   } else {
+//     printf("El elemento con id %s no existe\n", id.c_str());
+//   }
+
+
+
+//   id = "no_existe";
+//   if (obtenerVal(id, c1, e_obtenido)) {
+//     printf("Desc: %s, Prio: %d\n", descripcion(e_obtenido).c_str(), suPrioridad(e_obtenido));
+//   } else {
+//     printf("El elemento con id %s no existe\n", id.c_str());
+//   }
+
+//   testExiste();
+//   testBorrado();
+//   testaniadirIndependiente();
+//   testaniadirDependiente();
+//   testExisteIndependiente();
+//   testExisteDependiente();
+//   testObtenerSupervisor();
+//   testHacerDependiente();
+//   testHacerIndependiente();
+//   testIterator();
+
+//   return 0;
+// }

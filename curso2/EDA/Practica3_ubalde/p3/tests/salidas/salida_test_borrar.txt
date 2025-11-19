@@ -1,0 +1,64 @@
+-----LISTADO: 0
+-----
+NO BORRADO: ev-fantasma
+-----LISTADO: 0
+-----
+INTRODUCIDO: [ ev-a ] --- Supervisor A --- ( 1 )
+INTRODUCIDO: [ ev-b -de-> ev-a ] --- Dependiente B de A --- ( 2 )
+INTRODUCIDO: [ ev-c -de-> ev-a ] --- Dependiente C de A --- ( 3 )
+-----LISTADO: 3
+[ ev-a --- 2 ] --- Supervisor A --- ( 1 )
+[ ev-b -de-> ev-a ;;; 0 ] --- Dependiente B de A --- ( 2 )
+[ ev-c -de-> ev-a ;;; 0 ] --- Dependiente C de A --- ( 3 )
+-----
+NO BORRADO: ev-a
+-----LISTADO: 3
+[ ev-a --- 2 ] --- Supervisor A --- ( 1 )
+[ ev-b -de-> ev-a ;;; 0 ] --- Dependiente B de A --- ( 2 )
+[ ev-c -de-> ev-a ;;; 0 ] --- Dependiente C de A --- ( 3 )
+-----
+NO BORRADO: ev-fantasma
+-----LISTADO: 3
+[ ev-a --- 2 ] --- Supervisor A --- ( 1 )
+[ ev-b -de-> ev-a ;;; 0 ] --- Dependiente B de A --- ( 2 )
+[ ev-c -de-> ev-a ;;; 0 ] --- Dependiente C de A --- ( 3 )
+-----
+BORRADO: ev-b
+****DEPENDIENTES: ev-a
+[ ev-a --- 1 ] --- Supervisor A --- ( 1 ) ****
+[1 -> ev-c -de-> ev-a ;;; 0 ] --- Dependiente C de A --- ( 3 ) ;;;;
+****FINAL dependientes -de-> ev-a
+-----LISTADO: 2
+[ ev-a --- 1 ] --- Supervisor A --- ( 1 )
+[ ev-c -de-> ev-a ;;; 0 ] --- Dependiente C de A --- ( 3 )
+-----
+BORRADO: ev-c
+****DEPENDIENTES: ev-a
+[ ev-a --- 0 ] --- Supervisor A --- ( 1 ) ****
+****FINAL dependientes -de-> ev-a
+-----LISTADO: 1
+[ ev-a --- 0 ] --- Supervisor A --- ( 1 )
+-----
+BORRADO: ev-a
+-----LISTADO: 0
+-----
+INTRODUCIDO: [ ev-m ] --- Medio --- ( 2 )
+INTRODUCIDO: [ ev-a ] --- Primero --- ( 1 )
+INTRODUCIDO: [ ev-z ] --- Ultimo --- ( 3 )
+-----LISTADO: 3
+[ ev-a --- 0 ] --- Primero --- ( 1 )
+[ ev-m --- 0 ] --- Medio --- ( 2 )
+[ ev-z --- 0 ] --- Ultimo --- ( 3 )
+-----
+BORRADO: ev-a
+-----LISTADO: 2
+[ ev-m --- 0 ] --- Medio --- ( 2 )
+[ ev-z --- 0 ] --- Ultimo --- ( 3 )
+-----
+BORRADO: ev-z
+-----LISTADO: 1
+[ ev-m --- 0 ] --- Medio --- ( 2 )
+-----
+BORRADO: ev-m
+-----LISTADO: 0
+-----

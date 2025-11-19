@@ -1,0 +1,72 @@
+# test_anadir_v2.txt: Pruebas de añadir elementos (caja negra)
+LT
+
+# 1. Añadir primer elemento independiente a colección vacía
+A
+ev-10
+Primer evento
+10
+INDependiente
+-.-.-.-.-
+LT
+
+# 2. Intentar añadir ID duplicado (debe fallar)
+A
+ev-10
+Evento duplicado
+20
+INDependiente
+-.-.-.-.-
+LT
+
+# 3. Añadir dependiente con supervisor inexistente (debe fallar)
+A
+ev-11
+Dependiente de fantasma
+30
+DEPendiente
+ev-fantasma
+LT
+
+# 4. Añadir dependiente de sí mismo (debe fallar)
+A
+ev-10
+Dependiente de sí mismo
+40
+DEPendiente
+ev-10
+LT
+
+# 5. Añadir elementos para probar ordenación (z, a, m)
+A
+ev-zulu
+Elemento Z
+1
+INDependiente
+-.-.-.-.-
+A
+ev-alpha
+Elemento A
+1
+INDependiente
+-.-.-.-.-
+A
+ev-mike
+Elemento M
+1
+INDependiente
+-.-.-.-.-
+LT
+
+# 6. Crear una cadena de dependencias: alpha -> mike -> zulu
+D
+ev-mike
+ev-alpha
+D
+ev-zulu
+ev-mike
+LT
+LD
+ev-alpha
+LD
+ev-mike

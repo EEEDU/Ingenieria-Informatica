@@ -1,0 +1,102 @@
+-----LISTADO: 0
+-----
+NO CAMBIADO: arranque_2025_11_03
+INTRODUCIDO: [ verificacion_red_R010 ] --- Comprobación de conectividad en red R010 --- ( 2 )
+INTRODUCIDO: [ ON_modulo_RF001 -de-> verificacion_red_R010 ] --- Activación del módulo RF001 de comunicaciones internas --- ( 3 )
+INTRODUCIDO: [ alerta_temperatura_S301 ] --- Aviso por temperatura elevada en servidor S301 --- ( 4 )
+INTRODUCIDO: [ ON_refrigeracion_S301 -de-> alerta_temperatura_S301 ] --- Refrigeración automática activada por temperatura alta --- ( 5 )
+INTRODUCIDO: [ OFF_refrigeracion_S301 -de-> ON_refrigeracion_S301 ] --- Refrigeración detenida tras normalización térmica --- ( 3 )
+INTRODUCIDO: [ sensor_movimiento_H002 ] --- Sensor H002 detecta movimiento en pasillo técnico --- ( 2 )
+INTRODUCIDO: [ ON_luz_H002 -de-> sensor_movimiento_H002 ] --- Iluminación automática activada en pasillo técnico --- ( 3 )
+INTRODUCIDO: [ OFF_luz_H002 -de-> ON_luz_H002 ] --- Apagado de iluminación H002 por inactividad --- ( 4 )
+INTRODUCIDO: [ inicio_transporte_TK07 ] --- Inicio del transporte automatizado TK07 --- ( 2 )
+INTRODUCIDO: [ fin_transporte_TK07 -de-> inicio_transporte_TK07 ] --- Cierre del ciclo de transporte TK07 --- ( 3 )
+-----LISTADO: 10
+[ OFF_luz_H002 -de-> ON_luz_H002 ;;; 0 ] --- Apagado de iluminación H002 por inactividad --- ( 4 )
+[ OFF_refrigeracion_S301 -de-> ON_refrigeracion_S301 ;;; 0 ] --- Refrigeración detenida tras normalización térmica --- ( 3 )
+[ ON_luz_H002 -de-> sensor_movimiento_H002 ;;; 1 ] --- Iluminación automática activada en pasillo técnico --- ( 3 )
+[ ON_modulo_RF001 -de-> verificacion_red_R010 ;;; 0 ] --- Activación del módulo RF001 de comunicaciones internas --- ( 3 )
+[ ON_refrigeracion_S301 -de-> alerta_temperatura_S301 ;;; 1 ] --- Refrigeración automática activada por temperatura alta --- ( 5 )
+[ alerta_temperatura_S301 --- 1 ] --- Aviso por temperatura elevada en servidor S301 --- ( 4 )
+[ fin_transporte_TK07 -de-> inicio_transporte_TK07 ;;; 0 ] --- Cierre del ciclo de transporte TK07 --- ( 3 )
+[ inicio_transporte_TK07 --- 1 ] --- Inicio del transporte automatizado TK07 --- ( 2 )
+[ sensor_movimiento_H002 --- 1 ] --- Sensor H002 detecta movimiento en pasillo técnico --- ( 2 )
+[ verificacion_red_R010 --- 1 ] --- Comprobación de conectividad en red R010 --- ( 2 )
+-----
+LOCALIZADO: [ ON_modulo_RF001 -de-> verificacion_red_R010 ;;; 0 ] --- Activación del módulo RF001 de comunicaciones internas --- ( 3 )
+LOCALIZADO: [ sensor_movimiento_H002 --- 1 ] --- Sensor H002 detecta movimiento en pasillo técnico --- ( 2 )
+LOCALIZADO: [ inicio_transporte_TK07 --- 1 ] --- Inicio del transporte automatizado TK07 --- ( 2 )
+INDEPendiente: alerta_temperatura_S301
+DEPendiente: ON_refrigeracion_S301
+DEPendiente: fin_transporte_TK07
+****DEPENDIENTES: sensor_movimiento_H002
+[ sensor_movimiento_H002 --- 1 ] --- Sensor H002 detecta movimiento en pasillo técnico --- ( 2 ) ****
+[1 -> ON_luz_H002 -de-> sensor_movimiento_H002 ;;; 1 ] --- Iluminación automática activada en pasillo técnico --- ( 3 ) ;;;;
+****FINAL dependientes -de-> sensor_movimiento_H002
+CAMBIADO: [ ON_refrigeracion_S301 -de-> alerta_temperatura_S301 ;;; 1 ] --- Refrigeración ajustada a modo de bajo consumo --- ( 2 )
+LOCALIZADO: [ ON_refrigeracion_S301 -de-> alerta_temperatura_S301 ;;; 1 ] --- Refrigeración ajustada a modo de bajo consumo --- ( 2 )
+CAMBIADO: [ ON_luz_H002 -de-> sensor_movimiento_H002 ;;; 1 ] --- Iluminación forzada por mantenimiento técnico --- ( 5 )
+****DEPENDIENTES: ON_luz_H002
+[ ON_luz_H002 -de-> sensor_movimiento_H002 ;;; 1 ] --- Iluminación forzada por mantenimiento técnico --- ( 5 ) ****
+[1 -> OFF_luz_H002 -de-> ON_luz_H002 ;;; 0 ] --- Apagado de iluminación H002 por inactividad --- ( 4 ) ;;;;
+****FINAL dependientes -de-> ON_luz_H002
+-----LISTADO: 10
+[ OFF_luz_H002 -de-> ON_luz_H002 ;;; 0 ] --- Apagado de iluminación H002 por inactividad --- ( 4 )
+[ OFF_refrigeracion_S301 -de-> ON_refrigeracion_S301 ;;; 0 ] --- Refrigeración detenida tras normalización térmica --- ( 3 )
+[ ON_luz_H002 -de-> sensor_movimiento_H002 ;;; 1 ] --- Iluminación forzada por mantenimiento técnico --- ( 5 )
+[ ON_modulo_RF001 -de-> verificacion_red_R010 ;;; 0 ] --- Activación del módulo RF001 de comunicaciones internas --- ( 3 )
+[ ON_refrigeracion_S301 -de-> alerta_temperatura_S301 ;;; 1 ] --- Refrigeración ajustada a modo de bajo consumo --- ( 2 )
+[ alerta_temperatura_S301 --- 1 ] --- Aviso por temperatura elevada en servidor S301 --- ( 4 )
+[ fin_transporte_TK07 -de-> inicio_transporte_TK07 ;;; 0 ] --- Cierre del ciclo de transporte TK07 --- ( 3 )
+[ inicio_transporte_TK07 --- 1 ] --- Inicio del transporte automatizado TK07 --- ( 2 )
+[ sensor_movimiento_H002 --- 1 ] --- Sensor H002 detecta movimiento en pasillo técnico --- ( 2 )
+[ verificacion_red_R010 --- 1 ] --- Comprobación de conectividad en red R010 --- ( 2 )
+-----
+INTENTANDO hacer depend.: OFF_refrigeracion_S301 -de-> alerta_temperatura_S301
+****DEPENDIENTES: alerta_temperatura_S301
+[ alerta_temperatura_S301 --- 2 ] --- Aviso por temperatura elevada en servidor S301 --- ( 4 ) ****
+[1 -> OFF_refrigeracion_S301 -de-> alerta_temperatura_S301 ;;; 0 ] --- Refrigeración detenida tras normalización térmica --- ( 3 ) ;;;;
+[2 -> ON_refrigeracion_S301 -de-> alerta_temperatura_S301 ;;; 0 ] --- Refrigeración ajustada a modo de bajo consumo --- ( 2 ) ;;;;
+****FINAL dependientes -de-> alerta_temperatura_S301
+YA ERA INDepend.: verificacion_red_R010
+YA ERA INDepend.: inicio_transporte_TK07
+INDEPENDIZADO: ON_modulo_RF001
+****DEPENDIENTES: alerta_temperatura_S301
+[ alerta_temperatura_S301 --- 2 ] --- Aviso por temperatura elevada en servidor S301 --- ( 4 ) ****
+[1 -> OFF_refrigeracion_S301 -de-> alerta_temperatura_S301 ;;; 0 ] --- Refrigeración detenida tras normalización térmica --- ( 3 ) ;;;;
+[2 -> ON_refrigeracion_S301 -de-> alerta_temperatura_S301 ;;; 0 ] --- Refrigeración ajustada a modo de bajo consumo --- ( 2 ) ;;;;
+****FINAL dependientes -de-> alerta_temperatura_S301
+CAMBIADO: [ verificacion_red_R010 --- 0 ] --- Validación de conectividad en red R010 con diagnóstico extendido --- ( 6 )
+INTENTANDO hacer depend.: sensor_movimiento_H002 -de-> ON_luz_H002
+INTENTANDO hacer depend.: fin_transporte_TK07 -de-> inicio_transporte_TK07
+-----LISTADO: 10
+[ OFF_luz_H002 -de-> ON_luz_H002 ;;; 0 ] --- Apagado de iluminación H002 por inactividad --- ( 4 )
+[ OFF_refrigeracion_S301 -de-> alerta_temperatura_S301 ;;; 0 ] --- Refrigeración detenida tras normalización térmica --- ( 3 )
+[ ON_luz_H002 -de-> sensor_movimiento_H002 ;;; 2 ] --- Iluminación forzada por mantenimiento técnico --- ( 5 )
+[ ON_modulo_RF001 --- 0 ] --- Activación del módulo RF001 de comunicaciones internas --- ( 3 )
+[ ON_refrigeracion_S301 -de-> alerta_temperatura_S301 ;;; 0 ] --- Refrigeración ajustada a modo de bajo consumo --- ( 2 )
+[ alerta_temperatura_S301 --- 2 ] --- Aviso por temperatura elevada en servidor S301 --- ( 4 )
+[ fin_transporte_TK07 -de-> inicio_transporte_TK07 ;;; 0 ] --- Cierre del ciclo de transporte TK07 --- ( 3 )
+[ inicio_transporte_TK07 --- 1 ] --- Inicio del transporte automatizado TK07 --- ( 2 )
+[ sensor_movimiento_H002 -de-> ON_luz_H002 ;;; 1 ] --- Sensor H002 detecta movimiento en pasillo técnico --- ( 2 )
+[ verificacion_red_R010 --- 0 ] --- Validación de conectividad en red R010 con diagnóstico extendido --- ( 6 )
+-----
+NO BORRADO: inicio_transporte_TK07
+BORRADO: OFF_luz_H002
+BORRADO: ON_refrigeracion_S301
+****DEPENDIENTES: ON_modulo_RF001
+[ ON_modulo_RF001 --- 0 ] --- Activación del módulo RF001 de comunicaciones internas --- ( 3 ) ****
+****FINAL dependientes -de-> ON_modulo_RF001
+****DEPENDIENTES: OFF_refrigeracion_S301
+[ OFF_refrigeracion_S301 -de-> alerta_temperatura_S301 ;;; 0 ] --- Refrigeración detenida tras normalización térmica --- ( 3 ) ****
+****FINAL dependientes -de-> OFF_refrigeracion_S301
+-----LISTADO: 8
+[ OFF_refrigeracion_S301 -de-> alerta_temperatura_S301 ;;; 0 ] --- Refrigeración detenida tras normalización térmica --- ( 3 )
+[ ON_luz_H002 -de-> sensor_movimiento_H002 ;;; 1 ] --- Iluminación forzada por mantenimiento técnico --- ( 5 )
+[ ON_modulo_RF001 --- 0 ] --- Activación del módulo RF001 de comunicaciones internas --- ( 3 )
+[ alerta_temperatura_S301 --- 1 ] --- Aviso por temperatura elevada en servidor S301 --- ( 4 )
+[ fin_transporte_TK07 -de-> inicio_transporte_TK07 ;;; 0 ] --- Cierre del ciclo de transporte TK07 --- ( 3 )
+[ inicio_transporte_TK07 --- 1 ] --- Inicio del transporte automatizado TK07 --- ( 2 )
+[ sensor_movimiento_H002 -de-> ON_luz_H002 ;;; 1 ] --- Sensor H002 detecta movimiento en pasillo técnico --- ( 2 )
+[ verificacion_red_R010 --- 0 ] --- Validación de conectividad en red R010 con diagnóstico extendido --- ( 6 )
+-----

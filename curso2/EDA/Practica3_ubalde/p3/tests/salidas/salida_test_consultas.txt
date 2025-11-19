@@ -1,0 +1,39 @@
+-----LISTADO: 0
+-----
+****DEPENDIENTES: ev-fantasma
+****DESCONOCIDO
+NO LOCALIZADO: ev-fantasma
+DESCONOCIDO: ev-fantasma
+NO CAMBIADO: ev-fantasma
+INTRODUCIDO: [ ev-1 ] --- Evento 1 --- ( 10 )
+INTRODUCIDO: [ ev-2 -de-> ev-1 ] --- Evento 2 --- ( 20 )
+-----LISTADO: 2
+[ ev-1 --- 1 ] --- Evento 1 --- ( 10 )
+[ ev-2 -de-> ev-1 ;;; 0 ] --- Evento 2 --- ( 20 )
+-----
+LOCALIZADO: [ ev-1 --- 1 ] --- Evento 1 --- ( 10 )
+LOCALIZADO: [ ev-2 -de-> ev-1 ;;; 0 ] --- Evento 2 --- ( 20 )
+INDEPendiente: ev-1
+DEPendiente: ev-2
+NO LOCALIZADO: ev-fantasma
+DESCONOCIDO: ev-fantasma
+NO CAMBIADO: ev-fantasma
+-----LISTADO: 2
+[ ev-1 --- 1 ] --- Evento 1 --- ( 10 )
+[ ev-2 -de-> ev-1 ;;; 0 ] --- Evento 2 --- ( 20 )
+-----
+CAMBIADO: [ ev-1 --- 1 ] --- Descripción actualizada --- ( 11 )
+LOCALIZADO: [ ev-1 --- 1 ] --- Descripción actualizada --- ( 11 )
+INTRODUCIDO: [ ev-3 ] --- Evento 3 --- ( 30 )
+****DEPENDIENTES: ev-3
+[ ev-3 --- 0 ] --- Evento 3 --- ( 30 ) ****
+****FINAL dependientes -de-> ev-3
+****DEPENDIENTES: ev-1
+[ ev-1 --- 1 ] --- Descripción actualizada --- ( 11 ) ****
+[1 -> ev-2 -de-> ev-1 ;;; 0 ] --- Evento 2 --- ( 20 ) ;;;;
+****FINAL dependientes -de-> ev-1
+-----LISTADO: 3
+[ ev-1 --- 1 ] --- Descripción actualizada --- ( 11 )
+[ ev-2 -de-> ev-1 ;;; 0 ] --- Evento 2 --- ( 20 )
+[ ev-3 --- 0 ] --- Evento 3 --- ( 30 )
+-----

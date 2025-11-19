@@ -1,0 +1,3 @@
+INTRODUCIDO: [ nombre ] --- descripcion --- ( 1 )
+nombre
+CAMBIADO: [ nombre -de->  ;;;  ] --- nuevaDescripcion--- (2)

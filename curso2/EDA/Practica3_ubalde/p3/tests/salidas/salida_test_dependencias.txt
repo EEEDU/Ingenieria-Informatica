@@ -1,0 +1,66 @@
+-----LISTADO: 0
+-----
+INTRODUCIDO: [ ev-a ] --- Evento A --- ( 1 )
+INTRODUCIDO: [ ev-b ] --- Evento B --- ( 2 )
+INTRODUCIDO: [ ev-c ] --- Evento C --- ( 3 )
+-----LISTADO: 3
+[ ev-a --- 0 ] --- Evento A --- ( 1 )
+[ ev-b --- 0 ] --- Evento B --- ( 2 )
+[ ev-c --- 0 ] --- Evento C --- ( 3 )
+-----
+IMPOSIBLE hacer depend.: ev-fantasma -de-> ev-a
+-----LISTADO: 3
+[ ev-a --- 0 ] --- Evento A --- ( 1 )
+[ ev-b --- 0 ] --- Evento B --- ( 2 )
+[ ev-c --- 0 ] --- Evento C --- ( 3 )
+-----
+IMPOSIBLE hacer depend.: ev-a -de-> ev-fantasma
+-----LISTADO: 3
+[ ev-a --- 0 ] --- Evento A --- ( 1 )
+[ ev-b --- 0 ] --- Evento B --- ( 2 )
+[ ev-c --- 0 ] --- Evento C --- ( 3 )
+-----
+INTENTANDO hacer depend.: ev-a -de-> ev-a
+-----LISTADO: 3
+[ ev-a --- 0 ] --- Evento A --- ( 1 )
+[ ev-b --- 0 ] --- Evento B --- ( 2 )
+[ ev-c --- 0 ] --- Evento C --- ( 3 )
+-----
+INTENTANDO hacer depend.: ev-b -de-> ev-a
+****DEPENDIENTES: ev-a
+[ ev-a --- 1 ] --- Evento A --- ( 1 ) ****
+[1 -> ev-b -de-> ev-a ;;; 0 ] --- Evento B --- ( 2 ) ;;;;
+****FINAL dependientes -de-> ev-a
+INTENTANDO hacer depend.: ev-b -de-> ev-c
+****DEPENDIENTES: ev-a
+[ ev-a --- 0 ] --- Evento A --- ( 1 ) ****
+****FINAL dependientes -de-> ev-a
+****DEPENDIENTES: ev-c
+[ ev-c --- 1 ] --- Evento C --- ( 3 ) ****
+[1 -> ev-b -de-> ev-c ;;; 0 ] --- Evento B --- ( 2 ) ;;;;
+****FINAL dependientes -de-> ev-c
+NO INDEPENDIZADO: ev-fantasma
+-----LISTADO: 3
+[ ev-a --- 0 ] --- Evento A --- ( 1 )
+[ ev-b -de-> ev-c ;;; 0 ] --- Evento B --- ( 2 )
+[ ev-c --- 1 ] --- Evento C --- ( 3 )
+-----
+YA ERA INDepend.: ev-a
+****DEPENDIENTES: ev-a
+[ ev-a --- 0 ] --- Evento A --- ( 1 ) ****
+****FINAL dependientes -de-> ev-a
+-----LISTADO: 3
+[ ev-a --- 0 ] --- Evento A --- ( 1 )
+[ ev-b -de-> ev-c ;;; 0 ] --- Evento B --- ( 2 )
+[ ev-c --- 1 ] --- Evento C --- ( 3 )
+-----
+INDEPENDIZADO: ev-b
+****DEPENDIENTES: ev-c
+[ ev-c --- 0 ] --- Evento C --- ( 3 ) ****
+****FINAL dependientes -de-> ev-c
+INDEPendiente: ev-b
+-----LISTADO: 3
+[ ev-a --- 0 ] --- Evento A --- ( 1 )
+[ ev-b --- 0 ] --- Evento B --- ( 2 )
+[ ev-c --- 0 ] --- Evento C --- ( 3 )
+-----

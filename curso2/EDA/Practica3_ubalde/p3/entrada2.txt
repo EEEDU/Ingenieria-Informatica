@@ -1,0 +1,116 @@
+LT
+C 
+inicio_2025_11_03
+Inicio de rutina automatizada 2025-11-03
+1
+A
+encendido_bomba_A101
+Activación de bomba A101 por nivel bajo de presión
+2
+INDependiente
+-.-.-.-.-
+A
+alarma_presion_A101
+Alarma de presión baja detectada en sistema A101
+3
+INDependiente
+-.-.-.-.-
+A
+apagado_bomba_A101
+Apagado de bomba A101 tras restablecer presión
+4
+DEPendiente
+encendido_bomba_A101
+A
+sensor_puerta_L002
+Sensor puerta L002 detecta apertura
+3
+INDependiente
+-.-.-.-.-
+A
+ON_luz_L002
+Encendido de luz L002 por detección apertura
+3
+DEPendiente
+sensor_puerta_L002
+A
+OFF_luz_L002
+Apagado de luz L002 por cierre de puerta
+4
+DEPendiente
+ON_luz_L002
+A
+inicio_turno_T1
+Inicio del turno T1 en línea de ensamblaje
+2
+INDependiente
+-.-.-.-.-
+A
+fin_turno_T1
+Finalización del turno T1, cierre de registros
+3
+DEPendiente
+inicio_turno_T1
+LT
+O
+encendido_bomba_A101
+O
+ON_luz_L002
+O
+inicio_turno_T1
+E
+alarma_presion_A101
+E
+sensor_puerta_L002
+E
+fin_turno_T1
+LD
+encendido_bomba_A101
+C 
+apagado_bomba_A101
+Apagado automático tras corrección manual
+2
+O
+apagado_bomba_A101
+C 
+ON_luz_L002
+Encendido por detección prolongada de movimiento
+5
+LD
+ON_luz_L002
+LT
+D
+OFF_luz_L002
+sensor_puerta_L002
+LD
+sensor_puerta_L002
+I
+alarma_presion_A101
+I
+inicio_turno_T1
+I
+encendido_bomba_A101
+LD
+alarma_presion_A101
+C 
+encendido_bomba_A101
+Encendido de bomba A101 sin alarma previa
+6
+D
+sensor_puerta_L002
+ON_luz_L002
+D
+fin_turno_T1
+inicio_turno_T1
+LT
+B
+inicio_turno_T1
+B
+OFF_luz_L002
+B
+encendido_bomba_A101
+LD
+ON_luz_L002
+LD
+apagado_bomba_A101
+LT

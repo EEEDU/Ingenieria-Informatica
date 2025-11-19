@@ -1,0 +1,48 @@
+-----LISTADO: 0
+-----
+INTRODUCIDO: [ ev-10 ] --- Primer evento --- ( 10 )
+-----LISTADO: 1
+[ ev-10 --- 0 ] --- Primer evento --- ( 10 )
+-----
+INTRODUCIDO: [ ev-10 ] --- Evento duplicado --- ( 20 )
+-----LISTADO: 2
+[ ev-10 --- 0 ] --- Evento duplicado --- ( 20 )
+[ ev-10 --- 0 ] --- Primer evento --- ( 10 )
+-----
+NO INTRODUCIDO: [ ev-11 -de-> ev-fantasma ] --- Dependiente de fantasma --- ( 30 )
+-----LISTADO: 2
+[ ev-10 --- 0 ] --- Evento duplicado --- ( 20 )
+[ ev-10 --- 0 ] --- Primer evento --- ( 10 )
+-----
+NO INTRODUCIDO: [ ev-10 -de-> ev-10 ] --- Dependiente de sí mismo --- ( 40 )
+-----LISTADO: 2
+[ ev-10 --- 0 ] --- Evento duplicado --- ( 20 )
+[ ev-10 --- 0 ] --- Primer evento --- ( 10 )
+-----
+INTRODUCIDO: [ ev-zulu ] --- Elemento Z --- ( 1 )
+INTRODUCIDO: [ ev-alpha ] --- Elemento A --- ( 1 )
+INTRODUCIDO: [ ev-mike ] --- Elemento M --- ( 1 )
+-----LISTADO: 5
+[ ev-10 --- 0 ] --- Evento duplicado --- ( 20 )
+[ ev-10 --- 0 ] --- Primer evento --- ( 10 )
+[ ev-alpha --- 0 ] --- Elemento A --- ( 1 )
+[ ev-mike --- 0 ] --- Elemento M --- ( 1 )
+[ ev-zulu --- 0 ] --- Elemento Z --- ( 1 )
+-----
+INTENTANDO hacer depend.: ev-mike -de-> ev-alpha
+INTENTANDO hacer depend.: ev-zulu -de-> ev-mike
+-----LISTADO: 5
+[ ev-10 --- 0 ] --- Evento duplicado --- ( 20 )
+[ ev-10 --- 0 ] --- Primer evento --- ( 10 )
+[ ev-alpha --- 1 ] --- Elemento A --- ( 1 )
+[ ev-mike -de-> ev-alpha ;;; 1 ] --- Elemento M --- ( 1 )
+[ ev-zulu -de-> ev-mike ;;; 0 ] --- Elemento Z --- ( 1 )
+-----
+****DEPENDIENTES: ev-alpha
+[ ev-alpha --- 1 ] --- Elemento A --- ( 1 ) ****
+[1 -> ev-mike -de-> ev-alpha ;;; 1 ] --- Elemento M --- ( 1 ) ;;;;
+****FINAL dependientes -de-> ev-alpha
+****DEPENDIENTES: ev-mike
+[ ev-mike -de-> ev-alpha ;;; 1 ] --- Elemento M --- ( 1 ) ****
+[1 -> ev-zulu -de-> ev-mike ;;; 0 ] --- Elemento Z --- ( 1 ) ;;;;
+****FINAL dependientes -de-> ev-mike

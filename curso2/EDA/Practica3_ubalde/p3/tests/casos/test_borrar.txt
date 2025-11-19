@@ -1,0 +1,87 @@
+# test_borrar_v2.txt: Pruebas de borrado (caja negra)
+LT
+
+# 1. Borrar de una colección vacía (no debe hacer nada)
+B
+ev-fantasma
+LT
+
+# 2. Añadir estructura: A, B->A, C->A
+A
+ev-a
+Supervisor A
+1
+INDependiente
+-.-.-.-.-
+A
+ev-b
+Dependiente B de A
+2
+DEPendiente
+ev-a
+A
+ev-c
+Dependiente C de A
+3
+DEPendiente
+ev-a
+LT
+
+# 3. Borrar elemento con dependencias (ev-a) (debe fallar)
+B
+ev-a
+LT
+
+# 4. Borrar elemento inexistente (no debe hacer nada)
+B
+ev-fantasma
+LT
+
+# 5. Borrar un dependiente (ev-b) (debe funcionar)
+B
+ev-b
+LD
+ev-a
+LT
+
+# 6. Borrar el otro dependiente (ev-c) (debe funcionar)
+B
+ev-c
+LD
+ev-a
+LT
+
+# 7. Ahora sí se puede borrar el supervisor (ev-a)
+B
+ev-a
+LT
+
+# 8. Añadir y borrar primero, último y medio
+A
+ev-m
+Medio
+2
+INDependiente
+-.-.-.-.-
+A
+ev-a
+Primero
+1
+INDependiente
+-.-.-.-.-
+A
+ev-z
+Ultimo
+3
+INDependiente
+-.-.-.-.-
+LT
+B
+ev-a
+LT
+B
+ev-z
+LT
+B
+ev-m
+LT

@@ -1,0 +1,74 @@
+# test_consultas_v2.txt: Pruebas de consultas y actualizaciones (caja negra)
+# 1. Operaciones en colección vacía
+LT
+LD
+ev-fantasma
+O
+ev-fantasma
+E
+ev-fantasma
+C
+ev-fantasma
+Desc fantasma
+1
+
+# 2. Añadir elementos
+A
+ev-1
+Evento 1
+10
+INDependiente
+-.-.-.-.-
+A
+ev-2
+Evento 2
+20
+DEPendiente
+ev-1
+LT
+
+# 3. Obtener y verificar existencia (elementos existentes)
+O
+ev-1
+O
+ev-2
+E
+ev-1
+E
+ev-2
+
+# 4. Obtener y verificar existencia (elemento inexistente)
+O
+ev-fantasma
+E
+ev-fantasma
+
+# 5. Actualizar valor de elemento inexistente (no debe hacer nada)
+C
+ev-fantasma
+Desc fantasma
+99
+LT
+
+# 6. Actualizar valor de elemento existente y verificar
+C
+ev-1
+Descripción actualizada
+11
+O
+ev-1
+
+# 7. Listar dependientes de un elemento sin dependientes
+A
+ev-3
+Evento 3
+30
+INDependiente
+-.-.-.-.-
+LD
+ev-3
+
+# 8. Listar dependientes de un elemento con dependientes
+LD
+ev-1
+LT

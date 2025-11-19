@@ -1,0 +1,78 @@
+# test_dependencias_v2.txt: Pruebas de cambio de dependencias (caja negra)
+LT
+
+# 1. Añadir elementos base
+A
+ev-a
+Evento A
+1
+INDependiente
+-.-.-.-.-
+A
+ev-b
+Evento B
+2
+INDependiente
+-.-.-.-.-
+A
+ev-c
+Evento C
+3
+INDependiente
+-.-.-.-.-
+LT
+
+# 2. Hacer dependiente con ID inexistente (no debe hacer nada)
+D
+ev-fantasma
+ev-a
+LT
+
+# 3. Hacer dependiente con supervisor inexistente (no debe hacer nada)
+D
+ev-a
+ev-fantasma
+LT
+
+# 4. Hacer que un elemento dependa de sí mismo (no debe hacer nada)
+D
+ev-a
+ev-a
+LT
+
+# 5. Hacer a B dependiente de A
+D
+ev-b
+ev-a
+LD
+ev-a
+
+# 6. Re-parentar: hacer a B dependiente de C y verificar contadores
+D
+ev-b
+ev-c
+LD
+ev-a
+LD
+ev-c
+
+# 7. Independizar un elemento que no existe (no debe hacer nada)
+I
+ev-fantasma
+LT
+
+# 8. Independizar un elemento que ya es independiente (no debe hacer nada)
+I
+ev-a
+LD
+ev-a
+LT
+
+# 9. Independizar a B y verificar que ya no depende de C
+I
+ev-b
+LD
+ev-c
+E
+ev-b
+LT

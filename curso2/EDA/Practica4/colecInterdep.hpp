@@ -514,6 +514,9 @@ template <typename I, typename V>
 void _buscarNodo(const colecInterdep<I, V> &c, typename colecInterdep<I, V>::Nodo *nodo_actual, const I &id, bool &existe, typename colecInterdep<I, V>::Nodo *&n_out);
 
 template <typename I, typename V>
+void _buscarNodoMax(const colecInterdep<I, V> &c, typename colecInterdep<I, V>::Nodo *&nodo_inicio, typename colecInterdep<I, V>::Nodo *&nodo_max );
+
+template <typename I, typename V>
 void _buscarNodoYSuper(const colecInterdep<I, V> &c, const I &id, const I &super, typename colecInterdep<I, V>::Nodo *&n_out, typename colecInterdep<I, V>::Nodo *&super_out, bool &existe, bool &existe_super);
 
 template <typename I, typename V>
@@ -569,6 +572,9 @@ struct colecInterdep {
   unsigned int tamanio;
   Pila<Nodo*> iter;
   friend void _buscarNodo<I, V>(const colecInterdep<I, V> &c, typename colecInterdep<I, V>::Nodo *nodo_actual, const I &id, bool &existe, typename colecInterdep<I, V>::Nodo *&n_out);
+  friend void _buscarNodoMax<I, V>(const colecInterdep<I, V> &c, typename colecInterdep<I, V>::Nodo *&nodo_inicio, typename colecInterdep<I, V>::Nodo *&nodo_max);
+
+
   friend void _buscarNodoYSuper<I, V>(const colecInterdep<I, V> &c, const I &id, const I &super, typename colecInterdep<I, V>::Nodo *&n_out, typename colecInterdep<I, V>::Nodo *&super_out, bool &existe, bool &existe_super);
   friend void _borrarNodo<I, V>(const colecInterdep<I, V> &c, typename colecInterdep<I, V>::Nodo *nodo_actual,typename colecInterdep<I, V>::Nodo *nodo_padre, const I &id, bool &eliminado);
 };
@@ -699,16 +705,32 @@ void aniadirDependiente(colecInterdep<I, V> &a, const I &id, const V &v, const I
   if (esVacia(a) || id == super || ((a.raiz->izq == nullptr && a.raiz->der == nullptr) && (a.raiz->ident == id || a.raiz->ident != super))) {
     return;
   }
-
   
-  typename colecInterdep<I, V>::Nodo *nodo_super = nullptr;
+  typename colecInterdep<I, V>::Nodo *nodo_super = a.raiz;
+  typename colecInterdep<I, V>::Nodo *aux = a.raiz;
   typename colecInterdep<I, V>::Nodo *nodo_padre = nullptr;
-  typename colecInterdep<I, V>::Nodo *nuevoNodo = new typename colecInterdep<I, V>::Nodo;
-  bool existe = false, existe_super = false;
+  
+  while ((aux != nullptr && aux->ident != id ) || (nodo_super != nullptr && nodo_super->ident != super)){
+    if (aux != nullptr && id < aux->ident){
+      if (aux->izq == nullptr) {nodo_padre=aux;}
+      aux = aux->izq;
+    }
+    else if (aux != nullptr && id > aux->ident){
+      if (aux->der == nullptr) {nodo_padre=aux;}
+      aux = aux->der;
+    }
 
-  _buscarNodoYSuper(a, id, super, nuevoNodo, nodo_super, existe, existe_super);
+    // Buscar super
+    if (nodo_super != nullptr && super < nodo_super->ident){
+      nodo_super = nodo_super->izq;
+    }
+    else if (nodo_super != nullptr && super > nodo_super->ident){
+      nodo_super = nodo_super->der;
+    }
+  }
 
-  if (existe_super && !existe)  {
+  if (nodo_super != nullptr && nodo_padre != nullptr)  {
+    typename colecInterdep<I, V>::Nodo *nuevoNodo = new typename colecInterdep<I, V>::Nodo;
     nuevoNodo->ident = id;
     nuevoNodo->val = v;
     nuevoNodo->identSup = nodo_super;
@@ -716,7 +738,7 @@ void aniadirDependiente(colecInterdep<I, V> &a, const I &id, const V &v, const I
     nuevoNodo->izq = nullptr;
     nuevoNodo->der = nullptr;
     nodo_super->numDepend++;
-    if (nodo_padre->ident < id){
+    if (id < nodo_padre->ident){
       nodo_padre->izq = nuevoNodo;
     }
     else {
@@ -822,8 +844,51 @@ void borrar(const I &id, colecInterdep<I, V> &a) {
 
   if (esVacia(a)) { return; }
 
-  bool eliminado = false;
-  _borrarNodo(a, a.raiz, a.raiz, id, eliminado);
+
+  typename colecInterdep<I, V>::Nodo *nodo_delete = a.raiz;
+  typename colecInterdep<I, V>::Nodo *padre_delete = nullptr;
+  typename colecInterdep<I, V>::Nodo *sustituto = nullptr;
+
+  while (nodo_delete != nullptr && nodo_delete->ident != id){
+    if (id < nodo_delete->ident){
+      if (nodo_delete->izq != nullptr && nodo_delete->izq->ident == id) { padre_delete = nodo_delete; }
+      nodo_delete = nodo_delete->izq;
+    }
+    else if (id > nodo_delete->ident){
+      if (nodo_delete->der != nullptr && nodo_delete->der->ident == id) { padre_delete = nodo_delete; }
+      nodo_delete = nodo_delete->der;
+    }
+  }
+  
+  // No existe el nodo que quieres borrar
+  if (nodo_delete == nullptr){
+    return;
+  }
+
+  // Buscar sustituto
+  if (nodo_delete->izq == nullptr && nodo_delete->der != nullptr) {
+    sustituto = nodo_delete->der;
+  }
+  else if (nodo_delete->der == nullptr && nodo_delete->izq != nullptr){
+    sustituto = nodo_delete->izq;
+  }
+  else if (nodo_delete->der != nullptr && nodo_delete->izq != nullptr){
+    _buscarNodoMax(a, nodo_delete->izq, sustituto);
+    sustituto->izq = nodo_delete->izq;
+    sustituto->der = nodo_delete->der;
+  }
+
+  // Enlazar al padre con el sustituto
+  if (nodo_delete->ident < padre_delete->ident){
+    padre_delete->izq = sustituto;
+  }
+  else{
+    padre_delete->der = sustituto;
+  }
+
+  //borrar nodo de borrar
+  delete(nodo_delete);
+  a.tamanio--;
 
 }
 
@@ -1011,6 +1076,14 @@ void _buscarNodo(const colecInterdep<I, V> &c, typename colecInterdep<I, V>::Nod
   }
 }
 
+template <typename I, typename V>
+void _buscarNodoMax(const colecInterdep<I, V> &c, typename colecInterdep<I, V>::Nodo *&nodo_inicio, typename colecInterdep<I, V>::Nodo *&nodo_max ) {
+  nodo_max = nodo_inicio;
+  while(nodo_max->der != nullptr){
+    nodo_max = nodo_max->der;
+  }
+}
+
 /*
  * Implementacion de _buscarNodoYSuper
  */
@@ -1030,32 +1103,25 @@ void _buscarNodoYSuper(const colecInterdep<I, V> &c, const I &id, const I &super
   typename colecInterdep<I, V>::Nodo *aux_super = c.raiz;
   bool encontrado = false, encontradoSuper = false;
 
-  while((aux != nullptr && encontrado == false) || (aux_super != nullptr && encontradoSuper == false)){
-    if (!encontrado){
-      if (id < aux->ident && aux->izq != nullptr){
-        aux = aux->izq;
-      }
-      else if (id > aux->ident && aux->der != nullptr){
-        aux = aux->der;
-      }
-      else if (id == aux->ident){
-        encontrado == true;
-      }
-
+  while((aux != nullptr && aux->ident != id) || (aux_super != nullptr && aux_super->ident != super)){    
+    if (id < aux->ident && aux != nullptr){
+      aux = aux->izq;
     }
-    if (!encontradoSuper){
-      if (super < aux_super->ident && aux_super->izq != nullptr){
-        aux_super = aux_super->izq;
-      }
-      else if (super > aux_super->ident && aux_super->der != nullptr){
-        aux_super = aux_super->der;
-      }
-      else if (super == aux_super->ident){
-        encontradoSuper == true;
-      }
+    else if (id > aux->ident && aux != nullptr){
+      aux = aux->der;
+    }
+
+    if (super < aux_super->ident && aux_super != nullptr){
+      aux_super = aux_super->izq;
+    }
+    else if (super > aux_super->ident && aux_super != nullptr){
+      aux_super = aux_super->der;
     }
 
   }
+
+  if (aux != nullptr) {existe = true;}
+  if (aux_super != nullptr) {existe_super = true;}
 }
 
 /*

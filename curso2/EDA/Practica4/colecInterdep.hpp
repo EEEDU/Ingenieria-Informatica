@@ -799,8 +799,7 @@ bool actualizarVal(colecInterdep<I, V> &a, const I &id, const V &nuevo) {
   typename colecInterdep<I, V>::Nodo *nodo = nullptr;
   bool existe = false;
   _buscarNodo(a, a.raiz, id, existe, nodo);
-  cout << id << endl;
-
+  
   if (existe) {
     // Si lo encuentra actualiza el el contenido
     nodo->val = nuevo;

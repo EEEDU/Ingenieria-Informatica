@@ -1,3 +1,40 @@
-INTRODUCIDO: [ nombre ] --- descripcion --- ( 1 )
-nombre
-CAMBIADO: [ nombre -de->  ;;;  ] --- nuevaDescripcion--- (2)
+-----LISTADO: 
+-----
+NO CAMBIADO: apertura_2025_10_6
+NO INTRODUCIDO: IMPOSIBLE hacer depend.: cierre_2025_10_6 -de-> cierre_2025_10_6
+NO INTRODUCIDO: ****DESCONOCIDO
+-----LISTADO: 
+-----
+NO INTRODUCIDO: NO INTRODUCIDO: NO INTRODUCIDO: NO INTRODUCIDO: NO INTRODUCIDO: -----LISTADO: 
+-----
+NO LOCALIZADO: presencia_S008
+NO LOCALIZADO: OFF_luces Z008
+NO LOCALIZADO: apertura_2025_10_7
+DESCONOCIDO: presencia_S008
+DESCONOCIDO: OFF_luces Z008
+DESCONOCIDO: apertura_2025_10_7
+****DESCONOCIDO
+NO CAMBIADO: apertura_P001
+NO LOCALIZADO: apertura_P001
+NO CAMBIADO: presencia_S008
+****DESCONOCIDO
+-----LISTADO: 
+-----
+IMPOSIBLE hacer depend.: OFF_luces Z008 -de-> presencia_S008
+****DESCONOCIDO
+NO INDEPENDIZADO: Validacion_P001_exterior
+NO INDEPENDIZADO: apertura_2025_10_6
+NO INDEPENDIZADO: apertura_P001
+****DESCONOCIDO
+NO CAMBIADO: apertura_P001
+IMPOSIBLE hacer depend.: presencia_S008 -de-> apertura_P001
+IMPOSIBLE hacer depend.: cierre_2025_10_6 -de-> apertura_2025_10_6
+-----LISTADO: 
+-----
+NO BORRADO: apertura_2025_10_7
+NO BORRADO: OFF_luces Z008
+NO BORRADO: presencia_S008
+****DESCONOCIDO
+****DESCONOCIDO
+-----LISTADO: 
+-----

@@ -26,11 +26,14 @@ int main() {
     colecInterdep<string, Evento> coleccion;
     crear(coleccion);
 
+    ifstream f_in;
+    ofstream f_out;
+
     // Abriar archivo de entrada
-    ifstream entrada("entrada.txt");
+    f_in.open("entrada.txt");
 
     // Error si no se puede abrir el archivo
-    if (!entrada.is_open()){
+    if (!f_in.is_open()){
         cerr << "ERROR: no se ha podido abrir el archivo entrada.txt" << endl;
         return 1;
     }
@@ -49,19 +52,19 @@ int main() {
     };
 
     // Leer instrucciones hasta el final del archivo
-    while (entrada >> instruccion)
+    while (f_in >> instruccion)
     {
-        getline(entrada, salto); // Consumir el resto de la línea después de la instrucción
+        getline(f_in, salto); // Consumir el resto de la línea después de la instrucción
 
         if(operaciones.find(instruccion) != operaciones.end()){
-            operaciones[instruccion](coleccion, entrada);
+            operaciones[instruccion](coleccion, f_in);
         }
         else {
             cerr << "Instrucción no reconocida: " << instruccion << endl;
         }
     }
     
-    entrada.close();
+    f_in.close();
 
     return 0;
 }
@@ -133,6 +136,9 @@ void cambiar(colecInterdep<string,Evento>& coleccion, ifstream& entrada){
         else {
             cout << "[ " << nombre << " --- " << numDepend << " ] --- " << descripcion << "--- (" << prioridad << ")" << endl;
         }
+    }
+    else{
+        cout << "NO CAMBIADO: " << nombre << endl;
     }
 }
 

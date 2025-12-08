@@ -1,0 +1,5 @@
+cat -n
+grep 3
+fichero_entrada.txt
+fichero_salida.txt
+fichero_error.txt

@@ -1,0 +1,4 @@
+STDOUT: linea 7
+STDOUT: linea 8
+STDOUT: linea 9
+STDOUT: linea 10

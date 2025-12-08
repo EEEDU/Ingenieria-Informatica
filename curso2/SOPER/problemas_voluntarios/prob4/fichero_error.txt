@@ -1,0 +1,7 @@
+STDERR: error 4
+STDERR: error 5
+STDERR: error 6
+STDERR: error 7
+STDERR: error 8
+STDERR: error 9
+STDERR: error 10

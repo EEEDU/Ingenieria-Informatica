@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">M114_quads</string>
+
+    <string name="add_reserva">Añadir Reserva</string>
+    <string name="edit_reserva">Editar Reserva</string>
+
+    <string name="add_quad">Añadir Quad</string>
+
+    <string name="menu_delete">Eliminar</string>
+    <string name="menu_edit">Editar</string>
+    <string name="empty_not_saved">No se puede guardar porque hay campos vacíos</string>
+
+    <string name="action_settings">Settings</string>
+</resources>

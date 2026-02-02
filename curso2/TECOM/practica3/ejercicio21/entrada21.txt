@@ -1,0 +1,156 @@
+// TEST 1: Operaciones básicas en decimal (sin cambio de base)
+10 + 5
+20 - 8
+6 * 7
+100 / 4
+(10 + 5) * 2
+
+// TEST 2: Cambio a base 2 (binario)
+b=2
+10b
+11b
+100b
+1010b
+10b + 10b
+11b * 10b
+100b - 1b
+1000b / 10b
+(10b + 11b) * 10b
+
+// TEST 3: Operaciones mixtas binario-decimal después de cambiar a base 2
+10b + 5
+11b * 3
+100b - 2
+1b + 1b + 1b + 1b
+
+// TEST 4: Cambio a base 8 (octal)
+b=8
+10b
+77b
+17b + 2
+70b + 7b
+12b * 3b
+100b / 10b
+(17b + 10b) - 5b
+
+// TEST 5: Operaciones mixtas octal-decimal
+10b + 10
+77b - 20
+12b * 5
+
+// TEST 6: Cambio a base 3
+b=3
+10b
+12b
+20b
+22b
+12b + 10b
+20b * 2b
+21b - 12b
+(10b + 2b) * 11b
+
+// TEST 7: Cambio a base 5
+b=5
+10b
+44b
+100b
+14b + 23b
+40b - 12b
+22b * 3b
+100b / 10b
+
+// TEST 8: Cambio a base 7
+b=7
+66b
+35b + 14b
+50b - 23b
+12b * 4b
+
+// TEST 9: Cambio a base 9
+b=9
+88b
+12b + 76b
+80b - 34b
+25b * 3b
+
+// TEST 10: Cambio a base 4
+b=4
+10b
+11b
+100b
+123b
+13b + 22b
+30b - 12b
+11b * 10b
+100b / 10b
+
+// TEST 11: Cambio a base 6
+b=6
+10b
+55b
+100b
+45b + 23b
+50b - 14b
+12b * 5b
+
+// TEST 12: Volver a base 10
+b=10
+100 + 50
+75 - 25
+12 * 8
+144 / 12
+
+// TEST 13: Expresiones complejas en diferentes bases
+b=2
+((10b + 11b) * 100b) - 1b
+b=8
+(70b + 7b) / 3
+b=3
+(20b + 10b) * (2b + 1b)
+b=10
+(100 + 200) * (5 - 2)
+
+// TEST 14: Cambios de base consecutivos
+b=2
+1111b
+b=8
+77b
+b=10
+99
+b=3
+22b
+b=5
+44b
+
+// TEST 15: Casos límite
+b=2
+0b
+1b
+10b
+b=10
+0
+1
+10
+b=2
+1111111b
+b=9
+88888b
+
+// TEST 16: Divisiones con resto
+b=10
+10 / 3
+7 / 2
+b=2
+111b / 10b
+b=8
+10b / 3
+
+// TEST 17: Operaciones con paréntesis anidados
+b=10
+((10 + 5) * (8 - 3)) / 5
+b=2
+((100b + 10b) * (11b - 1b)) / 10b
+b=8
+((20b + 10b) - (5b + 3b)) * 2b
+
+// TEST 18: Números gra

@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <queries>
+        <package android:name="com.whatsapp" />
+        <package android:name="com.whatsapp.w4b" />
+    </queries>
+
+    <application
+        android:allowBackup="true"
+        android:dataExtractionRules="@xml/data_extraction_rules"
+        android:fullBackupContent="@xml/backup_rules"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme"
+        tools:targetApi="31">
+
+        <activity
+            android:name="es.unizar.eina.M114_quads.ui.MainActivity"
+            android:exported="true"
+            android:label="@string/app_name">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name="es.unizar.eina.M114_quads.ui.quads.QuadActivity"
+            android:label="Gestión de Quads"
+            android:exported="false" />
+
+        <activity
+            android:name="es.unizar.eina.M114_quads.ui.quads.QuadEdit"
+            android:label="Editar Quad"
+            android:exported="false" />
+
+        <activity
+            android:name="es.unizar.eina.M114_quads.ui.reservas.ReservaActivity"
+            android:label="Gestión de Reservas"
+            android:exported="false" />
+
+        <activity
+            android:name="es.unizar.eina.M114_quads.ui.reservas.ReservaEdit"
+            android:label="Editar Reserva"
+            android:exported="false" />
+
+        <activity
+            android:name="es.unizar.eina.M114_quads.ui.reservas.SeleccionarQuadsActivity"
+            android:label="Seleccionar Quads"
+            android:exported="false" />
+
+        <activity
+            android:name="es.unizar.eina.M114_quads.ui.TestActivity"
+            android:label="Pruebas BD"
+            android:exported="false" />
+
+    </application>
+
+</manifest>

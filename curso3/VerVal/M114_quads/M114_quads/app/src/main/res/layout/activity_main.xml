@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:padding="32dp"
+    android:background="@drawable/gradient_background">
+
+    <ImageView
+        android:id="@+id/img_logo"
+        android:layout_width="240dp"
+        android:layout_height="240dp"
+        android:src="@drawable/logo_quads"
+        android:scaleType="fitCenter"
+        android:layout_marginBottom="64dp"
+        android:contentDescription="Logo de la aplicación" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn_quads"
+        android:layout_width="match_parent"
+        android:layout_height="64dp"
+        android:text="GESTIÓN DE QUADS"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:cornerRadius="12dp"
+        app:iconGravity="textStart"
+        app:backgroundTint="#D32F2F"
+        android:layout_marginBottom="16dp" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn_reservas"
+        android:layout_width="match_parent"
+        android:layout_height="64dp"
+        android:text="GESTIÓN DE RESERVAS"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:cornerRadius="12dp"
+        app:iconGravity="textStart"
+        app:backgroundTint="#C62828"
+        android:layout_marginBottom="16dp"/>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn_tests"
+        android:layout_width="match_parent"
+        android:layout_height="64dp"
+        android:text="PRUEBAS Y TESTS"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:cornerRadius="12dp"
+        app:iconGravity="textStart"
+        app:backgroundTint="#FF9800" />
+
+</LinearLayout>

@@ -6,9 +6,6 @@
 
 class CuentaCorriente : public Cuenta
 {
-    private:
-        double interes;
-
     public:
         CuentaCorriente(double cap_ini, double ini);
         ~CuentaCorriente();

@@ -7,6 +7,7 @@ class Cuenta
 {
     protected:
         double capital_inicial;
+        double interes;
 
     public:
         Cuenta(double cap_ini, double ini);

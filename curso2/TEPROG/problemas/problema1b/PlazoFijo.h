@@ -13,7 +13,8 @@ class PlazoFijo : public Cuenta
     public:
         PlazoFijo(double cap_ini, double ini, int pla);
         ~PlazoFijo();
-        double valor(int t) const override;
+        double valor(const int t) const override;
+        double tae() const override;
 };
 
 #endif

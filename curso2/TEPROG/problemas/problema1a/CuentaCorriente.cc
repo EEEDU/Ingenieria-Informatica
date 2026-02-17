@@ -2,7 +2,7 @@
 #include <cmath>
 
 CuentaCorriente::CuentaCorriente(double cap_ini, double ini)
-    : Cuenta(cap_ini), interes(ini) 
+    : Cuenta(cap_ini, ini)  
 {
 }
 

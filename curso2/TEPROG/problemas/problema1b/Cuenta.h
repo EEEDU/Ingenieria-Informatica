@@ -7,12 +7,14 @@ class Cuenta
 {
     protected:
         double capital_inicial;
+        int mes;
 
     public:
-        Cuenta(double cap_ini, double ini);
+        Cuenta(double cap_ini);
         ~Cuenta();
         virtual double valor(int t) const =0;
-        double tae();
+        virtual double tae() const;
+        void actualizar();
 };
 
 #endif

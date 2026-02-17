@@ -8,7 +8,6 @@ class PlazoFijo : public Cuenta
 {
     private:
         int plazo;
-        double interes;
 
     public:
         PlazoFijo(double cap_ini, double ini, int pla);

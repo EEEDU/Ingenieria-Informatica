@@ -12,7 +12,7 @@ class CuentaCorriente : public Cuenta
     public:
         CuentaCorriente(double cap_ini, double ini);
         ~CuentaCorriente();
-        double valor(int t) const override;
+        double valor(const int t) const override;
 };
 
 #endif

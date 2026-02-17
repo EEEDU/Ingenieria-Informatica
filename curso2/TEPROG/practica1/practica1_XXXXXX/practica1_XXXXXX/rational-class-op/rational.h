@@ -8,6 +8,8 @@ class Rational
 {
 private:
 	// Atributos
+	int numerador;
+	int denominador;
 
 private:
 	// Auxiliares
@@ -23,28 +25,27 @@ public:
 
 	// Operadores aritmeticos
 
-	... operator+(...) const;
-	... operator-(...) const;
-	friend ... operator*(...);
-	friend ... operator/(...);
-
+	Rational operator+(const Rational& rat) const;
+	Rational operator-(const Rational& rat) const;
+	friend Rational operator*(const Rational& rat1, const Rational& rat2);
+	friend Rational operator/(const Rational& rat1, const Rational& rat2);
 	// Operadores logicos
 
-	... operator==(...) const;
-	... operator<(...) const;
-	... operator>(...) const;
+	bool operator==(const Rational& rat) const;
+	bool operator<(const Rational& rat) const;
+	bool operator>(const Rational& rat) const;
 
 	// Friends, en su caso
-	friend ... operator<<(...);
-	...
+	friend std::ostream& operator<<(std::ostream& os, const Rational& rat);
+	friend std::istream& operator>>(std::istream& is, Rational& rat);
 };
 
 // Operadores aritmeticos
 
-... operator*(...);
-... operator/(...);
+Rational operator*(const Rational& rat1, const Rational& rat2);
+Rational operator/(const Rational& rat1, const Rational& rat2);
 
 // Entrada/salida
 
-... operator<<(...);
-... operator>>(...);
+std::ostream& operator<<(std::ostream& os, const Rational& rat);
+std::istream& operator>>(std::istream& is, Rational& rat);

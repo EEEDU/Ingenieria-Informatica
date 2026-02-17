@@ -8,6 +8,8 @@ class Rational
 {
 private:
 	// Atributos
+	int numerador;
+	int denominador;
 
 private:
 	// Auxiliares
@@ -28,14 +30,14 @@ public:
 
 	// Operaciones aritmeticas
 
-	... add(...) ...;
-	... sub(...) ...;
-	... mul(...) ...;
-	... div(...) ...;
+	Rational add(const Rational& rat) const;
+	Rational sub(const Rational& rat) const;
+	Rational mul(const Rational& rat) const;
+	Rational div(const Rational& rat) const;
 
 	// Operaciones logicas
 
-	... equal(...) ...;
-	... lesser_than(...) ...;
-	... greater_than(...) ...;
+	bool equal(const Rational& rat) const;
+	bool lesser_than(const Rational& rat) const;
+	bool greater_than(const Rational& rat) const;
 };

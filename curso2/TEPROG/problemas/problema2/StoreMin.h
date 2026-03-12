@@ -1,7 +1,11 @@
 #pragma once
 
 #include <iostream>
+#include <string>
+
 #include "Store.h"  
+
+using namespace std;
 
 template <typename T>
 class StoreMin : public Store<T>
@@ -12,6 +16,8 @@ class StoreMin : public Store<T>
         StoreMin();
 
         void push(const T& dato) override;
+        string type() const override;
+
 };
 
 
@@ -26,4 +32,10 @@ void StoreMin<T>::push(const T& dato)
         this->dato_almacen = dato;
         inicializado = true;
     }
+}
+
+template <typename T>
+string StoreMin<T>::type() const
+{
+    return "minimo";
 }

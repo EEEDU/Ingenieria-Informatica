@@ -1,7 +1,11 @@
 #pragma once
 
 #include <iostream>
+#include <string>
+
 #include "Store.h"  
+
+using namespace std;
 
 template <typename T>
 class StoreAvg : public Store<T>
@@ -14,6 +18,8 @@ class StoreAvg : public Store<T>
 
         void push(const T& dato) override;
         T value() const override;
+        string type() const override;
+
 };
 
 template <typename T>
@@ -58,4 +64,10 @@ T StoreAvg<T>::value() const
 {
     if (cantidad_datos == 0) return T{};
     return suma / static_cast<T>(cantidad_datos);
+}
+
+template <typename T>
+string StoreAvg<T>::type() const
+{
+    return "average";
 }

@@ -3,6 +3,8 @@
 #include <vector>
 #include <complex>
 #include <iostream>
+#include <string>
+
 #include "Store.h"  
 
 using namespace std;
@@ -17,13 +19,13 @@ class StoreMax : public Store<T>
 
         void push(const T& dato) override;
 
+        string type() const override;
+
 };
 
 template <typename T>
 StoreMax<T>::StoreMax()
     : Store<T>(T{}), inicializado(false) {}
-
-
 
 
 template <typename T>
@@ -33,4 +35,10 @@ void StoreMax<T>::push(const T& dato)
         this->dato_almacen = dato;
         inicializado = true;
     }
+}
+
+template <typename T>
+string StoreMax<T>::type() const
+{
+    return "maximo";
 }

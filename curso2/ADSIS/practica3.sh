@@ -13,6 +13,12 @@ if [ "$#" -ne 2 ]; then
     exit 1
 fi
 
+# Comprobar que el ficher de usuarios existe
+if [ ! -f "$2" ]; then
+    echo "El fichero de usuarios no existe"
+    exit 1
+fi
+
 # Crear archivo de log
 LOG="$(date +"%Y_%m_%d")_user_provisioning.log"
 if [ ! -f $LOG ]; then
@@ -24,12 +30,6 @@ print_log() {
     echo "$1"
     echo "$1" >> $LOG
 }
-
-# Comprobar que el ficher de usuarios existe
-if [ ! -f "$2" ]; then
-    echo "El fichero de usuarios no existe"
-    exit 1
-fi
 
 # Comprobar que los campos del archivo no estan vacios
 assert_data_not_empty() {
@@ -59,7 +59,6 @@ if [ "$1" = "-a" ]; then
         assert_data_not_empty "$user"
         assert_data_not_empty "$pass"
         assert_data_not_empty "$name"
-        if [ $? -eq 0 ]; then
         if id "$user" &>/dev/null; then
             print_log "El usuario $user ya existe"
         else
@@ -72,7 +71,6 @@ if [ "$1" = "-a" ]; then
         fi
     done < "$2"
     IFS=$oldIFS
-
 # Borrar usuarios
 elif [ "$1" = "-s" ]; then
     if [ ! -d "/extra/backup" ]; then
@@ -82,10 +80,10 @@ elif [ "$1" = "-s" ]; then
     do
         assert_data_not_empty "$user"
         if id "$user" &>/dev/null; then
-            tar -cf /extra/backup/${user}.tar /home/$user
+            tar -cf /extra/backup/${user}.tar -C / home/$user
             if [ $? -eq 0 ]; then
-                userdel -r $user
-                if [ $? -eq 0 ]; then
+                userdel -r $user 2>&1 | grep -v "mail spool"
+                if [ ${PIPESTATUS[0]} -eq 0 ]; then
                     print_log "$user ha sido eliminado"
                 else
                     print_log "Error al eliminar el usuario $user"
@@ -95,7 +93,6 @@ elif [ "$1" = "-s" ]; then
             fi
         fi
     done < "$2"
-fi
 # Error, $1 no es ni -a ni -s
 else
     echo "Opción inválida" >&2

@@ -86,9 +86,7 @@ Rational Rational::mul(const Rational& rat) const
 
 Rational Rational::div(const Rational& rat) const
 {
-	Rational result;
-	result.numerador = numerador * rat.denominador;
-	result.denominador = denominador * rat.numerador;
+	Rational result(numerador * rat.denominador, denominador * rat.numerador);
 	result.reduce();
 	return result;
 }

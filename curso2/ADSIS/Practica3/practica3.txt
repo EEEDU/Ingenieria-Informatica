@@ -1,0 +1,100 @@
+816106, Guerrero Serrano, Eduardo, T, 1, B
+
+Comprobaciones:
+- Comprobar que el usuario tiene permisos de administrador
+    "id -u" devuelve el uid del usuario. 
+    El usuario root tiene UID 0, si no es 0 no tiene privilegios de administración
+
+- Comprobar numero de parametros
+    "$#" devuelve la cantidad de parametros.
+    Si no es igual a 2 saca por la salid de error el mensaje y para la ejecución
+
+- Crear archivo de log
+    Usando date y con el formato +"formato" se crea el nombre del fichero
+    Se utilizan los parentesis $() para ejecutar un comando y capturar su salida
+    Se comprue si no existe con "! -f"
+    Se crea usando "touch"
+
+Funciones:
+- Función para comprobar que el ficher de usuarios existe (assert_exist_file)
+    Comprueba que el fichero que se pasa como parametro existe y es un fichero
+    Si no es un fichero saca un mensaje de error
+    Para la ejecución
+
+- Función para comprobar que los campos del archivo no estan vacios (assert_data_not_empty)
+    Comprueba que la variable que se pasa como parametro no esta vacia
+    Usando "-z" se comprueba que no esta vacia
+    Si esta vacia devuelve 1, sino 0
+
+- Función para uscar el siguiente UID disponible mayor o igual que 1815 (get_next_uid)
+    Recorre un bucle while hasta que haya un uid disponible, empieza a reccore la lista en 1815
+    devuelve el uid disponible
+
+Logica de agregar usuarios
+- Si el primera parametro es "-a" entra en esta Logica
+- Comprueba que el segundo parametro es un archivo llamando a la función (assert_exist_file)
+
+- Modifica IFS, IFS es una varialbe especial de bash que se utiliza para saber como separar los campos al leer una linea. Por defecto es espacio, tabulador y salto de línea, pero nos interesa que sea ","
+    Despues el IFS tiene que volver a ser el mis, por ello se guarda en una variable oldIFS
+
+- Recorre la lineas del archivo del segundo parametro con un while read -r user pass name
+    Como hemos cambiado el IFS, divide la linea en los 3 campos que nos interesa
+    Se comprueba que ninguno de los 3 campos es un parametro vacio, si lo es "continue" salta la ejecución de esa linea
+
+- Si el usuario existe se salta la ejecución de esa linea
+    Mira si el usuario existe con id "$user", si existe le devuelve 0 (exito), si no existe devuelve algo distinot a 0
+    "&>/dev/null" descarta toda la salida, tanto stdout como stderr. De esta forma no ensuciamos la salida.
+
+- Coge la uid usando la función (get_next_uid)
+- Coge la fecha de expiración usando date y -d "+30 days" agrega 30 dias
+
+- Agregar el grupo con el nombre del usuario, usando "groupadd"
+- Crear el usuario usando "useradd"
+    -m Crear el directorio home del ususario /home/user
+    -s establece la shell por defecto /bin/bash
+    -u asigna un uid es expecifico, el que se calculo asNameTest1
+    -e establece una fecha de expiración
+    -c estable el nombre completo del usuario
+    -g estable el grupo del usuario
+- Establecer la contraseña usando "chpasswd"
+    chpasswd no acmite paratros, solo coge lo que tiene la entrada estandar, por eso haya que usar echo "" |
+    Modificar la fecha de espiración de la contraseña a 30 dias
+- Imprimir el mensaje
+    (Segun la practica he entendido que se imprimer $name, pero para que pase los test lo he tenido que cambiar a $user)
+
+Logica de borrar usuarios
+- Si el primera parametro es "-s" entra en esta Logica
+- Comprueba que el segundo parametro es un archivo, igual que en la logica de agregar usuarios
+
+- Si no existe el directorio "/extre/backup" se crea
+    "! -d" comprueba si no existe el directorio
+    "mkdir -p" crea el directorio, creando las capetas que hagan falta.
+
+- Modifica IFS, igual que en la logica de agregar usuarios
+
+- Recorre la lineas del archivo del segundo parametro con un while read -r user rest
+    Lo hace de forma similar a como se ha hecho en agregar usuario
+    Ademas del user coger rest por si la fila termina en "," no de error
+    Se comprueba que el campo user no es un parametro vacio, si lo es "continue" salta la ejecución de esa linea
+
+- Si el usuario no existe se salta la ejecución de esa linea
+   lo hace de forma similar a cuando se agrega, pero en este caso de añade el ! porque se comprueba que no exista
+
+- Crear el backup usando "tar"
+    "tar" es un comando para crear archivos comprimidos
+    -c crear el archov tar
+    -f expcifica el nombre del arvhivo a crear
+    -C / cambia el directorio de trabajo a / para evitar el warning
+
+- Si se ha creado bien el backup continua
+    para ello se utilizar "$?" que devuelve 0 si la ejecución ha ido bien, y otra cosa en caso contario
+
+- Borrar le usuario usando "userdel"
+    -r borra su directorio home
+    "2>&1 | grep -v "mail spool"" redirige la salid de stderr a stdout y elimina las filas que contengan "mail spool". Esto se hace para evitar el warning que aparece al borrar un usuario que no tiene la carpeta de mail.
+- Comprobar que se ha borrado bien
+    Se utiliza ${PIPESTATUS[0]} para ver el resultado de userdel y no del grep. 
+    Devuelve 0 si la ejecución ha ido bien, y otra cosa en caso contario
+    Aunque el enunciado no lo pide, saco mensaje en función de si ha ido bien o no
+
+En caso de que el primer parametro no se "-a" ni "-s" saca el mensaje por la salid de error y termina la ejecución.

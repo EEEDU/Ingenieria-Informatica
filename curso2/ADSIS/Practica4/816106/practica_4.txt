@@ -1,0 +1,52 @@
+# 816106, Guerrero Serrano, Eduardo, T, 1, B
+1. Crear las maquinas virtuales tal y como se explica en la parte 1
+2. Dar permiso para que as puede ejecutar cualquier comando sin passwod
+	"sudo visudo" y añadir esta línea al final del archivo: as ALL=(ALL) NOPASSWD: ALL
+3. Cambiar el nombre de las maquinas virtuales
+	"sudo hostnamectl set-hostname nuevo-nombre" y para verificarlos hstnamectl
+	Modificar el fichero /etc/hosts y añadir 127.0.1.1 nuevo-nombre
+4. Configurar las máquinas virtuales para que en el arranque se conecten a los dos interfaces que tienen conectados
+	Agregar una interfaz dhcp al NAT y una ip estatica para la interfaz host-only 
+	Según la maquina virtual, asignar una ip u otra 192.168.122.2 / 3 / 4
+
+	Para aplicar cambios "sudo systemctl restart networking"
+5. Confirmar cambios
+	Confirmar que las ips son las correctas con ip a que muestra las 
+	Confirmar que las rutas son las correctas con ip route
+	ping -c4 8.8.8.8 para confirmar acceso a internet
+	Ping desde las maquinas virtuales a la otra, las comprobaciones de ping serían:
+	Desde tu PC físico:
+		ping 192.168.122.2   # hacia HOST ping 192.168.122.3   # hacia AS1 ping 192.168.122.4   # hacia AS2
+	Desde HOST:
+		ping 192.168.122.3   # hacia AS1 ping 192.168.122.4   # hacia AS2 ping 8.8.8.8         # hacia internet (NAT)
+	Desde AS1 y AS2:
+	ing 192.168.122.2   # hacia HOST ping 8.8.8.8         # hacia internet y ping a la otra maquina
+6. Instalar openssh-server
+	No ha hecho falta, he comprobado con "systemctl status ssh" que estaba instalado
+	Sino habría que hacer "sudo apt install openssh-server"
+7. Configurar el servidor ssh para que root no se pueda conectar en remoto en las máquinas debian-as1 y debian-as2. Se debe reiniciar el servicio o la máquina para que tengan efecto los cambios en la configuración.
+	Edita el fichero de configuración de SSH:/etc/ssh/sshd_config
+	Cambiar la linea "#PermitRootLogin prohibit-password" por PermitRootLogin no
+	Reiniciar servicio ssh para aplicar cambios "sudo systemctl restart ssh"
+8. Confirmar que el ssh funciona en ambas maquinas
+9. Configurar las dos máquinas virtuales de manera que se pueda ejecutar desde el host un cliente ssh conectando a la cuenta as de las máquinas virtuales, sin necesidad de password, usando criptografía de clave pública para la autenticación del usuario. El tipo de clave deberá ser ed25519 y el nombre de fichero de la clave privada será id_as_ed25519.
+	9.1. Generar el par de claves en el HOST
+		Ejecutar en el host "ssh-keygen -t ed25519 -f ~/.ssh/id_as_ed25519"
+		Genera dos ficheros "~/.ssh/id_as_ed25519" "~/.ssh/id_as_ed25519.pub"
+	9.2. Copiar la clave pública a AS1 y AS2
+		ssh-copy-id -i ~/.ssh/id_as_ed25519.pub as@192.168.122.3
+		ssh-copy-id -i ~/.ssh/id_as_ed25519.pub as@192.168.122.4
+	9.3. Verificar que funciona sin contraseña
+		ssh -i ~/.ssh/id_as_ed25519 as@192.168.122.3
+		ssh -i ~/.ssh/id_as_ed25519 as@192.168.122.4
+		Entra directamente sin pedir contraseña
+10. Modificar script
+	10.1. Eliminar comprobación de root en local, el script no necesita privilegios en la máquina desde la que se lanza.
+	10.2. Convertir parametros en variables para aclarar el código y añadir un tercer parámetro FICHERO_IPS que contiene las IPs de las máquinas remotas.
+	10.3. Comprobar que la maquina virtual es accesible y sino mostrar el mensaje "IP no es accesible". 
+	10.4. Realizar la creación y borrado de usuarios en remoto via SSH en lugar de localmente.
+	10.5. Usar "sudo bash -s" con heredoc para pasar el script remoto sin problemas de comillas o espacios
+	10.6. Añadir descriptores de fichero (-u3, -u4) en los bucles while read para evitar que SSH consuma el stdin.
+	10.7. Generar un único log, en /home/as/, añadiendo la IP de la máquina remota en cada mensaje como [192.168.122.3] usuario ha sido creado.
+	10.8. Encapsular la lógica remota en dos funciones: remote_add y remote_del para mayor claridad.
+	10.9. get_next_uid se esta dentro del heredoc ya que las funciones locales no son accesibles en remoto.

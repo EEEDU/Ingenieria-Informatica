@@ -2,7 +2,7 @@
 
 #include <iostream>
 #include <string>
-
+    
 #include "Store.h"  
 
 using namespace std;

@@ -7,4 +7,4 @@ F (.\dense_q12.h)(0x6AA2A31F)()
 F (.\dense_q12_stubs.c)(0x6AA2A31F)(--c99 --gnu -c --cpu ARM7TDMI -D__EVAL -g -O2 -Otime --apcs=interwork --split_sections-IC:\Keil_v5\ARM\RV31\INC-IC:\Keil_v5\ARM\CMSIS\Include-IC:\Keil_v5\ARM\INC\Philips-D__UVISION_VERSION="526"-o .\objects\dense_q12_stubs.o --omf_browse .\objects\dense_q12_stubs.crf --depend .\objects\dense_q12_stubs.d)
 I (dense_q12.h)(0x6AA2A31F)
 I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x599F2F9E)
-F (.\dense_layer_q12_ARM_C.s)(0x6AB04080)(--cpu ARM7TDMI --pd "__EVAL SETA 1" -g --apcs=interwork -IC:\Keil_v5\ARM\RV31\INC-IC:\Keil_v5\ARM\CMSIS\Include-IC:\Keil_v5\ARM\INC\Philips--pd "__UVISION_VERSION SETA 526"--list .\listings\dense_layer_q12_arm_c.lst --xref -o .\objects\dense_layer_q12_arm_c.o --depend .\objects\dense_layer_q12_arm_c.d)
+F (.\dense_layer_q12_ARM_C.s)(0x6ABA9DA0)(--cpu ARM7TDMI --pd "__EVAL SETA 1" -g --apcs=interwork -IC:\Keil_v5\ARM\RV31\INC-IC:\Keil_v5\ARM\CMSIS\Include-IC:\Keil_v5\ARM\INC\Philips--pd "__UVISION_VERSION SETA 526"--list .\listings\dense_layer_q12_arm_c.lst --xref -o .\objects\dense_layer_q12_arm_c.o --depend .\objects\dense_layer_q12_arm_c.d)

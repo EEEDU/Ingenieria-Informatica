@@ -3,11 +3,11 @@
 <title>Static Call Graph - [.\Objects\neuron_q12.axf]</title></head>
 <body><HR>
 <H1>Static Call Graph for image .\Objects\neuron_q12.axf</H1><HR>
-<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060750: Last Updated: Mon Sep 28 19:02:27 2026
+<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060750: Last Updated: Tue Sep 29 15:53:21 2026
 <BR><P>
 <H3>Maximum Stack Usage =        180 bytes + Unknown(Functions without stacksize, Untraceable Function Pointers)</H3><H3>
 Call chain for Maximum Stack Depth:</H3>
-main &rArr; dense_q12_verificar &rArr; dense_layer_q12_THB &rArr; dense_layer_q12_C
+main &rArr; dense_q12_verificar &rArr; dense_layer_q12_ARM &rArr; dense_layer_q12_C
 <P>
 <H3>
 Functions with no stack information
@@ -197,12 +197,16 @@ Global Symbols
 
 <P><STRONG><a name="[46]"></a>__semihosting_library_function</STRONG> (ARM, 0 bytes, Stack size 0 bytes, indicate_semi.o(.text), UNUSED)
 
-<P><STRONG><a name="[15]"></a>dense_layer_q12_ARM_C</STRONG> (ARM, 136 bytes, Stack size 0 bytes, dense_layer_q12_arm_c.o(DENSE_ARM_C))
+<P><STRONG><a name="[15]"></a>dense_layer_q12_ARM_C</STRONG> (ARM, 136 bytes, Stack size 0 bytes, asm_implementations.o(DENSE_ARM_C))
 <BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = dense_layer_q12_ARM_C &rArr; neuron_q12_C
 </UL>
 <BR>[Calls]<UL><LI><a href="#[16]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;neuron_q12_C
 </UL>
-<BR>[Called By]<UL><LI><a href="#[1a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dense_q12_verificar
+<BR>[Called By]<UL><LI><a href="#[19]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dense_q12_verificar
+</UL>
+
+<P><STRONG><a name="[1c]"></a>dense_layer_q12_THB</STRONG> (ARM, 128 bytes, Stack size 0 bytes, asm_implementations_thumb.o(DENSE_ARM_C))
+<BR><BR>[Called By]<UL><LI><a href="#[19]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dense_q12_verificar
 </UL>
 
 <P><STRONG><a name="[17]"></a>dense_layer_q12_ARM</STRONG> (ARM, 36 bytes, Stack size 32 bytes, dense_q12_stubs.o(i.dense_layer_q12_ARM))
@@ -210,32 +214,23 @@ Global Symbols
 </UL>
 <BR>[Calls]<UL><LI><a href="#[18]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dense_layer_q12_C
 </UL>
-<BR>[Called By]<UL><LI><a href="#[1a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dense_q12_verificar
+<BR>[Called By]<UL><LI><a href="#[19]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dense_q12_verificar
 </UL>
 
 <P><STRONG><a name="[18]"></a>dense_layer_q12_C</STRONG> (ARM, 212 bytes, Stack size 52 bytes, main.o(i.dense_layer_q12_C))
 <BR><BR>[Stack]<UL><LI>Max Depth = 52<LI>Call Chain = dense_layer_q12_C
 </UL>
-<BR>[Called By]<UL><LI><a href="#[19]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dense_layer_q12_THB
-<LI><a href="#[17]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dense_layer_q12_ARM
-<LI><a href="#[1a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dense_q12_verificar
+<BR>[Called By]<UL><LI><a href="#[17]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dense_layer_q12_ARM
+<LI><a href="#[19]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dense_q12_verificar
 </UL>
 
-<P><STRONG><a name="[19]"></a>dense_layer_q12_THB</STRONG> (ARM, 36 bytes, Stack size 32 bytes, dense_q12_stubs.o(i.dense_layer_q12_THB))
-<BR><BR>[Stack]<UL><LI>Max Depth = 84<LI>Call Chain = dense_layer_q12_THB &rArr; dense_layer_q12_C
+<P><STRONG><a name="[19]"></a>dense_q12_verificar</STRONG> (ARM, 804 bytes, Stack size 80 bytes, main.o(i.dense_q12_verificar))
+<BR><BR>[Stack]<UL><LI>Max Depth = 164<LI>Call Chain = dense_q12_verificar &rArr; dense_layer_q12_ARM &rArr; dense_layer_q12_C
 </UL>
-<BR>[Calls]<UL><LI><a href="#[18]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dense_layer_q12_C
-</UL>
-<BR>[Called By]<UL><LI><a href="#[1a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dense_q12_verificar
-</UL>
-
-<P><STRONG><a name="[1a]"></a>dense_q12_verificar</STRONG> (ARM, 804 bytes, Stack size 80 bytes, main.o(i.dense_q12_verificar))
-<BR><BR>[Stack]<UL><LI>Max Depth = 164<LI>Call Chain = dense_q12_verificar &rArr; dense_layer_q12_THB &rArr; dense_layer_q12_C
-</UL>
-<BR>[Calls]<UL><LI><a href="#[15]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dense_layer_q12_ARM_C
-<LI><a href="#[1c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;neuron_q12_THB
-<LI><a href="#[1b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;neuron_q12_ARM
-<LI><a href="#[19]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dense_layer_q12_THB
+<BR>[Calls]<UL><LI><a href="#[1c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dense_layer_q12_THB
+<LI><a href="#[15]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dense_layer_q12_ARM_C
+<LI><a href="#[1b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;neuron_q12_THB
+<LI><a href="#[1a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;neuron_q12_ARM
 <LI><a href="#[17]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dense_layer_q12_ARM
 <LI><a href="#[18]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dense_layer_q12_C
 </UL>
@@ -243,34 +238,34 @@ Global Symbols
 </UL>
 
 <P><STRONG><a name="[2]"></a>main</STRONG> (ARM, 48 bytes, Stack size 16 bytes, main.o(i.main))
-<BR><BR>[Stack]<UL><LI>Max Depth = 180<LI>Call Chain = main &rArr; dense_q12_verificar &rArr; dense_layer_q12_THB &rArr; dense_layer_q12_C
+<BR><BR>[Stack]<UL><LI>Max Depth = 180<LI>Call Chain = main &rArr; dense_q12_verificar &rArr; dense_layer_q12_ARM &rArr; dense_layer_q12_C
 </UL>
-<BR>[Calls]<UL><LI><a href="#[1a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dense_q12_verificar
+<BR>[Calls]<UL><LI><a href="#[19]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dense_q12_verificar
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> __rtentry2.o(.ARM.Collect$$rtentry$$0000000D)
 </UL>
-<P><STRONG><a name="[1b]"></a>neuron_q12_ARM</STRONG> (ARM, 36 bytes, Stack size 16 bytes, dense_q12_stubs.o(i.neuron_q12_ARM))
+<P><STRONG><a name="[1a]"></a>neuron_q12_ARM</STRONG> (ARM, 36 bytes, Stack size 16 bytes, dense_q12_stubs.o(i.neuron_q12_ARM))
 <BR><BR>[Stack]<UL><LI>Max Depth = 32<LI>Call Chain = neuron_q12_ARM &rArr; neuron_q12_C
 </UL>
 <BR>[Calls]<UL><LI><a href="#[16]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;neuron_q12_C
 </UL>
-<BR>[Called By]<UL><LI><a href="#[1a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dense_q12_verificar
+<BR>[Called By]<UL><LI><a href="#[19]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dense_q12_verificar
 </UL>
 
 <P><STRONG><a name="[16]"></a>neuron_q12_C</STRONG> (ARM, 108 bytes, Stack size 16 bytes, main.o(i.neuron_q12_C))
 <BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = neuron_q12_C
 </UL>
 <BR>[Called By]<UL><LI><a href="#[15]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dense_layer_q12_ARM_C
-<LI><a href="#[1c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;neuron_q12_THB
-<LI><a href="#[1b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;neuron_q12_ARM
+<LI><a href="#[1b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;neuron_q12_THB
+<LI><a href="#[1a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;neuron_q12_ARM
 </UL>
 
-<P><STRONG><a name="[1c]"></a>neuron_q12_THB</STRONG> (ARM, 36 bytes, Stack size 16 bytes, dense_q12_stubs.o(i.neuron_q12_THB))
+<P><STRONG><a name="[1b]"></a>neuron_q12_THB</STRONG> (ARM, 36 bytes, Stack size 16 bytes, dense_q12_stubs.o(i.neuron_q12_THB))
 <BR><BR>[Stack]<UL><LI>Max Depth = 32<LI>Call Chain = neuron_q12_THB &rArr; neuron_q12_C
 </UL>
 <BR>[Calls]<UL><LI><a href="#[16]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;neuron_q12_C
 </UL>
-<BR>[Called By]<UL><LI><a href="#[1a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dense_q12_verificar
+<BR>[Called By]<UL><LI><a href="#[19]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dense_q12_verificar
 </UL>
 <P>
 <H3>

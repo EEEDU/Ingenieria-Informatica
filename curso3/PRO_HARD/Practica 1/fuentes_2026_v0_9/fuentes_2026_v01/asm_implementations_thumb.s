@@ -1,5 +1,5 @@
-	
-;  uint32_t dense_layer_q12_C_THB(
+
+;  uint32_t dense_layer_q12_THB(
 ;      const int16_t *input,    R0
 ;      const int16_t *weights,  R1
 ;      const int16_t *bias,     R2
@@ -9,42 +9,36 @@
 ;      int16_t clamp_min,       [SP+8]
 ;      int16_t clamp_max);      [SP+12]
 
-;  Uso de registros (los que sobreviven al BL, R4-R10):
-;     R0  = input
-;     R1  = weights_o (puntero a los pesos de la neurona actual)
-;     R2  = puntero a bias[o]
-;     R3  = puntero a output[o]
-;    R4  = input_size
-;    R5  = output_size (contador: neuronas que faltan)
-;	 R6 = clamp_min
-;	 R7 = clamp_max
-;	 R8 = acc
-;	 R9 = Mul 1 param
-;    R10 = Mul 2 param
-;	 R11 = checksum
+;  Uso de registros:
+;     R0  = input (dirección de la matriz de entrada)
+;     R1  = weights_o (dirección a los pesos de la neurona actual)
+;     R2  = bias[o] (dirección de un elemento de bias[])
+;     R3  = output[o] (dirección de un elemento de output[] donde guardar el resultado)
+;     R4  = input_size (dato contador: tamaño de la entrada)
+;     R5  = output_size (dato contador: neuronas que faltan)
+;     R6  = clamp_min (dato limite del resultado)
+;	  R7  = clamp_max (dato limite del resultado)
+;	  R8  = acc (dato resultado de la multiplicación de als matrices + acc)
+;	  R9  = Mul 1 param (dato primer operando de la multiplicación)
+;     R10 = Mul 2 param (dato segundo operando de la multiplicación)
+;	  R11 = checksum (almacena el dato del chechsum calculado)
 
-        AREA    DENSE_ARM_C, CODE16, READONLY   ; (anadido, no estaba en el papel)
+        AREA    DENSE_ARM_C, CODE, READONLY   ; (anadido, no estaba en el papel)
 		PRESERVE8
-		EXPORT  dense_layer_q12_C_THB
+		ARM
+		EXPORT  dense_layer_q12_THB
         IMPORT  neuron_q12_C
 
-dense_layer_q12_C_THB PROC 				; PROC: indica que empieza procedimiento
-		PUSH    {R4-R7, LR}         	; Guardamos R4-R7 y LR en la pila (Thumb usa PUSH/POP)
-
-		; Cargar parametros desde la pila (input_size, output_size, clamp_min, clamp_max)
-        ; En el momento de entrar, SP apunta tras los registros guardados
-        LDR     R4, [SP, #20]       	; R4 = input_size
-        LDR     R5, [SP, #24]       	; R5 = output_size
-        LDR     R6, [SP, #28]       	; R6 = clamp_min
-        LDR     R7, [SP, #32]       	; R7 = clamp_max
-
-        ; Trasladamos las constantes a registros altos para liberar R6 y R7
-		; THUMB no puedo hacer operacioens con registros >R7 pero si que puede usarlos para almacenar
-        MOV     R8, R4              	; R8 = copia de input_size
-        MOV     R9, R6              	; R9 = clamp_min
-        MOV     R10, R7             	; R10 = clamp_max
-        
-        MOVS    R6, #0
+dense_layer_q12_THB PROC 				; PROC: indica que empieza procedimiento
+		SUB 	IP, SP, #4				; guardar siguiente anterior al puntero de pila en IP
+		STMDB   SP!, {R4-R11, LR}   	; guarda R4-R10 y LR (8 registros = 32 bytes)
+		LDMIB	IP, {r4-r7}				; Desapilar el resto de los parametros
+		
+		ADR 	IP, into_thumb + 1 		; Processor starts in ARM state
+		BX 		IP 						; Inline switch to Thumb state
+		THUMB 							; Subsequent instructions are Thumb
+into_thumb
+		MOV 	R6, #0
         MOV     R11, R6             	; R11 = checksum = 0
 
         CMP     R5, #0              	; ¿output_size == 0?
@@ -63,64 +57,79 @@ dense_layer_q12_THB_bucle_1
         ASRS    R6, R6, #4          ; Shift aritmético a la derecha por 4 positions
                                     ; (16 - 4 = 12 desplazamientos a la izquierda con signo)
 dense_layer_q12_THB_bucle_2
-        ; Cargar input[i] (16 bits con signo)
-        LDRH    R7, [R0]            ; R7 = input[i]
-        ADDS    R0, R0, #2          ; input++
-        LSLS    R7, R7, #16
-        ASRS    R7, R7, #16         ; R7 = (int32_t)input[i] con signo
+        MOV     R8, R5
+        MOV     R9, R6
+        MOV     R10, R7
 
-        ; Cargar weights[i] (16 bits con signo)
-        LDRH    R1, [R1]            ; R1 = weights[i]
-        ADDS    R1, R1, #2          ; weights++
-        LSLS    R1, R1, #16
-        ASRS    R1, R1, #16         ; R1 = (int32_t)weights[i] con signo
+        LDRH	R6, [r0]
+		ADD 	R0, R0, #2			; Carga input[i] con post incremento
+		LDRH 	R7, [r1]
+		ADD 	R1, R1, #2			; Carga weight[i] con post incremento
+										; acc += (int32_t)input[i] * (int32_t)weights[i];		
 
-        ; Multiplicar y acumular
-        MULS    R7, R1              ; R7 = input[i] * weights[i] (Thumb obliga R7 = R7 * R1)
-        ADDS    R6, R6, R7          ; acc += producto
-
-        SUBS    R4, R4, #1          ; input_size - 1
-        BGT     dense_layer_q12_THB_bucle_2
+		MLA R5, R7, R6, R5				; acc += (int32_t)input[i] * (int32_t)weights[i];
 		
-		MOV     R4, R8              ; Restaura R4 = input_size
-        MOV     R0, R12             ; Restaura R0 al inicio del array input (copiado previamente)
+		SUBS 	r4, r4, #1				; input_size -1
+		BGT 	dense_layer_q12_THB_bucle_2
 
-        ASRS    R6, R6, #12         ; acc = acc >> 12 (de Q24 a Q12)
-		
-		
-		CMP     R6, R9              ; Compara acc con clamp_min (R9)
+
+dense_layer_q12_THB_bucle_fin_2
+        ; Rearmar bucle 2
+        MOV 	R4, IP					; Rearmar bucle 2
+		SUB 	R0, IP, LSL #1			; Apuntar de nuevo al primer dato de input, uso de IP para evitar dependencia
+		ASR 	R5, R5, #Q_SHIFT 	    ;int32_t result_q12 = acc >> Q_SHIFT;
+
+        MOV     R6, R9                  ; recuperar registros
+        MOV     R7, R10
+        MOV     R9, R8                  ; intercambiar r5 por r8 (en r8 deja acc)
+        MOV     R8, R5
+        MOV     R5, R9
+
+
+		CMP     R8, R6              ; Compara acc con clamp_min (R6)
         BGE     thb_check_max       ; Si acc >= clamp_min, pasa a comprobar el máximo
-        MOV     R6, R9              ; Si acc < clamp_min -> acc = clamp_min
+        MOV     R8, R6              ; Si acc < clamp_min -> acc = clamp_min
         B       thb_clamp_done
 
 thb_check_max
-        CMP     R6, R10             ; Compara acc con clamp_max (R10)
+        CMP     R8, R7              ; Compara acc con clamp_max (R6)
         BLE     thb_clamp_done      ; Si acc <= clamp_max, está dentro del rango
-        MOV     R6, R10             ; Si acc > clamp_max -> acc = clamp_max
+        MOV     R8, R6              ; Si acc > clamp_max -> acc = clamp_max
 
 thb_clamp_done
-        STRH    R6, [R3]            ; Guarda los 16 bits en output[o]
-        ADDS    R3, R3, #2          ; output++
-		
-		
-		
-		; Preparar (uint16_t)y en R7
-        LSLS    R7, R6, #16
-        LSRS    R7, R7, #16         ; R7 = (uint16_t)y
 
-        ; checksum * 33
-        MOV     R2, R11             ; R2 = checksum actual
-        LSLS    R1, R2, #5          ; R1 = checksum * 32
-        ADDS    R2, R2, R1          ; R2 = checksum * 33
-        ADDS    R2, R2, R7          ; R2 = checksum * 33 + y
-        MOV     R11, R2             ; Guarda el nuevo checksum en R11
+        MOV     R9, R6              ;  guardar registros
+        MOV     R10, R7
+        MOV     R6, R8              ; R6 = acc
+        MOV     R7, R11             ; R7 = checksum
 
-        SUBS    R5, R5, #1          ; output_size - 1
-        BGT     dense_layer_q12_THB_bucle_1
-		
-dense_layer_q12_THB_fin
-        MOV     R0, R11             ; Retorna el checksum en R0
-        POP     {R4-R7, PC}         ; Restaura R4-R7 y asigna LR a PC (retorno de función)
-    ENDP	
+        STRH    R6, [R6], #2			; Guardar el resutado con post incremento
+		ADD     R7, R7, R7, LSL #5      ; checksum * 33  (= checksum + checksum*32)
+        MOV     R6, R6, LSL #16         ; limpia los 16 bits altos de R0 ...
+        MOV     R6, R6, LSR #16         ; ... R0 = (uint16_t)y
+        ADD     R7, R7, R8    
+
+
+        CMP		R8, R6					; if (x < clamp_min) return clamp_min
+        BGE skip_mov                    ; Salta si no se cumple saltar mov
+		MOVLT	R8, R6
+		CMP		R8, R7					; if (x > clamp_max) return clamp_max
+		MOVGT	R8, R7
+
+        MOV     R8, R6                  ; R8 = acc   
+        MOV     R11, R7                 ; R7 = checksum
+        MOV     R6, R9                  ; recuperar registros
+        MOV     R7, R10
+
+		subs r5, r5, #1					; output_size -1
+
+		bgt dense_layer_q12_ARM_bucle_1	
+	
+		; ---------- Epilogo ----------		
+dense_layer_q12_ARM_fin_1
+        MOV     R0, R11               ; return checksum
+        LDMIA   SP!, {R4-R11, PC}   ; restaura registros y LR
+	
+	ENDP	
 		
 		END

@@ -22,16 +22,28 @@ Dialog DLL:      TARMP.DLL V1.53.0.0
  
 <h2>Project:</h2>
 C:\Users\edu7g\Ingenieria-Informatica\curso3\PRO_HARD\Practica 1\fuentes_2026_v0_9\fuentes_2026_v01\neuron_q12.uvproj
-Project File Date:  09/20/2026
+Project File Date:  09/28/2026
 
 <h2>Output:</h2>
 *** Using Compiler 'V5.06 update 6 (build 750)', folder: 'C:\Keil_v5\ARM\ARMCC\Bin'
 Build target 'Target 1'
-assembling dense_layer_q12_ARM_C.s...
-linking...
-Program Size: Code=1904 RO-data=124 RW-data=0 ZI-data=1336  
-".\Objects\neuron_q12.axf" - 0 Error(s), 0 Warning(s).
-Build Time Elapsed:  00:00:01
+assembling asm_implementations_thumb.s...
+asm_implementations_thumb.s(41): error: A1859E: Flag preserving form of this instruction not available
+asm_implementations_thumb.s(65): error: A1859E: Flag preserving form of this instruction not available
+asm_implementations_thumb.s(67): error: A1859E: Flag preserving form of this instruction not available
+asm_implementations_thumb.s(70): error: A1618E: Specified instruction is not supported by the current instruction set
+asm_implementations_thumb.s(79): error: A1856E: Shifted register operand not allowed
+asm_implementations_thumb.s(80): error: A1482E: Shift option out of range, allowable values are from 1 to 32
+asm_implementations_thumb.s(106): error: A1879E: Specified addressing mode not available
+asm_implementations_thumb.s(107): error: A1856E: Shifted register operand not allowed
+asm_implementations_thumb.s(108): error: A1859E: Flag preserving form of this instruction not available
+asm_implementations_thumb.s(109): error: A1859E: Flag preserving form of this instruction not available
+asm_implementations_thumb.s(115): error: A1694E: Instruction cannot be conditional in the current instruction set
+asm_implementations_thumb.s(117): error: A1694E: Instruction cannot be conditional in the current instruction set
+asm_implementations_thumb.s(131): error: A1874E: Specified register list cannot be loaded or stored in target instruction set
+".\Objects\neuron_q12.axf" - 13 Error(s), 0 Warning(s).
+Target not created.
+Build Time Elapsed:  00:00:00
 </pre>
 </body>
 </html>

@@ -4,16 +4,16 @@ import (
 	"fmt"
 	"log"
 	"net"
-	"time"
 	"os"
+	"time"
 )
 
 func measureTCPDial(serverAddr string) {
 	// Measure time for unsuccessful connection (server not running)
 	fmt.Println("Attempting to connect to server (expecting failure)...")
-	start := time.Now()
-	conn, err := net.Dial("tcp", serverAddr)
-	duration := time.Since(start)
+	start := time.Now()                      // Empieza cronometro de cuanto tarda en conectar
+	conn, err := net.Dial("tcp", serverAddr) //intenta conectarse al servidor. El programa se queda esperando hasta que tenga respuesta (buena o mala)
+	duration := time.Since(start)            // Para el cronometro
 	if err != nil {
 		fmt.Printf("Failed to connect: %v\n", err)
 	} else {
@@ -23,6 +23,7 @@ func measureTCPDial(serverAddr string) {
 	fmt.Printf("Failed Dial took: %v\n", duration)
 
 	// Wait for server to start
+	// El programa se detiene hasta que pulses enter
 	fmt.Println("\nPlease start the server, then press Enter.")
 	fmt.Scanln()
 
@@ -46,4 +47,3 @@ func main() {
 	serverAddr := os.Args[1]
 	measureTCPDial(serverAddr)
 }
-

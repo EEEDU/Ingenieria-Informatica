@@ -17,7 +17,7 @@ func main() {
 		return
 	}
 	endpoint := os.Args[1]
-	listen, err := net.Listen("tcp", endpoint)
+	listen, err := net.Listen("tcp", endpoint) // Pide al kernel crear un socket
 	if err != nil {
 		fmt.Println("Error starting TCP server:", err)
 		os.Exit(1)
@@ -26,12 +26,11 @@ func main() {
 
 	fmt.Println("TCP server is running and waiting for connections...")
 	for {
-		conn, err := listen.Accept()
+		conn, err := listen.Accept() // Bloquea hasta que hay una conexión
 		if err != nil {
 			fmt.Println("Error accepting connection:", err)
 			continue
 		}
-		go handleConnection(conn)
+		go handleConnection(conn) // Atiende conexión (escribe mensaje y cierra)
 	}
 }
-

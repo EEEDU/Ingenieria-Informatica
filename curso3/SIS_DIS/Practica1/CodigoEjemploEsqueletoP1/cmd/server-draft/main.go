@@ -12,8 +12,8 @@ package main
 import (
 	"encoding/gob"
 	"log"
-	"os"
 	"net"
+	"os"
 	"practica1/com"
 )
 
@@ -40,17 +40,18 @@ func findPrimes(interval com.TPInterval) (primes []int) {
 	return primes
 }
 
-func processRequest(conn net.Conn){
+func processRequest(conn net.Conn) {
 	var request com.Request
-	decoder := gob.NewDecoder(conn)
+	decoder := gob.NewDecoder(conn) // Decodifica mensaaje
 	err := decoder.Decode(&request)
 	com.CheckError(err)
-	primes := findPrimes(request.Interval)
-	reply := com.Reply{Id: request.Id, Primes: primes}
+	primes := findPrimes(request.Interval)             // funcion de encontrar primos
+	reply := com.Reply{Id: request.Id, Primes: primes} // manteniendo el mismo Id de la petición
 	encoder := gob.NewEncoder(conn)
 	encoder.Encode(&reply)
 }
 
+// arg[1] = endpoint
 func main() {
 	args := os.Args
 	if len(args) != 2 {
@@ -58,17 +59,16 @@ func main() {
 		os.Exit(1)
 	}
 	endpoint := args[1]
-	listener, err := net.Listen("tcp", endpoint)
+	listener, err := net.Listen("tcp", endpoint) //escuchar endpoint por tcp
 	com.CheckError(err)
 
-	log.SetFlags(log.Lshortfile | log.Lmicroseconds)
+	log.SetFlags(log.Lshortfile | log.Lmicroseconds) // Para que todos los mensajes saquen por pantalla shortfile y microseconds.
 
-	
 	log.Println("***** Listening for new connection in endpoint ", endpoint)
 	for {
-		conn, err := listener.Accept()
-		defer conn.Close()
-		com.CheckError(err)
-		processRequest(conn)
+		conn, err := listener.Accept() //Acpeta conexion
+		defer conn.Close()             // Al terminar funcion cierra conexion
+		com.CheckError(err)            // comprobar error de comunicacion
+		processRequest(conn)           // Procesar petici
 	}
 }

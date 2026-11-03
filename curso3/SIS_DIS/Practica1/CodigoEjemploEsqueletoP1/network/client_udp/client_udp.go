@@ -9,14 +9,14 @@ import (
 
 func measureUDPLatency(serverAddr string) {
 	// Resolving the UDP server address
-	udpAddr, err := net.ResolveUDPAddr("udp", serverAddr)
+	udpAddr, err := net.ResolveUDPAddr("udp", serverAddr) // Traduce la dirección
 	if err != nil {
 		fmt.Println("Error resolving address:", err)
 		return
 	}
 
 	// Dial to the UDP server
-	conn, err := net.DialUDP("udp", nil, udpAddr)
+	conn, err := net.DialUDP("udp", nil, udpAddr) // Crea el socket
 	if err != nil {
 		fmt.Println("Error dialing UDP server:", err)
 		return
@@ -26,8 +26,8 @@ func measureUDPLatency(serverAddr string) {
 	// Sending a character to the server
 	message := []byte("A")
 	fmt.Println("Sending a character to the UDP server...")
-	start := time.Now()
-	_, err = conn.Write(message)
+	start := time.Now()          // Empieza cronometro
+	_, err = conn.Write(message) // envía el datagrama al servidor
 	if err != nil {
 		fmt.Println("Error sending message:", err)
 		return
@@ -35,12 +35,12 @@ func measureUDPLatency(serverAddr string) {
 
 	// Receiving a response from the server
 	buffer := make([]byte, 1024)
-	_, _, err = conn.ReadFrom(buffer)
+	_, _, err = conn.ReadFrom(buffer) //espera la respuesta
 	if err != nil {
 		fmt.Println("Error receiving message:", err)
 		return
 	}
-	duration := time.Since(start)
+	duration := time.Since(start) // para el cronometro
 
 	// Output the round-trip time
 	fmt.Printf("Round-trip time for UDP message: %v\n", duration)
@@ -54,4 +54,3 @@ func main() {
 	serverAddr := os.Args[1]
 	measureUDPLatency(serverAddr)
 }
-
